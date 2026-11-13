@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Live states</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.state-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+.state-cell { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+.menu { display: flex; flex-direction: column; padding: var(--space-1); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); }
+.menu-item { display: flex; align-items: center; height: 32px; padding: 0 var(--space-3); border-radius: var(--radius-sm); color: var(--fg-default); font-size: var(--text-small); cursor: pointer; }
+.menu-item:hover { background: var(--bg-raised); color: var(--fg-strong); }
+.menu-item:active { background: var(--accent-soft); }
+.menu-item:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -2px; }
+.toggle { display: inline-flex; align-items: center; height: 32px; padding: 0 var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--fg-default); font-size: var(--text-small); cursor: pointer; transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard); }
+.toggle:hover { border-color: var(--fg-muted); background: var(--bg-raised); }
+.toggle:active { background: var(--accent-soft); }
+.toggle:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
+.toggle:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Live states">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">States</p>
+<h1 class="sheet-title">Live states and the State picker</h1>
+<p class="sheet-lede">Each layer here has its own :hover, :focus, :focus-visible, :active or :disabled rule, so selecting it adds a State button to the Style panel header. Picking a state draws the layer in that state on the canvas. It is view only.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select the Accent button. Open Layer state in the panel header and pick Hover: the panel lists only the background, from .btn[data-tone="accent"]:hover.</li>
+<li>Pick Active, then Focus visible. Fields stay read only until you press Back to Default.</li>
+<li>Move the pointer over the real controls: :hover rules apply live and the toggle's transition animates.</li>
+</ol>
+<div class="state-grid" data-name="Specimens">
+<section class="state-cell" data-name="Buttons">
+<p class="section-label">Buttons: hover, active, focus visible</p>
+<div class="row" data-name="Button row"><button class="btn" type="button" data-tone="accent" data-oid="live-btn-accent" data-name="Accent button">Accent</button><button class="btn" type="button" data-oid="live-btn-neutral" data-name="Neutral button">Neutral</button><button class="btn" type="button" data-tone="danger" data-oid="live-btn-danger" data-name="Danger button">Danger</button></div>
+</section>
+<section class="state-cell" data-name="Disabled">
+<p class="section-label">Disabled: matched by :disabled</p>
+<div class="row" data-name="Disabled row"><button class="btn" type="button" data-tone="accent" disabled data-oid="live-btn-disabled" data-name="Disabled button">Disabled</button><button class="toggle" type="button" disabled data-oid="live-toggle-disabled" data-name="Disabled toggle">Disabled toggle</button></div>
+</section>
+<section class="state-cell" data-name="Input">
+<p class="section-label">Input: hover and focus</p>
+<input class="input" data-oid="live-input" data-name="Email input" placeholder="you@example.com" aria-label="Email">
+</section>
+<section class="state-cell" data-name="Toggle">
+<p class="section-label">Toggle: all four live states</p>
+<div class="row" data-name="Toggle row"><button class="toggle" type="button" data-oid="live-toggle" data-name="Toggle">Weekly digest</button></div>
+<p class="card-body" data-name="Toggle hint">Hover it, press it, then press Tab until it shows a focus ring. Its background and border colour animate.</p>
+</section>
+<section class="state-cell" data-name="Menu">
+<p class="section-label">Menu items: hover, active, focus visible</p>
+<div class="menu" data-name="Menu"><span class="menu-item" tabindex="0" data-oid="live-menu-rename" data-name="Menu item">Rename</span><span class="menu-item" tabindex="0" data-oid="live-menu-duplicate" data-name="Menu item">Duplicate</span><span class="menu-item" tabindex="0" data-oid="live-menu-move" data-name="Menu item">Move to page</span></div>
+</section>
+<section class="state-cell" data-name="Card and link">
+<p class="section-label">A card's hover restyles its title</p>
+<article class="card card--interactive" data-oid="live-card" data-name="Interactive card"><h3 class="card-title" data-oid="live-card-title">Weekly report</h3><p class="card-body">Hover the card and its title turns accent: one rule styles the title inside a hovered card.</p></article>
+<p class="card-body" data-name="Link sentence">A <a class="link" data-oid="live-link" data-name="Link">plain link</a> shows its underline on hover.</p>
+</section>
+</div>
+</main>
+</body>
+</html>

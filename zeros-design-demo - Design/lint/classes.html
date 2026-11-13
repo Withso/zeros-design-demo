@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Unknown classes</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.cl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); align-items: start; }
+.cl-pair { display: flex; flex-direction: column; gap: var(--space-3); }
+.cl-callout { padding: var(--space-3) var(--space-4); border-left: 3px solid var(--accent); border-radius: var(--radius-sm); background: var(--accent-soft); color: var(--fg-strong); font-size: var(--text-small); line-height: var(--text-small--line-height); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Unknown classes">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Lint showcase · rule 1</p>
+<h1 class="sheet-title">Unknown classes</h1>
+<p class="sheet-lede">Rule 1 in rules.md: one class vocabulary per folder. Validate warns about a class that has no CSS in this frame's styles: tokens.css, ui.css, the frame's own style element, and any style source the frame receives. Each name is reported once, at its first use.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select the left card under An invented modifier. Styled by lists only card: card--glow has no rules, so it adds nothing.</li>
+<li>Ask the agent to validate this frame: three warnings, one per name. badge--sucess is used twice but reported once.</li>
+<li>Ask the agent to fix the frame, then open Changes: each name becomes the one ui.css defines. The Style panel never renames classes itself.</li>
+</ol>
+<div class="cl-grid" data-name="Cases">
+<section class="stack" data-name="An invented modifier">
+<p class="section-label">An invented modifier</p>
+<div class="cl-pair" data-name="Invented and fixed">
+<figure class="spec" data-name="Warns"><div class="spec-box"><article class="card card--glow" data-oid="cl-glow" data-name="Card with card--glow"><p class="card-title">Glow</p><p class="card-body">card card--glow</p></article></div><figcaption class="spec-cap">Warns: Class "card--glow" has no CSS in this frame's styles.</figcaption></figure>
+<figure class="spec" data-name="Fixed"><div class="spec-box"><article class="card card--elevated" data-oid="cl-elevated" data-name="Card with card--elevated"><p class="card-title">Elevated</p><p class="card-body">card card--elevated</p></article></div><figcaption class="spec-cap">Fixed: card--elevated is in ui.css.</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="A class from another kit">
+<p class="section-label">A class from another kit</p>
+<div class="cl-pair" data-name="Borrowed and fixed">
+<figure class="spec" data-name="Warns"><div class="spec-box"><button class="btn btn-primary" type="button" data-oid="cl-btn-primary" data-name="Save with btn-primary">Save</button></div><figcaption class="spec-cap">Warns: btn-primary. Orbit draws tone with data-tone, not a class.</figcaption></figure>
+<figure class="spec" data-name="Fixed"><div class="spec-box"><button class="btn" type="button" data-tone="accent" data-oid="cl-btn-accent" data-name="Save with data-tone">Save</button></div><figcaption class="spec-cap">Fixed: btn with data-tone="accent".</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="A typo">
+<p class="section-label">A typo, used twice</p>
+<div class="cl-pair" data-name="Typo and fixed">
+<figure class="spec" data-name="Warns"><div class="spec-box"><div class="row"><span class="badge badge--soft badge--sucess" data-oid="cl-typo-soft" data-name="Badge with the typo">Live</span><span class="badge badge--outline badge--sucess" data-oid="cl-typo-outline" data-name="Badge with the typo again">Live</span></div></div><figcaption class="spec-cap">Warns once: badge--sucess. The badges fall back to the neutral look.</figcaption></figure>
+<figure class="spec" data-name="Fixed"><div class="spec-box"><div class="row"><span class="badge badge--soft badge--success" data-oid="cl-fixed-soft" data-name="Badge spelled right">Live</span><span class="badge badge--outline badge--success" data-oid="cl-fixed-outline" data-name="Outline badge spelled right">Live</span></div></div><figcaption class="spec-cap">Fixed: badge--success.</figcaption></figure>
+</div>
+</section>
+</div>
+<p class="cl-callout" data-oid="cl-callout" data-name="Defined here">No warning here: this box uses cl-callout, which the frame's own style element defines.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Position</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.board { position: relative; height: 300px; border: 1px dashed var(--border-default); border-radius: var(--radius-lg); background: var(--bg-surface); }
+.pin { display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 var(--space-3); border: 1px solid var(--accent); border-radius: var(--radius-md); background: var(--accent-soft); color: var(--fg-strong); font-size: var(--text-caption); line-height: var(--text-caption--line-height); font-weight: var(--weight-medium); white-space: nowrap; }
+.flow-row { display: flex; align-items: flex-start; gap: var(--space-3); min-height: 120px; padding: var(--space-4); border: 1px dashed var(--border-default); border-radius: var(--radius-lg); background: var(--bg-surface); }
+.free-group { position: relative; height: 120px; border: 1px dashed var(--border-default); border-radius: var(--radius-lg); background: var(--bg-surface); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Position">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style panel · Position</p>
+<h1 class="sheet-title">Position: X, Y, pins, rotation and flip</h1>
+<p class="sheet-lede">Position is the first section for every layer. A free layer (position: absolute) shows X and Y from left and top, the pins that keep it in place when its parent resizes, rotation, and rotate and flip buttons. A layer inside auto layout is placed by its parent instead.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select "left 16 · top 16". Position shows X 16 and Y 16. Drag it on the canvas: only left and top change in its style attribute.</li>
+<li>Select "right 16 · top 16": the right pin is on because the layer sets right, not left. It keeps 16px from the right edge when the board resizes.</li>
+<li>Select a flow item in the row: Position says "Placed by its parent's auto layout" and offers Place freely.</li>
+</ol>
+<section class="stack" data-name="Pins">
+<p class="section-label">Free layers on a board with position: relative</p>
+<div class="board" data-oid="pos-board" data-name="Board">
+<span class="pin" data-oid="pos-top-left" data-name="Pinned top left" style="position: absolute; left: 16px; top: 16px;">left 16 · top 16</span>
+<span class="pin" data-oid="pos-flipped" data-name="Flipped" style="position: absolute; left: 45%; top: 16px; scale: -1 1;">flipped</span>
+<span class="pin" data-oid="pos-top-right" data-name="Pinned top right" style="position: absolute; right: 16px; top: 16px;">right 16 · top 16</span>
+<span class="pin" data-oid="pos-stretch" data-name="Stretched left and right" style="position: absolute; left: 160px; right: 160px; top: 72px;">left 160 · right 160, so it stretches</span>
+<span class="pin" data-oid="pos-center" data-name="Centred" style="position: absolute; left: 50%; top: 50%; translate: -50% -50%; --zeros-layout-x: center; --zeros-layout-y: center;">centred</span>
+<span class="pin" data-oid="pos-scale" data-name="Scales with the board" style="position: absolute; left: 70%; top: 62%; width: 20%; height: 20%; --zeros-layout-x: scale; --zeros-layout-y: scale;">scale, in percent</span>
+<span class="pin" data-oid="pos-rotated" data-name="Rotated" style="position: absolute; left: 32px; bottom: 32px; rotate: -8deg;">rotate −8°</span>
+<span class="pin" data-oid="pos-bottom-right" data-name="Pinned bottom right" style="position: absolute; right: 16px; bottom: 16px;">right 16 · bottom 16</span>
+</div>
+</section>
+<div class="split" data-name="Flow and free">
+<section class="stack" data-name="Auto layout">
+<p class="section-label">Children of auto layout</p>
+<div class="flow-row" data-oid="pos-flow" data-name="Row with auto layout">
+<span class="pin" data-oid="pos-flow-first" data-name="Flow item">First</span>
+<span class="pin" data-oid="pos-flow-second" data-name="Flow item">Second</span>
+<span class="pin" data-oid="pos-flow-end" data-name="Flow item, aligned to the end" style="align-self: flex-end;">align-self: flex-end</span>
+</div>
+</section>
+<section class="stack" data-name="Free group">
+<p class="section-label">A group without auto layout: Fit to content</p>
+<div class="free-group" data-oid="pos-free" data-name="Group without auto layout">
+<span class="pin" data-oid="pos-free-a" data-name="Free item A" style="position: absolute; left: 24px; top: 24px;">A at 24, 24</span>
+<span class="pin" data-oid="pos-free-b" data-name="Free item B" style="position: absolute; left: 160px; top: 64px;">B at 160, 64</span>
+</div>
+</section>
+</div>
+</main>
+</body>
+</html>

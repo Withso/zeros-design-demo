@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Options without a component name</title>
+<template data-zd-options>
+<zd-option name="label" type="text" label="Label" default="Not registered"></zd-option>
+<zd-option name="dot" type="boolean" label="Leading dot" default="true"></zd-option>
+</template>
+<template data-zd-options>
+<zd-option name="look" type="choice" label="Look" choices="soft outline" default="soft"></zd-option>
+</template>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+</head>
+<body>
+<main class="sheet" data-name="Options without a component name">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Lint showcase · options</p>
+<h1 class="sheet-title">Options without a component name</h1>
+<p class="sheet-lede">This frame declares options, but its record in meta/canvas.json has no component name. No other frame can place it, and the Style panel shows no Options for it. It also has a second options block, which Zeros ignores.</p>
+</header>
+<div class="row" data-name="Preview">
+<span class="badge badge--soft badge--info" data-oid="un-badge" data-name="Badge"><span class="badge-dot" data-oid="un-dot" data-zd-if="dot"></span><span data-oid="un-label">{{ label }}</span></span>
+</div>
+<ol class="try" data-name="Try this">
+<li>Select the frame. The panel shows no Options section, unlike the frames on page 3.</li>
+<li>Ask the agent to validate it: one warning says the frame is not registered and suggests a component name, and one says only the first options block in head is read.</li>
+<li>Ask the agent to register it. It adds a component name to this frame in meta/canvas.json and merges the two blocks.</li>
+</ol>
+</main>
+</body>
+</html>

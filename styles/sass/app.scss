@@ -1,0 +1,45 @@
+// Sass app: the product's Sass entry. Design imports it as the "Sass app"
+// style source (kind "sass") and compiles it with Zeros' own Dart Sass.
+// @use resolves the partials beside it (_tokens.scss, _mixins.scss).
+@use "tokens" as t;
+@use "mixins" as m;
+
+:root {
+  @each $name, $value in t.$palette {
+    --sass-#{$name}: #{$value};
+  }
+  --sass-radius: #{t.$radius};
+}
+
+// The canvas maps this media query to the Dark theme.
+@media (prefers-color-scheme: dark) {
+  :root {
+    @each $name, $value in t.$palette-dark {
+      --sass-#{$name}: #{$value};
+    }
+  }
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: t.$space * 2;
+  padding: t.$space * 5;
+  border-radius: var(--sass-radius);
+  background-color: var(--sass-surface);
+  color: var(--sass-ink);
+  @include m.raised(2);
+
+  &__title { font-size: 16px; line-height: 22px; font-weight: 650; }
+  &__meta { color: var(--sass-muted); font-size: 13px; line-height: 18px; }
+  &--featured { outline: 2px solid var(--sass-violet-ink); outline-offset: 2px; }
+  &:hover { @include m.raised(4); }
+}
+
+@each $tone in t.$tones {
+  .tag--#{$tone} {
+    @include m.pill;
+    background-color: var(--sass-#{$tone}-wash);
+    color: var(--sass-#{$tone}-ink);
+  }
+}

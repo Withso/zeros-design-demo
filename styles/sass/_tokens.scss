@@ -1,0 +1,32 @@
+// Design tokens as Sass values. The entry turns them into --sass-* variables.
+$space: 4px;
+$radius: 12px;
+$tones: teal, amber, rose, violet;
+
+$palette: (
+  "surface": #ffffff,
+  "ink": #1f2937,
+  "muted": #4b5563,
+  "teal-wash": #ccfbf1,
+  "teal-ink": #115e59,
+  "amber-wash": #fef3c7,
+  "amber-ink": #92400e,
+  "rose-wash": #ffe4e6,
+  "rose-ink": #9f1239,
+  "violet-wash": #ede9fe,
+  "violet-ink": #5b21b6,
+);
+
+$palette-dark: (
+  "surface": #1f2937,
+  "ink": #f3f4f6,
+  "muted": #9ca3af,
+  "teal-wash": #134e4a,
+  "teal-ink": #99f6e4,
+  "amber-wash": #78350f,
+  "amber-ink": #fde68a,
+  "rose-wash": #881337,
+  "rose-ink": #fecdd3,
+  "violet-wash": #4c1d95,
+  "violet-ink": #ddd6fe,
+);

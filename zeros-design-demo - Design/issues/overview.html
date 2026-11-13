@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Known issues</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.io-num { color: var(--fg-muted); font-variant-numeric: tabular-nums; }
+.io-where { color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Known issues">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Known issues</p>
+<h1 class="sheet-title">Problems found while building this demo</h1>
+<p class="sheet-lede">Each row is a Zeros problem this demo ran into. Issues 1, 2, 3, 7 and 10 have frames on this page that show them; 4 and 5 are drawn too, though the app cannot show their result yet. Issue 11 shows on page 4. The source paths are in the Zeros repository.</p>
+</header>
+<table class="table" data-name="Issues">
+<thead><tr><th>#</th><th>Problem</th><th>What you see</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td class="io-num">1</td><td>A template hole in a class attribute reads as unknown classes</td><td>Validate warns on Template issues, though the badge renders right</td><td class="io-where">engine/design/document.ts, unknown-class</td></tr>
+<tr><td class="io-num">2</td><td>An instance inside a template data-zd-if or data-zd-for wrapper is never expanded</td><td>Template issues: the wrapped card renders as bare text, and Validate says nothing</td><td class="io-where">engine/design/components.ts, elements()</td></tr>
+<tr><td class="io-num">3</td><td>unknown-token reads the raw file, so a sentence that mentions a token warns</td><td>Validate warns on Check issues</td><td class="io-where">engine/design/document.ts, unknown-token</td></tr>
+<tr><td class="io-num">4</td><td>The contrast audit reads oklch() colours as if they were rgb()</td><td>Dark text on a light Tailwind v4 fill measures about 1:1</td><td class="io-where">protocol/src/design-runtime.ts, parsedColor</td></tr>
+<tr><td class="io-num">5</td><td>The overflow audit counts text cut off with an ellipsis</td><td>Every truncated label is reported as overflow</td><td class="io-where">protocol/src/design-runtime.ts, auditWarnings</td></tr>
+<tr><td class="io-num">6</td><td>Audit results are never shown</td><td>No panel lists them, and Validate and the agent's design_lint leave them out</td><td class="io-where">engine/design/verification-service.ts, code-tools.ts</td></tr>
+<tr><td class="io-num">7</td><td>A .dark theme mapping also rewrites Tailwind's dark: class names</td><td>Tailwind with a .dark class: dark: utilities never apply in Dark</td><td class="io-where">engine/design/style-sources.ts, importPlainDesignPiece</td></tr>
+<tr><td class="io-num">8</td><td>The Style panel's red line shows the first error in the whole folder</td><td>An error in one frame shows while you edit any other frame</td><td class="io-where">renderer design-inspector.tsx, errors</td></tr>
+<tr><td class="io-num">9</td><td>The app has no list of warnings; its grouping code is unused</td><td>Only the agent's Validate step reports warnings</td><td class="io-where">renderer design-lint-summary.ts</td></tr>
+<tr><td class="io-num">10</td><td>A component's style element applies to the whole frame that places it</td><td>Component CSS: plain badges lose their tone next to one Pill instance</td><td class="io-where">engine/design/components.ts, component styles</td></tr>
+<tr><td class="io-num">11</td><td>Slot components, and option components placed inside their children, are not instances</td><td>Slot components: a card is one layer with no instance header, and a Button or Avatar inside one shows no Options</td><td class="io-where">engine/design/components.ts, recordInstance (top level only)</td></tr>
+</tbody>
+</table>
+</main>
+</body>
+</html>

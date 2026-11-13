@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Build command: Token build</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.bd-grid { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: var(--space-6); align-items: start; }
+.bd-code { margin: 0; padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-raised); color: var(--fg-strong); font-family: var(--font-mono); font-size: var(--text-caption); line-height: 1.6; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Build command: Token build">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style sources</p>
+<h1 class="sheet-title">A build command, run live</h1>
+<p class="sheet-lede">Some styles only exist after a build. This source names the command and its output. While Design is open, Zeros runs it in the repository and runs it again when its inputs change; frames read the CSS it writes.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Open the theme editor (⌥T) and choose Token build. The status reads "Live: Zeros runs … when styles/build change, while Design is open".</li>
+<li>Change "accent" in styles/build/tokens.json and save. The build runs again and this card redraws with the new colour.</li>
+<li>Select the card. Its values come from the class .ds-surface, Source Token build, and read the --ds-* variables the script writes.</li>
+</ol>
+<div class="bd-grid" data-name="Specimens">
+<article class="ds-surface" data-oid="build-card" data-name="Storage card">
+<div class="row" data-name="Pills"><span class="ds-pill" data-oid="build-pill">Live build</span><span class="ds-pill ds-pill--soft" data-oid="build-pill-soft">tokens.json</span></div>
+<p class="card-title" data-oid="build-title">Storage</p>
+<div class="ds-meter" data-oid="build-meter" data-name="Meter"><span class="ds-meter-fill" data-oid="build-meter-fill" style="width: 68%;"></span></div>
+<p class="ds-muted" data-oid="build-meta">34 of 50 GB used</p>
+</article>
+<div class="stack" data-name="How it is declared">
+<p class="section-label">The declaration in meta/canvas.json</p>
+<pre class="bd-code" data-name="Declaration">{ "id": "tokens-build", "kind": "build",
+  "path": ".zeros/design-styles/tokens.css",
+  "command": "node styles/build/build-tokens.mjs",
+  "inputs": ["styles/build"], "timeoutSeconds": 30,
+  "themes": { "dark": "[data-theme=\"dark\"]" } }</pre>
+<p class="card-body" data-name="How it runs">The command runs with /bin/sh in the repository root. ZEROS_DESIGN_STYLE_OUTPUT names the file to write. The output sits in .zeros/design-styles, which Git ignores, so builds never show up in Changes.</p>
+<p class="card-body" data-name="Who decides">Repository builds run by default. To stop them on this machine, set design.repository_style_builds to false in your settings; your own [[design.style_builds]] entry for the same output replaces this command.</p>
+</div>
+</div>
+</main>
+</body>
+</html>

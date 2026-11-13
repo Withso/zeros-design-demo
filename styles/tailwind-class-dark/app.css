@@ -1,0 +1,7 @@
+/* A second Tailwind v4 entry whose dark: variant follows a .dark class, the
+   most common Tailwind setup. meta/canvas.json maps .dark to the canvas Dark
+   theme. Known issue: that mapping also rewrites the escaped dark prefix of
+   every dark: utility's class name, so in Dark no dark: utility applies. */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));

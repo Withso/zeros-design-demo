@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shadow and blur</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.fx-tile { display: grid; place-items: center; height: 88px; border-radius: var(--radius-md); background: var(--bg-surface); color: var(--fg-default); font-size: var(--text-caption); line-height: var(--text-caption--line-height); }
+.fx-text { margin: 0; color: var(--fg-strong); font-size: var(--text-title); line-height: var(--text-title--line-height); font-weight: var(--weight-bold); text-align: center; }
+.fx-photo { height: 88px; border-radius: var(--radius-md); background: #1b1446 url(../assets/images/orbit.jpg) center / cover; }
+.glass-stage { display: grid; place-items: center; height: 160px; overflow: hidden; border-radius: var(--radius-md); background: #1b1446 url(../assets/images/orbit.jpg) center / cover; }
+.glass { padding: var(--space-3) var(--space-4); border: 1px solid rgb(255 255 255 / 0.35); border-radius: var(--radius-md); background: rgb(255 255 255 / 0.16); color: rgb(255 255 255 / 0.96); font-weight: var(--weight-medium); }
+.fx-star { display: block; width: 72px; height: 72px; margin: var(--space-2) auto; color: var(--warning); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Shadow and blur">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style panel · Shadow and Blur</p>
+<h1 class="sheet-title">Shadow and Blur: drop, inner, layer and background</h1>
+<p class="sheet-lede">Shadow edits box-shadow (text-shadow on text layers) as drop and inner shadows. Blur edits filter: blur() as Layer blur and backdrop-filter: blur() as Background blur. Values the panel cannot split into rows show as raw rows you edit as text.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select "Drop, token": Shadow shows one drop shadow reading --shadow-sm. Detach writes the value it resolves to.</li>
+<li>Select "Ring and drop": each shadow is its own row. The plus adds another; the limit counts shadows and blurs together.</li>
+<li>Select the glass panel on the photo: Blur shows Background blur 12. "Other filters" shows a raw row.</li>
+</ol>
+<section class="stack" data-name="Shadows">
+<p class="section-label">Shadow</p>
+<div class="spec-grid" data-name="Shadows specimens">
+<figure class="spec" data-name="Drop, token"><div class="fx-tile" data-oid="fx-drop-token" data-name="Drop, token" style="box-shadow: var(--shadow-sm);">shadow-sm</div><figcaption class="spec-cap">Drop shadow from --shadow-sm</figcaption></figure>
+<figure class="spec" data-name="Drop, large token"><div class="fx-tile" data-oid="fx-drop-large" data-name="Drop, large token" style="box-shadow: var(--shadow-lg);">shadow-lg</div><figcaption class="spec-cap">Drop shadow from --shadow-lg</figcaption></figure>
+<figure class="spec" data-name="Drop, literal"><div class="fx-tile" data-oid="fx-drop-literal" data-name="Drop, literal" style="box-shadow: 0 12px 24px -8px rgb(81 81 204 / 0.45);">y 12, blur 24, spread −8</div><figcaption class="spec-cap">Literal drop shadow, negative spread</figcaption></figure>
+<figure class="spec" data-name="Inner shadow"><div class="fx-tile" data-oid="fx-inner" data-name="Inner shadow" style="box-shadow: inset 0 2px 6px rgb(22 24 29 / 0.25);">inset</div><figcaption class="spec-cap">Inner shadow</figcaption></figure>
+<figure class="spec" data-name="Ring and drop"><div class="fx-tile" data-oid="fx-ring" data-name="Ring and drop" style="box-shadow: 0 0 0 4px var(--accent-soft), 0 1px 2px rgb(22 24 29 / 0.2);">two shadows</div><figcaption class="spec-cap">Two shadows: a ring and a drop</figcaption></figure>
+<figure class="spec" data-name="Text shadow"><p class="fx-text" data-oid="fx-text-shadow" data-name="Text shadow" style="text-shadow: 0 2px 8px rgb(81 81 204 / 0.5);">Glow</p><figcaption class="spec-cap">Text layer: Shadow is text-shadow</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Blurs">
+<p class="section-label">Blur</p>
+<div class="spec-grid" data-name="Blurs specimens">
+<figure class="spec" data-name="Layer blur"><div class="fx-photo" data-oid="fx-layer-blur" data-name="Layer blur" style="filter: blur(4px);"></div><figcaption class="spec-cap">Layer blur 4</figcaption></figure>
+<figure class="spec" data-name="Other filters"><div class="fx-photo" data-oid="fx-raw-filter" data-name="Other filters" style="filter: grayscale(1) contrast(1.2);"></div><figcaption class="spec-cap">Other filters: a raw row</figcaption></figure>
+<figure class="spec" data-name="drop-shadow() filter"><svg class="fx-star" data-oid="fx-drop-filter" data-name="drop-shadow() filter" style="filter: drop-shadow(0 6px 6px rgb(22 24 29 / 0.35));" viewBox="0 0 72 72" aria-hidden="true"><path d="M36 6l8.6 18.2 19.9 2.3-14.7 13.6 4 19.7L36 50.2 18.2 59.8l4-19.7L7.5 26.5l19.9-2.3z" fill="currentColor"/></svg><figcaption class="spec-cap">drop-shadow() follows the shape</figcaption></figure>
+<figure class="spec" data-name="Background blur"><div class="glass-stage" data-oid="fx-glass-stage" data-name="Photo"><span class="glass" data-oid="fx-glass" data-name="Glass panel" style="backdrop-filter: blur(12px);">Background blur 12</span></div><figcaption class="spec-cap">Background blur on the glass panel</figcaption></figure>
+</div>
+</section>
+</main>
+</body>
+</html>

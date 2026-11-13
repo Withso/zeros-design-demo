@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pill</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+zd-pill { display: inline-block; vertical-align: middle; }
+/* Unscoped on purpose (known issue 10): Zeros adds this style element to
+   every frame that places a Pill, so this rule recolours every .badge there. */
+.badge { --badge-ink: var(--accent); --badge-wash: var(--accent-soft); }
+</style>
+</head>
+<body>
+<span class="badge badge--soft" data-zid="pill"><span class="badge-dot" data-zid="pill-dot"></span><slot>New</slot></span>
+</body>
+</html>

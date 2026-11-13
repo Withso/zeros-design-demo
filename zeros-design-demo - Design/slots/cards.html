@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card slots</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.card-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); align-items: start; }
+.case { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.release-list { margin: 0; padding-left: var(--space-5); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Card slots">
+<header class="sheet-head">
+<p class="eyebrow">Slot components</p>
+<h1 class="sheet-title">components/card.html, filled eight ways</h1>
+<p class="sheet-lede">The card has two attribute slots, meta and heading (&lt;slot data-zd-attr&gt;), and one default slot for its body. Each case below is one &lt;zd-card&gt; placed in this frame; the caption says what it tests.</p>
+</header>
+<div class="card-grid">
+<div class="case" data-name="Case: every slot filled">
+<p class="section-label">1 · Every slot filled</p>
+<zd-card data-oid="card-full" meta="Release" heading="Version 2.4">
+<p>Three fixes and one new page:</p>
+<ul class="release-list"><li>Faster frame loading</li><li>Dark theme contrast</li><li>New Tabs component</li></ul>
+<div class="row"><span class="badge badge--soft badge--success">Live</span><zd-button data-oid="card-full-notes" zd-variant="secondary" size="sm" label="Release notes"></zd-button></div>
+</zd-card>
+</div>
+<div class="case" data-name="Case: nothing filled">
+<p class="section-label">2 · Nothing filled: every fallback</p>
+<zd-card data-oid="card-fallback"></zd-card>
+</div>
+<div class="case" data-name="Case: empty attributes">
+<p class="section-label">3 · Empty attributes</p>
+<zd-card data-oid="card-empty" meta="" heading="">An empty attribute fills its slot with nothing; the fallback is only for a missing attribute.</zd-card>
+</div>
+<div class="case" data-name="Case: markup in an attribute">
+<p class="section-label">4 · Markup in an attribute</p>
+<zd-card data-oid="card-escaped" meta="Escaped" heading="&lt;em&gt;Not italic&lt;/em&gt; &amp; safe">Attribute slots receive text. Tags in the value show as typed; they never become elements.</zd-card>
+</div>
+<div class="case" data-name="Case: whitespace children">
+<p class="section-label">5 · Only whitespace inside</p>
+<zd-card data-oid="card-space" meta="Edge case" heading="Whitespace only"> </zd-card>
+</div>
+<div class="case" data-name="Case: long text">
+<p class="section-label">6 · Long text</p>
+<zd-card data-oid="card-long" meta="Overflow" heading="A heading long enough to wrap onto a second and even a third line">Supercalifragilisticexpialidocious-identifiers-without-spaces-wrap-here-because-the-body-breaks-long-words.</zd-card>
+</div>
+<div class="case" data-name="Case: card with a class modifier">
+<p class="section-label">7 · Instance children with classes</p>
+<zd-card data-oid="card-classes" meta="Classes" heading="Styled children"><p class="sheet-lede">Children keep this frame's classes: this paragraph uses .sheet-lede from ui.css.</p><span class="kbd">⌘</span> <span class="kbd">K</span></zd-card>
+</div>
+<div class="case" data-name="Case: nested slot component">
+<p class="section-label">8 · A component in the slot</p>
+<zd-card data-oid="card-nested" meta="Nested" heading="Team">
+<zd-list-item data-oid="card-nested-item" heading="Mira Kovač" detail="Design lead" meta="Owner"><zd-avatar data-oid="card-nested-avatar" initials="MK" size="32" status="away"></zd-avatar></zd-list-item>
+</zd-card>
+</div>
+</div>
+</main>
+</body>
+</html>

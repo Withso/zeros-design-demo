@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Where each value comes from</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.og-tile { display: grid; place-items: center; min-height: 88px; padding: var(--space-4); border: 1px solid var(--border-default); border-radius: var(--radius-md); background-color: var(--bg-surface); color: var(--fg-default); font-size: var(--text-small); line-height: var(--text-small--line-height); text-align: center; }
+.og-ink { color: var(--success); font-weight: var(--weight-bold); }
+.og-forced { color: var(--danger) !important; }
+.og-themed { background-color: #fff4d6; }
+[data-zd-theme="dark"] .og-themed { background-color: #3b2f12; }
+.og-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.og-text { margin: 0; padding: var(--space-4); border: 1px solid var(--border-default); border-radius: var(--radius-md); background-color: var(--bg-surface); color: var(--fg-strong); }
+[data-kind="callout"] { border-color: var(--accent); }
+[data-oid="og-changed-rule"] { background-color: var(--warning-soft); }
+@media (min-width: 1px) {
+  [data-oid="og-media"] { color: var(--accent); }
+}
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Where each value comes from">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Values and origins</p>
+<h1 class="sheet-title">Where each value comes from</h1>
+<p class="sheet-lede">Hover any Style field and its card says where the value comes from: set on this layer, changed over its class, from a class or rule, from a parent, from a reset, forced, computed or themed. A dot marks a value changed here; a dimmed field comes from a parent or a reset.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select "Changed over its class" and hover Corner radius: the card shows Value, Was and Reset, and how many other layers use .og-tile.</li>
+<li>Select "Forced" and click Text color: the field is locked. The card names .og-forced and offers Ask agent to change.</li>
+<li>Preview Dark (⌥T, then Dark in the menu beside Search) and select "Themed": the Fill card lists the Light value. Typing a colour writes one value for both themes.</li>
+</ol>
+<section class="stack" data-name="On this layer">
+<p class="section-label">Set or changed on this layer</p>
+<div class="spec-grid" data-name="On this layer specimens">
+<figure class="spec" data-name="Set here"><div class="og-tile" data-oid="og-set-literal" data-name="Set here" style="opacity: 0.72;">Set here</div><figcaption class="spec-cap">opacity: 0.72 in its style attribute. Card: set on this layer, with Clear.</figcaption></figure>
+<figure class="spec" data-name="Set here, a token"><div class="og-tile" data-oid="og-set-token" data-name="Set here, a token" style="box-shadow: var(--shadow-md);">Set here, a token</div><figcaption class="spec-cap">box-shadow: var(--shadow-md). Shadow shows the token pill.</figcaption></figure>
+<figure class="spec" data-name="Changed over its class"><div class="og-tile" data-oid="og-changed" data-name="Changed over its class" style="border-radius: 2px;">Changed over its class</div><figcaption class="spec-cap">Radius 2 over .og-tile's radius-md: a dot, Was, Reset.</figcaption></figure>
+<figure class="spec" data-name="Changed by its own rule"><div class="og-tile" data-oid="og-changed-rule" data-name="Changed by its own rule">Changed by its own rule</div><figcaption class="spec-cap">A [data-oid] rule in this frame's style is the layer's own too.</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Shorthands, conditions and maths">
+<p class="section-label">Shorthands, conditions and maths</p>
+<div class="spec-grid" data-name="Shorthands specimens">
+<figure class="spec" data-name="A shorthand"><div class="og-tile" data-oid="og-shorthand" data-name="A shorthand" style="padding: 8px;">A shorthand</div><figcaption class="spec-cap">padding: 8px. Each side's card says Resets padding on all sides.</figcaption></figure>
+<figure class="spec" data-name="Inside @media"><div class="og-tile" data-oid="og-media" data-name="Inside @media">Inside @media</div><figcaption class="spec-cap">Its [data-oid] rule sits in @media, so it is named as a rule and has no Reset.</figcaption></figure>
+<figure class="spec" data-name="Computed width"><div class="og-tile" data-oid="og-calc" data-name="Computed width" style="width: calc(100% - 32px);">calc() width</div><figcaption class="spec-cap">width: calc(100% - 32px). Read only: Uses calc(), Edit in CSS.</figcaption></figure>
+<figure class="spec" data-name="Computed size"><p class="og-text" data-oid="og-clamp" data-name="Computed size" style="font-size: clamp(13px, 0.6vw + 9px, 20px);">clamp() text size</p><figcaption class="spec-cap">font-size: clamp(…). Size shows the value as written, dimmed.</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="From a class, a rule, a parent or a reset">
+<p class="section-label">From a class, a rule, a parent or a reset</p>
+<div class="spec-grid" data-name="Shared value specimens">
+<figure class="spec" data-name="From its class"><div class="og-tile" data-oid="og-class" data-name="From its class">From its class</div><figcaption class="spec-cap">Fill: bg-surface from the class .og-tile, declared in tokens.css.</figcaption></figure>
+<figure class="spec" data-name="From a rule"><div class="og-tile" data-kind="callout" data-oid="og-attr" data-name="From a rule">From a rule</div><figcaption class="spec-cap">Stroke colour from the rule [data-kind="callout"], which names no class.</figcaption></figure>
+<figure class="spec" data-name="From a parent"><div class="og-tile og-ink" data-oid="og-parent" data-name="Parent with a text colour"><span data-oid="og-inherited" data-name="From a parent">From a parent</span></div><figcaption class="spec-cap">Select the text: colour and weight are inherited, so they are dimmed.</figcaption></figure>
+<figure class="spec" data-name="From a reset"><div class="og-tile" data-oid="og-reset-box" data-name="Box with a heading"><h3 data-oid="og-reset" data-name="From a reset">From a reset</h3></div><figcaption class="spec-cap">Select the heading: margin 0 comes from the reset in tokens.css.</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Forced, themed, component and mixed">
+<p class="section-label">Forced, themed, component and mixed</p>
+<div class="spec-grid" data-name="Special value specimens">
+<figure class="spec" data-name="Forced"><div class="og-tile og-forced" data-oid="og-forced" data-name="Forced" style="color: var(--accent);">Forced</div><figcaption class="spec-cap">.og-forced sets color with !important, which beats the style attribute.</figcaption></figure>
+<figure class="spec" data-name="Themed"><div class="og-tile og-themed" data-oid="og-themed" data-name="Themed">Themed</div><figcaption class="spec-cap">A [data-zd-theme="dark"] rule gives Fill another literal in Dark.</figcaption></figure>
+<figure class="spec" data-name="From a component"><zd-progress data-oid="og-component" label="Syncing files" value="40"></zd-progress><figcaption class="spec-cap">Double-click the instance and pick Track: Fill is from the component progress.</figcaption></figure>
+<figure class="spec" data-name="Mixed"><div class="og-pair" data-name="Two tiles"><div class="og-tile" data-oid="og-mixed-a" data-name="Mixed A" style="border-radius: 4px;">A</div><div class="og-tile" data-oid="og-mixed-b" data-name="Mixed B" style="border-radius: 16px;">B</div></div><figcaption class="spec-cap">Shift-select A and B: Corner radius reads Mixed.</figcaption></figure>
+</div>
+</section>
+</main>
+</body>
+</html>

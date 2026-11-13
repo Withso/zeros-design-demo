@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Duplicate layer ids</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.li-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
+.li-panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Duplicate layer ids">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Lint showcase · rule 5</p>
+<h1 class="sheet-title">Duplicate layer ids</h1>
+<p class="sheet-lede">Rule 5 in rules.md: data-oid is optional, but each one must be unique in its frame. It is how Zeros finds a layer again after the markup around it changes. Validate warns when two layers share one.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Ask the agent to validate this frame: data-oid "li-save" is duplicated in this frame.</li>
+<li>Select each button on the left in turn and watch the Style panel header and Layers.</li>
+<li>Give the second button its own id in Files, for example li-save-copy, or ask the agent. The warning goes away.</li>
+</ol>
+<div class="li-grid" data-name="Cases">
+<section class="li-panel" data-name="Duplicated">
+<p class="section-label">Warns: one data-oid on two layers</p>
+<div class="row" data-name="Buttons sharing an id">
+<button class="btn" type="button" data-tone="accent" data-oid="li-save" data-name="Save">Save</button>
+<button class="btn" type="button" data-oid="li-save" data-name="Save a copy">Save a copy</button>
+</div>
+</section>
+<section class="li-panel" data-name="Unique">
+<p class="section-label">Fixed: one data-oid each</p>
+<div class="row" data-name="Buttons with their own ids">
+<button class="btn" type="button" data-tone="accent" data-oid="li-publish" data-name="Publish">Publish</button>
+<button class="btn" type="button" data-oid="li-publish-later" data-name="Publish later">Publish later</button>
+</div>
+</section>
+</div>
+<p class="card-body" data-name="Layers without ids">Most layers in this demo have no data-oid at all: Zeros can select them without one. Add an id only where a selection or a note must survive a restructure.</p>
+</main>
+</body>
+</html>

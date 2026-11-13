@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Badges</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.badge-matrix { grid-template-columns: 96px repeat(5, max-content); }
+.badge-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Badges">
+<header class="sheet-head">
+<p class="eyebrow">Instances and variants</p>
+<h1 class="sheet-title">Badges: class combinations and instances</h1>
+<p class="sheet-lede">The matrix is plain HTML: .badge plus one tone class and one look class. Select one to see "Styled by 3 classes". The row below it is the Badge component, whose look option picks the same classes with a condition.</p>
+</header>
+<section class="stack" data-name="Class matrix">
+<p class="section-label">.badge × tone class × look class (25 plain elements)</p>
+<div class="matrix badge-matrix" data-name="Class matrix">
+<span></span><span class="matrix-head">Base</span><span class="matrix-head">Soft</span><span class="matrix-head">Solid</span><span class="matrix-head">Outline</span><span class="matrix-head">Soft + dot</span>
+<span class="matrix-head">Neutral</span><span class="badge" data-oid="badge-neutral-base">Neutral</span><span class="badge badge--soft" data-oid="badge-neutral-soft">Neutral</span><span class="badge badge--solid" data-oid="badge-neutral-solid">Neutral</span><span class="badge badge--outline" data-oid="badge-neutral-outline">Neutral</span><span class="badge badge--soft" data-oid="badge-neutral-dot"><span class="badge-dot"></span>Neutral</span>
+<span class="matrix-head">Info</span><span class="badge badge--info" data-oid="badge-info-base">Info</span><span class="badge badge--info badge--soft" data-oid="badge-info-soft">Info</span><span class="badge badge--info badge--solid" data-oid="badge-info-solid">Info</span><span class="badge badge--info badge--outline" data-oid="badge-info-outline">Info</span><span class="badge badge--info badge--soft" data-oid="badge-info-dot"><span class="badge-dot"></span>Info</span>
+<span class="matrix-head">Success</span><span class="badge badge--success" data-oid="badge-success-base">Success</span><span class="badge badge--success badge--soft" data-oid="badge-success-soft">Success</span><span class="badge badge--success badge--solid" data-oid="badge-success-solid">Success</span><span class="badge badge--success badge--outline" data-oid="badge-success-outline">Success</span><span class="badge badge--success badge--soft" data-oid="badge-success-dot"><span class="badge-dot"></span>Success</span>
+<span class="matrix-head">Warning</span><span class="badge badge--warning" data-oid="badge-warning-base">Warning</span><span class="badge badge--warning badge--soft" data-oid="badge-warning-soft">Warning</span><span class="badge badge--warning badge--solid" data-oid="badge-warning-solid">Warning</span><span class="badge badge--warning badge--outline" data-oid="badge-warning-outline">Warning</span><span class="badge badge--warning badge--soft" data-oid="badge-warning-dot"><span class="badge-dot"></span>Warning</span>
+<span class="matrix-head">Danger</span><span class="badge badge--danger" data-oid="badge-danger-base">Danger</span><span class="badge badge--danger badge--soft" data-oid="badge-danger-soft">Danger</span><span class="badge badge--danger badge--solid" data-oid="badge-danger-solid">Danger</span><span class="badge badge--danger badge--outline" data-oid="badge-danger-outline">Danger</span><span class="badge badge--danger badge--soft" data-oid="badge-danger-dot"><span class="badge-dot"></span>Danger</span>
+</div>
+</section>
+<section class="stack" data-name="Badge instances">
+<p class="section-label">&lt;zd-badge&gt; instances: default, each variant, then overrides</p>
+<div class="badge-row">
+<zd-badge data-oid="zb-default"></zd-badge>
+<zd-badge data-oid="zb-success" zd-variant="success"></zd-badge>
+<zd-badge data-oid="zb-warning" zd-variant="warning"></zd-badge>
+<zd-badge data-oid="zb-danger" zd-variant="danger"></zd-badge>
+<zd-badge data-oid="zb-neutral" zd-variant="neutral"></zd-badge>
+<zd-badge data-oid="zb-count" text="Inbox" count="12"></zd-badge>
+<zd-badge data-oid="zb-danger-outline" zd-variant="danger" look="outline" dot="true"></zd-badge>
+<zd-badge data-oid="zb-custom" text="Custom ink" ink="rebeccapurple" wash="rgb(102 51 153 / 0.12)"></zd-badge>
+</div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Styled by, Changed here and Tidy</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.sb-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); align-items: start; }
+.og-promo { background-color: var(--accent-soft); gap: var(--space-4); }
+.og-chip { display: inline-flex; align-items: center; height: 28px; padding: 0 var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-full); background-color: var(--bg-surface); color: var(--fg-default); font-size: var(--text-small); line-height: var(--text-small--line-height); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Styled by, Changed here and Tidy">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Values and origins</p>
+<h1 class="sheet-title">Styled by, Changed here and Tidy</h1>
+<p class="sheet-lede">Under the Style panel header, a Styled by line counts the classes, utilities and component that style the layer. It opens to one row per source, plus Changed here for values set over them. A row narrows the panel to what that source sets.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select the Promo card. "Styled by 3 classes" opens to .card, .card--elevated, .og-promo and Changed here: Padding and Stroke.</li>
+<li>Click the .card row: the panel shows only what .card sets, with a note and Show all.</li>
+<li>Click this frame's title. The panel above Layers counts the changes made by hand and offers Tidy, which asks the agent to move them into tokens, classes or the component.</li>
+</ol>
+<div class="sb-grid" data-name="Specimens">
+<section class="stack" data-name="Three classes and two changes">
+<p class="section-label">Three classes and two changes</p>
+<article class="card card--elevated og-promo" data-oid="sb-promo" data-name="Promo card" style="padding: 32px; border-color: var(--accent);">
+<h3 class="card-title" data-oid="sb-promo-title">Annual plan</h3>
+<p class="card-body" data-oid="sb-promo-body">Two months free when the whole workspace switches.</p>
+<div class="row" data-name="Actions"><zd-button data-oid="sb-promo-cta" label="Switch plan" icon="false"></zd-button><zd-button data-oid="sb-promo-later" zd-variant="secondary" label="Later" icon="false"></zd-button></div>
+</article>
+</section>
+<section class="stack" data-name="Classes that combine">
+<p class="section-label">Classes that combine</p>
+<div class="row" data-name="Badges">
+<span class="badge badge--soft badge--success" data-oid="sb-badge" data-name="Badge with three classes"><span class="badge-dot" data-oid="sb-badge-dot"></span>Live</span>
+<span class="badge badge--outline badge--warning" data-oid="sb-badge-outline" data-name="Outline warning badge">Paused</span>
+</div>
+<p class="card-body" data-name="Badge hint">Select a badge: Styled by lists .badge, its look and its tone. The tone class only sets --badge-ink and --badge-wash, which the look class reads.</p>
+</section>
+<section class="stack" data-name="One class, five layers">
+<p class="section-label">One class, five layers</p>
+<div class="row" data-name="Chips">
+<span class="og-chip" data-oid="sb-chip-1" data-name="Chip">Design</span>
+<span class="og-chip" data-oid="sb-chip-2" data-name="Chip, changed fill" style="background-color: var(--accent-soft);">Research</span>
+<span class="og-chip" data-oid="sb-chip-3" data-name="Chip">Writing</span>
+<span class="og-chip" data-oid="sb-chip-4" data-name="Chip, changed radius" style="border-radius: 4px;">Review</span>
+<span class="og-chip" data-oid="sb-chip-5" data-name="Chip">Ship</span>
+</div>
+<p class="card-body" data-name="Chip hint">Select Review and hover Corner radius: "Used by 4 other layers in this frame". Reset puts it back on .og-chip.</p>
+<div data-oid="sb-by-hand" data-name="Drawn by hand" style="padding: 16px; border: 1px dashed var(--border-default); border-radius: 8px; color: var(--fg-muted); font-size: 13px;">Only inline styles: no Styled by line.</div>
+</section>
+</div>
+</main>
+</body>
+</html>

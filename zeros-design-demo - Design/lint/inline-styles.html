@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Repeated inline styles</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.inl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); align-items: start; }
+.inl-row { display: flex; gap: var(--space-3); }
+.inl-panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-raised); }
+.inl-tile { flex: 1; padding: var(--space-4); border-radius: var(--radius-lg); background-color: var(--bg-surface); text-align: center; }
+.inl-box { flex: 1; padding: var(--space-2); border: 1px dashed var(--border-default); border-radius: var(--radius-md); color: var(--fg-muted); font-size: var(--text-caption); text-align: center; }
+.inl-bar { height: 8px; overflow: hidden; border-radius: var(--radius-full); background: var(--bg-surface); }
+.inl-bar-fill { display: block; width: var(--inl-fill); height: 100%; border-radius: var(--radius-full); background: var(--accent); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Repeated inline styles">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Lint showcase · rule 4</p>
+<h1 class="sheet-title">Repeated inline styles</h1>
+<p class="sheet-lede">Rule 4 in rules.md: inline style is for one-off values and your own Style panel edits. When the same two or more declarations sit on three or more layers, Validate asks you to make them one class.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Shift-select the three tiles on the left. Each carries the same five inline declarations, so Validate warns once for the set.</li>
+<li>Select a tile in the middle and change its padding. Zeros writes padding in that tile's style attribute; the class stays as it is. A one-off edit never warns.</li>
+<li>Ask the agent to fix this frame. It moves the shared declarations into a class in the style element and uses that class on each tile.</li>
+</ol>
+<div class="inl-grid" data-name="Cases">
+<section class="inl-panel" data-name="Warns">
+<p class="section-label">Warns: one style, three layers</p>
+<div class="inl-row" data-name="Inline tiles">
+<div data-oid="inl-a" data-name="Tile A" style="flex: 1; padding: 16px; border-radius: 14px; background-color: var(--bg-surface); text-align: center;">A</div>
+<div data-oid="inl-b" data-name="Tile B" style="flex: 1; padding: 16px; border-radius: 14px; background-color: var(--bg-surface); text-align: center;">B</div>
+<div data-oid="inl-c" data-name="Tile C" style="flex: 1; padding: 16px; border-radius: 14px; background-color: var(--bg-surface); text-align: center;">C</div>
+</div>
+<p class="card-body">Validate: Move the inline style, repeated on 3 elements, into one class.</p>
+</section>
+<section class="inl-panel" data-name="Fixed">
+<p class="section-label">Fixed: one class</p>
+<div class="inl-row" data-name="Class tiles">
+<div class="inl-tile" data-oid="inl-d" data-name="Tile D">D</div>
+<div class="inl-tile" data-oid="inl-e" data-name="Tile E">E</div>
+<div class="inl-tile" data-oid="inl-f" data-name="Tile F">F</div>
+</div>
+<p class="card-body">The same look from inl-tile in this frame's style element.</p>
+</section>
+<section class="inl-panel" data-name="Never warns">
+<p class="section-label">Never warns</p>
+<div class="inl-row" data-name="One declaration each">
+<div class="inl-box" data-oid="inl-g" data-name="Box G" style="max-width: 96px;">one</div>
+<div class="inl-box" data-oid="inl-h" data-name="Box H" style="max-width: 96px;">declaration</div>
+<div class="inl-box" data-oid="inl-i" data-name="Box I" style="max-width: 96px;">each</div>
+</div>
+<div class="stack" data-name="Custom properties only">
+<div class="inl-bar" data-name="Bar 30"><span class="inl-bar-fill" data-oid="inl-bar-30" style="--inl-fill: 30%;"></span></div>
+<div class="inl-bar" data-name="Bar 60"><span class="inl-bar-fill" data-oid="inl-bar-60" style="--inl-fill: 60%;"></span></div>
+<div class="inl-bar" data-name="Bar 90"><span class="inl-bar-fill" data-oid="inl-bar-90" style="--inl-fill: 90%;"></span></div>
+</div>
+<p class="card-body">A single declaration is a size or position edit, and custom properties are per-layer values.</p>
+</section>
+</div>
+</main>
+</body>
+</html>

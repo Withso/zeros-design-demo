@@ -1,0 +1,32 @@
+/* Tailwind app: the product's Tailwind v4 entry. Design imports it as the
+   "Tailwind app" style source (kind "tailwind") and compiles it with Zeros'
+   own bundled Tailwind, only for the classes each frame uses. Nothing in
+   node_modules runs, so this repository needs no install. */
+@import "tailwindcss";
+
+/* Zeros ships the typography, forms and animate plugins and runs its own
+   copies. Any other @plugin or @config is skipped with a warning. */
+@plugin "@tailwindcss/typography";
+
+/* dark: utilities follow [data-theme=dark]; the source maps that selector to
+   the canvas Dark theme. */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-300: #a5b4fc;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-900: #312e81;
+  --radius-card: 14px;
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* A project utility: written once, used like any Tailwind class. */
+@utility card-tw {
+  border-radius: var(--radius-card);
+  padding: 20px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 1px 3px rgb(0 0 0 / 0.1);
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Swatch</title>
+<template data-zd-options>
+<zd-option name="color" type="color" label="Colour" default="var(--accent)"></zd-option>
+<zd-option name="token" type="text" label="Token name" default="--accent"></zd-option>
+</template>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+zd-swatch { display: block; min-width: 0; }
+.swatch { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.swatch-chip { height: 56px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--zd-color); }
+.swatch-name { overflow: hidden; color: var(--fg-strong); font-family: var(--font-mono); font-size: var(--text-caption); line-height: var(--text-caption--line-height); text-overflow: ellipsis; white-space: nowrap; }
+.swatch-note { color: var(--fg-muted); font-size: var(--text-caption); line-height: var(--text-caption--line-height); }
+</style>
+</head>
+<body>
+<div class="swatch" data-zid="swatch">
+<div class="swatch-chip" data-zid="swatch-chip"></div>
+<p class="swatch-name" data-zid="swatch-name">{{ token }}</p>
+<p class="swatch-note" data-zid="swatch-note"><slot>What this colour is for.</slot></p>
+</div>
+</body>
+</html>

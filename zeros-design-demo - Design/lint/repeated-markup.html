@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Repeated markup</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.rm-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
+.rm-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+.rm-list { display: flex; flex-direction: column; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.rm-item { display: flex; justify-content: space-between; gap: var(--space-3); padding: var(--space-2) var(--space-3); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); font-size: var(--text-small); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Repeated markup">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Lint showcase · rule 8</p>
+<h1 class="sheet-title">Repeated markup</h1>
+<p class="sheet-lede">Rule 8 in rules.md: markup repeated three or more times becomes a component. Validate compares the tree of tags and classes, ignoring text and other attributes. It looks only at trees of four or more elements, two levels deep.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Ask the agent to validate this frame. It names the hand-written cards on the left and their three lines. Pro counts too: state classes such as is-selected are ignored.</li>
+<li>Select a card on the right. It is an instance of components/card.html: its meta and heading are attributes, and its body is its children. Change that file once and all three follow.</li>
+<li>Ask the agent to turn the left cards into a component. It reuses card or writes a new components file, and replaces each copy with one tag.</li>
+</ol>
+<div class="rm-grid" data-name="Cases">
+<section class="stack" data-name="Warns">
+<p class="section-label">Warns: written out three times</p>
+<div class="rm-cards" data-name="Hand-written cards">
+<article class="card card--flat" data-oid="rm-starter" data-name="Plan: Starter"><p class="eyebrow">Starter</p><h3 class="card-title">$0</h3><div class="row"><span class="badge badge--soft badge--info">For one person</span></div></article>
+<article class="card card--flat is-selected" data-oid="rm-pro" data-name="Plan: Pro"><p class="eyebrow">Pro</p><h3 class="card-title">$24</h3><div class="row"><span class="badge badge--soft badge--info">For teams</span></div></article>
+<article class="card card--flat" data-oid="rm-team" data-name="Plan: Enterprise"><p class="eyebrow">Enterprise</p><h3 class="card-title">Custom</h3><div class="row"><span class="badge badge--soft badge--info">Talk to us</span></div></article>
+</div>
+</section>
+<section class="stack" data-name="Fixed">
+<p class="section-label">Fixed: one component, three instances</p>
+<div class="rm-cards" data-name="Card instances">
+<zd-card data-oid="rm-c-starter" meta="Starter" heading="$0">For one person</zd-card>
+<zd-card data-oid="rm-c-pro" meta="Pro" heading="$24">For teams</zd-card>
+<zd-card data-oid="rm-c-team" meta="Enterprise" heading="Custom">Talk to us</zd-card>
+</div>
+</section>
+</div>
+<section class="stack" data-name="Too small to count">
+<p class="section-label">Too small to count: rows of three elements</p>
+<ul class="rm-list" data-name="Invoice rows">
+<li class="rm-item"><span>Invoices</span><span>12</span></li>
+<li class="rm-item"><span>Receipts</span><span>48</span></li>
+<li class="rm-item"><span>Refunds</span><span>3</span></li>
+<li class="rm-item"><span>Disputes</span><span>0</span></li>
+</ul>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Appearance</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.look { height: 88px; border-radius: var(--radius-md); background: var(--accent); }
+.look--soft { border: 1px solid var(--accent); background: var(--accent-soft); }
+.blend-stage { position: relative; height: 140px; overflow: hidden; border-radius: var(--radius-md); background: repeating-linear-gradient(90deg, var(--bg-raised) 0 16px, var(--fg-muted) 16px 32px); }
+.blob { position: absolute; top: 26px; width: 88px; height: 88px; border-radius: var(--radius-full); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Appearance">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style panel · Appearance</p>
+<h1 class="sheet-title">Appearance: opacity, corner radius and blend mode</h1>
+<p class="sheet-lede">Appearance holds a layer's opacity, its corner radius (one value or each corner) and its blend mode, which is mix-blend-mode against what lies beneath it.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select the 60% tile and type 40 in opacity: only the opacity declaration changes.</li>
+<li>Select "32 and 4": the radius reads Mixed. Open independent corners to edit each corner.</li>
+<li>Select a circle on the striped stage and change Blend mode. The file gets one mix-blend-mode declaration.</li>
+</ol>
+<section class="stack" data-name="Opacity">
+<p class="section-label">Opacity</p>
+<div class="spec-grid" data-name="Opacity specimens">
+<figure class="spec" data-name="Opacity 100%"><div class="look" data-oid="app-opacity-full" data-name="Opacity 100%" style="opacity: 1;"></div><figcaption class="spec-cap">opacity: 1</figcaption></figure>
+<figure class="spec" data-name="Opacity 60%"><div class="look" data-oid="app-opacity-60" data-name="Opacity 60%" style="opacity: 0.6;"></div><figcaption class="spec-cap">opacity: 0.6</figcaption></figure>
+<figure class="spec" data-name="Opacity 25%"><div class="look" data-oid="app-opacity-25" data-name="Opacity 25%" style="opacity: 0.25;"></div><figcaption class="spec-cap">opacity: 0.25</figcaption></figure>
+<figure class="spec" data-name="Opacity token"><div class="look" data-oid="app-opacity-token" data-name="Opacity token" style="opacity: var(--opacity-disabled);"></div><figcaption class="spec-cap">opacity from the --opacity-disabled token</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Corner radius">
+<p class="section-label">Corner radius</p>
+<div class="spec-grid" data-name="Corner radius specimens">
+<figure class="spec" data-name="Radius 0"><div class="look look--soft" data-oid="app-radius-0" data-name="Radius 0" style="border-radius: 0;"></div><figcaption class="spec-cap">Radius 0</figcaption></figure>
+<figure class="spec" data-name="Radius token"><div class="look look--soft" data-oid="app-radius-token" data-name="Radius token" style="border-radius: var(--radius-lg);"></div><figcaption class="spec-cap">Radius from --radius-lg</figcaption></figure>
+<figure class="spec" data-name="Pill radius"><div class="look look--soft" data-oid="app-radius-pill" data-name="Pill radius" style="border-radius: var(--radius-full);"></div><figcaption class="spec-cap">Pill, --radius-full</figcaption></figure>
+<figure class="spec" data-name="Radius 32 and 4"><div class="look look--soft" data-oid="app-radius-mixed" data-name="Radius 32 and 4" style="border-radius: 32px 4px;"></div><figcaption class="spec-cap">32 and 4: two corners each</figcaption></figure>
+<figure class="spec" data-name="One corner"><div class="look look--soft" data-oid="app-radius-one" data-name="One corner" style="border-top-left-radius: 48px;"></div><figcaption class="spec-cap">Only the top-left corner, 48</figcaption></figure>
+<figure class="spec" data-name="Elliptical radius"><div class="look look--soft" data-oid="app-radius-ellipse" data-name="Elliptical radius" style="border-radius: 50% / 30%;"></div><figcaption class="spec-cap">Elliptical 50% / 30%</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Blend mode">
+<p class="section-label">Blend mode: normal, multiply, screen, difference</p>
+<div class="blend-stage" data-oid="app-blend-stage" data-name="Striped stage">
+<span class="blob" data-oid="app-blend-normal" data-name="Normal" style="left: 24px; background: var(--danger); mix-blend-mode: normal;"></span>
+<span class="blob" data-oid="app-blend-multiply" data-name="Multiply" style="left: 136px; background: var(--danger); mix-blend-mode: multiply;"></span>
+<span class="blob" data-oid="app-blend-screen" data-name="Screen" style="left: 248px; background: var(--danger); mix-blend-mode: screen;"></span>
+<span class="blob" data-oid="app-blend-difference" data-name="Difference" style="left: 360px; background: var(--danger); mix-blend-mode: difference;"></span>
+</div>
+</section>
+</main>
+</body>
+</html>

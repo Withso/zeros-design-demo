@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Layout</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.lay-box { min-width: 0; border: 1px dashed var(--border-default); border-radius: var(--radius-md); background: var(--bg-surface); }
+.cell { min-width: 24px; min-height: 24px; border: 1px solid var(--accent); border-radius: var(--radius-sm); background: var(--accent-soft); }
+.lay-img { display: block; width: 100%; height: 120px; border-radius: var(--radius-md); background: var(--bg-raised); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Layout">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style panel · Layout</p>
+<h1 class="sheet-title">Layout: auto layout, gap, padding, size and clip</h1>
+<p class="sheet-lede">Layout edits a container's flow (none, row, column or grid), wrap, grid tracks, gap, padding and alignment, and any layer's size, margins, limits and clipping. Images also get Fit, which is object-fit.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select the Row box: Auto layout is Row, gap 12, padding 16. Switch it to Column; only display and flex-direction change.</li>
+<li>Select the Grid box and set Columns to 4. Zeros writes grid-template-columns: repeat(4, minmax(0, 1fr)).</li>
+<li>In the Sizing box, select the Fill cell: width reads Fill. Set it to Hug and see flex-grow, flex-shrink and flex-basis written.</li>
+</ol>
+<section class="stack" data-name="Auto layout">
+<p class="section-label">Auto layout: flow, wrap, grid tracks and distribution</p>
+<div class="spec-grid" data-name="Auto layout specimens">
+<figure class="spec" data-name="Row"><div class="lay-box" data-oid="lay-row" data-name="Row" style="display: flex; flex-direction: row; align-items: center; gap: 12px; padding: 16px;"><span class="cell"></span><span class="cell"></span><span class="cell"></span></div><figcaption class="spec-cap">Row, gap 12, padding 16, centred</figcaption></figure>
+<figure class="spec" data-name="Column"><div class="lay-box" data-oid="lay-column" data-name="Column" style="display: flex; flex-direction: column; gap: 8px; padding: 12px;"><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></div><figcaption class="spec-cap">Column, gap 8, padding 12</figcaption></figure>
+<figure class="spec" data-name="Wrap"><div class="lay-box" data-oid="lay-wrap" data-name="Wrap" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 12px;"><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></div><figcaption class="spec-cap">Row that wraps, gap 8</figcaption></figure>
+<figure class="spec" data-name="Grid"><div class="lay-box" data-oid="lay-grid" data-name="Grid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, 32px); gap: 8px; padding: 12px;"><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span></div><figcaption class="spec-cap">Grid, 3 columns by 2 rows</figcaption></figure>
+<figure class="spec" data-name="Space between"><div class="lay-box" data-oid="lay-between" data-name="Space between" style="display: flex; justify-content: space-between; align-items: flex-end; height: 96px; padding: 12px;"><span class="cell"></span><span class="cell"></span></div><figcaption class="spec-cap">Space between, aligned to the end</figcaption></figure>
+<figure class="spec" data-name="Sizing"><div class="lay-box" data-oid="lay-sizing" data-name="Sizing" style="display: flex; gap: 8px; padding: 12px;"><span class="cell" data-oid="lay-fixed" data-name="Fixed cell" style="width: 64px;"></span><span class="cell" data-oid="lay-hug" data-name="Hug cell"></span><span class="cell" data-oid="lay-fill" data-name="Fill cell" style="flex: 1 1 0px;"></span></div><figcaption class="spec-cap">Sizing: fixed 64, hug, fill</figcaption></figure>
+<figure class="spec" data-name="Padding and margin"><div class="lay-box" data-oid="lay-padding" data-name="Padding and margin" style="padding: 24px 32px 8px 16px;"><span class="cell" data-oid="lay-margin" data-name="Cell with a margin" style="display: block; height: 32px; margin: 8px 0 0 24px;"></span></div><figcaption class="spec-cap">Padding per side; margin on the child</figcaption></figure>
+<figure class="spec" data-name="Min and max"><div class="lay-box" data-oid="lay-limits" data-name="Min and max" style="display: flex; padding: 12px;"><span class="cell" data-oid="lay-limited" data-name="Limited cell" style="width: 100%; min-width: 48px; max-width: 160px; min-height: 48px;"></span></div><figcaption class="spec-cap">Width 100%, max 160, min height 48</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Clip and images">
+<p class="section-label">Clip content and image fit</p>
+<div class="spec-grid" data-name="Clip and images specimens">
+<figure class="spec" data-name="Clip content"><div class="lay-box" data-oid="lay-clip" data-name="Clip content" style="overflow: hidden; border-radius: 24px;"><img class="lay-img" data-oid="lay-clipped-img" data-name="Clipped image" src="../assets/images/orbit.jpg" alt="An orange planet with a ring over a purple sky" style="border-radius: 0; object-fit: cover;"></div><figcaption class="spec-cap">Clip content with radius 24</figcaption></figure>
+<figure class="spec" data-name="Image, cover"><img class="lay-img" data-oid="lay-cover" data-name="Image, cover" src="../assets/images/orbit.jpg" alt="An orange planet with a ring over a purple sky" style="object-fit: cover; object-position: 50% 35%;"><figcaption class="spec-cap">Fit: cover, positioned at 50% 35%</figcaption></figure>
+<figure class="spec" data-name="Image, contain"><img class="lay-img" data-oid="lay-contain" data-name="Image, contain" src="../assets/images/orbit.jpg" alt="An orange planet with a ring over a purple sky" style="object-fit: contain;"><figcaption class="spec-cap">Fit: contain</figcaption></figure>
+<figure class="spec" data-name="Image, fill"><img class="lay-img" data-oid="lay-fill-img" data-name="Image, fill" src="../assets/images/orbit.jpg" alt="An orange planet with a ring over a purple sky" style="object-fit: fill;"><figcaption class="spec-cap">Fit: fill, which stretches</figcaption></figure>
+</div>
+</section>
+</main>
+</body>
+</html>

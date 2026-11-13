@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project settings</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.settings { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: var(--space-5); align-items: start; }
+.settings-col { display: flex; flex-direction: column; gap: var(--space-5); }
+.members { display: flex; flex-direction: column; gap: var(--space-3); }
+.member { display: flex; align-items: center; gap: var(--space-3); }
+.member-name { flex: 1; min-width: 0; color: var(--fg-strong); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: var(--weight-medium); }
+.actions { display: flex; justify-content: flex-end; gap: var(--space-3); }
+.danger-zone { border-color: var(--danger-soft); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Project settings">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Instances in context</p>
+<h1 class="sheet-title">Project settings</h1>
+<p class="sheet-lede">A whole screen built from instances of the page 3 components and ui.css classes. Select an instance to see its own option values. Double-click into one to read a part.</p>
+</header>
+<zd-tabs data-oid="ctx-tabs" selected="settings" count="4"></zd-tabs>
+<zd-alert data-oid="ctx-alert" zd-variant="tip" message="Changes save to the project settings file. Nothing ships until you deploy."></zd-alert>
+<div class="settings" data-name="Columns">
+<div class="settings-col" data-name="Left column">
+<section class="card" data-name="General">
+<h2 class="card-title">General</h2>
+<zd-text-field data-oid="ctx-name" label="Project name" value="orbit-web" width="40"></zd-text-field>
+<zd-text-field data-oid="ctx-slug" zd-variant="error" label="URL slug" width="40"></zd-text-field>
+<zd-text-field data-oid="ctx-region" zd-variant="locked" label="Region" value="eu-west-1" width="40"></zd-text-field>
+</section>
+<section class="card" data-name="Notifications">
+<h2 class="card-title">Notifications</h2>
+<zd-switch-row data-oid="ctx-email"></zd-switch-row>
+<zd-switch-row data-oid="ctx-push" zd-variant="off" label="Push notifications" hint="On this device only."></zd-switch-row>
+<zd-switch-row data-oid="ctx-audit" zd-variant="locked" label="Audit log"></zd-switch-row>
+</section>
+</div>
+<div class="settings-col" data-name="Right column">
+<section class="card" data-name="Members">
+<h2 class="card-title">Members</h2>
+<div class="members" data-name="Member list">
+<div class="member" data-name="Member"><zd-avatar data-oid="ctx-avatar-1" initials="AR" size="32"></zd-avatar><span class="member-name">Arun Raj</span><zd-badge data-oid="ctx-role-1" text="Owner" look="solid"></zd-badge></div>
+<div class="member" data-name="Member"><zd-avatar data-oid="ctx-avatar-2" initials="MK" size="32" status="away"></zd-avatar><span class="member-name">Mara Klein</span><zd-badge data-oid="ctx-role-2" text="Editor"></zd-badge></div>
+<div class="member" data-name="Member"><zd-avatar data-oid="ctx-avatar-3" zd-variant="team" size="32"></zd-avatar><span class="member-name">Ops team</span><zd-badge data-oid="ctx-role-3" zd-variant="neutral" text="Viewer"></zd-badge></div>
+</div>
+</section>
+<section class="card" data-name="Usage">
+<h2 class="card-title">Usage</h2>
+<zd-progress data-oid="ctx-storage" label="Storage, 12.8 of 20 GB" value="64"></zd-progress>
+<zd-progress data-oid="ctx-minutes" label="Build minutes" value="92" tone="warning"></zd-progress>
+</section>
+<section class="card danger-zone" data-name="Danger zone">
+<h2 class="card-title">Danger zone</h2>
+<p class="card-body">Deleting the project removes its deploys, domains and logs.</p>
+<div class="row" data-name="Danger actions"><zd-button data-oid="ctx-delete" zd-variant="destructive" size="sm"></zd-button></div>
+</section>
+</div>
+</div>
+<footer class="actions" data-name="Actions">
+<zd-button data-oid="ctx-cancel" zd-variant="secondary"></zd-button>
+<zd-button data-oid="ctx-save" label="Save settings"></zd-button>
+</footer>
+</main>
+</body>
+</html>

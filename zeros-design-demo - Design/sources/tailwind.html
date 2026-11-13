@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tailwind: Tailwind app</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.try { list-style: decimal; }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Tailwind: Tailwind app">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style sources</p>
+<h1 class="sheet-title">Tailwind v4 utilities</h1>
+<p class="sheet-lede">styles/tailwind/app.css is a Tailwind v4 entry with @theme, @custom-variant, @utility and the typography plugin. Zeros compiles it with its own bundled Tailwind, only for the classes this frame uses.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Open the theme editor (⌥T) and choose Tailwind app. The @theme values are its variables; the status names the Tailwind version and the bundled plugin.</li>
+<li>Select Upgrade. Styled by counts its utilities; hover Fill: From the utility bg-white, Source Tailwind app.</li>
+<li>With Upgrade selected, open the State menu and choose Hover: hover:bg-brand-50 takes over until Back to Default.</li>
+<li>Change its padding. Zeros writes an inline style on the layer. The class attribute and its utilities stay as they are.</li>
+</ol>
+<div class="grid grid-cols-3 gap-5" data-name="Plans">
+<article class="card-tw flex flex-col gap-3 bg-white ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700" data-oid="tw-plan-starter" data-name="Plan: Starter">
+<p class="text-sm font-medium text-zinc-500 dark:text-zinc-400" data-oid="tw-starter-name">Starter</p>
+<p class="font-display text-4xl/12 font-semibold tracking-tight text-zinc-900 dark:text-white" data-oid="tw-starter-price">$0</p>
+<p class="text-sm text-zinc-600 dark:text-zinc-300" data-oid="tw-starter-copy">For one person trying things out.</p>
+<button class="mt-2 h-10 rounded-lg px-4 text-sm font-semibold text-zinc-900 ring-1 ring-zinc-300 ring-inset hover:bg-zinc-50 dark:text-white dark:ring-zinc-600 dark:hover:bg-zinc-800" type="button" data-oid="tw-starter-cta" data-name="Start free">Start free</button>
+</article>
+<article class="card-tw relative flex flex-col gap-3 bg-brand-600 text-white ring-2 ring-brand-300" data-oid="tw-plan-pro" data-name="Plan: Pro">
+<span class="absolute -top-3 right-5 rounded-full bg-amber-300 px-3 py-1 text-xs font-semibold text-amber-950" data-oid="tw-pro-badge" data-name="Popular badge">Popular</span>
+<p class="text-sm font-medium text-brand-100" data-oid="tw-pro-name">Pro</p>
+<p class="font-display text-4xl/12 font-semibold tracking-tight" data-oid="tw-pro-price">$24</p>
+<p class="text-sm text-brand-100" data-oid="tw-pro-copy">For teams shipping every week.</p>
+<button class="mt-2 h-10 rounded-lg bg-white px-4 text-sm font-semibold text-brand-700 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" type="button" data-oid="tw-pro-cta" data-name="Upgrade">Upgrade</button>
+</article>
+<article class="card-tw flex flex-col gap-3 bg-white ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700" data-oid="tw-plan-team" data-name="Plan: Enterprise">
+<p class="text-sm font-medium text-zinc-500 dark:text-zinc-400" data-oid="tw-team-name">Enterprise</p>
+<p class="font-display text-4xl/12 font-semibold tracking-tight text-zinc-900 dark:text-white" data-oid="tw-team-price">Custom</p>
+<p class="text-sm text-zinc-600 dark:text-zinc-300" data-oid="tw-team-copy">SSO, audit logs and a named contact.</p>
+<button class="mt-2 h-10 rounded-lg px-4 text-sm font-semibold text-zinc-900 ring-1 ring-zinc-300 ring-inset hover:bg-zinc-50 dark:text-white dark:ring-zinc-600 dark:hover:bg-zinc-800" type="button" data-oid="tw-team-cta" data-name="Contact sales">Contact sales</button>
+</article>
+</div>
+<div class="grid grid-cols-[3fr_2fr] gap-5" data-name="Plugin and variants">
+<article class="card-tw prose prose-sm max-w-none bg-white ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700 dark:prose-invert" data-oid="tw-prose" data-name="Typography plugin">
+<h3>Release notes</h3>
+<p>The <strong>typography</strong> plugin styles plain HTML: headings, lists, <code>code</code> and quotes. Zeros runs its own copy.</p>
+<p>Typography, forms and animate are bundled. Any other <code>@plugin</code> or <code>@config</code> is skipped with a warning, because plugins run code.</p>
+</article>
+<div class="flex flex-col gap-3" data-name="Variants">
+<div class="flex flex-wrap gap-2" data-name="Arbitrary values and opacity">
+<span class="rounded-md bg-brand-500/15 px-2 py-1 text-xs font-semibold text-brand-700 dark:text-brand-300" data-oid="tw-chip-opacity">bg-brand-500/15</span>
+<span class="w-[150px] rounded-md border border-dashed border-zinc-300 px-2 py-1 text-xs text-zinc-600 dark:border-zinc-600 dark:text-zinc-300" data-oid="tw-chip-arbitrary">w-[150px] arbitrary</span>
+</div>
+<div class="group flex items-center justify-between rounded-xl border border-zinc-200 p-4 hover:border-brand-500 dark:border-zinc-700" data-oid="tw-row" data-name="Group hover row">
+<span class="text-sm text-zinc-700 group-hover:text-brand-600 dark:text-zinc-200" data-oid="tw-row-label">group-hover: hover this row</span>
+<span class="size-2 rounded-full bg-emerald-500" data-oid="tw-row-dot"></span>
+</div>
+</div>
+</div>
+</main>
+</body>
+</html>

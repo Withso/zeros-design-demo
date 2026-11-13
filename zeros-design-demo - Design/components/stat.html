@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stat</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+zd-stat { display: block; min-width: 0; }
+.stat { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+.stat-label { color: var(--fg-muted); font-size: var(--text-caption); line-height: var(--text-caption--line-height); font-weight: var(--weight-medium); }
+.stat-value { color: var(--fg-strong); font-size: var(--text-title); line-height: var(--text-title--line-height); font-weight: var(--text-title--font-weight); font-variant-numeric: tabular-nums; }
+.stat-delta { color: var(--success); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: var(--weight-medium); }
+zd-stat[data-trend="down"] .stat-delta { color: var(--danger); }
+zd-stat[data-trend="flat"] .stat-delta { color: var(--fg-muted); }
+.stat-foot { color: var(--fg-muted); font-size: var(--text-caption); line-height: var(--text-caption--line-height); }
+</style>
+</head>
+<body>
+<div class="stat" data-zid="stat">
+<p class="stat-label" data-zid="stat-label"><slot data-zd-attr="label">Metric</slot></p>
+<p class="stat-value" data-zid="stat-value"><slot data-zd-attr="value">0</slot></p>
+<p class="stat-delta" data-zid="stat-delta"><slot data-zd-attr="delta">No change</slot></p>
+<div class="stat-foot" data-zid="stat-foot"><slot>Compared with last week.</slot></div>
+</div>
+</body>
+</html>

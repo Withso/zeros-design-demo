@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Card</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+zd-card { display: block; }
+</style>
+</head>
+<body>
+<article class="card" data-zid="card">
+<p class="eyebrow" data-zid="card-meta"><slot data-zd-attr="meta">Card</slot></p>
+<h3 class="card-title" data-zid="card-title"><slot data-zd-attr="heading">Untitled card</slot></h3>
+<div class="card-body" data-zid="card-body"><slot>Nothing here yet. Children of the instance fill this slot.</slot></div>
+</article>
+</body>
+</html>

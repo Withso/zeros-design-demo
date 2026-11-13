@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Component CSS</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.cc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
+.cc-panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Component CSS">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Known issue 10</p>
+<h1 class="sheet-title">A component's CSS reaches the whole frame</h1>
+<p class="sheet-lede">Zeros copies the style element of each component a frame places into that frame's head, unchanged. This frame places one Pill from components/pill.html, whose style sets the badge tone on .badge. So every plain badge here takes the accent tone, whatever tone class it has.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Compare the three badges on the left with the Soft column of the matrix on page 5. The classes are the same; only this frame places a Pill.</li>
+<li>Remove the zd-pill tag in Files, or ask the agent to. The badges get their tones back. Discard the change in Changes afterwards.</li>
+<li>Open options/badge.html from page 3. Its rule is limited to its own markup with :where(.stage, zd-badge) &gt; .badge, so page 5 is not affected.</li>
+</ol>
+<div class="cc-grid" data-name="Example">
+<section class="cc-panel" data-name="Plain badges">
+<p class="section-label">Plain badges with tone classes</p>
+<div class="row" data-name="Badges"><span class="badge badge--soft badge--success" data-oid="cc-success" data-name="Success badge">Success</span><span class="badge badge--soft badge--warning" data-oid="cc-warning" data-name="Warning badge">Warning</span><span class="badge badge--soft badge--danger" data-oid="cc-danger" data-name="Danger badge">Danger</span></div>
+<p class="card-body">Expected: green, amber and red, as on page 5. Shown: all three in the accent tone.</p>
+</section>
+<section class="cc-panel" data-name="The Pill">
+<p class="section-label">One Pill instance</p>
+<div class="row" data-name="Pill row"><zd-pill data-oid="cc-pill">New</zd-pill></div>
+<p class="card-body">components/pill.html styles its own badge with <code class="code">.badge { --badge-ink: var(--accent); }</code>. Nothing limits that rule to the Pill.</p>
+</section>
+</div>
+</main>
+</body>
+</html>

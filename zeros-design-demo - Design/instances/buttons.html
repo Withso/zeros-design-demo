@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buttons</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.button-matrix { grid-template-columns: 96px repeat(5, max-content); }
+.button-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Buttons">
+<header class="sheet-head">
+<p class="eyebrow">Instances and variants</p>
+<h1 class="sheet-title">Every Button combination</h1>
+<p class="sheet-lede">Each control below is one &lt;zd-button&gt; instance of options/button.html. Its attributes are its option values; anything it leaves out comes from its variant, then from the declared default.</p>
+</header>
+<section class="stack" data-name="Tone by size">
+<p class="section-label">Tone × size (15 instances)</p>
+<div class="matrix button-matrix" data-name="Tone by size matrix">
+<span></span><span class="matrix-head">XS</span><span class="matrix-head">SM</span><span class="matrix-head">MD</span><span class="matrix-head">LG</span><span class="matrix-head">XL</span>
+<span class="matrix-head">Neutral</span><zd-button data-oid="b-neutral-xs" tone="neutral" size="xs" label="Neutral XS" icon="false"></zd-button>
+<zd-button data-oid="b-neutral-sm" tone="neutral" size="sm" label="Neutral SM" icon="false"></zd-button>
+<zd-button data-oid="b-neutral-md" tone="neutral" size="md" label="Neutral MD" icon="false"></zd-button>
+<zd-button data-oid="b-neutral-lg" tone="neutral" size="lg" label="Neutral LG" icon="false"></zd-button>
+<zd-button data-oid="b-neutral-xl" tone="neutral" size="xl" label="Neutral XL" icon="false"></zd-button>
+<span class="matrix-head">Accent</span><zd-button data-oid="b-accent-xs" tone="accent" size="xs" label="Accent XS" icon="false"></zd-button>
+<zd-button data-oid="b-accent-sm" tone="accent" size="sm" label="Accent SM" icon="false"></zd-button>
+<zd-button data-oid="b-accent-md" tone="accent" size="md" label="Accent MD" icon="false"></zd-button>
+<zd-button data-oid="b-accent-lg" tone="accent" size="lg" label="Accent LG" icon="false"></zd-button>
+<zd-button data-oid="b-accent-xl" tone="accent" size="xl" label="Accent XL" icon="false"></zd-button>
+<span class="matrix-head">Danger</span><zd-button data-oid="b-danger-xs" tone="danger" size="xs" label="Danger XS" icon="false"></zd-button>
+<zd-button data-oid="b-danger-sm" tone="danger" size="sm" label="Danger SM" icon="false"></zd-button>
+<zd-button data-oid="b-danger-md" tone="danger" size="md" label="Danger MD" icon="false"></zd-button>
+<zd-button data-oid="b-danger-lg" tone="danger" size="lg" label="Danger LG" icon="false"></zd-button>
+<zd-button data-oid="b-danger-xl" tone="danger" size="xl" label="Danger XL" icon="false"></zd-button>
+</div>
+</section>
+<section class="stack" data-name="Drawn states">
+<p class="section-label">Drawn states: the state option sets data-state on the same markup</p>
+<div class="matrix button-matrix" data-name="State matrix">
+<span></span><span class="matrix-head">Rest</span><span class="matrix-head">Hover</span><span class="matrix-head">Pressed</span><span class="matrix-head">Focus</span><span class="matrix-head">Disabled</span>
+<span class="matrix-head">Accent</span><zd-button data-oid="b-state-accent-rest" tone="accent" state="rest" label="Rest"></zd-button>
+<zd-button data-oid="b-state-accent-hover" tone="accent" state="hover" label="Hover"></zd-button>
+<zd-button data-oid="b-state-accent-pressed" tone="accent" state="pressed" label="Pressed"></zd-button>
+<zd-button data-oid="b-state-accent-focus" tone="accent" state="focus" label="Focus"></zd-button>
+<zd-button data-oid="b-state-accent-disabled" tone="accent" state="disabled" label="Disabled"></zd-button>
+<span class="matrix-head">Neutral</span><zd-button data-oid="b-state-neutral-rest" tone="neutral" state="rest" label="Rest"></zd-button>
+<zd-button data-oid="b-state-neutral-hover" tone="neutral" state="hover" label="Hover"></zd-button>
+<zd-button data-oid="b-state-neutral-pressed" tone="neutral" state="pressed" label="Pressed"></zd-button>
+<zd-button data-oid="b-state-neutral-focus" tone="neutral" state="focus" label="Focus"></zd-button>
+<zd-button data-oid="b-state-neutral-disabled" tone="neutral" state="disabled" label="Disabled"></zd-button>
+</div>
+</section>
+<section class="stack" data-name="Loading and icons">
+<p class="section-label">Loading and icons</p>
+<div class="button-row">
+<zd-button data-oid="b-loading" loading="true" label="Saving…"></zd-button>
+<zd-button data-oid="b-loading-danger" tone="danger" loading="true" label="Deleting…"></zd-button>
+<zd-button data-oid="b-icon-start" label="Icon at start"></zd-button>
+<zd-button data-oid="b-icon-end" icon-side="end" tone="neutral" label="Icon at end"></zd-button>
+<zd-button data-oid="b-icon-none" icon="false" label="No icon"></zd-button>
+</div>
+</section>
+<section class="stack" data-name="Variants">
+<p class="section-label">Variants: zd-variant names a saved set of values</p>
+<div class="button-row">
+<zd-button data-oid="b-default"></zd-button>
+<zd-button data-oid="b-secondary" zd-variant="secondary"></zd-button>
+<zd-button data-oid="b-destructive" zd-variant="destructive"></zd-button>
+<zd-button data-oid="b-compact" zd-variant="compact"></zd-button>
+<zd-button data-oid="b-pill" zd-variant="pill"></zd-button>
+</div>
+</section>
+<section class="stack" data-name="Overrides">
+<p class="section-label">A variant plus overrides: an attribute beats the variant, the variant beats the default</p>
+<div class="button-row">
+<zd-button data-oid="b-pill-danger" zd-variant="pill" tone="danger" label="Pill, danger"></zd-button>
+<zd-button data-oid="b-compact-undo" zd-variant="compact" label="Undo"></zd-button>
+<zd-button data-oid="b-destructive-loading" zd-variant="destructive" loading="true" label="Removing…"></zd-button>
+<zd-button data-oid="b-square" radius="0" label="Square corners"></zd-button>
+<zd-button data-oid="b-success-fill" accent="var(--success)" label="Token fill"></zd-button>
+<zd-button data-oid="b-custom-fill" accent="#0f766e" label="Literal fill"></zd-button>
+<zd-button data-oid="b-springy" press="spring(0.6) 400ms" label="Springy press"></zd-button>
+<zd-button data-oid="b-explicit-default" tone="accent" label="Explicit default"></zd-button>
+</div>
+</section>
+</main>
+</body>
+</html>

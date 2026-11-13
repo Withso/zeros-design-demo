@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Captured markup</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.cap-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
+.cap-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Captured markup">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Lint showcase · rule 7</p>
+<h1 class="sheet-title">Captured markup</h1>
+<p class="sheet-lede">Rule 7 in rules.md: mark markup captured or pasted from a site or an app with data-zd-captured on its root. Three checks then skip it: repeated inline styles, literal colours and repeated markup. Both pricing rows below are the same paste; only the left one is marked.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Ask the agent to validate this frame. Every warning points at the right-hand copy. The left copy sits under a data-zd-captured root and reports none.</li>
+<li>Preview Dark (⌥T, then Dark in the menu beside Search). Both copies stay light: captured markup keeps its source's literal colours, not this folder's tokens.</li>
+<li>Select a captured card and change its padding. Style panel edits work on captured markup as on any other layer.</li>
+</ol>
+<div class="cap-grid" data-name="Copies">
+<section class="stack" data-name="Marked">
+<p class="section-label">Marked captured: no warnings</p>
+<div class="cap-row" data-zd-captured="acme.example pricing page" data-name="Pricing (captured)">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid #e2e5ea; border-radius: 12px; background: #ffffff;"><p style="margin: 0; color: #5d6576; font-size: 12px;">Starter</p><p style="margin: 0; color: #16181d; font-size: 24px; font-weight: 650; line-height: 32px;">$0</p><div style="display: flex; gap: 4px;"><span style="color: #147a4c; font-size: 12px;">Free forever</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid #e2e5ea; border-radius: 12px; background: #ffffff;"><p style="margin: 0; color: #5d6576; font-size: 12px;">Pro</p><p style="margin: 0; color: #16181d; font-size: 24px; font-weight: 650; line-height: 32px;">$24</p><div style="display: flex; gap: 4px;"><span style="color: #147a4c; font-size: 12px;">14-day trial</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid #e2e5ea; border-radius: 12px; background: #ffffff;"><p style="margin: 0; color: #5d6576; font-size: 12px;">Team</p><p style="margin: 0; color: #16181d; font-size: 24px; font-weight: 650; line-height: 32px;">$96</p><div style="display: flex; gap: 4px;"><span style="color: #147a4c; font-size: 12px;">Billed yearly</span></div></div>
+</div>
+</section>
+<section class="stack" data-name="Not marked">
+<p class="section-label">The same paste, not marked: eleven warnings</p>
+<div class="cap-row" data-name="Pricing (pasted, not marked)">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid #e2e5ea; border-radius: 12px; background: #ffffff;"><p style="margin: 0; color: #5d6576; font-size: 12px;">Starter</p><p style="margin: 0; color: #16181d; font-size: 24px; font-weight: 650; line-height: 32px;">$0</p><div style="display: flex; gap: 4px;"><span style="color: #147a4c; font-size: 12px;">Free forever</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid #e2e5ea; border-radius: 12px; background: #ffffff;"><p style="margin: 0; color: #5d6576; font-size: 12px;">Pro</p><p style="margin: 0; color: #16181d; font-size: 24px; font-weight: 650; line-height: 32px;">$24</p><div style="display: flex; gap: 4px;"><span style="color: #147a4c; font-size: 12px;">14-day trial</span></div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid #e2e5ea; border-radius: 12px; background: #ffffff;"><p style="margin: 0; color: #5d6576; font-size: 12px;">Team</p><p style="margin: 0; color: #16181d; font-size: 24px; font-weight: 650; line-height: 32px;">$96</p><div style="display: flex; gap: 4px;"><span style="color: #147a4c; font-size: 12px;">Billed yearly</span></div></div>
+</div>
+</section>
+</div>
+<p class="card-body" data-name="What is still checked">Unknown classes are still checked inside captured markup, so a capture should bring its styles with it, as these inline styles do. Mark only markup that really came from elsewhere.</p>
+</main>
+</body>
+</html>

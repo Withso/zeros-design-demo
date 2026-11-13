@@ -1,0 +1,173 @@
+/* Orbit tokens: this folder's Manual source in the theme editor.
+
+   :root holds the Light theme, which meta/canvas.json marks as the default.
+   [data-zd-theme="dark"] holds the Dark values for the same names; previewing
+   Dark in the theme editor (⌥T) sets that attribute on every frame root.
+
+   A comment after a token on the same line is its description in the Style
+   panel token picker. The picker groups tokens by role, read from the first
+   word of the name: bg = Surfaces, fg = Text, border = Borders, radius,
+   space = Spacing, font/weight/leading/tracking = Fonts, shadow,
+   duration/ease = Motion, size, opacity. A --text-<name> token with
+   --line-height, --letter-spacing and --font-weight parts is a text style. */
+
+@font-face {
+  font-family: "Geist";
+  src: url("assets/fonts/geist-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("assets/fonts/geist-mono-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5151cc;
+}
+
+:root {
+  color-scheme: light;
+
+  --bg-canvas: #f5f6f8; /* Page background behind cards */
+  --bg-surface: #ffffff; /* Cards, panels and dialogs */
+  --bg-raised: #eceff3; /* Wells, inputs and hovered rows */
+  --bg-inverse: #16181d; /* Tooltips and inverse chips */
+
+  --fg-strong: #16181d; /* Headings and primary text */
+  --fg-default: #3a4150; /* Body copy */
+  --fg-muted: #5d6576; /* Captions, hints and placeholders */
+  --fg-inverse: #ffffff; /* Text on accent, status or inverse fills */
+
+  --border-subtle: #e2e5ea; /* Dividers inside cards */
+  --border-default: #cdd2da; /* Card and input outlines */
+  --border-focus: #6e6ee0; /* Focus rings */
+
+  --accent: #5151cc; /* Primary actions, links and selection */
+  --accent-strong: #3d3da8; /* Hovered and pressed primary actions */
+  --accent-soft: #ebebfb; /* Selected rows and soft badges */
+
+  --success: #147a4c; /* Positive status */
+  --success-soft: #e1f4ea; /* Positive status background */
+  --warning: #935800; /* Caution status */
+  --warning-soft: #fbefd9; /* Caution status background */
+  --danger: #b9314b; /* Destructive actions and errors */
+  --danger-strong: #9f2138; /* Hovered destructive actions */
+  --danger-soft: #fbe4e8; /* Error background */
+
+  --radius-sm: 4px; /* Chips and inline code */
+  --radius-md: 8px; /* Buttons and inputs */
+  --radius-lg: 14px; /* Cards and dialogs */
+  --radius-full: 999px; /* Pills and avatars */
+
+  --space-1: 4px; /* Hairline gaps */
+  --space-2: 8px; /* Inside controls */
+  --space-3: 12px; /* Between related items */
+  --space-4: 16px; /* Small card padding */
+  --space-5: 24px; /* Card padding */
+  --space-6: 32px; /* Between sections */
+  --space-7: 48px; /* Page margins */
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; /* Interface text */
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; /* Code and numbers */
+  --weight-regular: 400; /* Body copy */
+  --weight-medium: 500; /* Labels and buttons */
+  --weight-bold: 650; /* Headings */
+  --leading-tight: 1.2; /* Headings */
+  --leading-normal: 1.5; /* Paragraphs */
+  --tracking-tight: -0.015em; /* Large headings */
+  --tracking-wide: 0.06em; /* Overlines */
+
+  --text-display: 44px; /* Hero headings */
+  --text-display--line-height: 56px;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 700;
+  --text-title: 26px; /* Page titles */
+  --text-title--line-height: 34px;
+  --text-title--letter-spacing: -0.01em;
+  --text-title--font-weight: 650;
+  --text-heading: 18px; /* Card and section headings */
+  --text-heading--line-height: 26px;
+  --text-heading--font-weight: 600;
+  --text-body: 15px; /* Paragraphs */
+  --text-body--line-height: 24px;
+  --text-small: 13px; /* Dense UI and controls */
+  --text-small--line-height: 20px;
+  --text-caption: 12px; /* Captions and metadata */
+  --text-caption--line-height: 16px;
+  --text-caption--letter-spacing: 0.01em;
+  --text-overline: 11px; /* Eyebrows above titles */
+  --text-overline--line-height: 16px;
+  --text-overline--letter-spacing: 0.08em;
+  --text-overline--font-weight: 650;
+
+  --shadow-sm: 0 1px 2px rgb(22 24 29 / 0.06), 0 1px 3px rgb(22 24 29 / 0.08); /* Resting cards */
+  --shadow-md: 0 6px 16px rgb(22 24 29 / 0.1); /* Hovered cards and menus */
+  --shadow-lg: 0 18px 44px rgb(22 24 29 / 0.18); /* Dialogs and toasts */
+
+  --duration-fast: 120ms; /* Hover and press */
+  --duration-base: 200ms; /* Most transitions */
+  --duration-slow: 420ms; /* Entrances */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1); /* Default easing */
+  --ease-emphasized: cubic-bezier(0.3, 0, 0, 1.4); /* Playful overshoot */
+
+  --size-icon: 16px; /* Icons in controls */
+  --size-control: 36px; /* Button and input height */
+  --size-avatar: 32px; /* Avatars */
+
+  --opacity-disabled: 0.45; /* Disabled controls */
+  --opacity-scrim: 0.6; /* Overlays behind dialogs */
+
+  --z-overlay: 100; /* Popovers above content */
+}
+
+[data-zd-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-canvas: #0e1014;
+  --bg-surface: #171a20;
+  --bg-raised: #20242c;
+  --bg-inverse: #f1f3f6;
+
+  --fg-strong: #f1f3f6;
+  --fg-default: #c6ccd6;
+  --fg-muted: #8b93a3;
+  --fg-inverse: #0e1014;
+
+  --border-subtle: #252a33;
+  --border-default: #353b46;
+  --border-focus: #9191f2;
+
+  --accent: #8080f0;
+  --accent-strong: #a3a3f6;
+  --accent-soft: #20203f;
+
+  --success: #3fcf8e;
+  --success-soft: #11301f;
+  --warning: #f0a83a;
+  --warning-soft: #33250c;
+  --danger: #f2667d;
+  --danger-strong: #f78b9c;
+  --danger-soft: #3a1820;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 8px 20px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 20px 48px rgb(0 0 0 / 0.6);
+}
+
+/* The reset sits in @layer base, the layer Tailwind's preflight uses, so in a
+   frame that also imports the Tailwind source its utilities still win. */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { min-height: 100%; margin: 0; }
+  h1, h2, h3, h4, h5, h6, p { margin: 0; }
+  img, svg { display: block; max-width: 100%; }
+  button, input, textarea, select { font: inherit; }
+}

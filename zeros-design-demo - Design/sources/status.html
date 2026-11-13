@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Source status and frame lists</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.st-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--space-6); align-items: start; }
+.table td.st-ready { color: var(--success); font-weight: var(--weight-medium); }
+.table td.st-warning { color: var(--warning); font-weight: var(--weight-medium); }
+.table td.st-error { color: var(--danger); font-weight: var(--weight-medium); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Source status and frame lists">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style sources</p>
+<h1 class="sheet-title">Status, problems and which frames get what</h1>
+<p class="sheet-lede">Every declared source has a status in the theme editor: Ready, Warning or Error, with messages that say why. Two sources here are broken on purpose, so you can see both.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Open the theme editor (⌥T). Legacy vendor CSS shows Warning with two messages; Removed stylesheet shows Error and Not imported. Each offers Ask agent to fix.</li>
+<li>Open Styles only in the Sources list: Brand motion and Legacy vendor CSS have rules but no variables.</li>
+<li>Press Update sources (the circular arrow) to re-read every source now. Saving a source file does the same on its own.</li>
+</ol>
+<div class="st-grid" data-name="Reference">
+<table class="table" data-name="Sources in this repository">
+<thead><tr><th>Source</th><th>Kind</th><th>Status</th><th>What the editor says</th></tr></thead>
+<tbody>
+<tr><td>Brand CSS</td><td>css</td><td class="st-ready">Ready</td><td>Skipped 1 @import rule; skipped 1 build-tool directive</td></tr>
+<tr><td>Brand motion</td><td>css</td><td class="st-ready">Ready</td><td>Styles only: rules, no variables</td></tr>
+<tr><td>Sass app</td><td>sass</td><td class="st-ready">Ready</td><td>Compiled with Sass</td></tr>
+<tr><td>Tailwind app</td><td>tailwind</td><td class="st-ready">Ready</td><td>Compiled with Tailwind CSS; ran the bundled typography plugin</td></tr>
+<tr><td>Token build</td><td>build</td><td class="st-ready">Ready</td><td>Live: Zeros runs the command when styles/build change</td></tr>
+<tr><td>App fonts</td><td>fonts</td><td class="st-ready">Ready</td><td>Embeds Geist Mono from this repository</td></tr>
+<tr><td>Legacy vendor CSS</td><td>css</td><td class="st-warning">Warning</td><td>Skipped 1 remote stylesheet; theme "dark" matches no rule</td></tr>
+<tr><td>Removed stylesheet</td><td>css</td><td class="st-error">Error</td><td>styles/removed.css does not exist</td></tr>
+</tbody>
+</table>
+<div class="stack" data-name="Frame lists">
+<p class="section-label">Which frames get which sources</p>
+<p class="card-body">A frame with a styles list in meta/canvas.json gets only those sources. A frame with no list gets every source. Pages 1 to 8 list none, so they use only tokens.css and the stylesheets they link.</p>
+<p class="card-body">This frame lists Legacy vendor CSS and Removed stylesheet. The alert below still gets its rules; the missing file adds nothing.</p>
+<div class="legacy-alert" data-oid="st-legacy-alert" data-name="Legacy alert"><strong>Heads up:</strong> this alert is styled by vendor.css. It has no Dark values, so it stays light in Dark.</div>
+</div>
+</div>
+</main>
+</body>
+</html>

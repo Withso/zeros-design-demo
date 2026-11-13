@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scales</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.scale-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-7); }
+.space-scale { display: flex; flex-direction: column; gap: var(--space-2); }
+.space-step { display: flex; align-items: center; gap: var(--space-3); }
+.space-bar { height: 12px; flex: none; border-radius: 2px; background: var(--accent); }
+.shape-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+.shape-box { display: grid; place-items: center; width: 112px; height: 72px; border: 1px solid var(--border-default); background: var(--bg-surface); color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); }
+.shadow-box { display: grid; place-items: center; width: 140px; height: 84px; border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); }
+.motion-step { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: center; gap: var(--space-3); }
+.motion-lane { position: relative; height: 28px; border-radius: var(--radius-full); background: var(--bg-raised); }
+.motion-dot { position: absolute; top: 4px; left: 4px; width: 20px; height: 20px; border-radius: var(--radius-full); background: var(--accent); animation: motion-run 2.4s infinite alternate; }
+@keyframes motion-run { from { left: 4px; } to { left: calc(100% - 24px); } }
+.size-row { display: flex; align-items: flex-end; gap: var(--space-6); }
+.size-item { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); margin: 0; color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); line-height: var(--text-caption--line-height); white-space: nowrap; }
+.size-box { border-radius: var(--radius-sm); background: var(--accent-soft); outline: 1px dashed var(--accent); }
+.opacity-box { display: grid; place-items: center; width: 140px; height: 56px; border-radius: var(--radius-md); background: var(--accent); color: var(--fg-inverse); font-family: var(--font-mono); font-size: var(--text-caption); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Scales">
+<header class="sheet-head">
+<p class="eyebrow">Tokens</p>
+<h1 class="sheet-title">Spacing, radius, shadow, motion, size and opacity</h1>
+<p class="sheet-lede">Every bar, box and dot reads its token through var(). Select one to see the token as a pill in its Style field; hover the pill to see where the token is declared and what it resolves to.</p>
+</header>
+<div class="scale-grid">
+<section class="stack" data-name="Spacing">
+<p class="section-label">Spacing, --space-1 to --space-7</p>
+<div class="space-scale">
+<div class="space-step"><span class="space-bar" data-oid="space-1" style="width: var(--space-1);"></span><code class="code">--space-1 · 4px</code></div>
+<div class="space-step"><span class="space-bar" data-oid="space-2" style="width: var(--space-2);"></span><code class="code">--space-2 · 8px</code></div>
+<div class="space-step"><span class="space-bar" data-oid="space-3" style="width: var(--space-3);"></span><code class="code">--space-3 · 12px</code></div>
+<div class="space-step"><span class="space-bar" data-oid="space-4" style="width: var(--space-4);"></span><code class="code">--space-4 · 16px</code></div>
+<div class="space-step"><span class="space-bar" data-oid="space-5" style="width: var(--space-5);"></span><code class="code">--space-5 · 24px</code></div>
+<div class="space-step"><span class="space-bar" data-oid="space-6" style="width: var(--space-6);"></span><code class="code">--space-6 · 32px</code></div>
+<div class="space-step"><span class="space-bar" data-oid="space-7" style="width: var(--space-7);"></span><code class="code">--space-7 · 48px</code></div>
+</div>
+</section>
+<section class="stack" data-name="Radius">
+<p class="section-label">Corner radius</p>
+<div class="shape-row">
+<div class="shape-box" data-oid="radius-sm" style="border-radius: var(--radius-sm);">--radius-sm</div>
+<div class="shape-box" data-oid="radius-md" style="border-radius: var(--radius-md);">--radius-md</div>
+<div class="shape-box" data-oid="radius-lg" style="border-radius: var(--radius-lg);">--radius-lg</div>
+<div class="shape-box" data-oid="radius-full" style="border-radius: var(--radius-full);">--radius-full</div>
+</div>
+</section>
+<section class="stack" data-name="Shadows">
+<p class="section-label">Shadows</p>
+<div class="shape-row">
+<div class="shadow-box" data-oid="shadow-sm" style="box-shadow: var(--shadow-sm);">--shadow-sm</div>
+<div class="shadow-box" data-oid="shadow-md" style="box-shadow: var(--shadow-md);">--shadow-md</div>
+<div class="shadow-box" data-oid="shadow-lg" style="box-shadow: var(--shadow-lg);">--shadow-lg</div>
+</div>
+</section>
+<section class="stack" data-name="Motion">
+<p class="section-label">Motion: one easing token per dot</p>
+<div class="motion-step" data-name="Standard"><code class="code">--ease-standard</code><div class="motion-lane" data-name="Standard lane"><span class="motion-dot" data-oid="ease-standard" style="animation-timing-function: var(--ease-standard);"></span></div></div>
+<div class="motion-step" data-name="Emphasized"><code class="code">--ease-emphasized</code><div class="motion-lane" data-name="Emphasized lane"><span class="motion-dot" data-oid="ease-emphasized" style="animation-timing-function: var(--ease-emphasized);"></span></div></div>
+<div class="row" data-name="Durations"><code class="code">--duration-fast · 120ms</code><code class="code">--duration-base · 200ms</code><code class="code">--duration-slow · 420ms</code></div>
+</section>
+<section class="stack" data-name="Sizes">
+<p class="section-label">Sizes</p>
+<div class="size-row">
+<figure class="size-item" data-name="Icon size"><span class="size-box" data-oid="size-icon" style="width: var(--size-icon); height: var(--size-icon);"></span><figcaption>--size-icon · 16px</figcaption></figure>
+<figure class="size-item" data-name="Avatar size"><span class="size-box" data-oid="size-avatar" style="width: var(--size-avatar); height: var(--size-avatar);"></span><figcaption>--size-avatar · 32px</figcaption></figure>
+<figure class="size-item" data-name="Control height"><span class="size-box" data-oid="size-control" style="width: 96px; height: var(--size-control);"></span><figcaption>--size-control · 36px high</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Opacity">
+<p class="section-label">Opacity and layers</p>
+<div class="shape-row">
+<div class="opacity-box" data-oid="opacity-disabled" style="opacity: var(--opacity-disabled);">--opacity-disabled</div>
+<div class="opacity-box" data-oid="opacity-scrim" style="opacity: var(--opacity-scrim);">--opacity-scrim</div>
+<div class="opacity-box" data-oid="z-overlay" style="position: relative; z-index: var(--z-overlay);">--z-overlay</div>
+</div>
+</section>
+</div>
+</main>
+</body>
+</html>

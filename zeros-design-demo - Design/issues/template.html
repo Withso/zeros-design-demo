@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template issues</title>
+<template data-zd-options>
+<zd-option name="tone" type="choice" label="Tone" choices="info success warning danger" default="success"></zd-option>
+<zd-option name="show-card" type="boolean" label="Show the wrapped card" default="true"></zd-option>
+</template>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.ti-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
+.ti-panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+zd-card { display: block; }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Template issues">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Known issues 1 and 2</p>
+<h1 class="sheet-title">Template issues</h1>
+<p class="sheet-lede">This frame is a component with two options, Tone and Show the wrapped card. Each half shows a problem in how Zeros handles a component's template.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select the frame and change Tone in Options. The badge follows, because the hole fills its class.</li>
+<li>Ask the agent to validate this frame. It still warns that pieces of the class attribute are unknown classes.</li>
+<li>Turn Show the wrapped card off and on. Its text comes and goes, but it never becomes a card.</li>
+</ol>
+<div class="ti-grid" data-name="Issues">
+<section class="ti-panel" data-name="Issue 1">
+<p class="section-label">1 · A hole in a class attribute</p>
+<div class="row" data-name="Badge row"><span class="badge badge--soft badge--{{ tone }}" data-oid="ti-badge" data-name="Badge with a class hole"><span class="badge-dot" data-oid="ti-dot"></span><span data-oid="ti-text">{{ tone }}</span></span></div>
+<p class="card-body">It renders right. Validate checks the attribute as written and splits it at the spaces inside the hole, so each piece warns. Page 3's Badge draws one copy per look with data-zd-if to avoid this.</p>
+</section>
+<section class="ti-panel" data-name="Issue 2">
+<p class="section-label">2 · An instance inside a template wrapper</p>
+<zd-card data-oid="ti-direct" meta="Placed directly" heading="Expanded">This zd-card sits in the body, so Zeros expands it into components/card.html.</zd-card>
+<template data-zd-if="show-card"><zd-card data-oid="ti-wrapped" meta="Inside a template" heading="Not expanded">This zd-card sits inside a template data-zd-if wrapper. Zeros keeps the wrapper's content but never expands the instance, so only this text shows.</zd-card></template>
+</section>
+</div>
+</main>
+</body>
+</html>

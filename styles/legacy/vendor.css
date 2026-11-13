@@ -1,0 +1,19 @@
+/* Legacy vendor CSS: an old stylesheet that still pulls a reset from a CDN.
+   Design never fetches it, so the source shows a warning. Its declaration
+   also maps the Dark theme to .theme-dark, which nothing here uses, so a
+   second warning says that mapping matches no rule. Both are on purpose. */
+@import url("https://cdn.example.com/vendor/reset.css");
+
+.legacy-alert {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-left: 4px solid #b45309;
+  border-radius: 6px;
+  background-color: #fffbeb;
+  color: #78350f;
+  font-size: 13px;
+  line-height: 20px;
+}
+.legacy-alert strong { flex: none; font-weight: 700; }

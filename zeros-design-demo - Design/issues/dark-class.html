@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tailwind with a .dark class</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.try { list-style: decimal; }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Tailwind with a .dark class">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Known issue 7</p>
+<h1 class="sheet-title">Tailwind dark: utilities with a .dark class</h1>
+<p class="sheet-lede">This frame receives Tailwind (.dark class), a second Tailwind source. Its dark: variant follows a .dark class, the most common Tailwind setup, and the source maps .dark to the canvas Dark theme. In Dark the card should turn dark. It stays light.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Preview Dark (⌥T, then Dark in the menu beside Search). The card keeps its white fill and dark text.</li>
+<li>Compare the Tailwind frame on page 9. Its dark: variant follows data-theme instead, and its cards turn dark.</li>
+<li>Open the theme editor (⌥T) and choose Tailwind (.dark class): its Dark mapping is .dark.</li>
+</ol>
+<div class="grid grid-cols-2 gap-5" data-name="Example">
+<article class="rounded-2xl bg-white p-6 text-zinc-900 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:text-white dark:ring-zinc-700" data-oid="dc-card" data-name="Card with dark: utilities">
+<p class="text-sm font-medium text-zinc-500 dark:text-zinc-400" data-oid="dc-eyebrow">In Dark this card should be</p>
+<p class="mt-2 text-2xl font-semibold" data-oid="dc-title">zinc-900 with white text</p>
+<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300" data-oid="dc-classes">bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white</p>
+</article>
+<div class="stack" data-name="Why">
+<p class="section-label">Why</p>
+<p class="card-body">Tailwind writes each dark: utility as a class whose name starts with dark and an escaped colon, followed by the .dark condition. Zeros rewrites .dark to the Dark theme's attribute everywhere, including the start of those class names, so no dark: rule matches any element.</p>
+<p class="card-body">A mapping on an attribute selector, such as page 9's data-theme, or on a media query, is not affected.</p>
+</div>
+</div>
+</main>
+</body>
+</html>

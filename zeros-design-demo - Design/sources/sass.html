@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sass: Sass app</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.sass-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); align-items: start; }
+.sass-map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Sass: Sass app">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style sources</p>
+<h1 class="sheet-title">Sass, compiled by Zeros</h1>
+<p class="sheet-lede">styles/sass/app.scss uses two partials, nesting, a mixin and an @each loop. Zeros compiles it with its own Dart Sass and imports the CSS. Nothing in the repository runs, and no install is needed.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Open the theme editor (⌥T) and choose Sass app: "Compiled with Sass", then the --sass-* variables, each with a Dark value.</li>
+<li>Select a tile. Styled by lists .tile; Fill reads sass-surface, From the class .tile, Source Sass app.</li>
+<li>Preview Dark: pick Dark in the menu beside Search. The Sass entry's prefers-color-scheme block is mapped to the Dark theme.</li>
+<li>Edit styles/sass/_tokens.scss and save. The source recompiles and the frame redraws; no button needed.</li>
+</ol>
+<div class="sass-grid" data-name="Tiles">
+<article class="tile" data-oid="sass-tile-1" data-name="Tile: review">
+<p class="tile__title" data-oid="sass-tile-1-title">Quarterly review</p>
+<p class="tile__meta" data-oid="sass-tile-1-meta">Due Friday · 4 reviewers</p>
+<div class="row" data-name="Tags"><span class="tag--teal" data-oid="sass-tag-teal">On track</span><span class="tag--amber" data-oid="sass-tag-amber">Needs copy</span></div>
+</article>
+<article class="tile tile--featured" data-oid="sass-tile-2" data-name="Tile: featured">
+<p class="tile__title" data-oid="sass-tile-2-title">Launch checklist</p>
+<p class="tile__meta" data-oid="sass-tile-2-meta">.tile--featured adds an outline</p>
+<div class="row" data-name="Tags"><span class="tag--violet" data-oid="sass-tag-violet">Featured</span></div>
+</article>
+<article class="tile" data-oid="sass-tile-3" data-name="Tile: blocked">
+<p class="tile__title" data-oid="sass-tile-3-title">Pricing page</p>
+<p class="tile__meta" data-oid="sass-tile-3-meta">Waiting on legal</p>
+<div class="row" data-name="Tags"><span class="tag--rose" data-oid="sass-tag-rose">Blocked</span></div>
+</article>
+</div>
+<section class="sass-map" data-name="Where each class comes from">
+<div class="stack" data-name="Nesting">
+<p class="section-label">Nesting and BEM</p>
+<p class="card-body">In app.scss, the &amp;__title, &amp;__meta, &amp;--featured and &amp;:hover blocks inside .tile compile to .tile__title, .tile__meta, .tile--featured and .tile:hover.</p>
+</div>
+<div class="stack" data-name="Loop and mixin">
+<p class="section-label">@each and @include</p>
+<p class="card-body">One @each over the tones writes .tag--teal, .tag--amber, .tag--rose and .tag--violet. The pill mixin gives each one the same shape.</p>
+</div>
+<div class="stack" data-name="Variables">
+<p class="section-label">Sass maps to CSS variables</p>
+<p class="card-body">_tokens.scss holds two Sass maps. The entry writes them out as --sass-* variables, which the theme editor lists and the token picker offers in this frame.</p>
+</div>
+</section>
+</main>
+</body>
+</html>

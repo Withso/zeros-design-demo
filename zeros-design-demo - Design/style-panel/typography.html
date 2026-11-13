@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Typography</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.type-spec { margin: 0; padding: var(--space-3); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); color: var(--fg-strong); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Typography">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style panel · Typography</p>
+<h1 class="sheet-title">Typography: text styles, size, weight and spacing</h1>
+<p class="sheet-lede">Typography edits font, weight, size, line height, letter spacing, alignment, decoration and case. A text style applies a --text-name token and each of its parts at once. On text layers Typography comes before Fill.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select "Text style --text-title". Typography shows the title text style. Pick another and Zeros writes font-size and each part as var().</li>
+<li>Select Inherited: its values are dimmed because they come from a parent layer. Type a size and it becomes the layer's own value.</li>
+<li>Select a box with no text on another page: Typography is hidden there. Add it from Add property.</li>
+</ol>
+<section class="stack" data-name="Text specimens">
+<p class="section-label">Each specimen is one text layer with its own values</p>
+<div class="spec-grid spec-grid--3" data-name="Text specimens specimens">
+<figure class="spec" data-name="Text style --text-title"><p class="type-spec" data-oid="type-style-token" data-name="Text style --text-title" style="font-size: var(--text-title); line-height: var(--text-title--line-height); letter-spacing: var(--text-title--letter-spacing); font-weight: var(--text-title--font-weight);">Orbit release notes</p><figcaption class="spec-cap">Text style --text-title</figcaption></figure>
+<figure class="spec" data-name="Literal values"><p class="type-spec" data-oid="type-literal" data-name="Literal values" style="font-size: 20px; line-height: 28px; font-weight: 500;">Twenty on twenty-eight</p><figcaption class="spec-cap">Size 20, line height 28, weight 500</figcaption></figure>
+<figure class="spec" data-name="Mono, tabular"><p class="type-spec" data-oid="type-mono" data-name="Mono, tabular" style="font-family: var(--font-mono); font-size: 14px; font-variant-numeric: tabular-nums;">12,480.00 · 9,031.50</p><figcaption class="spec-cap">Mono family token, tabular numbers</figcaption></figure>
+<figure class="spec" data-name="Tracking and case"><p class="type-spec" data-oid="type-tracking" data-name="Tracking and case" style="font-size: 12px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase;">Overline label</p><figcaption class="spec-cap">Letter spacing 0.12em, uppercase</figcaption></figure>
+<figure class="spec" data-name="Centred"><p class="type-spec" data-oid="type-center" data-name="Centred" style="text-align: center;">Centred text</p><figcaption class="spec-cap">Align centre</figcaption></figure>
+<figure class="spec" data-name="Right aligned"><p class="type-spec" data-oid="type-right" data-name="Right aligned" style="text-align: right;">Right-aligned text</p><figcaption class="spec-cap">Align right</figcaption></figure>
+<figure class="spec" data-name="Justified"><p class="type-spec" data-oid="type-justify" data-name="Justified" style="text-align: justify; font-size: 13px; line-height: 20px;">Justified text spreads each full line to both edges, which shows best in a narrow column like this one.</p><figcaption class="spec-cap">Align justify</figcaption></figure>
+<figure class="spec" data-name="Wavy underline"><p class="type-spec" data-oid="type-underline" data-name="Wavy underline" style="text-decoration: underline wavy var(--accent); text-underline-offset: 4px;">Underlined, wavy</p><figcaption class="spec-cap">Decoration underline, wavy, offset 4</figcaption></figure>
+<figure class="spec" data-name="Struck and italic"><p class="type-spec" data-oid="type-strike" data-name="Struck and italic" style="font-style: italic; text-decoration-line: line-through;">Old price 49</p><figcaption class="spec-cap">Italic, line-through</figcaption></figure>
+<figure class="spec" data-name="Balanced wrap"><p class="type-spec" data-oid="type-balance" data-name="Balanced wrap" style="font-size: 18px; line-height: 24px; text-wrap: balance;">A longer heading that wraps onto two even lines</p><figcaption class="spec-cap">text-wrap: balance</figcaption></figure>
+<figure class="spec" data-name="Unitless line height"><p class="type-spec" data-oid="type-unitless" data-name="Unitless line height" style="line-height: 1.8;">Line height 1.8 shows what it resolves to.</p><figcaption class="spec-cap">Unitless line height 1.8</figcaption></figure>
+<figure class="spec" data-name="Inherited"><p class="type-spec" data-oid="type-inherited" data-name="Inherited">Every value here is inherited.</p><figcaption class="spec-cap">Inherited from the body</figcaption></figure>
+</div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fill</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.fill-tile { height: 96px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); }
+.fill-text { color: var(--fg-strong); font-size: var(--text-heading); line-height: var(--text-heading--line-height); font-weight: var(--weight-bold); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Fill">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style panel · Fill</p>
+<h1 class="sheet-title">Fill: solid, gradients, images and layers</h1>
+<p class="sheet-lede">Fill edits backgrounds: a solid colour, linear, radial and conic gradients, an image, several layers in paint order, and how they blend. On a text layer Fill edits the text colour instead.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Select "Solid, token". Fill shows an --accent pill. In the colour picker, Theme lists colour tokens and Custom edits a literal.</li>
+<li>Select Linear and drag a stop. The gradient is rewritten in place in the style attribute.</li>
+<li>Select "Two layers": Fill lists the gradient and the image. Then select a text specimen: Fill is its colour.</li>
+</ol>
+<section class="stack" data-name="Solid colours">
+<p class="section-label">Solid colours</p>
+<div class="spec-grid" data-name="Solid colours specimens">
+<figure class="spec" data-name="Solid, token"><div class="fill-tile" data-oid="fill-solid-token" data-name="Solid, token" style="background-color: var(--accent);"></div><figcaption class="spec-cap">Solid, token --accent</figcaption></figure>
+<figure class="spec" data-name="Solid, literal"><div class="fill-tile" data-oid="fill-solid-literal" data-name="Solid, literal" style="background-color: #f97316;"></div><figcaption class="spec-cap">Solid, literal #f97316</figcaption></figure>
+<figure class="spec" data-name="Solid, 30%"><div class="fill-tile" data-oid="fill-solid-alpha" data-name="Solid, 30%" style="background-color: rgb(81 81 204 / 0.3);"></div><figcaption class="spec-cap">Solid at 30% opacity</figcaption></figure>
+<figure class="spec" data-name="No fill"><div class="fill-tile" data-oid="fill-none" data-name="No fill" style="background-color: transparent;"></div><figcaption class="spec-cap">Transparent</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Gradients">
+<p class="section-label">Gradients</p>
+<div class="spec-grid" data-name="Gradients specimens">
+<figure class="spec" data-name="Linear"><div class="fill-tile" data-oid="fill-linear" data-name="Linear" style="background-image: linear-gradient(135deg, var(--accent), var(--success));"></div><figcaption class="spec-cap">Linear, 135°, two tokens</figcaption></figure>
+<figure class="spec" data-name="Radial"><div class="fill-tile" data-oid="fill-radial" data-name="Radial" style="background-image: radial-gradient(circle at 30% 30%, #fde68a, #f97316 55%, #7c2d12);"></div><figcaption class="spec-cap">Radial, three literal stops</figcaption></figure>
+<figure class="spec" data-name="Conic"><div class="fill-tile" data-oid="fill-conic" data-name="Conic" style="background-image: conic-gradient(from 90deg, var(--accent), var(--success), var(--warning), var(--danger), var(--accent));"></div><figcaption class="spec-cap">Conic, from 90°</figcaption></figure>
+<figure class="spec" data-name="Repeating stripes"><div class="fill-tile" data-oid="fill-repeating" data-name="Repeating stripes" style="background-image: repeating-linear-gradient(45deg, var(--bg-raised) 0 8px, var(--bg-surface) 8px 16px);"></div><figcaption class="spec-cap">Repeating linear stripes</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Images and layers">
+<p class="section-label">Images, layers, fill blend and text</p>
+<div class="spec-grid" data-name="Images and layers specimens">
+<figure class="spec" data-name="Image"><div class="fill-tile" data-oid="fill-image" data-name="Image" style="background-image: url(../assets/images/orbit.jpg); background-size: cover; background-position: center;"></div><figcaption class="spec-cap">Image, cover</figcaption></figure>
+<figure class="spec" data-name="Two layers"><div class="fill-tile" data-oid="fill-layers" data-name="Two layers" style="background-image: linear-gradient(180deg, rgb(0 0 0 / 0) 30%, rgb(0 0 0 / 0.7)), url(../assets/images/orbit.jpg); background-size: cover; background-position: center;"></div><figcaption class="spec-cap">Two layers: a gradient over the image</figcaption></figure>
+<figure class="spec" data-name="Fill blend"><div class="fill-tile" data-oid="fill-blend" data-name="Fill blend" style="background-image: url(../assets/images/orbit.jpg), linear-gradient(90deg, var(--accent), var(--warning)); background-size: cover; background-blend-mode: luminosity;"></div><figcaption class="spec-cap">Fill blend: luminosity</figcaption></figure>
+<figure class="spec" data-name="Text fill"><p class="fill-text" data-oid="fill-text-token" data-name="Text fill" style="color: var(--accent);">Accent text</p><figcaption class="spec-cap">Text layer: Fill is color</figcaption></figure>
+</div>
+</section>
+</main>
+</body>
+</html>

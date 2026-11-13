@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Type</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.type-list { display: flex; flex-direction: column; gap: var(--space-4); }
+.type-row { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: baseline; gap: var(--space-5); padding-bottom: var(--space-4); border-bottom: 1px solid var(--border-subtle); }
+.type-sample { color: var(--fg-strong); }
+.type-fonts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.font-card { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--fg-strong); font-size: var(--text-heading); line-height: var(--text-heading--line-height); }
+.weights { display: flex; gap: var(--space-5); color: var(--fg-strong); font-size: var(--text-heading); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Type">
+<header class="sheet-head">
+<p class="eyebrow">Tokens</p>
+<h1 class="sheet-title">Text styles, fonts and weights</h1>
+<p class="sheet-lede">A text style is a --text-&lt;name&gt; size token plus --line-height, --letter-spacing and --font-weight parts beside it. Each sample line sets its style inline, the way the Typography section's Style row writes it.</p>
+</header>
+<section class="type-list" data-name="Text styles">
+<div class="type-row" data-name="Display"><code class="code">--text-display</code><p class="type-sample" data-oid="type-display" style="font-size: var(--text-display); line-height: var(--text-display--line-height); letter-spacing: var(--text-display--letter-spacing); font-weight: var(--text-display--font-weight);">Ship the whole orbit</p></div>
+<div class="type-row" data-name="Title"><code class="code">--text-title</code><p class="type-sample" data-oid="type-title" style="font-size: var(--text-title); line-height: var(--text-title--line-height); letter-spacing: var(--text-title--letter-spacing); font-weight: var(--text-title--font-weight);">Project settings</p></div>
+<div class="type-row" data-name="Heading"><code class="code">--text-heading</code><p class="type-sample" data-oid="type-heading" style="font-size: var(--text-heading); line-height: var(--text-heading--line-height); font-weight: var(--text-heading--font-weight);">Recent deploys</p></div>
+<div class="type-row" data-name="Body"><code class="code">--text-body</code><p class="type-sample" data-oid="type-body" style="font-size: var(--text-body); line-height: var(--text-body--line-height);">Body copy reads at 15px with a 24px line, so long paragraphs stay comfortable in both themes.</p></div>
+<div class="type-row" data-name="Small"><code class="code">--text-small</code><p class="type-sample" data-oid="type-small" style="font-size: var(--text-small); line-height: var(--text-small--line-height);">Dense interface text: table cells, buttons and form labels.</p></div>
+<div class="type-row" data-name="Caption"><code class="code">--text-caption</code><p class="type-sample" data-oid="type-caption" style="font-size: var(--text-caption); line-height: var(--text-caption--line-height); letter-spacing: var(--text-caption--letter-spacing);">Updated 4 minutes ago by Arun</p></div>
+<div class="type-row" data-name="Overline"><code class="code">--text-overline</code><p class="type-sample" data-oid="type-overline" style="font-size: var(--text-overline); line-height: var(--text-overline--line-height); letter-spacing: var(--text-overline--letter-spacing); font-weight: var(--text-overline--font-weight); text-transform: uppercase;">Section eyebrow</p></div>
+<div class="type-row" data-name="No style yet"><code class="code">(none)</code><p class="type-sample" data-oid="type-unstyled" data-name="Try: apply a text style">This line has no text style. Select it and choose one in Typography.</p></div>
+</section>
+<section class="stack" data-name="Fonts">
+<p class="section-label">Font families and weights</p>
+<div class="type-fonts">
+<div class="font-card" data-oid="font-sans" style="font-family: var(--font-sans);">Geist, --font-sans<span class="spec-cap">Interface text. Loaded by @font-face in tokens.css from assets/fonts.</span></div>
+<div class="font-card" data-oid="font-mono" style="font-family: var(--font-mono);">Geist Mono, --font-mono<span class="spec-cap">Code and numbers: 0123456789</span></div>
+</div>
+<div class="weights" data-name="Weights"><span data-oid="weight-regular" style="font-weight: var(--weight-regular);">Regular 400</span><span data-oid="weight-medium" style="font-weight: var(--weight-medium);">Medium 500</span><span data-oid="weight-bold" style="font-weight: var(--weight-bold);">Bold 650</span></div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>List item</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="ui.css">
+<style>
+zd-list-item { display: block; }
+.list-item { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); }
+.list-item-lead { display: flex; flex: none; }
+.list-item-text { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.list-item-heading { overflow: hidden; color: var(--fg-strong); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: var(--weight-medium); text-overflow: ellipsis; white-space: nowrap; }
+.list-item-detail { overflow: hidden; color: var(--fg-muted); font-size: var(--text-caption); line-height: var(--text-caption--line-height); text-overflow: ellipsis; white-space: nowrap; }
+.list-item-meta { flex: none; color: var(--fg-muted); font-size: var(--text-caption); font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<div class="list-item" data-zid="list-item">
+<div class="list-item-lead" data-zid="list-item-lead"><slot><span class="avatar" data-zid="list-item-placeholder">?</span></slot></div>
+<div class="list-item-text" data-zid="list-item-text">
+<p class="list-item-heading" data-zid="list-item-heading"><slot data-zd-attr="heading">Untitled</slot></p>
+<p class="list-item-detail" data-zid="list-item-detail"><slot data-zd-attr="detail">No details</slot></p>
+</div>
+<span class="list-item-meta" data-zid="list-item-meta"><slot data-zd-attr="meta"></slot></span>
+</div>
+</body>
+</html>

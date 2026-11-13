@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Transition and motion</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.mo-tile { display: grid; place-items: center; height: 88px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); color: var(--fg-default); font-size: var(--text-caption); line-height: var(--text-caption--line-height); cursor: pointer; }
+.mo-colour:hover { background: var(--accent); color: var(--fg-inverse); }
+.mo-lift:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+.mo-fade:hover { opacity: 0.4; }
+.mo-steps:hover { background: var(--warning-soft); }
+.mo-dot { display: block; width: 40px; height: 40px; margin: var(--space-6) auto; border-radius: var(--radius-full); background: var(--accent); }
+.mo-orbit { position: relative; width: 88px; height: 88px; margin: var(--space-2) auto; border: 1px dashed var(--border-default); border-radius: var(--radius-full); }
+.mo-spinner { width: 40px; height: 40px; margin: var(--space-6) auto; border-width: 4px; color: var(--accent); }
+.mo-moon { position: absolute; top: -8px; left: 36px; width: 16px; height: 16px; border-radius: var(--radius-full); background: var(--warning); }
+@keyframes pulse { 0%, 100% { scale: 1; opacity: 1; } 50% { scale: 1.25; opacity: 0.6; } }
+@keyframes slide-in { from { translate: -24px 0; opacity: 0; } to { translate: 0 0; opacity: 1; } }
+@keyframes bounce { from { translate: 0 0; } to { translate: 0 -16px; } }
+@keyframes hue { to { filter: hue-rotate(360deg); } }
+@keyframes orbit { to { rotate: 360deg; } }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Transition and motion">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Style panel · Transition and Motion</p>
+<h1 class="sheet-title">Transition and Motion: state changes and keyframes</h1>
+<p class="sheet-lede">Transition edits how a layer animates between values: property, duration, delay and easing, one row per transition. Motion edits @keyframes animations and opens the timeline, which previews and edits the keyframes in this file.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Hover the four top tiles on the canvas to run their transitions. Select one: Transition lists each property with its duration, delay and easing.</li>
+<li>Select Pulse: Motion shows the animation, and the timeline edits the @keyframes pulse rule in this frame's style.</li>
+<li>Captures stop animations, so the screenshots and the Changes view stay stable.</li>
+</ol>
+<section class="stack" data-name="Transitions">
+<p class="section-label">Transition: hover these on the canvas</p>
+<div class="spec-grid" data-name="Transitions specimens">
+<figure class="spec" data-name="Colour on hover"><div class="mo-tile mo-colour" data-oid="mo-colour" data-name="Colour on hover" style="transition: background-color var(--duration-base) var(--ease-standard), color var(--duration-base) var(--ease-standard);">colour, token timing</div><figcaption class="spec-cap">Two properties, token duration and easing</figcaption></figure>
+<figure class="spec" data-name="Lift on hover"><div class="mo-tile mo-lift" data-oid="mo-lift" data-name="Lift on hover" style="transition: transform 420ms var(--ease-emphasized), box-shadow 420ms ease-out;">lift with overshoot</div><figcaption class="spec-cap">Transform with an overshoot easing</figcaption></figure>
+<figure class="spec" data-name="Fade after a delay"><div class="mo-tile mo-fade" data-oid="mo-fade" data-name="Fade after a delay" style="transition: opacity 120ms linear 300ms;">fades after 300ms</div><figcaption class="spec-cap">Opacity, 300ms delay</figcaption></figure>
+<figure class="spec" data-name="Stepped"><div class="mo-tile mo-steps" data-oid="mo-steps" data-name="Stepped" style="transition: background-color 600ms steps(4, end);">four steps</div><figcaption class="spec-cap">steps(4, end)</figcaption></figure>
+</div>
+</section>
+<section class="stack" data-name="Animations">
+<p class="section-label">Motion: @keyframes animations</p>
+<div class="spec-grid" data-name="Animations specimens">
+<figure class="spec" data-name="Pulse"><div class="mo-dot" data-oid="mo-pulse" data-name="Pulse" style="animation: pulse 1.6s var(--ease-standard) infinite;"></div><figcaption class="spec-cap">pulse, forever</figcaption></figure>
+<figure class="spec" data-name="Slide in"><div class="mo-dot" data-oid="mo-slide" data-name="Slide in" style="animation: slide-in 600ms var(--ease-emphasized) both;"></div><figcaption class="spec-cap">slide-in, once, fill both</figcaption></figure>
+<figure class="spec" data-name="Bounce"><div class="mo-dot" data-oid="mo-bounce" data-name="Bounce" style="animation: bounce 500ms cubic-bezier(0.3, 0, 0.6, 1) infinite alternate;"></div><figcaption class="spec-cap">bounce, alternate</figcaption></figure>
+<figure class="spec" data-name="Two animations"><div class="mo-dot" data-oid="mo-two" data-name="Two animations" style="animation: pulse 2s ease-in-out infinite, hue 6s linear infinite;"></div><figcaption class="spec-cap">Two animations on one layer</figcaption></figure>
+<figure class="spec" data-name="Orbit"><div class="mo-orbit" data-oid="mo-orbit" data-name="Orbit" style="animation: orbit 4s linear infinite;"><span class="mo-moon" data-oid="mo-moon" data-name="Moon"></span></div><figcaption class="spec-cap">orbit turns the parent; the moon rides along</figcaption></figure>
+<figure class="spec" data-name="Spinner from ui.css"><span class="spinner mo-spinner" data-oid="mo-spinner" data-name="Spinner from ui.css"></span><figcaption class="spec-cap">spin comes from a ui.css class</figcaption></figure>
+</div>
+</section>
+</main>
+</body>
+</html>

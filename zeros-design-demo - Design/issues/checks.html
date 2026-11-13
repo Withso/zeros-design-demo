@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Check issues</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.ic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); align-items: start; }
+.ic-panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+.ic-truncate { overflow: hidden; padding: var(--space-2) var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-md); font-size: var(--text-small); text-overflow: ellipsis; white-space: nowrap; }
+.ic-oklch { padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--text-small); font-weight: var(--weight-medium); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Check issues">
+<header class="sheet-head" data-name="Header">
+<p class="eyebrow">Known issues 3 to 6</p>
+<h1 class="sheet-title">Check issues</h1>
+<p class="sheet-lede">Three small cases that the checks get wrong. Zeros measures contrast and overflow in every rendered frame, but nothing shows those results yet, so only the first case is visible in the app.</p>
+</header>
+<ol class="try" data-name="Try this">
+<li>Ask the agent to validate this frame. It warns that --gap-xl is an unknown token, though the name only appears in a sentence.</li>
+<li>Cases 4 and 5 trip the canvas's own audits. The demo repository's README says how to see that.</li>
+</ol>
+<div class="ic-grid" data-name="Cases">
+<section class="ic-panel" data-name="Issue 3">
+<p class="section-label">3 · A token named in a sentence</p>
+<p class="card-body" data-oid="ic-prose">To widen the gap, write <code class="code">var(--gap-xl)</code> in the frame's CSS.</p>
+</section>
+<section class="ic-panel" data-name="Issue 4">
+<p class="section-label">4 · oklch() colours</p>
+<p class="ic-oklch" data-oid="ic-oklch" data-name="oklch chip" style="background-color: oklch(0.968 0.007 247.896); color: oklch(0.208 0.042 265.755);">Dark text on a light fill</p>
+<p class="card-body">Tailwind v4's slate-100 and slate-900. The audit reads the first three numbers as red, green and blue, so it measures about 1:1.</p>
+</section>
+<section class="ic-panel" data-name="Issue 5">
+<p class="section-label">5 · An ellipsis</p>
+<p class="ic-truncate" data-oid="ic-ellipsis" data-name="Truncated label">A file name long enough to be cut off at the end of its box.pdf</p>
+<p class="card-body">The text is meant to be cut off, but the overflow audit still reports the box.</p>
+</section>
+</div>
+</main>
+</body>
+</html>
