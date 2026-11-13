@@ -49,7 +49,7 @@ zd-progress { display: block; }
 </div>
 <div class="progress-track" data-oid="progress-track" data-name="Track" role="progressbar" aria-valuenow="{{ value }}" aria-valuemin="0" aria-valuemax="100" data-zd-if="shape == 'bar'"><div class="progress-fill" data-oid="progress-fill" data-name="Fill"></div></div>
 <div class="progress-ring" data-oid="progress-ring" data-name="Ring" role="progressbar" aria-valuenow="{{ value }}" aria-valuemin="0" aria-valuemax="100" data-zd-if="shape == 'ring'"><span class="progress-ring-hole" data-oid="progress-ring-hole" data-name="Ring value"><template data-zd-if="show-value">{{ value }}%</template></span></div>
-<p class="progress-status" data-oid="progress-status" data-name="Status"><svg data-oid="progress-done" data-zd-if="done" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>{{ status }}<template data-zd-if="!done && value > 0"> · {{ remaining }}% left</template></p>
+<p class="progress-status" data-oid="progress-status" data-name="Status"><svg data-oid="progress-done" data-zd-if="done" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7" data-oid="o-126f742e7"/></svg>{{ status }}<template data-zd-if="!done && value > 0"> · {{ remaining }}% left</template></p>
 </div>
 </body>
 </html>

@@ -13,42 +13,42 @@
 </style>
 </head>
 <body>
-<main class="sheet" data-name="Repeated markup">
-<header class="sheet-head" data-name="Header">
-<p class="eyebrow">Lint showcase · rule 8</p>
-<h1 class="sheet-title">Repeated markup</h1>
-<p class="sheet-lede">Rule 8 in rules.md: markup repeated three or more times becomes a component. Validate compares the tree of tags and classes, ignoring text and other attributes. It looks only at trees of four or more elements, two levels deep.</p>
+<main class="sheet" data-name="Repeated markup" data-oid="o-a357106db">
+<header class="sheet-head" data-name="Header" data-oid="o-34217ef11">
+<p class="eyebrow" data-oid="o-10a9aa03f">Lint showcase · rule 8</p>
+<h1 class="sheet-title" data-oid="o-67c42e04d">Repeated markup</h1>
+<p class="sheet-lede" data-oid="o-1235cd30b">Rule 8 in rules.md: markup repeated three or more times becomes a component. Validate compares the tree of tags and classes, ignoring text and other attributes. It looks only at trees of four or more elements, two levels deep.</p>
 </header>
-<ol class="try" data-name="Try this">
-<li>Ask the agent to validate this frame. It names the hand-written cards on the left and their three lines. Pro counts too: state classes such as is-selected are ignored.</li>
-<li>Select a card on the right. It is an instance of components/card.html: its meta and heading are attributes, and its body is its children. Change that file once and all three follow.</li>
-<li>Ask the agent to turn the left cards into a component. It reuses card or writes a new components file, and replaces each copy with one tag.</li>
+<ol class="try" data-name="Try this" data-oid="o-865bca498">
+<li data-oid="o-0aeffa3b3">Ask the agent to validate this frame. It names the hand-written cards on the left and their three lines. Pro counts too: state classes such as is-selected are ignored.</li>
+<li data-oid="o-898b74a8a">Select a card on the right. It is an instance of components/card.html: its meta and heading are attributes, and its body is its children. Change that file once and all three follow.</li>
+<li data-oid="o-06de557de">Ask the agent to turn the left cards into a component. It reuses card or writes a new components file, and replaces each copy with one tag.</li>
 </ol>
-<div class="rm-grid" data-name="Cases">
-<section class="stack" data-name="Warns">
-<p class="section-label">Warns: written out three times</p>
-<div class="rm-cards" data-name="Hand-written cards">
-<article class="card card--flat" data-oid="rm-starter" data-name="Plan: Starter"><p class="eyebrow">Starter</p><h3 class="card-title">$0</h3><div class="row"><span class="badge badge--soft badge--info">For one person</span></div></article>
-<article class="card card--flat is-selected" data-oid="rm-pro" data-name="Plan: Pro"><p class="eyebrow">Pro</p><h3 class="card-title">$24</h3><div class="row"><span class="badge badge--soft badge--info">For teams</span></div></article>
-<article class="card card--flat" data-oid="rm-team" data-name="Plan: Enterprise"><p class="eyebrow">Enterprise</p><h3 class="card-title">Custom</h3><div class="row"><span class="badge badge--soft badge--info">Talk to us</span></div></article>
+<div class="rm-grid" data-name="Cases" data-oid="o-1b4be04b7">
+<section class="stack" data-name="Warns" data-oid="o-c45cc75aa">
+<p class="section-label" data-oid="o-5e5883214">Warns: written out three times</p>
+<div class="rm-cards" data-name="Hand-written cards" data-oid="o-b4f8c8f00">
+<article class="card card--flat" data-oid="rm-starter" data-name="Plan: Starter"><p class="eyebrow" data-oid="o-9b9aa079f">Starter</p><h3 class="card-title" data-oid="o-53575cefe">$0</h3><div class="row" data-oid="o-c8eec704c"><span class="badge badge--soft badge--info" data-oid="o-fbf0efb43">For one person</span></div></article>
+<article class="card card--flat is-selected" data-oid="rm-pro" data-name="Plan: Pro"><p class="eyebrow" data-oid="o-986474f46">Pro</p><h3 class="card-title" data-oid="o-7a49d7cb3">$24</h3><div class="row" data-oid="o-efc9e46e9"><span class="badge badge--soft badge--info" data-oid="o-7b35d422c">For teams</span></div></article>
+<article class="card card--flat" data-oid="rm-team" data-name="Plan: Enterprise"><p class="eyebrow" data-oid="o-7bf9aac87">Enterprise</p><h3 class="card-title" data-oid="o-30d48730c">Custom</h3><div class="row" data-oid="o-3fc9f0dce"><span class="badge badge--soft badge--info" data-oid="o-cea71feb4">Talk to us</span></div></article>
 </div>
 </section>
-<section class="stack" data-name="Fixed">
-<p class="section-label">Fixed: one component, three instances</p>
-<div class="rm-cards" data-name="Card instances">
+<section class="stack" data-name="Fixed" data-oid="o-eb5a40d0d">
+<p class="section-label" data-oid="o-64a3aa52b">Fixed: one component, three instances</p>
+<div class="rm-cards" data-name="Card instances" data-oid="o-76fe283be">
 <zd-card data-oid="rm-c-starter" meta="Starter" heading="$0">For one person</zd-card>
 <zd-card data-oid="rm-c-pro" meta="Pro" heading="$24">For teams</zd-card>
 <zd-card data-oid="rm-c-team" meta="Enterprise" heading="Custom">Talk to us</zd-card>
 </div>
 </section>
 </div>
-<section class="stack" data-name="Too small to count">
-<p class="section-label">Too small to count: rows of three elements</p>
-<ul class="rm-list" data-name="Invoice rows">
-<li class="rm-item"><span>Invoices</span><span>12</span></li>
-<li class="rm-item"><span>Receipts</span><span>48</span></li>
-<li class="rm-item"><span>Refunds</span><span>3</span></li>
-<li class="rm-item"><span>Disputes</span><span>0</span></li>
+<section class="stack" data-name="Too small to count" data-oid="o-abf046446">
+<p class="section-label" data-oid="o-a1d1944de">Too small to count: rows of three elements</p>
+<ul class="rm-list" data-name="Invoice rows" data-oid="o-976e77223">
+<li class="rm-item" data-oid="o-0aac55e5f"><span data-oid="o-0a24dac32">Invoices</span><span data-oid="o-9929f52db">12</span></li>
+<li class="rm-item" data-oid="o-3eebc3e9d"><span data-oid="o-8535a7bc9">Receipts</span><span data-oid="o-b97b6d9df">48</span></li>
+<li class="rm-item" data-oid="o-365ee87c1"><span data-oid="o-1060c6708">Refunds</span><span data-oid="o-8a8ea4658">3</span></li>
+<li class="rm-item" data-oid="o-99b60b334"><span data-oid="o-cd41e5e0d">Disputes</span><span data-oid="o-bcd388446">0</span></li>
 </ul>
 </section>
 </main>

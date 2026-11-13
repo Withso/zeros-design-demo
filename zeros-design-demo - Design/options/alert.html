@@ -40,16 +40,16 @@ zd-alert { display: block; }
 </head>
 <body class="stage">
 <div class="alert" data-oid="alert" data-name="Alert" data-tone="{{ tone }}" role="status">
-<span class="alert-icon" data-oid="alert-icon" data-name="Icon" data-zd-if="icon"><svg data-oid="alert-icon-check" data-zd-if="tone == 'success'" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><svg data-oid="alert-icon-mark" data-zd-if="tone != 'success'" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 4v5"/><path d="M8 11.5v.5"/></svg></span>
+<span class="alert-icon" data-oid="alert-icon" data-name="Icon" data-zd-if="icon"><svg data-oid="alert-icon-check" data-zd-if="tone == 'success'" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7" data-oid="o-e881397dc"/></svg><svg data-oid="alert-icon-mark" data-zd-if="tone != 'success'" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 4v5" data-oid="o-8231f628f"/><path d="M8 11.5v.5" data-oid="o-e003eb816"/></svg></span>
 <div class="alert-text" data-oid="alert-text" data-name="Text">
 <p class="alert-heading" data-oid="alert-heading" data-name="Heading">{{ heading }}</p>
 <p class="alert-message" data-oid="alert-message" data-name="Message">{{ message }}</p>
 <div class="alert-actions" data-oid="alert-actions" data-name="Actions" data-zd-if="has-actions">
-<zd-button tone="accent" size="sm" icon="false" label="{{ primary }}"></zd-button>
-<zd-button data-zd-if="actions == 'two'" zd-variant="secondary" size="sm" label="{{ secondary }}"></zd-button>
+<zd-button tone="accent" size="sm" icon="false" label="{{ primary }}" data-oid="o-5a89b0492"></zd-button>
+<zd-button data-zd-if="actions == 'two'" zd-variant="secondary" size="sm" label="{{ secondary }}" data-oid="o-95ff3510d"></zd-button>
 </div>
 </div>
-<button class="alert-close" type="button" data-oid="alert-close" data-name="Close" aria-label="Dismiss" data-zd-if="dismissible"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
+<button class="alert-close" type="button" data-oid="alert-close" data-name="Close" aria-label="Dismiss" data-zd-if="dismissible"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" data-oid="o-002eec497"><path d="M4 4l8 8M12 4l-8 8" data-oid="o-d7bfbbf71"/></svg></button>
 </div>
 </body>
 </html>

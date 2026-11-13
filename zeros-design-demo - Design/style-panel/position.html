@@ -13,19 +13,19 @@
 </style>
 </head>
 <body>
-<main class="sheet" data-name="Position">
-<header class="sheet-head" data-name="Header">
-<p class="eyebrow">Style panel · Position</p>
-<h1 class="sheet-title">Position: X, Y, pins, rotation and flip</h1>
-<p class="sheet-lede">Position is the first section for every layer. A free layer (position: absolute) shows X and Y from left and top, the pins that keep it in place when its parent resizes, rotation, and rotate and flip buttons. A layer inside auto layout is placed by its parent instead.</p>
+<main class="sheet" data-name="Position" data-oid="o-e9aca8309">
+<header class="sheet-head" data-name="Header" data-oid="o-2129369ee">
+<p class="eyebrow" data-oid="o-c1651cb0c">Style panel · Position</p>
+<h1 class="sheet-title" data-oid="o-6faa0eb32">Position: X, Y, pins, rotation and flip</h1>
+<p class="sheet-lede" data-oid="o-0df2f2fba">Position is the first section for every layer. A free layer (position: absolute) shows X and Y from left and top, the pins that keep it in place when its parent resizes, rotation, and rotate and flip buttons. A layer inside auto layout is placed by its parent instead.</p>
 </header>
-<ol class="try" data-name="Try this">
-<li>Select "left 16 · top 16". Position shows X 16 and Y 16. Drag it on the canvas: only left and top change in its style attribute.</li>
-<li>Select "right 16 · top 16": the right pin is on because the layer sets right, not left. It keeps 16px from the right edge when the board resizes.</li>
-<li>Select a flow item in the row: Position says "Placed by its parent's auto layout" and offers Place freely.</li>
+<ol class="try" data-name="Try this" data-oid="o-1223e9236">
+<li data-oid="o-5eb8da03b">Select "left 16 · top 16". Position shows X 16 and Y 16. Drag it on the canvas: only left and top change in its style attribute.</li>
+<li data-oid="o-91b1df4da">Select "right 16 · top 16": the right pin is on because the layer sets right, not left. It keeps 16px from the right edge when the board resizes.</li>
+<li data-oid="o-f3d1a9aa9">Select a flow item in the row: Position says "Placed by its parent's auto layout" and offers Place freely.</li>
 </ol>
-<section class="stack" data-name="Pins">
-<p class="section-label">Free layers on a board with position: relative</p>
+<section class="stack" data-name="Pins" data-oid="o-ebe564ebe">
+<p class="section-label" data-oid="o-36b5fc560">Free layers on a board with position: relative</p>
 <div class="board" data-oid="pos-board" data-name="Board">
 <span class="pin" data-oid="pos-top-left" data-name="Pinned top left" style="position: absolute; left: 16px; top: 16px;">left 16 · top 16</span>
 <span class="pin" data-oid="pos-flipped" data-name="Flipped" style="position: absolute; left: 45%; top: 16px; scale: -1 1;">flipped</span>
@@ -37,17 +37,17 @@
 <span class="pin" data-oid="pos-bottom-right" data-name="Pinned bottom right" style="position: absolute; right: 16px; bottom: 16px;">right 16 · bottom 16</span>
 </div>
 </section>
-<div class="split" data-name="Flow and free">
-<section class="stack" data-name="Auto layout">
-<p class="section-label">Children of auto layout</p>
+<div class="split" data-name="Flow and free" data-oid="o-363f7afd3">
+<section class="stack" data-name="Auto layout" data-oid="o-331bbd625">
+<p class="section-label" data-oid="o-524d4a883">Children of auto layout</p>
 <div class="flow-row" data-oid="pos-flow" data-name="Row with auto layout">
 <span class="pin" data-oid="pos-flow-first" data-name="Flow item">First</span>
 <span class="pin" data-oid="pos-flow-second" data-name="Flow item">Second</span>
 <span class="pin" data-oid="pos-flow-end" data-name="Flow item, aligned to the end" style="align-self: flex-end;">align-self: flex-end</span>
 </div>
 </section>
-<section class="stack" data-name="Free group">
-<p class="section-label">A group without auto layout: Fit to content</p>
+<section class="stack" data-name="Free group" data-oid="o-6b2a50a1d">
+<p class="section-label" data-oid="o-1c46da51f">A group without auto layout: Fit to content</p>
 <div class="free-group" data-oid="pos-free" data-name="Group without auto layout">
 <span class="pin" data-oid="pos-free-a" data-name="Free item A" style="position: absolute; left: 24px; top: 24px;">A at 24, 24</span>
 <span class="pin" data-oid="pos-free-b" data-name="Free item B" style="position: absolute; left: 160px; top: 64px;">B at 160, 64</span>

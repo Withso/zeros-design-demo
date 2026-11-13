@@ -1,3 +1,6 @@
+.DS_Store
+/tools/out/
+
 # Zeros Design metadata (managed by Zeros)
 /.zeros/
 !/zeros-design-demo\ -\ Design/
@@ -8,6 +11,3 @@
 !/zeros-design-demo\ -\ Design/meta/design.toml
 !/zeros-design-demo\ -\ Design/rules.md
 # End Zeros Design metadata
-
-.DS_Store
-/tools/out/

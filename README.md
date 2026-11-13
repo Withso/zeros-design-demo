@@ -7,12 +7,24 @@ Frames are plain HTML and CSS files. When you edit in the Design tab, Zeros save
 ## Open the demo
 
 1. In a Zeros checkout on a Mac, run `pnpm install --frozen-lockfile`, then `pnpm electron:local`. This opens Zeros Local: the real desktop app in a device-local organization, with no sign-in. The demo was built against the branch `droid/research-design-tab-prs` ([PR #1076](https://github.com/Withso/zeros/pull/1076)).
-2. Choose Open project (or Open folder…, ⇧⌘O), pick this folder, and confirm Add project.
+2. Choose Open project (or Open folder…, ⇧⌘O) and pick this folder. Zeros adds it as a project and opens a new workspace for it.
 3. Open the Design tab. Start on page 1, Start here. The notes beside every frame say what it shows, what to try and what an edit writes.
 
-Zeros works in its own worktree of this repository, a separate checkout on its own branch. Your edits are saved there, so the committed demo in this folder stays as it is. Discard a file in Changes to put it back.
+That workspace is a separate worktree of this repository on a new branch, in `~/zeros-local-<identity>/workspaces/`. Your edits are saved there, so the committed demo in this folder stays as it is. Discard a file in Changes to put it back.
 
 [docs/guide.md](docs/guide.md) has the whole tour as text, including every frame's steps.
+
+## Selecting layers
+
+A click on a frame selects the frame, not what is under the pointer. To reach a layer:
+
+- Double-click to go one level deeper under the pointer.
+- ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.
+- With a layer selected, a click elsewhere selects the layer at the same depth there.
+- Escape or Shift-Enter selects the parent, and Enter selects the first child.
+- Layers, the drawer at the foot of the Style panel, lists the frame's layers. Click a row to select it.
+
+Every page has this list as a note at its top left. In the steps, "select" means whichever of these reaches the layer.
 
 ## What is where
 
@@ -48,12 +60,14 @@ Zeros works in its own worktree of this repository, a separate checkout on its o
 
 | You change | Zeros writes |
 |---|---|
-| A field in the Style panel | The layer's own declaration, usually its `style` attribute, in the frame's `.html` file. Classes, other rules and tokens are never rewritten. |
+| A field in the Style panel | The layer's own declaration, usually its `style` attribute, in the frame's `.html` file. A new declaration is added at the end as `property:value;`, and an existing one has only its value replaced. Classes, other rules and tokens are never rewritten. |
 | An option on a main component (page 3) | `default=` on that option's line in the component's file, or the line of the variant shown. |
 | An option on an instance | One attribute on the instance's tag. A value equal to the one it inherits removes the attribute. |
 | A variable in the theme editor | `tokens.css`: `:root` for Light, `[data-zd-theme="dark"]` for Dark. |
 | A frame's size, place or title; notes, sections and link cards | `meta/canvas.json`. |
 | Export PNG | A picture file only. It is not a source edit. |
+
+Every layer in the demo's frames already has a `data-oid`, except in page 10's Duplicate layer ids. Where a frame has layers without one, the first edit to any layer in it writes an id onto each of them, so that first diff is longer than the change (issue 12).
 
 ## Checks
 
@@ -82,7 +96,7 @@ With the demo as committed, lint reports 32 warnings, all on purpose (pages 10 a
 
 ## Known issues
 
-These are Zeros problems found while building the demo. Page 11 has a frame for each one the canvas can show. Paths are in the Zeros repository.
+These are Zeros problems found while building the demo. Page 11 lists them all, with a frame for each of issues 1 to 10 that the canvas can show; issues 11 to 15 show on other pages. Paths are in the Zeros repository.
 
 | # | Problem | Where to see it | Where it starts |
 |---|---|---|---|
@@ -97,3 +111,7 @@ These are Zeros problems found while building the demo. Page 11 has a frame for 
 | 9 | The app has no list of warnings, and the code that would group them is unused. | Only Validate reports warnings. | `apps/desktop/src/renderer/features/design-workspace/design-lint-summary.ts` |
 | 10 | A component's `<style>` is copied, unscoped, into every frame that places the component. | Page 11, Component CSS. | `apps/desktop/src/engine/design/components.ts`, component styles |
 | 11 | Slot components are not instances, and a component with options placed inside a slot component's children has no Options. | Page 4: the cards, and the Button and avatars inside them. | `apps/desktop/src/engine/design/components.ts`, `recordInstance` (top level only) |
+| 12 | The first edit to a layer also writes a `data-oid` onto every layer in its frame that has none, though `rules.md` calls data-oid optional. That diff is then many lines longer than the edit. | Page 10, Duplicate layer ids, the one frame left without ids: one Style edit changes 18 more lines. | `packages/design-web/src/adapter.ts`, `designWebTransactionAdapter.apply` |
+| 13 | The first edit to any frame also adds each `components/` file that `meta/canvas.json` does not list to its `foundation.components`. | Nowhere by default: the demo lists its five components. Empty that list, edit any layer, and Changes shows `meta/canvas.json`. | `apps/desktop/src/engine/design/document-transactions.ts`, `readDesignWebDocumentStateUnlocked` |
+| 14 | Reset or Clear on a layer's last inline declaration leaves an empty `style=""`. | Page 5, Badge classes and instances, step 2. | `packages/design-web/src/css.ts`, `mutateInlineStyles` |
+| 15 | Layers does not list a slot component's children, though the canvas selects them and the Style panel edits them. The card's own markup has no `data-oid`, and the tree skips an element without one together with everything inside it. | Page 4, Card slots, step 2. | `packages/protocol/src/design-runtime.ts`, `treeNode` |

@@ -7,9 +7,11 @@ On every page:
 - A frame is one HTML file. The path under each frame's title is relative to the Design folder, `zeros-design-demo - Design/`.
 - Edits are saved straight into the files, and nothing is committed. Changes shows what each edit wrote, and Discard puts a file back.
 - To preview Dark, select a frame, press ⌥T, and pick Dark in the menu beside Search.
+- Every page has the same How to select note at its top left. It is printed once, below.
 
 ## Contents
 
+- [How to select](#how-to-select)
 - [1. Start here](#1-start-here)
 - [2. Tokens & themes](#2-tokens--themes)
 - [3. Component options](#3-component-options)
@@ -22,6 +24,17 @@ On every page:
 - [10. Lint showcase](#10-lint-showcase)
 - [11. Known issues](#11-known-issues)
 
+## How to select
+
+- Click a frame, or its title, to select the frame.
+- Double-click to go one level deeper under the pointer.
+- ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.
+- With a layer selected, a click elsewhere selects the layer at the same depth there.
+- Escape or Shift-Enter selects the parent; Enter selects the first child.
+- Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.
+
+In the steps, "select" means whichever of these reaches the layer.
+
 ## 1. Start here
 
 Folder `start/` · 1 frame
@@ -32,24 +45,26 @@ Section: Welcome. `start/welcome.html` · 1320 × 900 · link cards: README.md, 
 
 **What it shows**
 
-The map of this demo, built with Orbit, a small design system made up for it. Each page is a folder, and each frame on it is one HTML file. The cards are `<zd-card>` tags, instances of components/card.html (page 4).
+The map of this demo, built with Orbit, a small design system made up for it. Each page is a folder, and each frame on it is one HTML file. The cards are `<zd-card>` tags, placed from components/card.html (page 4).
 
 **Try**
 
 1. Move between pages with the Pages menu. Hold Space and drag to pan.
-2. Click a frame's title to select the frame; click inside it to select a layer. Open Layers at the foot of the Style panel to see the frame's tree.
+2. Select this frame, then a layer in it, as the How to select note on the left says. Open Layers at the foot of the Style panel to see the frame's tree.
 3. Select a frame and press ⌥T, or click the palette button in the toolbar, to open the theme editor. In the menu beside Search, change Light to Dark: every frame redraws in Dark, and stays so after you close the editor.
-4. Select a card. It is one layer, the `<zd-card>` tag: its insides come from the component file, so they are not layers of their own.
+4. ⌘-click a card. It is one layer, the `<zd-card>` tag: its insides come from the component file, so they are not layers of their own.
 
 **What gets written**
 
-Style panel: the layer's own declaration, usually its style attribute, in the frame's .html file.
+Style panel: the layer's own declaration, usually its style attribute, in the frame's .html file. A new declaration goes at the end as property:value; and an existing one has only its value replaced.
 
 Options: one attribute on an instance, or one default= in the component's file.
 
 Theme editor: tokens.css.
 
 Frame size, place and title, notes, sections and link cards: meta/canvas.json.
+
+Every layer in this demo has a data-oid already, except on page 10's Duplicate layer ids. Where layers have none, the first edit writes one onto each of them (issue 12).
 
 Nothing is staged or committed. Changes shows each edit as a diff, and Discard puts a file back.
 
@@ -342,8 +357,8 @@ components/card.html is a slot component: no options, just markup with three slo
 
 **Try**
 
-1. Select a card. It is one layer, the `<zd-card>` tag; the card's own markup comes from the component file and cannot be selected.
-2. Select a child inside a card, such as case 7's paragraph. Children belong to this frame, so they are ordinary layers.
+1. Select a card. It is one layer, the `<zd-card>` tag. The card's own markup comes from the component file, so ⌘-click on its heading selects the card.
+2. ⌘-click a child inside a card, such as case 7's paragraph. Children belong to this frame, so the Style panel edits them, but Layers does not list them: the card's row has no children (issue 15).
 3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text.
 4. Select the Release notes button in case 1. It renders as a Button but shows no Options: issue 11 on page 11.
 
@@ -387,7 +402,7 @@ Section: Every combination. `instances/buttons.html` · 1000 × 940
 1. Select "Pill, danger". Variant reads Pill, and Tone has a dot because it differs from what Pill gives it.
 2. Set its Tone to Accent, the inherited value: the dot goes.
 3. Set its Variant to Default, then press Reset options (the arrow in the Options header).
-4. Double-click a button's label: the header says "Part of Button." with Select instance and Edit main. Parts are read only.
+4. With a button selected, double-click its label. The panel names the part and says "Part of Button.", with Select instance and Edit main. Parts are read only; Escape goes back to the button.
 5. Select "Explicit default": tone="accent" equals the default, so Tone has no dot although the attribute is written.
 
 **What gets written**
@@ -405,13 +420,13 @@ Two ways to the same badges. The matrix is 25 plain elements: .badge plus a tone
 **Try**
 
 1. Select a matrix badge such as Success, Solid. "Styled by 3 classes" opens to one row per class; click badge--solid to see only what it sets.
-2. Change that badge's corner radius. The field gets a dot; Reset (⌥⌫) removes your value.
+2. Change that badge's Opacity to 80. The field gets a dot. To remove your value, select the field's text and press ⌥⌫, or click a blank part of the panel, hover Opacity and choose Clear. These badges are text layers, so Corner radius is not shown; page 7 covers radius on boxes.
 3. Select the "Custom ink" instance: Ink and Wash are literals, rebeccapurple and rgb(102 51 153 / 0.12).
 4. Select "Inbox": Count 12 shows the bubble.
 
 **What gets written**
 
-Step 2 writes border-radius into that one badge's style attribute. .badge--solid in ui.css is never rewritten, so the other badges keep their radius. Option changes write attributes on the `<zd-badge>` tag.
+Step 2 adds style="opacity:0.8;" to that one badge. Clear takes the declaration out but leaves an empty style="" behind (issue 14). .badge--solid in ui.css is never rewritten, so the other badges are unchanged. Option changes write attributes on the `<zd-badge>` tag.
 
 ### Project settings
 
@@ -426,7 +441,7 @@ A full settings screen built from 19 instances of the page 3 components, plus ui
 1. Select the URL slug field. Variant reads Error, and Label and Width have dots because they differ.
 2. Set the Storage bar's Value to 90 and Tone to Warning.
 3. Select the Audit log row and set Variant to Default: it is no longer locked.
-4. Double-click into Save settings to select its label part, then press Select instance.
+4. Select Save settings, then double-click its label to select the label part. Press Select instance to go back.
 5. Select a member's avatar and turn Ring on.
 
 **What gets written**
@@ -578,7 +593,7 @@ Appearance: opacity from 0 to 100%, corner radius as one value or four corners, 
 
 **What gets written**
 
-Opacity writes a percentage, such as opacity: 40%. Each field writes only its own declaration in the layer's style attribute; the classes on these tiles stay as they are. Fields take maths: type 24\*2, +8 or x/2.
+Opacity shows a percentage but writes a number from 0 to 1: typing 40 writes 0.4. Each field writes only its own declaration in the layer's style attribute; the classes on these tiles stay as they are. Fields take maths: type 24\*2, +8 or x/2.
 
 ### Fill
 
@@ -726,7 +741,7 @@ Every kind of origin the Style panel tells apart: set on this layer, changed ove
 
 **What gets written**
 
-Reset or Clear (⌥⌫) removes the layer's own declaration, so the class, inherited or initial value shows again. A computed value is read only and offers Edit in CSS. A forced value offers Ask agent to change. Setting a themed value writes one value for every theme, and the panel says "Changes Light and Dark."
+Reset or Clear removes the layer's own declaration, so the class, inherited or initial value shows again: choose it on the field's card, or select the field's text and press ⌥⌫. A computed value is read only and offers Edit in CSS. A forced value offers Ask agent to change. Setting a themed value writes one value for every theme, and the panel says "Changes Light and Dark."
 
 ### Styled by and Tidy
 
@@ -982,7 +997,7 @@ Nothing: the attribute is the whole fix. Mark only markup that really came from 
 
 ### Duplicate layer ids
 
-Section: Rules 5 and 7: layer ids and captured markup. `lint/layer-ids.html` · 1200 × 470
+Section: Rules 5 and 7: layer ids and captured markup. `lint/layer-ids.html` · 1200 × 500
 
 **What it shows**
 
@@ -990,7 +1005,7 @@ Rule 5: each data-oid must be unique in its frame. It is how Zeros finds a layer
 
 - data-oid "li-save" is duplicated in this frame. (line 30)
 
-Zeros does not rename either copy by itself.
+When Zeros draws the frame, it gives the second copy a generated id, so each copy can be selected. Unlike every other frame in this demo, most layers here have no data-oid, on purpose.
 
 **Try**
 
@@ -1000,7 +1015,9 @@ Zeros does not rename either copy by itself.
 
 **What gets written**
 
-The fix is one attribute: give one copy a new data-oid in Files.
+The first edit to a layer here also saves the second copy's generated id, and writes an id onto each of the 17 layers that have none, so Changes shows 18 more lines than your edit (issue 12). Validate then no longer reports the duplicate; Discard the file to bring it back.
+
+The fix by hand is one attribute: give one copy a new data-oid in Files.
 
 ### Options without a component name
 
@@ -1052,11 +1069,11 @@ Folder `issues/` · 5 frames
 
 ### Known issues
 
-Section: All known issues. `issues/overview.html` · 1200 × 900
+Section: All known issues. `issues/overview.html` · 1200 × 1160
 
 **What it shows**
 
-Every Zeros problem found while building this demo, with the place in the Zeros repository where it starts. Issue 11 has no frame on this page: it shows on page 4.
+Every Zeros problem found while building this demo, with the place in the Zeros repository where it starts. Issues 11 to 15 have no frame on this page: 11 and 15 show on page 4, 12 on page 10 and 14 on page 5. 13 shows nowhere, because this demo lists its components already; README.md says how to see it.
 
 **Try**
 

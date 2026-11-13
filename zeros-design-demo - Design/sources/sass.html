@@ -11,47 +11,47 @@
 </style>
 </head>
 <body>
-<main class="sheet" data-name="Sass: Sass app">
-<header class="sheet-head" data-name="Header">
-<p class="eyebrow">Style sources</p>
-<h1 class="sheet-title">Sass, compiled by Zeros</h1>
-<p class="sheet-lede">styles/sass/app.scss uses two partials, nesting, a mixin and an @each loop. Zeros compiles it with its own Dart Sass and imports the CSS. Nothing in the repository runs, and no install is needed.</p>
+<main class="sheet" data-name="Sass: Sass app" data-oid="o-4616cf4c9">
+<header class="sheet-head" data-name="Header" data-oid="o-d64337565">
+<p class="eyebrow" data-oid="o-8fd03112d">Style sources</p>
+<h1 class="sheet-title" data-oid="o-18367921a">Sass, compiled by Zeros</h1>
+<p class="sheet-lede" data-oid="o-ebbe7fb9f">styles/sass/app.scss uses two partials, nesting, a mixin and an @each loop. Zeros compiles it with its own Dart Sass and imports the CSS. Nothing in the repository runs, and no install is needed.</p>
 </header>
-<ol class="try" data-name="Try this">
-<li>Open the theme editor (⌥T) and choose Sass app: "Compiled with Sass", then the --sass-* variables, each with a Dark value.</li>
-<li>Select a tile. Styled by lists .tile; Fill reads sass-surface, From the class .tile, Source Sass app.</li>
-<li>Preview Dark: pick Dark in the menu beside Search. The Sass entry's prefers-color-scheme block is mapped to the Dark theme.</li>
-<li>Edit styles/sass/_tokens.scss and save. The source recompiles and the frame redraws; no button needed.</li>
+<ol class="try" data-name="Try this" data-oid="o-09711767e">
+<li data-oid="o-58db5ef43">Open the theme editor (⌥T) and choose Sass app: "Compiled with Sass", then the --sass-* variables, each with a Dark value.</li>
+<li data-oid="o-aa9a5d318">Select a tile. Styled by lists .tile; Fill reads sass-surface, From the class .tile, Source Sass app.</li>
+<li data-oid="o-14a37d44d">Preview Dark: pick Dark in the menu beside Search. The Sass entry's prefers-color-scheme block is mapped to the Dark theme.</li>
+<li data-oid="o-0cddf5daa">Edit styles/sass/_tokens.scss and save. The source recompiles and the frame redraws; no button needed.</li>
 </ol>
-<div class="sass-grid" data-name="Tiles">
+<div class="sass-grid" data-name="Tiles" data-oid="o-e53c1018f">
 <article class="tile" data-oid="sass-tile-1" data-name="Tile: review">
 <p class="tile__title" data-oid="sass-tile-1-title">Quarterly review</p>
 <p class="tile__meta" data-oid="sass-tile-1-meta">Due Friday · 4 reviewers</p>
-<div class="row" data-name="Tags"><span class="tag--teal" data-oid="sass-tag-teal">On track</span><span class="tag--amber" data-oid="sass-tag-amber">Needs copy</span></div>
+<div class="row" data-name="Tags" data-oid="o-a0b4b06ff"><span class="tag--teal" data-oid="sass-tag-teal">On track</span><span class="tag--amber" data-oid="sass-tag-amber">Needs copy</span></div>
 </article>
 <article class="tile tile--featured" data-oid="sass-tile-2" data-name="Tile: featured">
 <p class="tile__title" data-oid="sass-tile-2-title">Launch checklist</p>
 <p class="tile__meta" data-oid="sass-tile-2-meta">.tile--featured adds an outline</p>
-<div class="row" data-name="Tags"><span class="tag--violet" data-oid="sass-tag-violet">Featured</span></div>
+<div class="row" data-name="Tags" data-oid="o-24484fb28"><span class="tag--violet" data-oid="sass-tag-violet">Featured</span></div>
 </article>
 <article class="tile" data-oid="sass-tile-3" data-name="Tile: blocked">
 <p class="tile__title" data-oid="sass-tile-3-title">Pricing page</p>
 <p class="tile__meta" data-oid="sass-tile-3-meta">Waiting on legal</p>
-<div class="row" data-name="Tags"><span class="tag--rose" data-oid="sass-tag-rose">Blocked</span></div>
+<div class="row" data-name="Tags" data-oid="o-b115c0dcc"><span class="tag--rose" data-oid="sass-tag-rose">Blocked</span></div>
 </article>
 </div>
-<section class="sass-map" data-name="Where each class comes from">
-<div class="stack" data-name="Nesting">
-<p class="section-label">Nesting and BEM</p>
-<p class="card-body">In app.scss, the &amp;__title, &amp;__meta, &amp;--featured and &amp;:hover blocks inside .tile compile to .tile__title, .tile__meta, .tile--featured and .tile:hover.</p>
+<section class="sass-map" data-name="Where each class comes from" data-oid="o-b2330c76f">
+<div class="stack" data-name="Nesting" data-oid="o-72ae62771">
+<p class="section-label" data-oid="o-de0476971">Nesting and BEM</p>
+<p class="card-body" data-oid="o-4d0e668f7">In app.scss, the &amp;__title, &amp;__meta, &amp;--featured and &amp;:hover blocks inside .tile compile to .tile__title, .tile__meta, .tile--featured and .tile:hover.</p>
 </div>
-<div class="stack" data-name="Loop and mixin">
-<p class="section-label">@each and @include</p>
-<p class="card-body">One @each over the tones writes .tag--teal, .tag--amber, .tag--rose and .tag--violet. The pill mixin gives each one the same shape.</p>
+<div class="stack" data-name="Loop and mixin" data-oid="o-d9eed77e4">
+<p class="section-label" data-oid="o-c7173f5c0">@each and @include</p>
+<p class="card-body" data-oid="o-fcb60b72c">One @each over the tones writes .tag--teal, .tag--amber, .tag--rose and .tag--violet. The pill mixin gives each one the same shape.</p>
 </div>
-<div class="stack" data-name="Variables">
-<p class="section-label">Sass maps to CSS variables</p>
-<p class="card-body">_tokens.scss holds two Sass maps. The entry writes them out as --sass-* variables, which the theme editor lists and the token picker offers in this frame.</p>
+<div class="stack" data-name="Variables" data-oid="o-6d5e949ad">
+<p class="section-label" data-oid="o-9b013fd8d">Sass maps to CSS variables</p>
+<p class="card-body" data-oid="o-112607caa">_tokens.scss holds two Sass maps. The entry writes them out as --sass-* variables, which the theme editor lists and the token picker offers in this frame.</p>
 </div>
 </section>
 </main>

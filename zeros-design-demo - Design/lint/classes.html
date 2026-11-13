@@ -12,37 +12,37 @@
 </style>
 </head>
 <body>
-<main class="sheet" data-name="Unknown classes">
-<header class="sheet-head" data-name="Header">
-<p class="eyebrow">Lint showcase · rule 1</p>
-<h1 class="sheet-title">Unknown classes</h1>
-<p class="sheet-lede">Rule 1 in rules.md: one class vocabulary per folder. Validate warns about a class that has no CSS in this frame's styles: tokens.css, ui.css, the frame's own style element, and any style source the frame receives. Each name is reported once, at its first use.</p>
+<main class="sheet" data-name="Unknown classes" data-oid="o-a0e7d1f15">
+<header class="sheet-head" data-name="Header" data-oid="o-54906321e">
+<p class="eyebrow" data-oid="o-6bd8a9e58">Lint showcase · rule 1</p>
+<h1 class="sheet-title" data-oid="o-a1248a104">Unknown classes</h1>
+<p class="sheet-lede" data-oid="o-23f87305e">Rule 1 in rules.md: one class vocabulary per folder. Validate warns about a class that has no CSS in this frame's styles: tokens.css, ui.css, the frame's own style element, and any style source the frame receives. Each name is reported once, at its first use.</p>
 </header>
-<ol class="try" data-name="Try this">
-<li>Select the left card under An invented modifier. Styled by lists only card: card--glow has no rules, so it adds nothing.</li>
-<li>Ask the agent to validate this frame: three warnings, one per name. badge--sucess is used twice but reported once.</li>
-<li>Ask the agent to fix the frame, then open Changes: each name becomes the one ui.css defines. The Style panel never renames classes itself.</li>
+<ol class="try" data-name="Try this" data-oid="o-a9c5eadb6">
+<li data-oid="o-30d00710a">Select the left card under An invented modifier. Styled by lists only card: card--glow has no rules, so it adds nothing.</li>
+<li data-oid="o-9475e27d5">Ask the agent to validate this frame: three warnings, one per name. badge--sucess is used twice but reported once.</li>
+<li data-oid="o-e3cacdc7c">Ask the agent to fix the frame, then open Changes: each name becomes the one ui.css defines. The Style panel never renames classes itself.</li>
 </ol>
-<div class="cl-grid" data-name="Cases">
-<section class="stack" data-name="An invented modifier">
-<p class="section-label">An invented modifier</p>
-<div class="cl-pair" data-name="Invented and fixed">
-<figure class="spec" data-name="Warns"><div class="spec-box"><article class="card card--glow" data-oid="cl-glow" data-name="Card with card--glow"><p class="card-title">Glow</p><p class="card-body">card card--glow</p></article></div><figcaption class="spec-cap">Warns: Class "card--glow" has no CSS in this frame's styles.</figcaption></figure>
-<figure class="spec" data-name="Fixed"><div class="spec-box"><article class="card card--elevated" data-oid="cl-elevated" data-name="Card with card--elevated"><p class="card-title">Elevated</p><p class="card-body">card card--elevated</p></article></div><figcaption class="spec-cap">Fixed: card--elevated is in ui.css.</figcaption></figure>
+<div class="cl-grid" data-name="Cases" data-oid="o-604705708">
+<section class="stack" data-name="An invented modifier" data-oid="o-c7664d04c">
+<p class="section-label" data-oid="o-3e3913f90">An invented modifier</p>
+<div class="cl-pair" data-name="Invented and fixed" data-oid="o-27cdf9062">
+<figure class="spec" data-name="Warns" data-oid="o-d263c4401"><div class="spec-box" data-oid="o-fd1b6996b"><article class="card card--glow" data-oid="cl-glow" data-name="Card with card--glow"><p class="card-title" data-oid="o-5cbf34b4c">Glow</p><p class="card-body" data-oid="o-18603885b">card card--glow</p></article></div><figcaption class="spec-cap" data-oid="o-2dcebd919">Warns: Class "card--glow" has no CSS in this frame's styles.</figcaption></figure>
+<figure class="spec" data-name="Fixed" data-oid="o-e7d4f4f34"><div class="spec-box" data-oid="o-2e639d651"><article class="card card--elevated" data-oid="cl-elevated" data-name="Card with card--elevated"><p class="card-title" data-oid="o-b5a152ec2">Elevated</p><p class="card-body" data-oid="o-de775289a">card card--elevated</p></article></div><figcaption class="spec-cap" data-oid="o-8492c4e07">Fixed: card--elevated is in ui.css.</figcaption></figure>
 </div>
 </section>
-<section class="stack" data-name="A class from another kit">
-<p class="section-label">A class from another kit</p>
-<div class="cl-pair" data-name="Borrowed and fixed">
-<figure class="spec" data-name="Warns"><div class="spec-box"><button class="btn btn-primary" type="button" data-oid="cl-btn-primary" data-name="Save with btn-primary">Save</button></div><figcaption class="spec-cap">Warns: btn-primary. Orbit draws tone with data-tone, not a class.</figcaption></figure>
-<figure class="spec" data-name="Fixed"><div class="spec-box"><button class="btn" type="button" data-tone="accent" data-oid="cl-btn-accent" data-name="Save with data-tone">Save</button></div><figcaption class="spec-cap">Fixed: btn with data-tone="accent".</figcaption></figure>
+<section class="stack" data-name="A class from another kit" data-oid="o-346a447b0">
+<p class="section-label" data-oid="o-02de7c4c0">A class from another kit</p>
+<div class="cl-pair" data-name="Borrowed and fixed" data-oid="o-23b8d200a">
+<figure class="spec" data-name="Warns" data-oid="o-443709b94"><div class="spec-box" data-oid="o-2cd790006"><button class="btn btn-primary" type="button" data-oid="cl-btn-primary" data-name="Save with btn-primary">Save</button></div><figcaption class="spec-cap" data-oid="o-93b6fd834">Warns: btn-primary. Orbit draws tone with data-tone, not a class.</figcaption></figure>
+<figure class="spec" data-name="Fixed" data-oid="o-c5f26afac"><div class="spec-box" data-oid="o-c5a556b80"><button class="btn" type="button" data-tone="accent" data-oid="cl-btn-accent" data-name="Save with data-tone">Save</button></div><figcaption class="spec-cap" data-oid="o-b6f791015">Fixed: btn with data-tone="accent".</figcaption></figure>
 </div>
 </section>
-<section class="stack" data-name="A typo">
-<p class="section-label">A typo, used twice</p>
-<div class="cl-pair" data-name="Typo and fixed">
-<figure class="spec" data-name="Warns"><div class="spec-box"><div class="row"><span class="badge badge--soft badge--sucess" data-oid="cl-typo-soft" data-name="Badge with the typo">Live</span><span class="badge badge--outline badge--sucess" data-oid="cl-typo-outline" data-name="Badge with the typo again">Live</span></div></div><figcaption class="spec-cap">Warns once: badge--sucess. The badges fall back to the neutral look.</figcaption></figure>
-<figure class="spec" data-name="Fixed"><div class="spec-box"><div class="row"><span class="badge badge--soft badge--success" data-oid="cl-fixed-soft" data-name="Badge spelled right">Live</span><span class="badge badge--outline badge--success" data-oid="cl-fixed-outline" data-name="Outline badge spelled right">Live</span></div></div><figcaption class="spec-cap">Fixed: badge--success.</figcaption></figure>
+<section class="stack" data-name="A typo" data-oid="o-d706afe44">
+<p class="section-label" data-oid="o-0bfa30bb7">A typo, used twice</p>
+<div class="cl-pair" data-name="Typo and fixed" data-oid="o-94ff6c773">
+<figure class="spec" data-name="Warns" data-oid="o-6712b8aeb"><div class="spec-box" data-oid="o-58fbaaca1"><div class="row" data-oid="o-7c314fb8d"><span class="badge badge--soft badge--sucess" data-oid="cl-typo-soft" data-name="Badge with the typo">Live</span><span class="badge badge--outline badge--sucess" data-oid="cl-typo-outline" data-name="Badge with the typo again">Live</span></div></div><figcaption class="spec-cap" data-oid="o-690f118b3">Warns once: badge--sucess. The badges fall back to the neutral look.</figcaption></figure>
+<figure class="spec" data-name="Fixed" data-oid="o-53fdecbb6"><div class="spec-box" data-oid="o-6b2a07da1"><div class="row" data-oid="o-f830e67e1"><span class="badge badge--soft badge--success" data-oid="cl-fixed-soft" data-name="Badge spelled right">Live</span><span class="badge badge--outline badge--success" data-oid="cl-fixed-outline" data-name="Outline badge spelled right">Live</span></div></div><figcaption class="spec-cap" data-oid="o-85e48e998">Fixed: badge--success.</figcaption></figure>
 </div>
 </section>
 </div>

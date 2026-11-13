@@ -106,36 +106,45 @@
       ],
       "items": [
         {
-          "id": "section_start_1",
+          "id": "note_start_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_start_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1740,
           "text": "Welcome"
         },
         {
-          "id": "note_start_2",
+          "id": "note_start_3",
           "kind": "note",
           "x": 1360,
           "y": 0,
           "width": 380,
-          "height": 578,
-          "text": "WHAT IT SHOWS\nThe map of this demo, built with Orbit, a small design system made up for it. Each page is a folder, and each frame on it is one HTML file. The cards are <zd-card> tags, instances of components/card.html (page 4).\n\nTRY\n1. Move between pages with the Pages menu. Hold Space and drag to pan.\n2. Click a frame's title to select the frame; click inside it to select a layer. Open Layers at the foot of the Style panel to see the frame's tree.\n3. Select a frame and press ⌥T, or click the palette button in the toolbar, to open the theme editor. In the menu beside Search, change Light to Dark: every frame redraws in Dark, and stays so after you close the editor.\n4. Select a card. It is one layer, the <zd-card> tag: its insides come from the component file, so they are not layers of their own.\n\nWHAT GETS WRITTEN\nStyle panel: the layer's own declaration, usually its style attribute, in the frame's .html file.\nOptions: one attribute on an instance, or one default= in the component's file.\nTheme editor: tokens.css.\nFrame size, place and title, notes, sections and link cards: meta/canvas.json.\nNothing is staged or committed. Changes shows each edit as a diff, and Discard puts a file back."
-        },
-        {
-          "id": "link_start_3",
-          "kind": "link",
-          "x": 1360,
-          "y": 594,
-          "width": 380,
-          "target": "README.md",
-          "title": "README.md"
+          "height": 668,
+          "text": "WHAT IT SHOWS\nThe map of this demo, built with Orbit, a small design system made up for it. Each page is a folder, and each frame on it is one HTML file. The cards are <zd-card> tags, placed from components/card.html (page 4).\n\nTRY\n1. Move between pages with the Pages menu. Hold Space and drag to pan.\n2. Select this frame, then a layer in it, as the How to select note on the left says. Open Layers at the foot of the Style panel to see the frame's tree.\n3. Select a frame and press ⌥T, or click the palette button in the toolbar, to open the theme editor. In the menu beside Search, change Light to Dark: every frame redraws in Dark, and stays so after you close the editor.\n4. ⌘-click a card. It is one layer, the <zd-card> tag: its insides come from the component file, so they are not layers of their own.\n\nWHAT GETS WRITTEN\nStyle panel: the layer's own declaration, usually its style attribute, in the frame's .html file. A new declaration goes at the end as property:value; and an existing one has only its value replaced.\nOptions: one attribute on an instance, or one default= in the component's file.\nTheme editor: tokens.css.\nFrame size, place and title, notes, sections and link cards: meta/canvas.json.\nEvery layer in this demo has a data-oid already, except on page 10's Duplicate layer ids. Where layers have none, the first edit writes one onto each of them (issue 12).\nNothing is staged or committed. Changes shows each edit as a diff, and Discard puts a file back."
         },
         {
           "id": "link_start_4",
           "kind": "link",
           "x": 1360,
-          "y": 672,
+          "y": 684,
+          "width": 380,
+          "target": "README.md",
+          "title": "README.md"
+        },
+        {
+          "id": "link_start_5",
+          "kind": "link",
+          "x": 1360,
+          "y": 762,
           "width": 380,
           "target": "docs/guide.md",
           "title": "docs/guide.md"
@@ -153,15 +162,24 @@
       ],
       "items": [
         {
-          "id": "section_tokens_1",
+          "id": "note_tokens_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_tokens_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1740,
           "text": "Colours"
         },
         {
-          "id": "note_tokens_2",
+          "id": "note_tokens_3",
           "kind": "note",
           "x": 1360,
           "y": 0,
@@ -170,7 +188,7 @@
           "text": "WHAT IT SHOWS\nEvery colour token in tokens.css. Each tile is a <zd-swatch>, an instance of components/swatch.html: a components file that declares two options, Colour and Token name. The chip paints var(--zd-color).\n\nTRY\n1. Select a swatch. Options shows Colour as a token pill and Token name as text.\n2. Open Colour. Theme lists the colour tokens by family; Custom edits a literal. Pick success: the chip turns green.\n3. Preview Dark (⌥T, then Dark in the menu beside Search). Every chip follows, because tokens.css sets the same names again under [data-zd-theme=\"dark\"].\n4. With Dark shown, change --accent in the theme editor. Accent changes on every page, in Dark only.\n\nWHAT GETS WRITTEN\nStep 2 sets color=\"var(--success)\" on that one <zd-swatch>. Picking the default, accent, removes the attribute instead.\nStep 4 changes --accent inside the [data-zd-theme=\"dark\"] block of tokens.css. With Light shown, the theme editor writes :root instead.\nDiscard tokens.css and this file in Changes to undo both."
         },
         {
-          "id": "section_tokens_3",
+          "id": "section_tokens_4",
           "kind": "section",
           "x": 0,
           "y": 1256,
@@ -178,27 +196,27 @@
           "text": "Type"
         },
         {
-          "id": "note_tokens_4",
+          "id": "note_tokens_5",
           "kind": "note",
           "x": 1160,
-          "y": 1332,
+          "y": 1376,
           "width": 380,
           "height": 452,
           "text": "WHAT IT SHOWS\nThe text styles. A text style is a --text-<name> size token plus parts beside it, such as --text-title--line-height, --text-title--letter-spacing and --text-title--font-weight. Each sample sets them inline, as Typography's Style row writes them. Geist and Geist Mono load from assets/fonts through @font-face in tokens.css.\n\nTRY\n1. Select \"Project settings\". Typography's Style row shows Title.\n2. Select the last line, which has no text style, and pick Heading in the Style row.\n3. Select \"Section eyebrow\" and hover Letter spacing: the card names --text-overline--letter-spacing, where it is declared and its value.\n4. On any styled line, change only the line height.\n\nWHAT GETS WRITTEN\nStep 2 adds font-size: var(--text-heading) and one var() for each part Heading has, its line height and weight, to that line's style attribute.\nStep 4 replaces the line-height declaration alone; the other parts stay as they were."
         },
         {
-          "id": "section_tokens_5",
+          "id": "section_tokens_6",
           "kind": "section",
           "x": 0,
-          "y": 2442,
+          "y": 2486,
           "width": 1620,
           "text": "Scales"
         },
         {
-          "id": "note_tokens_6",
+          "id": "note_tokens_7",
           "kind": "note",
           "x": 1240,
-          "y": 2518,
+          "y": 2606,
           "width": 380,
           "height": 452,
           "text": "WHAT IT SHOWS\nThe other scales in tokens.css: spacing, corner radius, shadow, easing and duration, sizes, opacity and z-index. Every specimen sets its token inline with var(), so each Style field shows the token as a pill.\n\nTRY\n1. Select a spacing bar. Width shows a --space-* pill; hover it to see where it is declared and what it resolves to.\n2. Press ⌥↓ in that field. The list offers only tokens that fit a width, grouped by role. Pick another.\n3. Select a radius box and use Detach at the end of its Corner radius field.\n4. Select the --shadow-md box: Shadow lists one row that reads the token.\n\nWHAT GETS WRITTEN\nStep 2 rewrites that one declaration, for example width: var(--space-6).\nStep 3 writes the value the token resolves to, in px, in place of var().\nBoth change the layer's style attribute only. tokens.css never changes from a Style field."
@@ -223,15 +241,24 @@
       ],
       "items": [
         {
-          "id": "section_options_1",
+          "id": "note_options_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_options_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 2400,
           "text": "Text, choice, boolean, number, colour and easing"
         },
         {
-          "id": "note_options_2",
+          "id": "note_options_3",
           "kind": "note",
           "x": 360,
           "y": 0,
@@ -240,7 +267,7 @@
           "text": "WHAT IT SHOWS\nThe main Button component. options/button.html declares 11 options in <template data-zd-options>, and meta/canvas.json registers the frame as \"button\", so any frame can place <zd-button>.\nKinds: text (Label); choice (Tone has three values, so a row of buttons; Size has five, so a menu); boolean (Loading, Show icon); number with min and max, so a slider (Corner radius); colour (Accent fill); easing (Spinner motion, Press motion). group= folds rows under Loading, Icon, and Shape and motion.\n\nTRY\n1. Click the frame title. The header reads Component, and Options lists every row.\n2. Set Tone to Danger, then back to Accent.\n3. Open Variant, pick Destructive and change Label.\n4. Change anything, then press + beside Variant (Save current as variant…).\n5. Select the Label layer: its text reads \"Set by option Label\".\n\nWHAT GETS WRITTEN\nStep 2 edits default= on the tone line, so every instance that sets no tone follows, on page 5 too. Step 3 edits label= on the <zd-variant name=\"destructive\"> line. Step 4 appends one <zd-variant> line holding only the values that differ from the defaults. Which variant the frame shows is your own view, never in Git."
         },
         {
-          "id": "note_options_3",
+          "id": "note_options_4",
           "kind": "note",
           "x": 1200,
           "y": 0,
@@ -249,7 +276,7 @@
           "text": "WHAT IT SHOWS\nBadge: Text; Look, a three-way choice; Leading dot; Count, a number with no range, so a plain number field; and two colours, Ink and Wash. The template has one span per look, each kept by data-zd-if=\"look == 'soft'\" and so on, and shows the count only while count > 0.\n\nTRY\n1. Select the frame and set Count to 3.\n2. Open Ink: pick success under Theme, then type a hex under Custom.\n3. Pick the Danger variant: Look turns Solid and Text reads Failed.\n\nWHAT GETS WRITTEN\nEach change edits one default= (or the shown variant's line). A token is written as var(--success), a hex as typed.\nHow the colours reach CSS: a colour option is the custom property --zd-ink. The Badge's style maps it with :where(.stage, zd-badge) > .badge { --badge-ink: var(--zd-ink) }. The selector is narrow on purpose: Zeros copies this style element into every frame that places a Badge (issue 10, page 11)."
         },
         {
-          "id": "note_options_4",
+          "id": "note_options_5",
           "kind": "note",
           "x": 2020,
           "y": 0,
@@ -258,7 +285,7 @@
           "text": "WHAT IT SHOWS\nAvatar, with two derived values: font = round(size * 0.38) and dot-size = max(8, round(size / 4)), both in px. Zeros works them out from Size and exposes them as var(--zd-font) and var(--zd-dot-size). Derived values have no row; they follow their options.\n\nTRY\n1. Select the frame and drag Size from 40 to 72: the initials and the status dot grow together.\n2. Set Shape to Rounded, then Square.\n3. Set Status to None: data-zd-if removes the dot. Then pick Busy.\n4. Turn Ring on and change Ring colour.\n5. Pick the Large variant, then Default.\n\nWHAT GETS WRITTEN\ndefault= on the size, shape, status, ring or ring-color line. Derived values are never written.\nNumber, colour, easing and numeric derived values reach CSS as --zd-* custom properties. Text, choices and booleans reach the markup only through the template."
         },
         {
-          "id": "section_options_5",
+          "id": "section_options_6",
           "kind": "section",
           "x": 0,
           "y": 762,
@@ -266,80 +293,80 @@
           "text": "Derived values and units"
         },
         {
-          "id": "note_options_6",
+          "id": "note_options_7",
           "kind": "note",
           "x": 480,
-          "y": 838,
+          "y": 882,
           "width": 380,
           "height": 434,
           "text": "WHAT IT SHOWS\nProgress, with three derived values: remaining = 100 - value; done = value >= 100; and status, a text picked by done ? 'Complete' : value == 0 ? 'Not started' : 'In progress'. Each number has a unit: Value %, Ring size px, Start angle deg, Stripe speed s. A <template data-zd-if> adds \" · 36% left\" without adding an element.\n\nTRY\n1. Drag Value to 0, then to 100: the status line changes, and at 100 a check appears.\n2. Set Shape to Ring: the bar goes and a conic-gradient ring takes its place. Change Start angle.\n3. Turn Striped on, then change Stripe speed. The stripes are a CSS @keyframes animation.\n4. Pick the Ring variant: Shape, Value and Label change together.\n\nWHAT GETS WRITTEN\ndefault= on each option line you change. An easing is one value holding the curve and the duration, such as default=\"ease-in-out 400ms\" on the fill-motion line. CSS reads it as var(--zd-fill-motion-easing) and var(--zd-fill-motion-duration)."
         },
         {
-          "id": "note_options_7",
+          "id": "note_options_8",
           "kind": "note",
           "x": 1520,
-          "y": 838,
+          "y": 882,
           "width": 380,
           "height": 380,
           "text": "WHAT IT SHOWS\nRating repeats one star with data-zd-for=\"i in range(count)\". Each star works out its fill in an attribute hole: data-fill=\"{{ shown >= i + 1 ? 'full' : shown > i ? 'half' : 'empty' }}\", with shown = min(value, count). The label is derived text: shown + ' out of ' + count. Value steps by 0.5; Star size is in rem and Gap in em.\n\nTRY\n1. Set Stars to 10 and Value to 7.5: ten stars, the eighth half filled.\n2. Set Stars back to 5, leaving Value at 7.5: the label says 5 out of 5, because min() caps it.\n3. Change Star colour. Its default is the literal #f5a524, so Custom shows a hex.\n4. Pick the Rose variant.\n\nWHAT GETS WRITTEN\ndefault= on the count, value, size, gap or color line. A literal colour is written as typed, a token as var(--name). The file still holds one star: Zeros repeats it when it draws."
         },
         {
-          "id": "note_options_8",
+          "id": "note_options_9",
           "kind": "note",
           "x": 2560,
-          "y": 838,
+          "y": 882,
           "width": 380,
           "height": 416,
           "text": "WHAT IT SHOWS\nOne text field drawn in five states by a choice option, Drawn state. The derived invalid = state == 'error' chooses between the hint and the error line and fills aria-invalid. Disabled uses a second input that carries the disabled attribute, because a hole fills an attribute's value but cannot remove the attribute. Width is a number in ch.\n\nTRY\n1. Set Drawn state to Error: red border, and the hint becomes the error.\n2. Set it to Disabled.\n3. Turn Required on: an asterisk follows the label.\n4. Pick the Empty variant: its value is empty, so the placeholder shows.\n5. Type <b>bold</b> into Hint. It shows as typed, because holes are escaped.\n\nWHAT GETS WRITTEN\ndefault= on the state, required, value or hint line. Text is kept as typed, with quotes and angle brackets escaped in the attribute."
         },
         {
-          "id": "section_options_9",
+          "id": "section_options_10",
           "kind": "section",
           "x": 0,
-          "y": 1528,
+          "y": 1572,
           "width": 2180,
           "text": "Loops and conditions"
         },
         {
-          "id": "note_options_10",
+          "id": "note_options_11",
           "kind": "note",
           "x": 680,
-          "y": 1604,
+          "y": 1692,
           "width": 380,
           "height": 398,
           "text": "WHAT IT SHOWS\nLoops. Rows repeat with data-zd-for=\"r in range(rows)\", and the cells in each row with c in range(columns): a loop in a loop. Each cell's text is worked out from r and c, and the caption shows the derived cells = rows * columns. The grid's tracks come from CSS: var(--zd-first-col) in fr, then repeat(var(--zd-rest), minmax(0, 1fr)), with rest = columns - 1.\n\nTRY\n1. Set Rows to 8 and Columns to 6: 48 cells, and the caption says so.\n2. Turn Header row off, then Zebra rows on.\n3. Set Density to Compact, then Spacious.\n4. Drag First column width from 1fr to 3fr.\n5. Pick the Summary variant: 2 rows, 3 columns, no header.\n\nWHAT GETS WRITTEN\ndefault= on the rows, columns, header, zebra, density or first-col line. The file keeps one row and one cell; loops run when Zeros draws, up to 256 times each and 3 deep."
         },
         {
-          "id": "note_options_11",
+          "id": "note_options_12",
           "kind": "note",
           "x": 1800,
-          "y": 1604,
+          "y": 1692,
           "width": 380,
           "height": 362,
           "text": "WHAT IT SHOWS\nTabs loop over a derived list: tabs = settings ? ['overview', 'activity', 'members', 'settings'] : the first three. One tab is repeated with data-zd-for=\"t in tabs\"; aria-selected=\"{{ t == selected }}\" marks the chosen one, and a count badge shows on Activity only while count > 0.\n\nTRY\n1. Set Selected tab to Members: the underline moves.\n2. Turn Settings tab off: the last tab goes. If Settings was selected, no tab is.\n3. Set Activity count to 0: the badge goes.\n4. Change Underline to another colour token.\n\nWHAT GETS WRITTEN\ndefault= on the selected, settings, count or underline line. Selected tab is a choice, so it offers only its four declared names; it is a menu because there are more than three."
         },
         {
-          "id": "section_options_12",
+          "id": "section_options_13",
           "kind": "section",
           "x": 0,
-          "y": 2344,
+          "y": 2432,
           "width": 2060,
           "text": "Nested instances and motion"
         },
         {
-          "id": "note_options_13",
+          "id": "note_options_14",
           "kind": "note",
           "x": 640,
-          "y": 2420,
+          "y": 2552,
           "width": 380,
           "height": 398,
           "text": "WHAT IT SHOWS\nAn Alert whose template places two Buttons: <zd-button … label=\"{{ primary }}\"> and a second one with data-zd-if=\"actions == 'two'\". Options reach a nested component through its attributes. The derived has-actions = actions != 'none' removes the whole row. Entrance is an easing used by a CSS @keyframes animation; Entrance delay is in ms.\n\nTRY\n1. Set Actions to One button, then None.\n2. Type a new Primary label: the nested Button follows.\n3. Set Tone to Error and turn Close button off.\n4. In Entrance, set Type to Spring and raise Bounce: the curve above the rows changes.\n5. Try each variant: Shipped, Failed and Tip.\n\nWHAT GETS WRITTEN\ndefault= on the Alert's own option lines. The nested Buttons are part of the template; to change their fixed attributes, such as size=\"sm\", edit options/alert.html."
         },
         {
-          "id": "note_options_14",
+          "id": "note_options_15",
           "kind": "note",
           "x": 1680,
-          "y": 2420,
+          "y": 2552,
           "width": 380,
           "height": 380,
           "text": "WHAT IT SHOWS\nA settings row with a switch. On fills aria-checked. Disabled fills aria-disabled, which dims the row with --opacity-disabled. The hint is kept only while len(hint) > 0. Knob motion is a spring, \"spring(0.3) 320ms\": Zeros turns a spring into a CSS linear() curve, so var(--zd-motion-easing) works in any transition.\n\nTRY\n1. Turn On off: the knob moves and the track loses its colour.\n2. Pick the Bare variant: its hint is empty, so the line is removed rather than left blank.\n3. In Knob motion raise Bounce, then set Type to Easing and pick Ease out.\n4. Pick the Locked variant.\n\nWHAT GETS WRITTEN\ndefault= on the checked, hint or motion line. A spring is kept as spring(bounce) and a duration, for example default=\"spring(0.6) 320ms\"."
@@ -356,24 +383,33 @@
       ],
       "items": [
         {
-          "id": "section_slots_1",
+          "id": "note_slots_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_slots_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1740,
           "text": "Card"
         },
         {
-          "id": "note_slots_2",
+          "id": "note_slots_3",
           "kind": "note",
           "x": 1360,
           "y": 0,
           "width": 380,
-          "height": 434,
-          "text": "WHAT IT SHOWS\ncomponents/card.html is a slot component: no options, just markup with three slots. <slot data-zd-attr=\"meta\"> and <slot data-zd-attr=\"heading\"> take attribute values as text; the plain <slot> takes the instance's children. A missing attribute, or no children, shows the slot's fallback.\n\nTRY\n1. Select a card. It is one layer, the <zd-card> tag; the card's own markup comes from the component file and cannot be selected.\n2. Select a child inside a card, such as case 7's paragraph. Children belong to this frame, so they are ordinary layers.\n3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text.\n4. Select the Release notes button in case 1. It renders as a Button but shows no Options: issue 11 on page 11.\n\nWHAT GETS WRITTEN\nA Style edit on a card writes the <zd-card> tag's style attribute. An edit on a child writes that child. To change every card, edit components/card.html in Files."
+          "height": 488,
+          "text": "WHAT IT SHOWS\ncomponents/card.html is a slot component: no options, just markup with three slots. <slot data-zd-attr=\"meta\"> and <slot data-zd-attr=\"heading\"> take attribute values as text; the plain <slot> takes the instance's children. A missing attribute, or no children, shows the slot's fallback.\n\nTRY\n1. Select a card. It is one layer, the <zd-card> tag. The card's own markup comes from the component file, so ⌘-click on its heading selects the card.\n2. ⌘-click a child inside a card, such as case 7's paragraph. Children belong to this frame, so the Style panel edits them, but Layers does not list them: the card's row has no children (issue 15).\n3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text.\n4. Select the Release notes button in case 1. It renders as a Button but shows no Options: issue 11 on page 11.\n\nWHAT GETS WRITTEN\nA Style edit on a card writes the <zd-card> tag's style attribute. An edit on a child writes that child. To change every card, edit components/card.html in Files."
         },
         {
-          "id": "section_slots_3",
+          "id": "section_slots_4",
           "kind": "section",
           "x": 0,
           "y": 970,
@@ -381,10 +417,10 @@
           "text": "Stat and list item"
         },
         {
-          "id": "note_slots_4",
+          "id": "note_slots_5",
           "kind": "note",
           "x": 1140,
-          "y": 1046,
+          "y": 1090,
           "width": 380,
           "height": 416,
           "text": "WHAT IT SHOWS\nTwo more slot components. zd-stat has three attribute slots (label, value, delta) and a body slot. The delta's colour comes from a plain host attribute: zd-stat[data-trend=\"down\"] .stat-delta in the component's style. zd-list-item puts its children in the leading slot, here Avatar instances.\n\nTRY\n1. Compare the four stats: up is green, down red, flat grey. \"New metric\" sets only label, so value, delta and body show their fallbacks.\n2. In Files, change a stat's data-trend from down to up and save.\n3. Select an avatar in the People list. It renders with its own attributes (status, shape, the Team variant) but shows no Options: issue 11.\n4. \"Unassigned seat\" has no children, so its leading slot shows the fallback, a \"?\" avatar.\n\nWHAT GETS WRITTEN\nSelecting writes nothing. A Style edit on a <zd-stat> or <zd-list-item> tag writes that tag's style attribute in this file."
@@ -402,33 +438,42 @@
       ],
       "items": [
         {
-          "id": "section_instances_1",
+          "id": "note_instances_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_instances_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 2920,
           "text": "Every combination"
         },
         {
-          "id": "note_instances_2",
+          "id": "note_instances_3",
           "kind": "note",
           "x": 1040,
           "y": 0,
           "width": 380,
-          "height": 434,
-          "text": "WHAT IT SHOWS\n44 instances of the page 3 Button: tone × size, each drawn state, loading and icons, each variant, and variants with overrides. Each value is looked up in order: the instance's attribute, then its zd-variant, then the option's default.\n\nTRY\n1. Select \"Pill, danger\". Variant reads Pill, and Tone has a dot because it differs from what Pill gives it.\n2. Set its Tone to Accent, the inherited value: the dot goes.\n3. Set its Variant to Default, then press Reset options (the arrow in the Options header).\n4. Double-click a button's label: the header says \"Part of Button.\" with Select instance and Edit main. Parts are read only.\n5. Select \"Explicit default\": tone=\"accent\" equals the default, so Tone has no dot although the attribute is written.\n\nWHAT GETS WRITTEN\nStep 2 removes tone=\"danger\" from that tag, because the value equals what it inherits. Step 3 removes zd-variant, then Reset removes every option attribute. data-oid, class and style are kept."
+          "height": 452,
+          "text": "WHAT IT SHOWS\n44 instances of the page 3 Button: tone × size, each drawn state, loading and icons, each variant, and variants with overrides. Each value is looked up in order: the instance's attribute, then its zd-variant, then the option's default.\n\nTRY\n1. Select \"Pill, danger\". Variant reads Pill, and Tone has a dot because it differs from what Pill gives it.\n2. Set its Tone to Accent, the inherited value: the dot goes.\n3. Set its Variant to Default, then press Reset options (the arrow in the Options header).\n4. With a button selected, double-click its label. The panel names the part and says \"Part of Button.\", with Select instance and Edit main. Parts are read only; Escape goes back to the button.\n5. Select \"Explicit default\": tone=\"accent\" equals the default, so Tone has no dot although the attribute is written.\n\nWHAT GETS WRITTEN\nStep 2 removes tone=\"danger\" from that tag, because the value equals what it inherits. Step 3 removes zd-variant, then Reset removes every option attribute. data-oid, class and style are kept."
         },
         {
-          "id": "note_instances_3",
+          "id": "note_instances_4",
           "kind": "note",
           "x": 2540,
           "y": 0,
           "width": 380,
-          "height": 434,
-          "text": "WHAT IT SHOWS\nTwo ways to the same badges. The matrix is 25 plain elements: .badge plus a tone class (badge--info and so on) plus a look class (badge--soft, --solid or --outline), all from ui.css. The row below holds 8 Badge instances: the default, each variant, then overrides.\n\nTRY\n1. Select a matrix badge such as Success, Solid. \"Styled by 3 classes\" opens to one row per class; click badge--solid to see only what it sets.\n2. Change that badge's corner radius. The field gets a dot; Reset (⌥⌫) removes your value.\n3. Select the \"Custom ink\" instance: Ink and Wash are literals, rebeccapurple and rgb(102 51 153 / 0.12).\n4. Select \"Inbox\": Count 12 shows the bubble.\n\nWHAT GETS WRITTEN\nStep 2 writes border-radius into that one badge's style attribute. .badge--solid in ui.css is never rewritten, so the other badges keep their radius. Option changes write attributes on the <zd-badge> tag."
+          "height": 506,
+          "text": "WHAT IT SHOWS\nTwo ways to the same badges. The matrix is 25 plain elements: .badge plus a tone class (badge--info and so on) plus a look class (badge--soft, --solid or --outline), all from ui.css. The row below holds 8 Badge instances: the default, each variant, then overrides.\n\nTRY\n1. Select a matrix badge such as Success, Solid. \"Styled by 3 classes\" opens to one row per class; click badge--solid to see only what it sets.\n2. Change that badge's Opacity to 80. The field gets a dot. To remove your value, select the field's text and press ⌥⌫, or click a blank part of the panel, hover Opacity and choose Clear. These badges are text layers, so Corner radius is not shown; page 7 covers radius on boxes.\n3. Select the \"Custom ink\" instance: Ink and Wash are literals, rebeccapurple and rgb(102 51 153 / 0.12).\n4. Select \"Inbox\": Count 12 shows the bubble.\n\nWHAT GETS WRITTEN\nStep 2 adds style=\"opacity:0.8;\" to that one badge. Clear takes the declaration out but leaves an empty style=\"\" behind (issue 14). .badge--solid in ui.css is never rewritten, so the other badges are unchanged. Option changes write attributes on the <zd-badge> tag."
         },
         {
-          "id": "section_instances_4",
+          "id": "section_instances_5",
           "kind": "section",
           "x": 0,
           "y": 1180,
@@ -436,13 +481,13 @@
           "text": "Instances in context"
         },
         {
-          "id": "note_instances_5",
+          "id": "note_instances_6",
           "kind": "note",
           "x": 1140,
-          "y": 1256,
+          "y": 1300,
           "width": 380,
           "height": 416,
-          "text": "WHAT IT SHOWS\nA full settings screen built from 19 instances of the page 3 components, plus ui.css classes: Tabs, an Alert, Text fields, Switch rows, Avatars, Badges, Progress bars and Buttons. Every value is an attribute you can adjust.\n\nTRY\n1. Select the URL slug field. Variant reads Error, and Label and Width have dots because they differ.\n2. Set the Storage bar's Value to 90 and Tone to Warning.\n3. Select the Audit log row and set Variant to Default: it is no longer locked.\n4. Double-click into Save settings to select its label part, then press Select instance.\n5. Select a member's avatar and turn Ring on.\n\nWHAT GETS WRITTEN\nEach step changes attributes on one tag in this file, for example value=\"90\" tone=\"warning\" on <zd-progress data-oid=\"ctx-storage\">. The components on page 3 are not touched. Discard this file in Changes to undo."
+          "text": "WHAT IT SHOWS\nA full settings screen built from 19 instances of the page 3 components, plus ui.css classes: Tabs, an Alert, Text fields, Switch rows, Avatars, Badges, Progress bars and Buttons. Every value is an attribute you can adjust.\n\nTRY\n1. Select the URL slug field. Variant reads Error, and Label and Width have dots because they differ.\n2. Set the Storage bar's Value to 90 and Tone to Warning.\n3. Select the Audit log row and set Variant to Default: it is no longer locked.\n4. Select Save settings, then double-click its label to select the label part. Press Select instance to go back.\n5. Select a member's avatar and turn Ring on.\n\nWHAT GETS WRITTEN\nEach step changes attributes on one tag in this file, for example value=\"90\" tone=\"warning\" on <zd-progress data-oid=\"ctx-storage\">. The components on page 3 are not touched. Discard this file in Changes to undo."
         }
       ]
     },
@@ -460,15 +505,24 @@
       ],
       "items": [
         {
-          "id": "section_states_1",
+          "id": "note_states_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_states_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1520,
           "text": "Live states and the State picker"
         },
         {
-          "id": "note_states_2",
+          "id": "note_states_3",
           "kind": "note",
           "x": 1140,
           "y": 0,
@@ -477,7 +531,7 @@
           "text": "WHAT IT SHOWS\nThe State picker. A layer gets a State button in the Style panel header only when a rule names it with :hover, :focus, :focus-visible, :active or :disabled. Picking a state draws the layer in that state on the canvas and narrows the panel to what the state's rule changes.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing. A picked state is view only: fields stay read only until Back to Default, and the choice is not saved. To change how a state looks, edit its rule in source: this frame's <style>, ui.css, or for Tailwind its hover: utility."
         },
         {
-          "id": "section_states_3",
+          "id": "section_states_4",
           "kind": "section",
           "x": 0,
           "y": 920,
@@ -485,44 +539,44 @@
           "text": "Drawn states"
         },
         {
-          "id": "note_states_4",
+          "id": "note_states_5",
           "kind": "note",
           "x": 1140,
-          "y": 996,
+          "y": 1040,
           "width": 380,
           "height": 290,
           "text": "WHAT IT SHOWS\nDrawn states, rule 2 in rules.md: a state is an attribute or a state class on the same markup, such as data-state=\"hover\" or .is-open, so a capture or a reviewer sees it without hovering. The live frame above needs a pointer instead. Button's Drawn state option on page 3 sets data-state the same way.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nChanging data-state in the file is a one-attribute diff. A Style edit on one drawn copy writes that copy's style attribute; the [data-state] rules stay shared."
         },
         {
-          "id": "section_states_5",
+          "id": "section_states_6",
           "kind": "section",
           "x": 0,
-          "y": 2016,
+          "y": 2060,
           "width": 1620,
           "text": "Content states"
         },
         {
-          "id": "note_states_6",
+          "id": "note_states_7",
           "kind": "note",
           "x": 1240,
-          "y": 2092,
+          "y": 2180,
           "width": 380,
           "height": 398,
           "text": "WHAT IT SHOWS\nThe four content states reviewers ask for, on one Deploys card: empty, loading, error and long text. The empty state places a Button (Compact variant), the error state an Alert (Failed variant) and the long state two Badges. .long-text sets overflow-wrap: anywhere so unbroken names wrap.\n\nTRY\n1. Select a skeleton bar. Its shimmer is a CSS @keyframes animation; with it selected, open the motion timeline (⇧M).\n2. Select the error Alert. Variant reads Failed; Heading and Message have dots because this instance overrides them.\n3. Select the long title and narrow its column's width in Layout: it keeps wrapping.\n4. Select the empty-state button and change its Label.\n\nWHAT GETS WRITTEN\nOption changes write attributes on that instance's tag in this file. Style edits write the layer's style attribute. The components stay as they are."
         },
         {
-          "id": "section_states_7",
+          "id": "section_states_8",
           "kind": "section",
           "x": 0,
-          "y": 2932,
+          "y": 3020,
           "width": 2100,
           "text": "One frame per state"
         },
         {
-          "id": "note_states_8",
+          "id": "note_states_9",
           "kind": "note",
           "x": 1720,
-          "y": 3008,
+          "y": 3140,
           "width": 380,
           "height": 362,
           "text": "WHAT IT SHOWS\nOne frame per state: the same sign-in screen as Default, Error and Loading. Use this when a state changes the whole screen; use drawn states when it changes one control. The three files differ only in instance attributes. Error adds an Alert and sets state=\"error\" on the password field. Loading sets loading=\"true\" on the button and state=\"disabled\" on both fields.\n\nTRY\n1. Select the Sign in button in each frame and compare Options.\n2. Select the password field in Sign in — Error. Drawn state reads Error, and Hint has a dot.\n3. Change something in one frame, then open Changes: only that file changed.\n\nWHAT GETS WRITTEN\nEach edit writes one attribute on one tag in that frame's file. Frame titles and sizes are in meta/canvas.json."
@@ -547,15 +601,24 @@
       ],
       "items": [
         {
-          "id": "section_style_panel_1",
+          "id": "note_style_panel_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_style_panel_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 3420,
           "text": "Position and Layout"
         },
         {
-          "id": "note_style_panel_2",
+          "id": "note_style_panel_3",
           "kind": "note",
           "x": 1240,
           "y": 0,
@@ -564,7 +627,7 @@
           "text": "WHAT IT SHOWS\nPosition. For a free layer (position: absolute), X and Y edit left or right and top or bottom, and the pins choose which edges it keeps when its parent resizes. Rotation and flip write the rotate and scale properties, not transform. A layer in a flex or grid parent is placed by that parent, so Position offers Place freely instead.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nDragging or typing changes only the offsets the layer already uses in its style attribute. Place freely writes position: absolute with left, top, width and height that keep the layer where it is, and sets position: relative on a static parent, as one undo step."
         },
         {
-          "id": "note_style_panel_3",
+          "id": "note_style_panel_4",
           "kind": "note",
           "x": 3040,
           "y": 0,
@@ -573,7 +636,7 @@
           "text": "WHAT IT SHOWS\nLayout. On a container: auto layout (none, row, column or grid), wrap, grid tracks, gap, padding and alignment. On any layer: width and height (fixed, Hug or Fill), limits, margins and clipping. Images also get Fit, which is object-fit. The padding and gap handles on the canvas edit the same declarations.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nRow and Column write display: flex and flex-direction; Grid writes display: grid. A track count is written as repeat(N, minmax(0, 1fr)). In a flex parent, Fill and Hug write flex-grow, flex-shrink and flex-basis. Each lands in the layer's style attribute unless a rule styles that layer alone."
         },
         {
-          "id": "section_style_panel_4",
+          "id": "section_style_panel_5",
           "kind": "section",
           "x": 0,
           "y": 1100,
@@ -581,97 +644,97 @@
           "text": "Appearance and Fill"
         },
         {
-          "id": "note_style_panel_5",
-          "kind": "note",
-          "x": 1240,
-          "y": 1176,
-          "width": 380,
-          "height": 290,
-          "text": "WHAT IT SHOWS\nAppearance: opacity from 0 to 100%, corner radius as one value or four corners, and blend mode, which is mix-blend-mode against what lies beneath. Radius fields take a --radius-* token as a pill.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nOpacity writes a percentage, such as opacity: 40%. Each field writes only its own declaration in the layer's style attribute; the classes on these tiles stay as they are. Fields take maths: type 24*2, +8 or x/2."
-        },
-        {
           "id": "note_style_panel_6",
           "kind": "note",
+          "x": 1240,
+          "y": 1220,
+          "width": 380,
+          "height": 290,
+          "text": "WHAT IT SHOWS\nAppearance: opacity from 0 to 100%, corner radius as one value or four corners, and blend mode, which is mix-blend-mode against what lies beneath. Radius fields take a --radius-* token as a pill.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nOpacity shows a percentage but writes a number from 0 to 1: typing 40 writes 0.4. Each field writes only its own declaration in the layer's style attribute; the classes on these tiles stay as they are. Fields take maths: type 24*2, +8 or x/2."
+        },
+        {
+          "id": "note_style_panel_7",
+          "kind": "note",
           "x": 3040,
-          "y": 1176,
+          "y": 1220,
           "width": 380,
           "height": 290,
           "text": "WHAT IT SHOWS\nFill edits background layers: a solid colour, linear, radial and conic gradients, images, several layers in paint order, and their blend. On a text layer Fill is the text colour. The colour picker has Theme, the colour tokens by source and family, and Custom: hex, opacity, notation and eyedropper.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA token writes var(--name); a literal writes the colour as picked. Moving a gradient stop rewrites that gradient in place in the style attribute. On text, Fill writes color."
         },
         {
-          "id": "section_style_panel_7",
+          "id": "section_style_panel_8",
           "kind": "section",
           "x": 0,
-          "y": 2376,
+          "y": 2420,
           "width": 3420,
           "text": "Typography and Stroke"
         },
         {
-          "id": "note_style_panel_8",
+          "id": "note_style_panel_9",
           "kind": "note",
           "x": 1240,
-          "y": 2452,
+          "y": 2540,
           "width": 380,
           "height": 308,
           "text": "WHAT IT SHOWS\nTypography: font, weight, size, line height, letter spacing, alignment, decoration and case, plus the Style row for text styles. Values a layer inherits from a parent are dimmed. On text layers Typography comes before Fill; on a layer without text it is hidden until you add it.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA text style writes font-size: var(--text-<name>) and one var() per part it defines. Typing a size over an inherited value writes font-size on this layer only. The unit menu converts: 12px to rem writes 0.75rem."
         },
         {
-          "id": "note_style_panel_9",
+          "id": "note_style_panel_10",
           "kind": "note",
           "x": 3040,
-          "y": 2452,
+          "y": 2540,
           "width": 380,
           "height": 272,
           "text": "WHAT IT SHOWS\nStroke covers two CSS properties: Inside is border, Outside is outline. Each stroke has a width, a style (solid, dashed or dotted) and a colour, and widths can differ per side.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nSwitching Inside to Outside moves the stroke from border to outline. Per-side widths are written per side. A colour token is written as var(--border-default) and so on. Each change lands in the layer's style attribute."
         },
         {
-          "id": "section_style_panel_10",
+          "id": "section_style_panel_11",
           "kind": "section",
           "x": 0,
-          "y": 3432,
+          "y": 3520,
           "width": 3420,
           "text": "Shadow, Blur and Transform"
         },
         {
-          "id": "note_style_panel_11",
+          "id": "note_style_panel_12",
           "kind": "note",
           "x": 1240,
-          "y": 3508,
+          "y": 3640,
           "width": 380,
           "height": 290,
           "text": "WHAT IT SHOWS\nShadow edits box-shadow (text-shadow on text layers), one row per shadow, drop or inner. Blur edits filter: blur() as Layer blur and backdrop-filter: blur() as Background blur. A value the panel cannot split into rows, such as a filter chain, shows as a raw row you edit as text.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe box-shadow list is rewritten with your change in place, keeping the other shadows. Detach on a --shadow-* pill writes the shadow it resolves to. Blur writes filter or backdrop-filter."
         },
         {
-          "id": "note_style_panel_12",
+          "id": "note_style_panel_13",
           "kind": "note",
           "x": 3040,
-          "y": 3508,
+          "y": 3640,
           "width": 380,
           "height": 272,
           "text": "WHAT IT SHOWS\nTransform edits the transform property: translate X and Y, rotate, scale X and Y, skew X and Y, plus the origin and perspective. It is hidden on layers without a transform until you add it from Add property.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nZeros rewrites the transform list in place in the layer's style attribute. Position's rotation and flip are separate properties, rotate and scale, so a layer can use both."
         },
         {
-          "id": "section_style_panel_13",
+          "id": "section_style_panel_14",
           "kind": "section",
           "x": 0,
-          "y": 4588,
+          "y": 4720,
           "width": 3420,
           "text": "Transition, Motion and More styles"
         },
         {
-          "id": "note_style_panel_14",
+          "id": "note_style_panel_15",
           "kind": "note",
           "x": 1240,
-          "y": 4664,
+          "y": 4840,
           "width": 380,
           "height": 290,
           "text": "WHAT IT SHOWS\nTransition lists one row per transition: property, duration, delay and easing. Motion lists a layer's @keyframes animations and opens the motion timeline (⇧M), which previews and edits the keyframes in this frame's <style>.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nTransition rows write the layer's transition declarations. Timeline edits change the @keyframes rule in this frame's own <style>. Captures stop animations, so screenshots and the Changes view stay stable."
         },
         {
-          "id": "note_style_panel_15",
+          "id": "note_style_panel_16",
           "kind": "note",
           "x": 3040,
-          "y": 4664,
+          "y": 4840,
           "width": 380,
           "height": 308,
           "text": "WHAT IT SHOWS\nMore styles lists each authored declaration that no other section shows, as a name and a value written as text. A row's tooltip says which selector and file it comes from. It leaves out base rules such as resets, and a source's own variables such as --tw-*.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA new row writes that property on the layer; zIndex is written as z-index. Remove is offered only for inline values; a value from a class is overridden inline. Export PNG saves a picture of the frame, or of the selected layer, at 1x, 2x or 3x; it is not a source edit."
@@ -688,24 +751,33 @@
       ],
       "items": [
         {
-          "id": "section_origins_1",
+          "id": "note_origins_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_origins_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1620,
           "text": "Where each value comes from"
         },
         {
-          "id": "note_origins_2",
+          "id": "note_origins_3",
           "kind": "note",
           "x": 1240,
           "y": 0,
           "width": 380,
-          "height": 344,
-          "text": "WHAT IT SHOWS\nEvery kind of origin the Style panel tells apart: set on this layer, changed over its class, from a class or rule, from a parent, from a reset, forced by !important, computed (calc() and the like) and themed. A field's hover card names the origin. A dot marks a value changed here; a dimmed field comes from a parent or a reset.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nReset or Clear (⌥⌫) removes the layer's own declaration, so the class, inherited or initial value shows again. A computed value is read only and offers Edit in CSS. A forced value offers Ask agent to change. Setting a themed value writes one value for every theme, and the panel says \"Changes Light and Dark.\""
+          "height": 362,
+          "text": "WHAT IT SHOWS\nEvery kind of origin the Style panel tells apart: set on this layer, changed over its class, from a class or rule, from a parent, from a reset, forced by !important, computed (calc() and the like) and themed. A field's hover card names the origin. A dot marks a value changed here; a dimmed field comes from a parent or a reset.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nReset or Clear removes the layer's own declaration, so the class, inherited or initial value shows again: choose it on the field's card, or select the field's text and press ⌥⌫. A computed value is read only and offers Edit in CSS. A forced value offers Ask agent to change. Setting a themed value writes one value for every theme, and the panel says \"Changes Light and Dark.\""
         },
         {
-          "id": "section_origins_3",
+          "id": "section_origins_4",
           "kind": "section",
           "x": 0,
           "y": 1280,
@@ -713,10 +785,10 @@
           "text": "Styled by, Changed here and Tidy"
         },
         {
-          "id": "note_origins_4",
+          "id": "note_origins_5",
           "kind": "note",
           "x": 1240,
-          "y": 1356,
+          "y": 1400,
           "width": 380,
           "height": 290,
           "text": "WHAT IT SHOWS\nThe Styled by line under the panel header, and Tidy. Styled by counts the classes, utilities and component that style a layer, then lists Changed here: values set on the layer over them. Choosing a row narrows the panel to what that source sets.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing until you edit. Tidy writes nothing itself: it sends the agent a brief naming each change made by hand, and the agent moves them into tokens, classes or the component. Review its edit in Changes."
@@ -736,15 +808,24 @@
       ],
       "items": [
         {
-          "id": "section_sources_1",
+          "id": "note_sources_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_sources_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1620,
           "text": "Plain CSS, styles-only CSS and App fonts"
         },
         {
-          "id": "note_sources_2",
+          "id": "note_sources_3",
           "kind": "note",
           "x": 1240,
           "y": 0,
@@ -753,7 +834,7 @@
           "text": "WHAT IT SHOWS\nA style source: a stylesheet in the repository, outside the Design folder. meta/canvas.json declares it under styles, with an id, kind css, its path, and themes mapping [data-theme=\"dark\"] to Dark. This frame lists brand and brand-motion in its styles, so it gets their classes and variables. A frame that lists none gets none.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing in brand.css: Zeros only reads sources. A Style edit writes the layer's style attribute in this frame. To change the brand classes, edit styles/brand/brand.css; frames redraw when you save. The link cards open both files."
         },
         {
-          "id": "link_sources_3",
+          "id": "link_sources_4",
           "kind": "link",
           "x": 1240,
           "y": 324,
@@ -762,7 +843,7 @@
           "title": "styles/brand/brand.css"
         },
         {
-          "id": "link_sources_4",
+          "id": "link_sources_5",
           "kind": "link",
           "x": 1240,
           "y": 402,
@@ -771,7 +852,7 @@
           "title": "styles/brand/motion.css"
         },
         {
-          "id": "section_sources_5",
+          "id": "section_sources_6",
           "kind": "section",
           "x": 0,
           "y": 980,
@@ -779,107 +860,107 @@
           "text": "Sass and Tailwind"
         },
         {
-          "id": "note_sources_6",
+          "id": "note_sources_7",
           "kind": "note",
           "x": 1240,
-          "y": 1056,
+          "y": 1100,
           "width": 380,
           "height": 272,
           "text": "WHAT IT SHOWS\nA Sass source (kind sass). Zeros compiles styles/sass/app.scss with its own Dart Sass, following the partials, and imports the CSS it produces. The source's themes field maps the @media (prefers-color-scheme: dark) block to the Dark theme.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing in the .scss files. Edits on the tiles write their style attributes. Saving a partial recompiles the source, and every frame that uses it redraws."
         },
         {
-          "id": "link_sources_7",
+          "id": "link_sources_8",
           "kind": "link",
           "x": 1240,
-          "y": 1344,
+          "y": 1388,
           "width": 380,
           "target": "styles/sass/app.scss",
           "title": "styles/sass/app.scss"
         },
         {
-          "id": "link_sources_8",
+          "id": "link_sources_9",
           "kind": "link",
           "x": 1240,
-          "y": 1422,
+          "y": 1466,
           "width": 380,
           "target": "styles/sass/_tokens.scss",
           "title": "styles/sass/_tokens.scss"
         },
         {
-          "id": "note_sources_9",
+          "id": "note_sources_10",
           "kind": "note",
           "x": 3040,
-          "y": 1056,
+          "y": 1100,
           "width": 380,
           "height": 380,
           "text": "WHAT IT SHOWS\nA Tailwind v4 source (kind tailwind). Zeros compiles styles/tailwind/app.css with its bundled Tailwind, scanning only this frame's classes, so the CSS holds just the utilities it uses. @theme values become variables in the theme editor. [data-theme=dark] maps to Dark, and the dark: variant follows it.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nAn edit never changes the class attribute: Zeros adds an inline declaration over the utility, so Changes shows a style=\"…\" added to the tag.\nKnown problem: the contrast audit measures the Popular badge at 1.11:1, and in Dark eight more texts here at 1:1 to 2.2:1, because it reads oklch() colours as rgb (issue 4). Their real contrast is 6.7:1 or more. The app shows no audits (issue 6); the README says how to see them."
         },
         {
-          "id": "link_sources_10",
+          "id": "link_sources_11",
           "kind": "link",
           "x": 3040,
-          "y": 1452,
+          "y": 1496,
           "width": 380,
           "target": "styles/tailwind/app.css",
           "title": "styles/tailwind/app.css"
         },
         {
-          "id": "section_sources_11",
+          "id": "section_sources_12",
           "kind": "section",
           "x": 0,
-          "y": 2076,
+          "y": 2120,
           "width": 1620,
           "text": "A build command"
         },
         {
-          "id": "note_sources_12",
+          "id": "note_sources_13",
           "kind": "note",
           "x": 1240,
-          "y": 2152,
+          "y": 2240,
           "width": 380,
           "height": 308,
           "text": "WHAT IT SHOWS\nA build source (kind build): the command node styles/build/build-tokens.mjs, its inputs styles/build, and its output .zeros/design-styles/tokens.css. While Design is open, Zeros runs the command in the repository, runs it again when an input changes, and frames read the CSS it writes. .zeros/ is private local state that Git ignores.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing in tokens.json or the script. The build rewrites .zeros/design-styles/tokens.css, which is never committed. Edits on the card write its style attribute."
         },
         {
-          "id": "link_sources_13",
+          "id": "link_sources_14",
           "kind": "link",
           "x": 1240,
-          "y": 2476,
+          "y": 2564,
           "width": 380,
           "target": "styles/build/tokens.json",
           "title": "styles/build/tokens.json"
         },
         {
-          "id": "link_sources_14",
+          "id": "link_sources_15",
           "kind": "link",
           "x": 1240,
-          "y": 2554,
+          "y": 2642,
           "width": 380,
           "target": "styles/build/build-tokens.mjs",
           "title": "styles/build/build-tokens.mjs"
         },
         {
-          "id": "section_sources_15",
+          "id": "section_sources_16",
           "kind": "section",
           "x": 0,
-          "y": 2992,
+          "y": 3080,
           "width": 1620,
           "text": "Status and per-frame lists"
         },
         {
-          "id": "note_sources_16",
+          "id": "note_sources_17",
           "kind": "note",
           "x": 1240,
-          "y": 3068,
+          "y": 3200,
           "width": 380,
           "height": 290,
           "text": "WHAT IT SHOWS\nSource status. Legacy vendor CSS (styles/legacy/vendor.css) has a Warning on purpose. Removed stylesheet points at styles/removed.css, which does not exist, so it has an Error and is Not imported. A source with rules but no variables is listed under Styles only.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nAsk agent to fix sends the agent a brief; it edits the source or meta/canvas.json, and you review that in Changes. Update sources writes nothing: it re-reads every source."
         },
         {
-          "id": "link_sources_17",
+          "id": "link_sources_18",
           "kind": "link",
           "x": 1240,
-          "y": 3374,
+          "y": 3506,
           "width": 380,
           "target": "styles/legacy/vendor.css",
           "title": "styles/legacy/vendor.css"
@@ -903,15 +984,24 @@
       ],
       "items": [
         {
-          "id": "section_lint_1",
+          "id": "note_lint_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_lint_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1620,
           "text": "How the checks work"
         },
         {
-          "id": "note_lint_2",
+          "id": "note_lint_3",
           "kind": "note",
           "x": 1240,
           "y": 0,
@@ -920,7 +1010,7 @@
           "text": "WHAT IT SHOWS\nHow the checks work. Zeros lints a frame's source each time it changes. An error fails Validate and puts a red line at the top of the Style panel. A warning never blocks a save, and the canvas does not list warnings: the agent's Validate step (design validate) reports each one with its file, line and a fix.\nThe link card below this note points at a file that is missing on purpose. It shows \"File not found\", and Validate warns canvas-item-link-missing.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing. Checks only read. A fix comes from you or the agent, and shows in Changes like any edit."
         },
         {
-          "id": "link_lint_3",
+          "id": "link_lint_4",
           "kind": "link",
           "x": 1240,
           "y": 342,
@@ -929,7 +1019,7 @@
           "title": "docs/moved-guide.md (missing on purpose)"
         },
         {
-          "id": "section_lint_4",
+          "id": "section_lint_5",
           "kind": "section",
           "x": 0,
           "y": 1240,
@@ -937,97 +1027,97 @@
           "text": "Rules 1 and 3: classes, tokens and literal colours"
         },
         {
-          "id": "note_lint_5",
+          "id": "note_lint_6",
           "kind": "note",
           "x": 1240,
-          "y": 1316,
+          "y": 1360,
           "width": 380,
           "height": 380,
           "text": "WHAT IT SHOWS\nRule 3: write tokens, not their values. Validate reports 6 warnings for this frame:\n· Unknown design token \"--fg-strongest\". (line 32)\n· Write var(--border-default) instead of the literal colour \"#cdd2da\" (line 13, in the frame's <style>)\n· Write var(--accent-soft) instead of \"#ebebfb\", and var(--accent) instead of \"#5151cc\" (line 42)\n· Write var(--bg-inverse) or var(--fg-strong) instead of \"rgb(22 24 29)\", and var(--bg-surface) or var(--fg-inverse) instead of \"#ffffff\" (line 43)\nWhen two tokens hold the same value, the message names both.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nChoosing a token in Fill writes var(--accent-soft) in that chip's style attribute, and its warning goes away at the next check."
         },
         {
-          "id": "note_lint_6",
+          "id": "note_lint_7",
           "kind": "note",
           "x": 3040,
-          "y": 1316,
+          "y": 1360,
           "width": 380,
           "height": 326,
           "text": "WHAT IT SHOWS\nRule 1: one class vocabulary. A class is unknown when nothing this frame receives defines it. Validate reports 3 warnings, each at the name's first use:\n· Class \"card--glow\" has no CSS in this frame's styles. (line 30)\n· Class \"btn-primary\" has no CSS in this frame's styles. (line 37)\n· Class \"badge--sucess\" has no CSS in this frame's styles. (line 44)\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe Style panel never renames classes. The agent's fix edits the class attributes in this file, for example badge--sucess becomes badge--success."
         },
         {
-          "id": "section_lint_7",
+          "id": "section_lint_8",
           "kind": "section",
           "x": 0,
-          "y": 2316,
+          "y": 2360,
           "width": 3420,
           "text": "Rules 4 and 8: repeated inline styles and markup"
         },
         {
-          "id": "note_lint_8",
+          "id": "note_lint_9",
           "kind": "note",
           "x": 1240,
-          "y": 2392,
+          "y": 2480,
           "width": 380,
           "height": 308,
           "text": "WHAT IT SHOWS\nRule 4: inline style is for one-off values. The check looks for the same two or more declarations on three or more layers. Validate reports:\n· Move the inline style \"background-color: var(--bg-surface); border-radius: 14px; flex: 1; padding: 16p…\", repeated on 3 elements (lines 34, 35 and 36), into one class.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA Style panel edit adds one declaration to one layer, so it never trips this check alone. The agent's fix adds a class to the frame's <style> and swaps the three style attributes for it."
         },
         {
-          "id": "note_lint_9",
+          "id": "note_lint_10",
           "kind": "note",
           "x": 3040,
-          "y": 2392,
+          "y": 2480,
           "width": 380,
           "height": 326,
           "text": "WHAT IT SHOWS\nRule 8: markup repeated three or more times becomes a component. The check compares trees of tags and classes, at least four elements and two levels deep, and ignores text and other attributes. Validate reports:\n· Make the <article> markup with class \"card card--flat\", repeated 3 times (lines 31, 32 and 33), one component.\nThe three cards on the right are <zd-card> instances, so they do not count.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe agent's fix replaces each copy with one <zd-card> tag, reusing components/card.html, or adds a new components file."
         },
         {
-          "id": "section_lint_10",
+          "id": "section_lint_11",
           "kind": "section",
           "x": 0,
-          "y": 3392,
+          "y": 3480,
           "width": 3420,
           "text": "Rules 5 and 7: layer ids and captured markup"
         },
         {
-          "id": "note_lint_11",
+          "id": "note_lint_12",
           "kind": "note",
           "x": 1240,
-          "y": 3468,
+          "y": 3600,
           "width": 380,
           "height": 380,
           "text": "WHAT IT SHOWS\nRule 7: markup captured from elsewhere. data-zd-captured on a root makes three checks skip everything under it: repeated inline styles, literal colours and repeated markup. The right copy is not marked, so Validate reports 11 warnings for it, all from line 37. For example:\n· Make the <div> markup repeated 3 times (lines 37, 38 and 39), one component.\n· Write var(--success) instead of the literal colour \"#147a4c\" (3 places: lines 37, 38 and 39).\n· Move the inline style \"display: flex; gap: 4px\", repeated on 3 elements (lines 37, 38 and 39), into one class.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing: the attribute is the whole fix. Mark only markup that really came from elsewhere."
         },
         {
-          "id": "note_lint_12",
+          "id": "note_lint_13",
           "kind": "note",
           "x": 3040,
-          "y": 3468,
+          "y": 3600,
           "width": 380,
-          "height": 254,
-          "text": "WHAT IT SHOWS\nRule 5: each data-oid must be unique in its frame. It is how Zeros finds a layer again after the markup around it changes. Validate reports:\n· data-oid \"li-save\" is duplicated in this frame. (line 30)\nZeros does not rename either copy by itself.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe fix is one attribute: give one copy a new data-oid in Files."
+          "height": 416,
+          "text": "WHAT IT SHOWS\nRule 5: each data-oid must be unique in its frame. It is how Zeros finds a layer again after the markup around it changes. Validate reports:\n· data-oid \"li-save\" is duplicated in this frame. (line 30)\nWhen Zeros draws the frame, it gives the second copy a generated id, so each copy can be selected. Unlike every other frame in this demo, most layers here have no data-oid, on purpose.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe first edit to a layer here also saves the second copy's generated id, and writes an id onto each of the 17 layers that have none, so Changes shows 18 more lines than your edit (issue 12). Validate then no longer reports the duplicate; Discard the file to bring it back.\nThe fix by hand is one attribute: give one copy a new data-oid in Files."
         },
         {
-          "id": "section_lint_13",
+          "id": "section_lint_14",
           "kind": "section",
           "x": 0,
-          "y": 4258,
+          "y": 4390,
           "width": 3020,
           "text": "Component warnings"
         },
         {
-          "id": "note_lint_14",
+          "id": "note_lint_15",
           "kind": "note",
           "x": 840,
-          "y": 4334,
+          "y": 4510,
           "width": 380,
           "height": 344,
           "text": "WHAT IT SHOWS\nA frame that declares options but has no component name in meta/canvas.json. It draws its defaults, but no frame can place it and it has no Options. It also has a second <template data-zd-options>, which is ignored. Validate reports:\n· This frame declares options but is not registered as a component, so no other frame can place it. (line 1)\n· Only the first <template data-zd-options> in <head> is read; move these options into it. (line 10)\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nRegistering adds \"component\": \"<name>\" to this frame's record in meta/canvas.json. Merging moves the second block's lines into the first."
         },
         {
-          "id": "note_lint_15",
+          "id": "note_lint_16",
           "kind": "note",
           "x": 2640,
-          "y": 4334,
+          "y": 4510,
           "width": 380,
           "height": 344,
           "text": "WHAT IT SHOWS\nInstance attributes that name no option. They are ignored, never rewritten, and the Options section shows a yellow notice for each. Validate reports:\n· This component has no option lable; lable=\"Save draft\" is ignored. (line 29)\n· This component has no option colour; colour=\"green\" is ignored. (line 37)\nclass, style, data-oid, data-name and other host attributes are never counted.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing until it is fixed. Renaming lable to label in Files makes the value apply, and Label then shows it with a dot."
@@ -1047,96 +1137,105 @@
       ],
       "items": [
         {
-          "id": "section_issues_1",
+          "id": "note_issues_1",
+          "kind": "note",
+          "x": -540,
+          "y": 0,
+          "width": 380,
+          "height": 290,
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+        },
+        {
+          "id": "section_issues_2",
           "kind": "section",
           "x": 0,
-          "y": -76,
+          "y": -120,
           "width": 1620,
           "text": "All known issues"
         },
         {
-          "id": "note_issues_2",
+          "id": "note_issues_3",
           "kind": "note",
           "x": 1240,
           "y": 0,
           "width": 380,
-          "height": 344,
-          "text": "WHAT IT SHOWS\nEvery Zeros problem found while building this demo, with the place in the Zeros repository where it starts. Issue 11 has no frame on this page: it shows on page 4.\n\nTRY\n1. Go through the frames on this page in order; each note says what to look for.\n2. For issues 4 to 6, read README.md in the demo repository: it explains how to run the audits from a terminal.\n3. For issue 8, ask the agent to set tone=\"purple\" on one Button instance, which is an error, then select a frame on another page: the red line is still there. Discard the change afterwards.\n\nWHAT GETS WRITTEN\nNothing. This page only reports. Paths are relative to the root of the Zeros repository."
+          "height": 380,
+          "text": "WHAT IT SHOWS\nEvery Zeros problem found while building this demo, with the place in the Zeros repository where it starts. Issues 11 to 15 have no frame on this page: 11 and 15 show on page 4, 12 on page 10 and 14 on page 5. 13 shows nowhere, because this demo lists its components already; README.md says how to see it.\n\nTRY\n1. Go through the frames on this page in order; each note says what to look for.\n2. For issues 4 to 6, read README.md in the demo repository: it explains how to run the audits from a terminal.\n3. For issue 8, ask the agent to set tone=\"purple\" on one Button instance, which is an error, then select a frame on another page: the red line is still there. Discard the change afterwards.\n\nWHAT GETS WRITTEN\nNothing. This page only reports. Paths are relative to the root of the Zeros repository."
         },
         {
-          "id": "section_issues_3",
+          "id": "section_issues_4",
           "kind": "section",
           "x": 0,
-          "y": 1140,
+          "y": 1400,
           "width": 1620,
           "text": "Issues 1 and 2: component templates"
         },
         {
-          "id": "note_issues_4",
+          "id": "note_issues_5",
           "kind": "note",
           "x": 1240,
-          "y": 1216,
+          "y": 1520,
           "width": 380,
           "height": 326,
           "text": "WHAT IT SHOWS\nIssues 1 and 2. The badge's class attribute is badge badge--soft badge--{{ tone }}: the hole fills in when Zeros draws, but the unknown-class check reads the raw attribute. Validate reports three false warnings, for \"badge--{{\", \"tone\" and \"}}\" (line 33).\nThe card is a <zd-card> wrapped in <template data-zd-if=\"show-card\">. Zeros never expands an instance inside a template wrapper, so it stays a bare tag showing its text, and Validate says nothing.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nTone and Show the wrapped card write default= in this file, like any main component."
         },
         {
-          "id": "section_issues_5",
+          "id": "section_issues_6",
           "kind": "section",
           "x": 0,
-          "y": 2156,
+          "y": 2460,
           "width": 3420,
           "text": "Issues 3 to 7: checks and Tailwind"
         },
         {
-          "id": "note_issues_6",
+          "id": "note_issues_7",
           "kind": "note",
           "x": 1240,
-          "y": 2232,
+          "y": 2580,
           "width": 380,
           "height": 308,
           "text": "WHAT IT SHOWS\nIssues 3 to 5.\n3: unknown-token reads the raw file, so a sentence naming a token warns: Unknown design token \"--gap-xl\". (line 29)\n4: dark text on a light oklch() fill. Its real contrast is high, but the contrast audit reads oklch() as rgb and measures 1.04:1.\n5: a label cut off with text-overflow: ellipsis. The overflow audit reports it as overflow, 387px of text in 327px.\nIssues 4 and 5 are audits, which the app never shows (issue 6).\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing."
         },
         {
-          "id": "note_issues_7",
+          "id": "note_issues_8",
           "kind": "note",
           "x": 3040,
-          "y": 2232,
+          "y": 2580,
           "width": 380,
           "height": 290,
           "text": "WHAT IT SHOWS\nIssue 7. Tailwind (.dark class) declares themes: { dark: \".dark\" }. When Zeros imports the compiled CSS it rewrites the selector .dark to the canvas's Dark theme, but the rewrite also matches the start of Tailwind's escaped class names, such as .dark\\:bg-zinc-900. So every dark: utility becomes a selector that never matches, and the card stays light in Dark.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing. The fix belongs in Zeros: engine/design/style-sources.ts, importPlainDesignPiece."
         },
         {
-          "id": "link_issues_8",
+          "id": "link_issues_9",
           "kind": "link",
           "x": 3040,
-          "y": 2538,
+          "y": 2886,
           "width": 380,
           "target": "styles/tailwind-class-dark/app.css",
           "title": "styles/tailwind-class-dark/app.css"
         },
         {
-          "id": "section_issues_9",
+          "id": "section_issues_10",
           "kind": "section",
           "x": 0,
-          "y": 2952,
+          "y": 3300,
           "width": 1620,
           "text": "Issue 10: component CSS"
         },
         {
-          "id": "note_issues_10",
+          "id": "note_issues_11",
           "kind": "note",
           "x": 1240,
-          "y": 3028,
+          "y": 3420,
           "width": 380,
           "height": 326,
           "text": "WHAT IT SHOWS\nIssue 10. components/pill.html's style sets .badge { --badge-ink: var(--accent); … } with no scope. Zeros copies that style element unchanged into the head of every frame that places a Pill, so here it reaches the three plain badges too, and all three turn accent.\nPage 3's Badge and Button limit their rules with :where(.stage, zd-badge) > .badge, which is the workaround until Zeros scopes component styles.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nRemoving the <zd-pill> tag is a one-line change in this file; Discard puts it back. The link card opens components/pill.html."
         },
         {
-          "id": "link_issues_11",
+          "id": "link_issues_12",
           "kind": "link",
           "x": 1240,
-          "y": 3370,
+          "y": 3762,
           "width": 380,
           "target": "zeros-design-demo - Design/components/pill.html",
           "title": "components/pill.html"
@@ -1170,7 +1269,7 @@
       "source": "tokens/type.html",
       "title": "Text styles",
       "x": 0,
-      "y": 1332,
+      "y": 1376,
       "width": 1120,
       "height": 870,
       "styles": []
@@ -1180,7 +1279,7 @@
       "source": "tokens/scales.html",
       "title": "Scales",
       "x": 0,
-      "y": 2518,
+      "y": 2606,
       "width": 1200,
       "height": 780,
       "styles": []
@@ -1223,7 +1322,7 @@
       "source": "options/progress.html",
       "title": "Progress",
       "x": 0,
-      "y": 838,
+      "y": 882,
       "width": 440,
       "height": 280,
       "component": "progress",
@@ -1234,7 +1333,7 @@
       "source": "options/rating.html",
       "title": "Rating",
       "x": 1040,
-      "y": 838,
+      "y": 882,
       "width": 440,
       "height": 120,
       "component": "rating",
@@ -1245,7 +1344,7 @@
       "source": "options/text-field.html",
       "title": "Text field",
       "x": 2080,
-      "y": 838,
+      "y": 882,
       "width": 440,
       "height": 180,
       "component": "text-field",
@@ -1256,7 +1355,7 @@
       "source": "options/data-table.html",
       "title": "Data table",
       "x": 0,
-      "y": 1604,
+      "y": 1692,
       "width": 640,
       "height": 500,
       "component": "data-table",
@@ -1267,7 +1366,7 @@
       "source": "options/tabs.html",
       "title": "Tabs",
       "x": 1240,
-      "y": 1604,
+      "y": 1692,
       "width": 520,
       "height": 120,
       "component": "tabs",
@@ -1278,7 +1377,7 @@
       "source": "options/alert.html",
       "title": "Alert",
       "x": 0,
-      "y": 2420,
+      "y": 2552,
       "width": 600,
       "height": 200,
       "component": "alert",
@@ -1289,7 +1388,7 @@
       "source": "options/switch-row.html",
       "title": "Switch row",
       "x": 1200,
-      "y": 2420,
+      "y": 2552,
       "width": 440,
       "height": 120,
       "component": "switch-row",
@@ -1310,7 +1409,7 @@
       "source": "slots/stats-and-lists.html",
       "title": "Stats and lists",
       "x": 0,
-      "y": 1046,
+      "y": 1090,
       "width": 1100,
       "height": 670,
       "styles": []
@@ -1340,7 +1439,7 @@
       "source": "instances/in-context.html",
       "title": "Project settings",
       "x": 0,
-      "y": 1256,
+      "y": 1300,
       "width": 1100,
       "height": 1120,
       "styles": []
@@ -1360,7 +1459,7 @@
       "source": "states/drawn.html",
       "title": "Drawn states",
       "x": 0,
-      "y": 996,
+      "y": 1040,
       "width": 1100,
       "height": 780,
       "styles": []
@@ -1370,7 +1469,7 @@
       "source": "states/content.html",
       "title": "Content states",
       "x": 0,
-      "y": 2092,
+      "y": 2180,
       "width": 1200,
       "height": 600,
       "styles": []
@@ -1380,7 +1479,7 @@
       "source": "states/sign-in-default.html",
       "title": "Sign in — Default",
       "x": 0,
-      "y": 3008,
+      "y": 3140,
       "width": 440,
       "height": 560,
       "styles": []
@@ -1390,7 +1489,7 @@
       "source": "states/sign-in-error.html",
       "title": "Sign in — Error",
       "x": 620,
-      "y": 3008,
+      "y": 3140,
       "width": 440,
       "height": 560,
       "styles": []
@@ -1400,7 +1499,7 @@
       "source": "states/sign-in-loading.html",
       "title": "Sign in — Loading",
       "x": 1240,
-      "y": 3008,
+      "y": 3140,
       "width": 440,
       "height": 560,
       "styles": []
@@ -1430,7 +1529,7 @@
       "source": "style-panel/appearance.html",
       "title": "Appearance",
       "x": 0,
-      "y": 1176,
+      "y": 1220,
       "width": 1200,
       "height": 960,
       "styles": []
@@ -1440,7 +1539,7 @@
       "source": "style-panel/fill.html",
       "title": "Fill",
       "x": 1800,
-      "y": 1176,
+      "y": 1220,
       "width": 1200,
       "height": 820,
       "styles": []
@@ -1450,7 +1549,7 @@
       "source": "style-panel/typography.html",
       "title": "Typography",
       "x": 0,
-      "y": 2452,
+      "y": 2540,
       "width": 1200,
       "height": 740,
       "styles": []
@@ -1460,7 +1559,7 @@
       "source": "style-panel/stroke.html",
       "title": "Stroke",
       "x": 1800,
-      "y": 2452,
+      "y": 2540,
       "width": 1200,
       "height": 720,
       "styles": []
@@ -1470,7 +1569,7 @@
       "source": "style-panel/effects.html",
       "title": "Shadow and Blur",
       "x": 0,
-      "y": 3508,
+      "y": 3640,
       "width": 1200,
       "height": 840,
       "styles": []
@@ -1480,7 +1579,7 @@
       "source": "style-panel/transform.html",
       "title": "Transform",
       "x": 1800,
-      "y": 3508,
+      "y": 3640,
       "width": 1200,
       "height": 700,
       "styles": []
@@ -1490,7 +1589,7 @@
       "source": "style-panel/motion.html",
       "title": "Transition and Motion",
       "x": 0,
-      "y": 4664,
+      "y": 4840,
       "width": 1200,
       "height": 800,
       "styles": []
@@ -1500,7 +1599,7 @@
       "source": "style-panel/more-styles.html",
       "title": "More styles and Export",
       "x": 1800,
-      "y": 4664,
+      "y": 4840,
       "width": 1200,
       "height": 800,
       "styles": []
@@ -1520,7 +1619,7 @@
       "source": "origins/styled-by.html",
       "title": "Styled by and Tidy",
       "x": 0,
-      "y": 1356,
+      "y": 1400,
       "width": 1200,
       "height": 560,
       "styles": []
@@ -1543,7 +1642,7 @@
       "source": "sources/sass.html",
       "title": "Sass: Sass app",
       "x": 0,
-      "y": 1056,
+      "y": 1100,
       "width": 1200,
       "height": 600,
       "styles": [
@@ -1555,7 +1654,7 @@
       "source": "sources/tailwind.html",
       "title": "Tailwind: Tailwind app",
       "x": 1800,
-      "y": 1056,
+      "y": 1100,
       "width": 1200,
       "height": 780,
       "styles": [
@@ -1567,7 +1666,7 @@
       "source": "sources/build.html",
       "title": "Build command: Token build",
       "x": 0,
-      "y": 2152,
+      "y": 2240,
       "width": 1200,
       "height": 600,
       "styles": [
@@ -1579,7 +1678,7 @@
       "source": "sources/status.html",
       "title": "Source status and frame lists",
       "x": 0,
-      "y": 3068,
+      "y": 3200,
       "width": 1200,
       "height": 680,
       "styles": [
@@ -1602,7 +1701,7 @@
       "source": "lint/tokens.html",
       "title": "Unknown tokens and literal colours",
       "x": 0,
-      "y": 1316,
+      "y": 1360,
       "width": 1200,
       "height": 600,
       "styles": []
@@ -1612,7 +1711,7 @@
       "source": "lint/classes.html",
       "title": "Unknown classes",
       "x": 1800,
-      "y": 1316,
+      "y": 1360,
       "width": 1200,
       "height": 760,
       "styles": []
@@ -1622,7 +1721,7 @@
       "source": "lint/inline-styles.html",
       "title": "Repeated inline styles",
       "x": 0,
-      "y": 2392,
+      "y": 2480,
       "width": 1200,
       "height": 550,
       "styles": []
@@ -1632,7 +1731,7 @@
       "source": "lint/repeated-markup.html",
       "title": "Repeated markup",
       "x": 1800,
-      "y": 2392,
+      "y": 2480,
       "width": 1200,
       "height": 760,
       "styles": []
@@ -1642,7 +1741,7 @@
       "source": "lint/captured.html",
       "title": "Captured markup",
       "x": 0,
-      "y": 3468,
+      "y": 3600,
       "width": 1200,
       "height": 550,
       "styles": []
@@ -1652,9 +1751,9 @@
       "source": "lint/layer-ids.html",
       "title": "Duplicate layer ids",
       "x": 1800,
-      "y": 3468,
+      "y": 3600,
       "width": 1200,
-      "height": 470,
+      "height": 500,
       "styles": []
     },
     "lint_unregistered": {
@@ -1662,7 +1761,7 @@
       "source": "lint/unregistered.html",
       "title": "Options without a component name",
       "x": 0,
-      "y": 4334,
+      "y": 4510,
       "width": 800,
       "height": 390,
       "styles": []
@@ -1672,7 +1771,7 @@
       "source": "lint/instances.html",
       "title": "Instance attributes that are not options",
       "x": 1400,
-      "y": 4334,
+      "y": 4510,
       "width": 1200,
       "height": 480,
       "styles": []
@@ -1684,7 +1783,7 @@
       "x": 0,
       "y": 0,
       "width": 1200,
-      "height": 900,
+      "height": 1160,
       "styles": []
     },
     "issues_template": {
@@ -1692,7 +1791,7 @@
       "source": "issues/template.html",
       "title": "Template issues",
       "x": 0,
-      "y": 1216,
+      "y": 1520,
       "width": 1200,
       "height": 700,
       "component": "template-issues",
@@ -1703,7 +1802,7 @@
       "source": "issues/checks.html",
       "title": "Check issues",
       "x": 0,
-      "y": 2232,
+      "y": 2580,
       "width": 1200,
       "height": 480,
       "styles": []
@@ -1713,7 +1812,7 @@
       "source": "issues/dark-class.html",
       "title": "Tailwind with a .dark class",
       "x": 1800,
-      "y": 2232,
+      "y": 2580,
       "width": 1200,
       "height": 470,
       "styles": [
@@ -1725,7 +1824,7 @@
       "source": "issues/component-css.html",
       "title": "Component CSS",
       "x": 0,
-      "y": 3028,
+      "y": 3420,
       "width": 1200,
       "height": 490,
       "styles": []
@@ -1735,6 +1834,42 @@
     "schemaVersion": 1,
     "parameters": [],
     "variants": [],
-    "components": []
+    "components": [
+      {
+        "id": "card",
+        "name": "Card",
+        "file": "components/card.html",
+        "props": [],
+        "slots": []
+      },
+      {
+        "id": "list-item",
+        "name": "List item",
+        "file": "components/list-item.html",
+        "props": [],
+        "slots": []
+      },
+      {
+        "id": "pill",
+        "name": "Pill",
+        "file": "components/pill.html",
+        "props": [],
+        "slots": []
+      },
+      {
+        "id": "stat",
+        "name": "Stat",
+        "file": "components/stat.html",
+        "props": [],
+        "slots": []
+      },
+      {
+        "id": "swatch",
+        "name": "Swatch",
+        "file": "components/swatch.html",
+        "props": [],
+        "slots": []
+      }
+    ]
   }
 }

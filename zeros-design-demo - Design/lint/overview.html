@@ -14,58 +14,58 @@
 </style>
 </head>
 <body>
-<main class="sheet" data-name="What Zeros checks">
-<header class="sheet-head" data-name="Header">
-<p class="eyebrow">Lint showcase</p>
-<h1 class="sheet-title">What Zeros checks, and where you see it</h1>
-<p class="sheet-lede">Zeros checks each frame's source whenever it changes. An error makes Validate fail and puts a red line at the top of the Style panel. A warning never fails Validate and never blocks a save. The canvas does not list warnings: the agent's Validate step reports them, each with its file, line and a fix.</p>
+<main class="sheet" data-name="What Zeros checks" data-oid="o-59638d03f">
+<header class="sheet-head" data-name="Header" data-oid="o-b37334bee">
+<p class="eyebrow" data-oid="o-979688872">Lint showcase</p>
+<h1 class="sheet-title" data-oid="o-a36d61416">What Zeros checks, and where you see it</h1>
+<p class="sheet-lede" data-oid="o-5e063c627">Zeros checks each frame's source whenever it changes. An error makes Validate fail and puts a red line at the top of the Style panel. A warning never fails Validate and never blocks a save. The canvas does not list warnings: the agent's Validate step reports them, each with its file, line and a fix.</p>
 </header>
-<ol class="try" data-name="Try this">
-<li>In the chat, ask: Validate every frame on the Lint showcase page. Each other frame on this page breaks one rule on purpose, and its note quotes what Validate reports.</li>
-<li>Ask the same for page 2. Pages 1 to 9 report nothing, because they follow the rules in rules.md.</li>
-<li>Ask the agent to fix the Unknown classes frame, then open Changes to see its edit. Discard the change to put the demo back.</li>
+<ol class="try" data-name="Try this" data-oid="o-5644c07a2">
+<li data-oid="o-db752f2ef">In the chat, ask: Validate every frame on the Lint showcase page. Each other frame on this page breaks one rule on purpose, and its note quotes what Validate reports.</li>
+<li data-oid="o-5d5c47da5">Ask the same for page 2. Pages 1 to 9 report nothing, because they follow the rules in rules.md.</li>
+<li data-oid="o-57b255032">Ask the agent to fix the Unknown classes frame, then open Changes to see its edit. Discard the change to put the demo back.</li>
 </ol>
-<div class="lo-tables" data-name="Rules">
-<section class="stack" data-name="Errors">
-<p class="section-label lo-error">Errors: Validate fails</p>
-<table class="table" data-name="Error rules">
-<thead><tr><th>Rule</th><th>What breaks it</th></tr></thead>
-<tbody>
-<tr><td class="lo-rule">frames-are-valid-html</td><td>HTML the parser has to repair, such as a stray end tag</td></tr>
-<tr><td class="lo-rule">no-script</td><td>A script element: frames are HTML and CSS only</td></tr>
-<tr><td class="lo-rule">no-event-handlers</td><td>An attribute such as onclick</td></tr>
-<tr><td class="lo-rule">no-external-url</td><td>A stylesheet, image or link from another site</td></tr>
-<tr><td class="lo-rule">local-refs-only</td><td>A path that leads outside the Design folder</td></tr>
-<tr><td class="lo-rule">component-undefined</td><td>A zd- tag that no component answers to</td></tr>
-<tr><td class="lo-rule">component-invalid</td><td>A broken component file, or one name registered twice</td></tr>
-<tr><td class="lo-rule">component-value-invalid</td><td>An instance value its option does not allow, such as an unlisted choice</td></tr>
-<tr><td class="lo-rule">component-expression-invalid</td><td>A template expression that cannot be worked out</td></tr>
+<div class="lo-tables" data-name="Rules" data-oid="o-77a4881f7">
+<section class="stack" data-name="Errors" data-oid="o-7f4dcef8e">
+<p class="section-label lo-error" data-oid="o-c3a05a7a1">Errors: Validate fails</p>
+<table class="table" data-name="Error rules" data-oid="o-48f3a5fdd">
+<thead data-oid="o-9d2979ed9"><tr data-oid="o-0fc8088c4"><th data-oid="o-f35615978">Rule</th><th data-oid="o-740f17544">What breaks it</th></tr></thead>
+<tbody data-oid="o-fd159255d">
+<tr data-oid="o-4c3741513"><td class="lo-rule" data-oid="o-fff050c58">frames-are-valid-html</td><td data-oid="o-3664b8b93">HTML the parser has to repair, such as a stray end tag</td></tr>
+<tr data-oid="o-05a6927bf"><td class="lo-rule" data-oid="o-52660c240">no-script</td><td data-oid="o-9b6722d75">A script element: frames are HTML and CSS only</td></tr>
+<tr data-oid="o-85607ae7b"><td class="lo-rule" data-oid="o-28c616794">no-event-handlers</td><td data-oid="o-4c501cb8e">An attribute such as onclick</td></tr>
+<tr data-oid="o-0cc456565"><td class="lo-rule" data-oid="o-dccd14027">no-external-url</td><td data-oid="o-6556b740e">A stylesheet, image or link from another site</td></tr>
+<tr data-oid="o-3e7a4be96"><td class="lo-rule" data-oid="o-7855fa225">local-refs-only</td><td data-oid="o-ff4d840ba">A path that leads outside the Design folder</td></tr>
+<tr data-oid="o-79206b40e"><td class="lo-rule" data-oid="o-68d229009">component-undefined</td><td data-oid="o-954c3e7ac">A zd- tag that no component answers to</td></tr>
+<tr data-oid="o-d627a6091"><td class="lo-rule" data-oid="o-1d75fc18f">component-invalid</td><td data-oid="o-2f2d92e65">A broken component file, or one name registered twice</td></tr>
+<tr data-oid="o-8930f08f8"><td class="lo-rule" data-oid="o-59e6d6441">component-value-invalid</td><td data-oid="o-13445a501">An instance value its option does not allow, such as an unlisted choice</td></tr>
+<tr data-oid="o-360583d4e"><td class="lo-rule" data-oid="o-1cf6bedb0">component-expression-invalid</td><td data-oid="o-6c7ad885e">A template expression that cannot be worked out</td></tr>
 </tbody>
 </table>
 </section>
-<section class="stack" data-name="Warnings">
-<p class="section-label lo-warning">Warnings: advisory</p>
-<table class="table" data-name="Warning rules">
-<thead><tr><th>Rule</th><th>What breaks it</th></tr></thead>
-<tbody>
-<tr><td class="lo-rule">unknown-token</td><td>A var() of a token nothing declares, with no fallback</td></tr>
-<tr><td class="lo-rule">literal-token-value</td><td>A hex, rgb() or hsl() colour equal to a token's value</td></tr>
-<tr><td class="lo-rule">unknown-class</td><td>A class with no CSS in the frame's styles</td></tr>
-<tr><td class="lo-rule">repeated-inline-style</td><td>The same two or more inline declarations on three layers</td></tr>
-<tr><td class="lo-rule">repeated-markup</td><td>The same tree of tags and classes, three times</td></tr>
-<tr><td class="lo-rule">oid-duplicate</td><td>Two layers with one data-oid</td></tr>
-<tr><td class="lo-rule">component-value-invalid</td><td>An instance attribute that names no option; Zeros ignores it</td></tr>
-<tr><td class="lo-rule">component-option-invalid</td><td>A second options template, or one outside head</td></tr>
-<tr><td class="lo-rule">component-unregistered</td><td>Options in a frame that has no component name</td></tr>
-<tr><td class="lo-rule">canvas-item-link-missing</td><td>A link card whose file is gone</td></tr>
+<section class="stack" data-name="Warnings" data-oid="o-5dd1b2219">
+<p class="section-label lo-warning" data-oid="o-3966c862d">Warnings: advisory</p>
+<table class="table" data-name="Warning rules" data-oid="o-ce0a0f540">
+<thead data-oid="o-5a0696049"><tr data-oid="o-e2e662ec4"><th data-oid="o-909065701">Rule</th><th data-oid="o-de176cc57">What breaks it</th></tr></thead>
+<tbody data-oid="o-87cb45668">
+<tr data-oid="o-1af938d32"><td class="lo-rule" data-oid="o-96df826c2">unknown-token</td><td data-oid="o-3fbdcb97b">A var() of a token nothing declares, with no fallback</td></tr>
+<tr data-oid="o-daec45197"><td class="lo-rule" data-oid="o-94b0cdd8a">literal-token-value</td><td data-oid="o-d535fac80">A hex, rgb() or hsl() colour equal to a token's value</td></tr>
+<tr data-oid="o-e4a20e085"><td class="lo-rule" data-oid="o-d0f27a50f">unknown-class</td><td data-oid="o-b116dab33">A class with no CSS in the frame's styles</td></tr>
+<tr data-oid="o-ba77bd40a"><td class="lo-rule" data-oid="o-89066e74d">repeated-inline-style</td><td data-oid="o-0dfc9a8ff">The same two or more inline declarations on three layers</td></tr>
+<tr data-oid="o-d090d67e8"><td class="lo-rule" data-oid="o-b530ccfe0">repeated-markup</td><td data-oid="o-f419712d4">The same tree of tags and classes, three times</td></tr>
+<tr data-oid="o-9b8cad811"><td class="lo-rule" data-oid="o-ec63c3887">oid-duplicate</td><td data-oid="o-d99b90b79">Two layers with one data-oid</td></tr>
+<tr data-oid="o-b2296db8b"><td class="lo-rule" data-oid="o-3b2e892f0">component-value-invalid</td><td data-oid="o-4a78b5c66">An instance attribute that names no option; Zeros ignores it</td></tr>
+<tr data-oid="o-fd5738a51"><td class="lo-rule" data-oid="o-4b5ec949b">component-option-invalid</td><td data-oid="o-1df7f47ee">A second options template, or one outside head</td></tr>
+<tr data-oid="o-e5b594f45"><td class="lo-rule" data-oid="o-fe2a5cf14">component-unregistered</td><td data-oid="o-219c1d86d">Options in a frame that has no component name</td></tr>
+<tr data-oid="o-a15c24092"><td class="lo-rule" data-oid="o-b4c0fb89a">canvas-item-link-missing</td><td data-oid="o-309bc79eb">A link card whose file is gone</td></tr>
 </tbody>
 </table>
 </section>
 </div>
-<div class="lo-where" data-name="Where each appears">
-<div class="card card--flat" data-name="Style panel"><p class="card-title">Style panel</p><p class="card-body">A red line names the first error in the folder as file:line and rule. Hover it for the message.</p></div>
-<div class="card card--flat" data-name="Options"><p class="card-title">Options</p><p class="card-body">When an instance's values cannot apply, Options says what the frame shows instead and offers Ask agent to fix. An ignored attribute gets a warning there.</p></div>
-<div class="card card--flat" data-name="Validate"><p class="card-title">Validate</p><p class="card-body">The agent runs design validate on a frame and gets every error and warning, each with a fix. Warnings leave its exit status at 0.</p></div>
+<div class="lo-where" data-name="Where each appears" data-oid="o-0afee3dd9">
+<div class="card card--flat" data-name="Style panel" data-oid="o-f252c8ca1"><p class="card-title" data-oid="o-ffaf8e969">Style panel</p><p class="card-body" data-oid="o-df6290e86">A red line names the first error in the folder as file:line and rule. Hover it for the message.</p></div>
+<div class="card card--flat" data-name="Options" data-oid="o-647590e79"><p class="card-title" data-oid="o-8fc27cbb6">Options</p><p class="card-body" data-oid="o-2b2a7ee8b">When an instance's values cannot apply, Options says what the frame shows instead and offers Ask agent to fix. An ignored attribute gets a warning there.</p></div>
+<div class="card card--flat" data-name="Validate" data-oid="o-28f0b7c3c"><p class="card-title" data-oid="o-0ecf9a75a">Validate</p><p class="card-body" data-oid="o-c88ad2205">The agent runs design validate on a frame and gets every error and warning, each with a fix. Warnings leave its exit status at 0.</p></div>
 </div>
 </main>
 </body>
