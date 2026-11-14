@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Panel</title>
+<template data-zd-options>
+<zd-option name="heading" type="text" label="Heading" default="Panel"></zd-option>
+<zd-option name="body" type="slot" label="Body"></zd-option>
+</template>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+zd-panel { display: block; }
+.panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+.panel-body { display: flex; flex-direction: column; gap: var(--space-2); min-height: 48px; }
+</style>
+</head>
+<body class="stage">
+<section class="panel" data-oid="panel" data-name="Panel">
+<h3 class="card-title" data-oid="panel-heading" data-name="Heading">{{ heading }}</h3>
+<div class="panel-body" data-oid="panel-body" data-name="Body" data-zd-slot="body"><p class="card-body" data-oid="panel-placeholder" data-name="Placeholder">Empty. On an instance, draw or drop layers here.</p></div>
+</section>
+</body>
+</html>

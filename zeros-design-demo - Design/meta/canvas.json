@@ -1133,7 +1133,9 @@
         "issues_template",
         "issues_checks",
         "issues_dark_class",
-        "issues_component_css"
+        "issues_component_css",
+        "issues_instances",
+        "issues_panel"
       ],
       "items": [
         {
@@ -1159,8 +1161,8 @@
           "x": 1240,
           "y": 0,
           "width": 380,
-          "height": 398,
-          "text": "WHAT IT SHOWS\nEvery Zeros problem found while building this demo, with the place in the Zeros repository where it started. PR #1076 fixes them all, and each frame on this page checks one or more fixes. Issues 11 to 15 have no frame here: 11 and 15 show on page 4, 12 on page 10 and 14 on page 5. 13 shows nowhere by default; README.md says how to check it.\n\nTRY\n1. Go through the frames on this page in order; each says what you should see now.\n2. For issues 4 to 6, ask the agent to validate Check issues, or run tools/audit.sh as README.md describes.\n3. For issues 8 and 9, ask the agent to set tone=\"purple\" on one Button on page 5, which is an error. That frame's title badge turns red, and the red line shows only while that frame is selected. Discard the change afterwards.\n\nWHAT GETS WRITTEN\nNothing. This page only reports. Paths are relative to the root of the Zeros repository."
+          "height": 434,
+          "text": "WHAT IT SHOWS\nEvery Zeros problem found while building this demo, with the place in the Zeros repository where it started. PR #1076 fixes them all, and each frame on this page checks one or more fixes. Issues 11 to 15 have no frame here: 11 and 15 show on page 4, 12 on page 10 and 14 on page 5. 13 shows nowhere by default; README.md says how to check it. Issues 16 to 18 share the Instances frame at the bottom; 19 and 20 are in README.md.\n\nTRY\n1. Go through the frames on this page in order; each says what you should see now.\n2. For issues 4 to 6, ask the agent to validate Check issues, or run tools/audit.sh as README.md describes.\n3. For issues 8 and 9, ask the agent to set tone=\"purple\" on one Button on page 5, which is an error. That frame's title badge turns red, and the red line shows only while that frame is selected. Discard the change afterwards.\n\nWHAT GETS WRITTEN\nNothing. This page only reports. Paths are relative to the root of the Zeros repository."
         },
         {
           "id": "section_issues_4",
@@ -1239,6 +1241,23 @@
           "width": 380,
           "target": "zeros-design-demo - Design/components/pill.html",
           "title": "components/pill.html"
+        },
+        {
+          "id": "section_issues_13",
+          "kind": "section",
+          "x": 0,
+          "y": 4200,
+          "width": 1620,
+          "text": "Instances: part overrides, slots and Move main to canvas"
+        },
+        {
+          "id": "note_issues_14",
+          "kind": "note",
+          "x": 1240,
+          "y": 4320,
+          "width": 380,
+          "height": 398,
+          "text": "WHAT IT SHOWS\nAn instance works as in Figma. Its parts take style overrides, stored on the instance as zd-style-<part> and winning over the main and its options; text changes only through options. Panel, the main beside this note, marks its body data-zd-slot=\"body\", so each Panel instance can hold its own layers there. A component kept as a file in components/ offers Move main to canvas, which makes it a main frame like Panel.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA part's style edit writes one attribute on that instance. A layer drawn into a slot is written inside the instance with slot=\"body\". Move main to canvas adds a frame and removes components/card.html in one undo step."
         }
       ]
     }
@@ -1827,6 +1846,27 @@
       "y": 3420,
       "width": 1200,
       "height": 490,
+      "styles": []
+    },
+    "issues_instances": {
+      "kind": "html",
+      "source": "issues/instances.html",
+      "title": "Instances",
+      "x": 0,
+      "y": 4320,
+      "width": 1200,
+      "height": 960,
+      "styles": []
+    },
+    "issues_panel": {
+      "kind": "html",
+      "source": "issues/panel.html",
+      "title": "Panel",
+      "x": 1240,
+      "y": 4760,
+      "width": 380,
+      "height": 200,
+      "component": "panel",
       "styles": []
     }
   },

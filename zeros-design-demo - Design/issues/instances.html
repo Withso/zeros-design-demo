@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Instances</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../ui.css">
+<style>
+.cc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
+.cc-panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
+</style>
+</head>
+<body>
+<main class="sheet" data-name="Instances" data-oid="in-sheet">
+<header class="sheet-head" data-name="Header" data-oid="in-head">
+<p class="eyebrow" data-oid="in-eyebrow">Instances, as in Figma</p>
+<h1 class="sheet-title" data-oid="in-title">An instance overrides its parts, fills its slots and finds its main</h1>
+<p class="sheet-lede" data-oid="in-lede">Each example below is an instance. Its parts take style overrides written on the instance, which win over the main and its options. A slot the main marks takes the instance's own layers. A component still kept as a file in components/ moves onto the canvas as a main.</p>
+</header>
+<ol class="try" data-name="Try this" data-oid="in-try">
+<li data-oid="in-try-1">Double-click the Alert, then click its heading. The header reads "Part of Alert, overridden.": the accent colour comes from zd-style-alert-heading on this instance only. Click Reset under the header, then Undo.</li>
+<li data-oid="in-try-2">With that heading selected, change its size in the Style panel. The change lands in the same attribute, and the Alert main on page 3 keeps its look. Its text still changes only through the instance's Options.</li>
+<li data-oid="in-try-3">Select the Empty panel and draw a Text layer inside its body. The layer joins the Body slot. Select the panel again: Options shows Body with 1 layer and Reset to default.</li>
+<li data-oid="in-try-4">Select the Card. It comes from components/card.html, so the header offers Move main to canvas. Click it: the card becomes a main frame on this page in one undo step, and the header then reads Edit main. Undo afterwards, so components/card.html stays for page 4.</li>
+</ol>
+<div class="cc-grid" data-name="Examples" data-oid="in-grid">
+<section class="cc-panel" data-name="Part override" data-oid="in-override">
+<p class="section-label" data-oid="in-override-label">One Alert, its heading overridden</p>
+<zd-alert data-oid="in-alert" zd-variant="tip" zd-style-alert-heading="color: var(--accent)"></zd-alert>
+<p class="card-body" data-oid="in-override-note">Expected: the heading in the accent colour. Every other Alert keeps the main's colour.</p>
+</section>
+<section class="cc-panel" data-name="Slots" data-oid="in-slots">
+<p class="section-label" data-oid="in-slots-label">Two Panels: one filled, one showing the main's default</p>
+<zd-panel data-oid="in-panel-filled" heading="Plans"><p class="card-body" data-oid="in-panel-copy" slot="body">Pick a plan. This paragraph is the instance's own layer, in the Body slot.</p></zd-panel>
+<zd-panel data-oid="in-panel-empty" heading="Empty panel"></zd-panel>
+</section>
+<section class="cc-panel" data-name="Move main" data-oid="in-move">
+<p class="section-label" data-oid="in-move-label">A Card whose main is still a file</p>
+<zd-card data-oid="in-card" meta="components/card.html" heading="Select this card">Then click Move main to canvas in the header.</zd-card>
+</section>
+</div>
+</main>
+</body>
+</html>
