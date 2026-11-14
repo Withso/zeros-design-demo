@@ -1,6 +1,6 @@
 # Orbit: a Zeros Design demo
 
-This repository is a Design folder for learning what the Zeros Design tab does today. It uses Orbit, a small design system made up for the demo, to show components and their options, variants, instances, slot components, states, every Style panel section, where each value comes from, style sources, the authoring checks, and the problems found while building it.
+This repository is a Design folder for learning what the Zeros Design tab does today. It uses Orbit, a small design system made up for the demo, to show components and their options, variants, instances, slot components, states, every Style panel section, where each value comes from, style sources, the authoring checks, and checks for the Zeros problems found while building it, now fixed.
 
 Frames are plain HTML and CSS files. When you edit in the Design tab, Zeros saves the change straight into those files and commits nothing, so Changes shows exactly what each edit wrote.
 
@@ -38,7 +38,7 @@ Every page has this list as a note at its top left. In the steps, "select" means
 | The other folders in `zeros-design-demo - Design/` | One folder per page. Each `.html` file in it is a frame. |
 | `styles/` | Style sources outside the Design folder: plain CSS, Sass, Tailwind, a build command, legacy CSS, and a Tailwind setup with a `.dark` class. |
 | `docs/guide.md` | The tour as text. |
-| `tools/` | Checks you can run from a terminal: lint, screenshots, and the audits the app does not show. |
+| `tools/` | Checks you can run from a terminal: lint, screenshots and the canvas audits. |
 
 ## The pages
 
@@ -54,7 +54,7 @@ Every page has this list as a note at its top left. In the steps, "select" means
 | 8. Values & origins | Where each value comes from, what the field marks mean, Styled by, Changed here and Tidy. |
 | 9. Style sources | Plain CSS, Sass, Tailwind, a build command, source status and per-frame source lists. |
 | 10. Lint showcase | Each authoring check, triggered on purpose, with the message Validate reports. |
-| 11. Known issues | Problems found while building the demo, with a frame for each one the canvas can show. |
+| 11. Fixed issues | Problems found while building the demo, now fixed, with a frame to check each one the canvas can show. |
 
 ## Where edits are saved
 
@@ -67,13 +67,13 @@ Every page has this list as a note at its top left. In the steps, "select" means
 | A frame's size, place or title; notes, sections and link cards | `meta/canvas.json`. |
 | Export PNG | A picture file only. It is not a source edit. |
 
-Every layer in the demo's frames already has a `data-oid`, except in page 10's Duplicate layer ids. Where a frame has layers without one, the first edit to any layer in it writes an id onto each of them, so that first diff is longer than the change (issue 12).
+Every layer in the demo's frames already has a `data-oid`, except in page 10's Duplicate layer ids. Where a layer has none, a style, text or attribute edit writes one on that layer only (issue 12). An edit that moves, adds or deletes layers still writes an id on every layer that has none.
 
 ## Checks
 
-Zeros checks a frame's source each time it changes. The canvas shows only errors, as a red line at the top of the Style panel. Warnings never block a save, and the app has no list of them (issue 9). The agent's Validate step reports each warning with its file, line and fix: ask the agent in Design to validate the folder, or run the tools below.
+Zeros checks a frame's source each time it changes. Each frame's title on the canvas shows a badge that counts its findings: yellow for warnings, red if any is an error. Click it for the list, grouped by rule (issue 9). An error also shows as a red line at the top of the Style panel while its frame is selected (issue 8). Warnings never block a save. The agent's Validate step reports each finding with its file, line and fix: ask the agent in Design to validate the folder, or run the tools below.
 
-While it draws a frame, Zeros also computes three audits: text contrast, content that overflows its box, and spacing off the 4px scale. Nothing shows them (issue 6). `tools/audit.sh` runs the same rules from a terminal.
+While it draws a frame, Zeros also computes three audits: text contrast, content that overflows its box, and spacing off the 4px scale. Validate and the agent's lint report them as warnings for each frame the open canvas has drawn from its current source (issue 6). `tools/audit.sh` runs the same rules from a terminal, on every frame and theme.
 
 ### Run the checks from a terminal
 
@@ -90,28 +90,30 @@ It prints the lint findings, then the audits for each frame in Light and Dark, a
 - `styles.json`: the style source report that the theme editor shows.
 - `audit.json` and `shots/`: the audit results, and one PNG per frame and theme at the frame's size.
 
-The audits copy `auditWarnings` from the Zeros file `packages/protocol/src/design-runtime.ts`. If that function changes, `tools/shoot.mjs` needs the same change. If Chromium is missing, run `pnpm exec playwright install chromium` in the Zeros checkout.
+The audits copy `auditWarnings`, with its colour parsing `colorFromCss`, from the Zeros file `packages/protocol/src/design-runtime.ts`. If those functions change, `tools/shoot.mjs` needs the same change. If Chromium is missing, run `pnpm exec playwright install chromium` in the Zeros checkout.
 
-With the demo as committed, lint reports 32 warnings, all on purpose (pages 10 and 11), and no errors. The audits report 3 warnings in Light and 11 in Dark, and all of them are false alarms. The 12 contrast warnings are oklch() colours read as rgb() (issue 4), on page 9's Tailwind frame and page 11's Check issues frame; measured properly, those texts have between 6.75:1 and 16.28:1. The 2 overflow warnings are one label cut off on purpose with an ellipsis (issue 5), once in each theme.
+With the demo as committed and the Zeros fixes in PR #1076, lint reports 28 warnings, all on purpose and all on page 10, and no errors. Page 11 reports none. The audits report no warnings in Light or Dark. Before the fixes, lint reported 32 warnings, 4 of them false ones on page 11 (issues 1 and 3), and the audits reported 3 warnings in Light and 11 in Dark, all false alarms from issues 4 and 5.
 
-## Known issues
+## Fixed issues
 
-These are Zeros problems found while building the demo. Page 11 lists them all, with a frame for each of issues 1 to 10 that the canvas can show; issues 11 to 15 show on other pages. Paths are in the Zeros repository.
+These are Zeros problems found while building the demo. [PR #1076](https://github.com/Withso/zeros/pull/1076) fixes all of them. Page 11 keeps a frame for each of issues 1 to 10 that the canvas can show, now as a check that the fix holds; issues 11 to 15 show on other pages. The numbers stay as they were, so the guide's references still work. Paths are in the Zeros repository.
 
-| # | Problem | Where to see it | Where it starts |
-|---|---|---|---|
-| 1 | A template hole in a class attribute, such as `badge--{{ tone }}`, gives false unknown-class warnings. | Page 11, Template issues: three warnings from Validate. | `apps/desktop/src/engine/design/document.ts`, unknown-class |
-| 2 | An instance inside a `<template data-zd-if>` or `data-zd-for` wrapper is never expanded, and nothing warns. | Page 11, Template issues: the wrapped card shows as bare text. | `apps/desktop/src/engine/design/components.ts`, `elements()` |
-| 3 | unknown-token reads the raw file, so a sentence that names a token warns. | Page 11, Check issues: `--gap-xl`. | `apps/desktop/src/engine/design/document.ts`, unknown-token |
-| 4 | The contrast audit reads oklch() colours as rgb(). | Page 11, Check issues (1.04:1), and page 9's Tailwind frame, with `tools/audit.sh`. | `packages/protocol/src/design-runtime.ts`, `parsedColor` |
-| 5 | The overflow audit counts text cut off on purpose with `text-overflow: ellipsis`. | Page 11, Check issues, with `tools/audit.sh`. | `packages/protocol/src/design-runtime.ts`, `auditWarnings` |
-| 6 | Audit results are never shown: no panel lists them, and Validate and the agent's lint leave them out. | Only `tools/audit.sh` shows them. | `apps/desktop/src/engine/design/verification-service.ts` and `code-tools.ts` |
-| 7 | A theme mapped to a `.dark` class also rewrites Tailwind's `dark:` class names, so `dark:` utilities never apply. | Page 11, Tailwind with a .dark class, previewed in Dark. | `apps/desktop/src/engine/design/style-sources.ts`, `importPlainDesignPiece` |
-| 8 | The Style panel's red line shows the first error anywhere in the folder, not only in the selected frame. | The page 11 overview note says how to cause one. | `apps/desktop/src/renderer/features/design-workspace/design-inspector.tsx` |
-| 9 | The app has no list of warnings, and the code that would group them is unused. | Only Validate reports warnings. | `apps/desktop/src/renderer/features/design-workspace/design-lint-summary.ts` |
-| 10 | A component's `<style>` is copied, unscoped, into every frame that places the component. | Page 11, Component CSS. | `apps/desktop/src/engine/design/components.ts`, component styles |
-| 11 | Slot components are not instances, and a component with options placed inside a slot component's children has no Options. | Page 4: the cards, and the Button and avatars inside them. | `apps/desktop/src/engine/design/components.ts`, `recordInstance` (top level only) |
-| 12 | The first edit to a layer also writes a `data-oid` onto every layer in its frame that has none, though `rules.md` calls data-oid optional. That diff is then many lines longer than the edit. | Page 10, Duplicate layer ids, the one frame left without ids: one Style edit changes 18 more lines. | `packages/design-web/src/adapter.ts`, `designWebTransactionAdapter.apply` |
-| 13 | The first edit to any frame also adds each `components/` file that `meta/canvas.json` does not list to its `foundation.components`. | Nowhere by default: the demo lists its five components. Empty that list, edit any layer, and Changes shows `meta/canvas.json`. | `apps/desktop/src/engine/design/document-transactions.ts`, `readDesignWebDocumentStateUnlocked` |
-| 14 | Reset or Clear on a layer's last inline declaration leaves an empty `style=""`. | Page 5, Badge classes and instances, step 2. | `packages/design-web/src/css.ts`, `mutateInlineStyles` |
-| 15 | Layers does not list a slot component's children, though the canvas selects them and the Style panel edits them. The card's own markup has no `data-oid`, and the tree skips an element without one together with everything inside it. | Page 4, Card slots, step 2. | `packages/protocol/src/design-runtime.ts`, `treeNode` |
+| # | Problem | What happens now | How to check | Where it started |
+|---|---|---|---|---|
+| 1 | A template hole in a class attribute, such as `badge--{{ tone }}`, gave false unknown-class warnings. | unknown-class skips a class name that holds a template hole. | Page 11, Template issues: Validate reports nothing for the frame. | `apps/desktop/src/engine/design/document.ts`, unknown-class |
+| 2 | An instance inside a `<template data-zd-if>` or `data-zd-for` wrapper was never expanded, and nothing warned. | It is expanded like any other instance. | Page 11, Template issues: the wrapped card draws as a card, and Show the wrapped card adds and removes it. | `apps/desktop/src/engine/design/components.ts`, `elements()` |
+| 3 | unknown-token read the raw file, so a sentence that names a token warned. | Text and comments outside `<style>` are not read as CSS. | Page 11, Check issues: no warning for `--gap-xl`. | `apps/desktop/src/engine/design/document.ts`, unknown-token |
+| 4 | The contrast audit read oklch() colours as rgb(). | It reads oklch(), oklab(), lab(), lch() and color() correctly (`colorFromCss`). | Page 11, Check issues, and page 9's Tailwind frame: `tools/audit.sh` reports no contrast warnings in either theme. | `packages/protocol/src/design-runtime.ts`, `parsedColor` |
+| 5 | The overflow audit counted text cut off on purpose with `text-overflow: ellipsis`. | It skips text cut off with an ellipsis or `-webkit-line-clamp`. | Page 11, Check issues: `tools/audit.sh` reports no overflow. | `packages/protocol/src/design-runtime.ts`, `auditWarnings` |
+| 6 | Audit results were never shown: Validate and the agent's lint left them out. | Validate and the agent's lint include the contrast, overflow and spacing audits as warnings, for a frame the open canvas has drawn from its current source. | Page 11, Check issues, step 2: give the oklch chip a light text colour and Validate reports a contrast warning. | `apps/desktop/src/engine/design/verification-service.ts` and `code-tools.ts` |
+| 7 | A theme mapped to a `.dark` class also rewrote Tailwind's escaped `dark:` class names, so `dark:` utilities never applied. | The mapping leaves `.dark\:` class names as they are. | Page 11, Tailwind with a .dark class, previewed in Dark: the card turns zinc-900 with white text. | `apps/desktop/src/engine/design/style-sources.ts`, `importPlainDesignPiece` |
+| 8 | The Style panel's red line showed the first error anywhere in the folder, not only in the selected frame. | It shows only the selected frame's own errors. | The page 11 overview note, step 3. | `apps/desktop/src/renderer/features/design-workspace/design-inspector.tsx` |
+| 9 | The app had no list of warnings, and the code that would group them was unused. | Each frame's title shows a badge that counts its findings, yellow for warnings and red if any is an error. Click it for a list grouped by rule, in line order; click a finding on a layer to select that layer. | Page 10: each frame except What Zeros checks has a badge. Frames on pages 1 to 9 and 11 have none. | `apps/desktop/src/renderer/features/design-workspace/design-lint-summary.ts` |
+| 10 | A component's `<style>` was copied, unscoped, into every frame that placed the component. | Each selector in it is limited to the component's own instances. | Page 11, Component CSS: the plain badges stay green, amber and red next to the Pill. | `apps/desktop/src/engine/design/components.ts`, component styles |
+| 11 | Slot components were not instances, and a component with options placed inside a slot component's children had no Options. | Slot components are instances. Layers names them with the component mark, their `data-zid` elements are parts, and each attribute slot is a text option whose default is the slot's fallback. A card whose body is only text also has a Text row. A reserved attribute such as `title` is not offered. A Button or Avatar with its own `data-oid` inside a slot component has Options. | Page 4, Card slots, steps 1, 3 and 4, and Stats and lists, step 3. | `apps/desktop/src/engine/design/components.ts`, `recordInstance` (top level only) |
+| 12 | The first edit to a layer also wrote a `data-oid` onto every layer in its frame that had none, though `rules.md` calls data-oid optional. | A style, text or attribute edit writes an id only on the layer it changes. An edit that moves, adds or deletes layers still writes an id on every layer that has none. | Page 10, Duplicate layer ids, the one frame left without ids: one Style edit adds one `data-oid` and the declaration. | `packages/design-web/src/adapter.ts`, `designWebTransactionAdapter.apply` |
+| 13 | The first edit to any frame also added each `components/` file that `meta/canvas.json` did not list to its `foundation.components`. | An edit never changes that list. | Nowhere by default: the demo lists its five components. Empty that list, edit any layer, and Changes shows only your own change to `meta/canvas.json` and the frame. Discard both afterwards. | `apps/desktop/src/engine/design/document-transactions.ts`, `readDesignWebDocumentStateUnlocked` |
+| 14 | Reset or Clear on a layer's last inline declaration left an empty `style=""`. | The `style` attribute is removed with it. | Page 5, Badge classes and instances, step 2: after Clear, the tag is as it was. | `packages/design-web/src/css.ts`, `mutateInlineStyles` |
+| 15 | Layers did not list a slot component's children, though the canvas selected them and the Style panel edited them. | Layers lists them under the instance, with its parts (see 11). | Page 4, Card slots, step 2. | `packages/protocol/src/design-runtime.ts`, `treeNode` |
+
+The same PR also changes Position in the Style panel. A layer whose parent has auto layout gets an Absolute position checkbox, in place of the old Place freely button. Unticked, auto layout places the layer and X and Y are locked. Ticked, it is placed freely, X and Y can be edited, and the pins show. Unticking hands it back to auto layout, which places it where it puts it now; its old X and Y are not kept, its size is. Layers shows a four-corner absolute icon on its row while it is ticked. Page 7's Position frame, step 3, tries it.

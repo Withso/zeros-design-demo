@@ -13,25 +13,25 @@
 <body>
 <main class="sheet" data-name="Component CSS" data-oid="o-e67570d63">
 <header class="sheet-head" data-name="Header" data-oid="o-dd7fbc621">
-<p class="eyebrow" data-oid="o-bc3c88a44">Known issue 10</p>
-<h1 class="sheet-title" data-oid="o-7198fbc03">A component's CSS reaches the whole frame</h1>
-<p class="sheet-lede" data-oid="o-901c8efe4">Zeros copies the style element of each component a frame places into that frame's head, unchanged. This frame places one Pill from components/pill.html, whose style sets the badge tone on .badge. So every plain badge here takes the accent tone, whatever tone class it has.</p>
+<p class="eyebrow" data-oid="o-bc3c88a44">Fixed issue 10</p>
+<h1 class="sheet-title" data-oid="o-7198fbc03">A component's CSS stays with its instances</h1>
+<p class="sheet-lede" data-oid="o-901c8efe4">Zeros copies each placed component's style element into the frame's head, limited to that component's instances. This frame places one Pill from components/pill.html, whose style sets the badge tone on .badge. Only the Pill takes the accent tone.</p>
 </header>
 <ol class="try" data-name="Try this" data-oid="o-43df7bf8f">
-<li data-oid="o-491c9621f">Compare the three badges on the left with the Soft column of the matrix on page 5. The classes are the same; only this frame places a Pill.</li>
-<li data-oid="o-e37980f39">Remove the zd-pill tag in Files, or ask the agent to. The badges get their tones back. Discard the change in Changes afterwards.</li>
-<li data-oid="o-bd1da4d48">Open options/badge.html from page 3. Its rule is limited to its own markup with :where(.stage, zd-badge) &gt; .badge, so page 5 is not affected.</li>
+<li data-oid="o-491c9621f">Compare the three badges on the left with the Soft column of the matrix on page 5. They match: green, amber and red, though this frame places a Pill.</li>
+<li data-oid="o-e37980f39">Remove the zd-pill tag in Files, or ask the agent to. The badges stay as they are. Discard the change in Changes afterwards.</li>
+<li data-oid="o-bd1da4d48">Open options/badge.html from page 3. Its rule still names :where(.stage, zd-badge) &gt; .badge, from before this fix. A plain .badge would now work too.</li>
 </ol>
 <div class="cc-grid" data-name="Example" data-oid="o-c5f298102">
 <section class="cc-panel" data-name="Plain badges" data-oid="o-a066a1a38">
 <p class="section-label" data-oid="o-d7f59e19d">Plain badges with tone classes</p>
 <div class="row" data-name="Badges" data-oid="o-151875821"><span class="badge badge--soft badge--success" data-oid="cc-success" data-name="Success badge">Success</span><span class="badge badge--soft badge--warning" data-oid="cc-warning" data-name="Warning badge">Warning</span><span class="badge badge--soft badge--danger" data-oid="cc-danger" data-name="Danger badge">Danger</span></div>
-<p class="card-body" data-oid="o-9da740c4b">Expected: green, amber and red, as on page 5. Shown: all three in the accent tone.</p>
+<p class="card-body" data-oid="o-9da740c4b">Expected and shown: green, amber and red, as on page 5.</p>
 </section>
 <section class="cc-panel" data-name="The Pill" data-oid="o-77b40ce43">
 <p class="section-label" data-oid="o-2aada1f77">One Pill instance</p>
 <div class="row" data-name="Pill row" data-oid="o-d48df09d4"><zd-pill data-oid="cc-pill">New</zd-pill></div>
-<p class="card-body" data-oid="o-2e8e5d730">components/pill.html styles its own badge with <code class="code" data-oid="o-23c97bba0">.badge { --badge-ink: var(--accent); }</code>. Nothing limits that rule to the Pill.</p>
+<p class="card-body" data-oid="o-2e8e5d730">components/pill.html styles its own badge with <code class="code" data-oid="o-23c97bba0">.badge { --badge-ink: var(--accent); }</code>. Zeros limits that rule to the Pill.</p>
 </section>
 </div>
 </main>

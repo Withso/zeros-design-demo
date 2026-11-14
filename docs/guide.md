@@ -22,7 +22,7 @@ On every page:
 - [8. Values & origins](#8-values--origins)
 - [9. Style sources](#9-style-sources)
 - [10. Lint showcase](#10-lint-showcase)
-- [11. Known issues](#11-known-issues)
+- [11. Fixed issues](#11-fixed-issues)
 
 ## How to select
 
@@ -52,7 +52,7 @@ The map of this demo, built with Orbit, a small design system made up for it. Ea
 1. Move between pages with the Pages menu. Hold Space and drag to pan.
 2. Select this frame, then a layer in it, as the How to select note on the left says. Open Layers at the foot of the Style panel to see the frame's tree.
 3. Select a frame and press ⌥T, or click the palette button in the toolbar, to open the theme editor. In the menu beside Search, change Light to Dark: every frame redraws in Dark, and stays so after you close the editor.
-4. ⌘-click a card. It is one layer, the `<zd-card>` tag: its insides come from the component file, so they are not layers of their own.
+4. ⌘-click a card. It is selected whole, as an instance of components/card.html. Double-click it to select one of its parts.
 
 **What gets written**
 
@@ -64,7 +64,7 @@ Theme editor: tokens.css.
 
 Frame size, place and title, notes, sections and link cards: meta/canvas.json.
 
-Every layer in this demo has a data-oid already, except on page 10's Duplicate layer ids. Where layers have none, the first edit writes one onto each of them (issue 12).
+Every layer in this demo has a data-oid already, except on page 10's Duplicate layer ids. Where a layer has none, a Style edit writes one on that layer only.
 
 Nothing is staged or committed. Changes shows each edit as a diff, and Discard puts a file back.
 
@@ -183,7 +183,7 @@ Badge: Text; Look, a three-way choice; Leading dot; Count, a number with no rang
 
 Each change edits one default= (or the shown variant's line). A token is written as var(--success), a hex as typed.
 
-How the colours reach CSS: a colour option is the custom property --zd-ink. The Badge's style maps it with :where(.stage, zd-badge) > .badge { --badge-ink: var(--zd-ink) }. The selector is narrow on purpose: Zeros copies this style element into every frame that places a Badge (issue 10, page 11).
+How the colours reach CSS: a colour option is the custom property --zd-ink. The Badge's style maps it with :where(.stage, zd-badge) > .badge { --badge-ink: var(--zd-ink) }. Zeros also limits a component's style to its own instances (issue 10, page 11), so a plain .badge selector would work too.
 
 ### Avatar
 
@@ -357,14 +357,14 @@ components/card.html is a slot component: no options, just markup with three slo
 
 **Try**
 
-1. Select a card. It is one layer, the `<zd-card>` tag. The card's own markup comes from the component file, so ⌘-click on its heading selects the card.
-2. ⌘-click a child inside a card, such as case 7's paragraph. Children belong to this frame, so the Style panel edits them, but Layers does not list them: the card's row has no children (issue 15).
-3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text.
-4. Select the Release notes button in case 1. It renders as a Button but shows no Options: issue 11 on page 11.
+1. Select a card. It is an instance of components/card.html, with the component mark in Layers. Options has a text row for meta and one for heading, each defaulting to the slot's fallback.
+2. In Layers, open case 7's card. It lists the card's parts and the children this frame puts in its slot. Click the paragraph's row: the Style panel edits it.
+3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text. Case 3's body is only text, so Options also has a Text row.
+4. Select the Release notes button in case 1. It has Options like any Button.
 
 **What gets written**
 
-A Style edit on a card writes the `<zd-card>` tag's style attribute. An edit on a child writes that child. To change every card, edit components/card.html in Files.
+A Style edit on a card writes the `<zd-card>` tag's style attribute, and a text option one attribute on it. An edit on a child writes that child. To change every card, edit components/card.html in Files.
 
 ### Stats and lists
 
@@ -378,7 +378,7 @@ Two more slot components. zd-stat has three attribute slots (label, value, delta
 
 1. Compare the four stats: up is green, down red, flat grey. "New metric" sets only label, so value, delta and body show their fallbacks.
 2. In Files, change a stat's data-trend from down to up and save.
-3. Select an avatar in the People list. It renders with its own attributes (status, shape, the Team variant) but shows no Options: issue 11.
+3. Select an avatar in the People list. Options shows the values it sets: status, shape or the Team variant.
 4. "Unassigned seat" has no children, so its leading slot shows the fallback, a "?" avatar.
 
 **What gets written**
@@ -426,7 +426,7 @@ Two ways to the same badges. The matrix is 25 plain elements: .badge plus a tone
 
 **What gets written**
 
-Step 2 adds style="opacity:0.8;" to that one badge. Clear takes the declaration out but leaves an empty style="" behind (issue 14). .badge--solid in ui.css is never rewritten, so the other badges are unchanged. Option changes write attributes on the `<zd-badge>` tag.
+Step 2 adds style="opacity:0.8;" to that one badge. Clear takes the declaration out, and the style attribute with it, so the tag is as it was. .badge--solid in ui.css is never rewritten, so the other badges are unchanged. Option changes write attributes on the `<zd-badge>` tag.
 
 ### Project settings
 
@@ -547,17 +547,19 @@ Section: Position and Layout. `style-panel/position.html` · 1200 × 820
 
 **What it shows**
 
-Position. For a free layer (position: absolute), X and Y edit left or right and top or bottom, and the pins choose which edges it keeps when its parent resizes. Rotation and flip write the rotate and scale properties, not transform. A layer in a flex or grid parent is placed by that parent, so Position offers Place freely instead.
+Position. For a free layer (position: absolute), X and Y edit left or right and top or bottom, and the pins choose which edges it keeps when its parent resizes. Rotation and flip write the rotate and scale properties, not transform.
+
+A layer whose parent has auto layout (flex or grid) gets an Absolute position checkbox. Unticked, auto layout places the layer, and X and Y are locked. Ticked, the layer is placed freely: X and Y can be edited and the pins show. In Layers, its row has a four-corner absolute icon while the box is ticked.
 
 **Try**
 
 1. Select "left 16 · top 16". Position shows X 16 and Y 16. Drag it on the canvas: only left and top change in its style attribute.
 2. Select "right 16 · top 16": the right pin is on because the layer sets right, not left. It keeps 16px from the right edge when the board resizes.
-3. Select a flow item in the row: Position says "Placed by its parent's auto layout" and offers Place freely.
+3. Select a flow item in the row: Absolute position is unticked, so X and Y are locked. Tick it to place the item freely, then untick it.
 
 **What gets written**
 
-Dragging or typing changes only the offsets the layer already uses in its style attribute. Place freely writes position: absolute with left, top, width and height that keep the layer where it is, and sets position: relative on a static parent, as one undo step.
+Dragging or typing changes only the offsets the layer already uses in its style attribute. Ticking Absolute position writes position: absolute with left, top, width and height that keep the layer where it is, and sets position: relative on a static parent, as one undo step. Unticking removes position and the offsets, so auto layout places the layer where it puts it now. When a stylesheet rule makes the layer absolute, unticking writes position: relative instead, which overrides the rule. Its old X and Y are not kept; its width and height are.
 
 ### Layout
 
@@ -822,7 +824,7 @@ A Tailwind v4 source (kind tailwind). Zeros compiles styles/tailwind/app.css wit
 
 An edit never changes the class attribute: Zeros adds an inline declaration over the utility, so Changes shows a style="…" added to the tag.
 
-Known problem: the contrast audit measures the Popular badge at 1.11:1, and in Dark eight more texts here at 1:1 to 2.2:1, because it reads oklch() colours as rgb (issue 4). Their real contrast is 6.7:1 or more. The app shows no audits (issue 6); the README says how to see them.
+The contrast audit reads oklch() colours correctly (issue 4), so it reports no warnings here, in Light or Dark.
 
 ### Build command: Token build
 
@@ -870,14 +872,16 @@ Section: How the checks work. `lint/overview.html` · 1200 × 1000 · link cards
 
 **What it shows**
 
-How the checks work. Zeros lints a frame's source each time it changes. An error fails Validate and puts a red line at the top of the Style panel. A warning never blocks a save, and the canvas does not list warnings: the agent's Validate step (design validate) reports each one with its file, line and a fix.
+How the checks work. Zeros lints a frame's source each time it changes. An error fails Validate and puts a red line at the top of the Style panel while its frame is selected. A warning never blocks a save.
+
+A badge on each frame's title counts that frame's findings: yellow for warnings, red if any is an error. Click it for a list grouped by rule, in line order, with the first 20 of each rule and then "N more". Click a finding on a layer to select that layer. The agent's Validate step (design validate) reports each finding with its file, line and a fix.
 
 The link card below this note points at a file that is missing on purpose. It shows "File not found", and Validate warns canvas-item-link-missing.
 
 **Try**
 
-1. In the chat, ask: Validate every frame on the Lint showcase page. Each other frame on this page breaks one rule on purpose, and its note quotes what Validate reports.
-2. Ask the same for page 2. Pages 1 to 9 report nothing, because they follow the rules in rules.md.
+1. Click the badge on a frame's title here to list its findings, or ask in the chat: Validate every frame on the Lint showcase page. Each other frame here breaks one rule on purpose.
+2. Ask the same for page 2. Pages 1 to 9 report nothing and show no badge, because they follow the rules in rules.md.
 3. Ask the agent to fix the Unknown classes frame, then open Changes to see its edit. Discard the change to put the demo back.
 
 **What gets written**
@@ -1015,7 +1019,7 @@ When Zeros draws the frame, it gives the second copy a generated id, so each cop
 
 **What gets written**
 
-The first edit to a layer here also saves the second copy's generated id, and writes an id onto each of the 17 layers that have none, so Changes shows 18 more lines than your edit (issue 12). Validate then no longer reports the duplicate; Discard the file to bring it back.
+A Style edit writes a data-oid only on the layer you edit, if it has none (issue 12). Edit Save a copy and its generated id replaces li-save there, so Validate no longer reports the duplicate; Discard the file to bring it back. An edit that moves, adds or deletes layers still writes an id on each layer that has none.
 
 The fix by hand is one attribute: give one copy a new data-oid in Files.
 
@@ -1057,29 +1061,29 @@ class, style, data-oid, data-name and other host attributes are never counted.
 
 1. Select the first button. Options shows a warning that its lable attribute names no option. Label still reads Save changes, the default.
 2. Ask the agent to validate this frame: two warnings, each naming the ignored attribute and its value.
-3. A value that an option does not allow, such as tone="purple", is an error instead. This page draws none, because the Style panel's red line shows the first error in the folder whichever frame you select.
+3. A value that an option does not allow, such as tone="purple", is an error instead. This page draws none, so Validate and tools/audit.sh pass for the whole folder.
 
 **What gets written**
 
 Nothing until it is fixed. Renaming lable to label in Files makes the value apply, and Label then shows it with a dot.
 
-## 11. Known issues
+## 11. Fixed issues
 
 Folder `issues/` · 5 frames
 
-### Known issues
+### Fixed issues
 
-Section: All known issues. `issues/overview.html` · 1200 × 1160
+Section: All fixed issues. `issues/overview.html` · 1200 × 1160
 
 **What it shows**
 
-Every Zeros problem found while building this demo, with the place in the Zeros repository where it starts. Issues 11 to 15 have no frame on this page: 11 and 15 show on page 4, 12 on page 10 and 14 on page 5. 13 shows nowhere, because this demo lists its components already; README.md says how to see it.
+Every Zeros problem found while building this demo, with the place in the Zeros repository where it started. PR #1076 fixes them all, and each frame on this page checks one or more fixes. Issues 11 to 15 have no frame here: 11 and 15 show on page 4, 12 on page 10 and 14 on page 5. 13 shows nowhere by default; README.md says how to check it.
 
 **Try**
 
-1. Go through the frames on this page in order; each note says what to look for.
-2. For issues 4 to 6, read README.md in the demo repository: it explains how to run the audits from a terminal.
-3. For issue 8, ask the agent to set tone="purple" on one Button instance, which is an error, then select a frame on another page: the red line is still there. Discard the change afterwards.
+1. Go through the frames on this page in order; each says what you should see now.
+2. For issues 4 to 6, ask the agent to validate Check issues, or run tools/audit.sh as README.md describes.
+3. For issues 8 and 9, ask the agent to set tone="purple" on one Button on page 5, which is an error. That frame's title badge turns red, and the red line shows only while that frame is selected. Discard the change afterwards.
 
 **What gets written**
 
@@ -1091,15 +1095,15 @@ Section: Issues 1 and 2: component templates. `issues/template.html` · 1200 × 
 
 **What it shows**
 
-Issues 1 and 2. The badge's class attribute is badge badge--soft badge--{{ tone }}: the hole fills in when Zeros draws, but the unknown-class check reads the raw attribute. Validate reports three false warnings, for "badge--{{", "tone" and "}}" (line 33).
+Issues 1 and 2, fixed. The badge's class attribute is badge badge--soft badge--{{ tone }}. The hole fills in when Zeros draws, and the unknown-class check skips a class name that holds a hole, so Validate reports nothing here.
 
-The card is a `<zd-card>` wrapped in `<template data-zd-if="show-card">`. Zeros never expands an instance inside a template wrapper, so it stays a bare tag showing its text, and Validate says nothing.
+The second card is a `<zd-card>` wrapped in `<template data-zd-if="show-card">`. Zeros expands an instance inside a template wrapper like any other, so it draws as a card.
 
 **Try**
 
 1. Select the frame and change Tone in Options. The badge follows, because the hole fills its class.
-2. Ask the agent to validate this frame. It still warns that pieces of the class attribute are unknown classes.
-3. Turn Show the wrapped card off and on. Its text comes and goes, but it never becomes a card.
+2. Ask the agent to validate this frame. It reports nothing: a class name with a template hole is not checked as written.
+3. Turn Show the wrapped card off and on. The second card goes and comes back, drawn as a card.
 
 **What gets written**
 
@@ -1111,24 +1115,24 @@ Section: Issues 3 to 7: checks and Tailwind. `issues/checks.html` · 1200 × 480
 
 **What it shows**
 
-Issues 3 to 5.
+Issues 3 to 6, fixed.
 
-3: unknown-token reads the raw file, so a sentence naming a token warns: Unknown design token "--gap-xl". (line 29)
+3: unknown-token reads only CSS, not text or comments, so the sentence naming --gap-xl (line 29) does not warn.
 
-4: dark text on a light oklch() fill. Its real contrast is high, but the contrast audit reads oklch() as rgb and measures 1.04:1.
+4: dark text on a light oklch() fill. The contrast audit reads oklch() as it is and measures about 16:1.
 
-5: a label cut off with text-overflow: ellipsis. The overflow audit reports it as overflow, 387px of text in 327px.
+5: a label cut off with text-overflow: ellipsis. The overflow audit skips it.
 
-Issues 4 and 5 are audits, which the app never shows (issue 6).
+6: Validate includes the canvas audits, so it checks cases 4 and 5 once the canvas has drawn this frame.
 
 **Try**
 
-1. Ask the agent to validate this frame. It warns that --gap-xl is an unknown token, though the name only appears in a sentence.
-2. Cases 4 and 5 trip the canvas's own audits. The demo repository's README says how to see that.
+1. Ask the agent to validate this frame. It reports nothing: --gap-xl appears only in a sentence, and the audits measure cases 4 and 5 correctly.
+2. Select the oklch chip, set its Fill to #eeeeee and validate again: a contrast warning. Discard the change afterwards.
 
 **What gets written**
 
-Nothing.
+Nothing. Step 2 writes the chip's color in its style attribute; Discard puts it back.
 
 ### Tailwind with a .dark class
 
@@ -1136,17 +1140,17 @@ Section: Issues 3 to 7: checks and Tailwind. `issues/dark-class.html` · 1200 ×
 
 **What it shows**
 
-Issue 7. Tailwind (.dark class) declares themes: { dark: ".dark" }. When Zeros imports the compiled CSS it rewrites the selector .dark to the canvas's Dark theme, but the rewrite also matches the start of Tailwind's escaped class names, such as `.dark\:bg-zinc-900`. So every dark: utility becomes a selector that never matches, and the card stays light in Dark.
+Issue 7, fixed. Tailwind (.dark class) declares themes: { dark: ".dark" }. When Zeros imports the compiled CSS it rewrites the selector .dark to the canvas's Dark theme, and leaves Tailwind's escaped class names, such as `.dark\:bg-zinc-900`, as they are. So every dark: utility applies, and the card turns dark in Dark.
 
 **Try**
 
-1. Preview Dark (⌥T, then Dark in the menu beside Search). The card keeps its white fill and dark text.
-2. Compare the Tailwind frame on page 9. Its dark: variant follows data-theme instead, and its cards turn dark.
+1. Preview Dark (⌥T, then Dark in the menu beside Search). The card turns zinc-900 with white text.
+2. Compare the Tailwind frame on page 9. Its dark: variant follows data-theme instead, and its cards turn dark too.
 3. Open the theme editor (⌥T) and choose Tailwind (.dark class): its Dark mapping is .dark.
 
 **What gets written**
 
-Nothing. The fix belongs in Zeros: engine/design/style-sources.ts, importPlainDesignPiece.
+Nothing. The fix is in Zeros: engine/design/style-sources.ts, importPlainDesignPiece.
 
 ### Component CSS
 
@@ -1154,15 +1158,15 @@ Section: Issue 10: component CSS. `issues/component-css.html` · 1200 × 490 · 
 
 **What it shows**
 
-Issue 10. components/pill.html's style sets .badge { --badge-ink: var(--accent); … } with no scope. Zeros copies that style element unchanged into the head of every frame that places a Pill, so here it reaches the three plain badges too, and all three turn accent.
+Issue 10, fixed. components/pill.html's style sets .badge { --badge-ink: var(--accent); … } with no scope of its own. Zeros limits each selector in a component's style to that component's instances, so it reaches only the Pill, and the three plain badges keep their tones.
 
-Page 3's Badge and Button limit their rules with :where(.stage, zd-badge) > .badge, which is the workaround until Zeros scopes component styles.
+Page 3's Badge and Button still limit their rules with :where(.stage, zd-badge) > .badge. That was needed before this fix and is harmless now.
 
 **Try**
 
-1. Compare the three badges on the left with the Soft column of the matrix on page 5. The classes are the same; only this frame places a Pill.
-2. Remove the zd-pill tag in Files, or ask the agent to. The badges get their tones back. Discard the change in Changes afterwards.
-3. Open options/badge.html from page 3. Its rule is limited to its own markup with :where(.stage, zd-badge) > .badge, so page 5 is not affected.
+1. Compare the three badges on the left with the Soft column of the matrix on page 5. They match: green, amber and red, though this frame places a Pill.
+2. Remove the zd-pill tag in Files, or ask the agent to. The badges stay as they are. Discard the change in Changes afterwards.
+3. Open options/badge.html from page 3. Its rule still names :where(.stage, zd-badge) > .badge, from before this fix. A plain .badge would now work too.
 
 **What gets written**
 

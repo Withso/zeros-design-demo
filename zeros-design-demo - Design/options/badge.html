@@ -19,9 +19,9 @@
 <link rel="stylesheet" href="../ui.css">
 <style>
 zd-badge { display: inline-block; vertical-align: middle; }
-/* Zeros adds this style element to every frame that places a Badge, so the
-   option hooks are limited to the Badge's own markup: other .badge elements
-   in that frame keep their tone classes. */
+/* The option hooks set the Badge's own markup: .stage is this frame's body
+   and zd-badge an instance. Zeros limits a component's style to its
+   instances anyway, so other .badge elements keep their tone classes. */
 :where(.stage, zd-badge) > .badge { --badge-ink: var(--zd-ink); --badge-wash: var(--zd-wash); }
 .badge-count { min-width: 16px; padding: 0 4px; border-radius: var(--radius-full); background: var(--bg-surface); color: var(--fg-strong); font-variant-numeric: tabular-nums; text-align: center; }
 </style>

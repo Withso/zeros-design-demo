@@ -1,9 +1,9 @@
 // Screenshots each frame tools/check.ts composed, at its canvas size, and
 // runs the frame runtime's three audits on it: contrast, overflow and the 4px
-// spacing scale. Zeros computes these while it draws a frame but never shows
-// them (issue 6 in README.md). auditPage follows auditWarnings in the Zeros
-// file packages/protocol/src/design-runtime.ts, colour parsing included, so
-// its oklch() problem (issue 4) shows here too.
+// spacing scale. auditPage follows auditWarnings in the Zeros file
+// packages/protocol/src/design-runtime.ts, colour parsing (colorFromCss)
+// included, so its results match what Validate reports for a frame the
+// canvas has drawn.
 //
 //   node tools/shoot.mjs [out-dir] [frame-regex]
 //
@@ -38,9 +38,16 @@ function auditPage() {
     if (id && !elementsByOid.has(id)) elementsByOid.set(id, node);
   }
   if (body) elementsByOid.set("::zeros-document-body", body);
+  function composedParentOf(node) {
+    if (!node) return null;
+    if (node.assignedSlot) return node.assignedSlot;
+    if (node.parentElement) return node.parentElement;
+    var parent = node.parentNode;
+    return parent && parent.nodeType === 11 && parent.host ? parent.host : null;
+  }
   function hiddenBy(element) {
     var invisibleSelf = false;
-    for (var current = element; current && current instanceof Element; current = current.parentElement) {
+    for (var current = element; current && current instanceof Element; current = composedParentOf(current)) {
       var style = getComputedStyle(current);
       var removed = current.hidden || style.display === "none";
       var invisible = style.visibility === "hidden" || style.visibility === "collapse";
@@ -53,14 +60,119 @@ function auditPage() {
     }
     return invisibleSelf ? "self" : null;
   }
+  var parsedColors = new Map();
   function parsedColor(value) {
-    var parts = String(value || "").match(/[0-9.]+/g);
-    if (!parts || parts.length < 3) return null;
+    var text = String(value || "").trim().toLowerCase();
+    if (parsedColors.has(text)) return parsedColors.get(text);
+    var color = colorFromCss(text);
+    if (parsedColors.size >= 512) parsedColors.clear();
+    parsedColors.set(text, color);
+    return color;
+  }
+  function multiply(matrix, vector) {
+    return matrix.map(function (row) { return row[0] * vector[0] + row[1] * vector[1] + row[2] * vector[2]; });
+  }
+  var XYZ_TO_LINEAR_SRGB = [[3.2409699419045226, -1.537383177570094, -0.4986107602930034], [-0.9692436362808796, 1.8759675015077202, 0.04155505740717559], [0.05563007969699366, -0.20397695888897652, 1.0569715142428786]];
+  var D50_TO_D65 = [[0.9554734527042182, -0.023098536874261423, 0.0632593086610217], [-0.028369706963208136, 1.0099954580058226, 0.021041398966943008], [0.012314001688319899, -0.020507696433477912, 1.3303659366080753]];
+  var RGB_SPACES = {
+    "display-p3": { matrix: [[0.4865709486482162, 0.26566769316909306, 0.1982172852343625], [0.2289745640697488, 0.6917385218365064, 0.079286914093745], [0, 0.04511338185890264, 1.043944368900976]], linear: srgbLinear },
+    rec2020: { matrix: [[0.6369580483012914, 0.14461690358620832, 0.1688809751641721], [0.2627002120112671, 0.6779980715188708, 0.05930171646986196], [0, 0.028072693049087428, 1.060985057710791]], linear: function (value) {
+      var sign = value < 0 ? -1 : 1, magnitude = Math.abs(value);
+      return sign * (magnitude < 0.018053968510807 * 4.5 ? magnitude / 4.5 : Math.pow((magnitude + 0.09929682680944) / 1.09929682680944, 1 / 0.45));
+    } },
+    "a98-rgb": { matrix: [[0.5766690429101305, 0.1855582379065463, 0.1882286462349947], [0.29734497525053605, 0.6273635662554661, 0.07529145849399788], [0.02703136138641234, 0.07068885253582723, 0.9913375368376388]], linear: function (value) {
+      return (value < 0 ? -1 : 1) * Math.pow(Math.abs(value), 563 / 256);
+    } },
+    "prophoto-rgb": { d50: true, matrix: [[0.7977604896723027, 0.13518583717574031, 0.0313493495815248], [0.2880711282292934, 0.7118432178101014, 0.00008565396060525902], [0, 0, 0.8251046025104601]], linear: function (value) {
+      var magnitude = Math.abs(value);
+      return (value < 0 ? -1 : 1) * (magnitude <= 16 / 512 ? magnitude / 16 : Math.pow(magnitude, 1.8));
+    } }
+  };
+  function srgbLinear(value) {
+    var sign = value < 0 ? -1 : 1, magnitude = Math.abs(value);
+    return sign * (magnitude <= 0.04045 ? magnitude / 12.92 : Math.pow((magnitude + 0.055) / 1.055, 2.4));
+  }
+  function srgbEncoded(value) {
+    var magnitude = Math.abs(value);
+    var encoded = magnitude <= 0.0031308 ? magnitude * 12.92 : 1.055 * Math.pow(magnitude, 1 / 2.4) - 0.055;
+    return Math.max(0, Math.min(1, (value < 0 ? -1 : 1) * encoded));
+  }
+  function labToXyzD50(lightness, a, b) {
+    var kappa = 24389 / 27, epsilon = 216 / 24389;
+    var f1 = (lightness + 16) / 116, f0 = a / 500 + f1, f2 = f1 - b / 200;
+    var x = Math.pow(f0, 3) > epsilon ? Math.pow(f0, 3) : (116 * f0 - 16) / kappa;
+    var y = lightness > kappa * epsilon ? Math.pow(f1, 3) : lightness / kappa;
+    var z = Math.pow(f2, 3) > epsilon ? Math.pow(f2, 3) : (116 * f2 - 16) / kappa;
+    return [x * 0.9642956764295677, y, z * 0.8251046025104602];
+  }
+  function oklabToLinearSrgb(lightness, a, b) {
+    var l = Math.pow(lightness + 0.3963377774 * a + 0.2158037573 * b, 3);
+    var m = Math.pow(lightness - 0.1055613458 * a - 0.0638541728 * b, 3);
+    var s = Math.pow(lightness - 0.0894841775 * a - 1.291485548 * b, 3);
+    return [
+      4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+      -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+      -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s
+    ];
+  }
+  // Computed colours keep their space: rgb() for sRGB; oklch(), oklab(),
+  // lab(), lch() or color() otherwise. Each becomes gamma-encoded sRGB, so a
+  // colour outside sRGB is measured as the display clips it. An unreadable
+  // colour returns null and is not audited.
+  function colorFromCss(text) {
+    var match = /^([a-z0-9-]+)\(([^()]*)\)$/.exec(text);
+    if (!match) return null;
+    var name = match[1];
+    var halves = match[2].split("/");
+    var channels = halves[0].trim().split(/[\s,]+/).filter(Boolean);
+    var space = name;
+    if (name === "color") space = channels.shift() || "";
+    var alphaToken = halves.length > 1 ? halves[1].trim() : (name === "rgb" || name === "rgba") && channels.length === 4 ? channels.pop() : "1";
+    if (channels.length !== 3) return null;
+    function channel(token, percent) {
+      if (token === "none") return 0;
+      var number = parseFloat(token);
+      return token.slice(-1) === "%" ? number / 100 * percent : number;
+    }
+    var alpha = channel(alphaToken, 1);
+    var c;
+    if (space === "rgb" || space === "rgba") c = [channel(channels[0], 255) / 255, channel(channels[1], 255) / 255, channel(channels[2], 255) / 255];
+    else if (space === "srgb") c = [channel(channels[0], 1), channel(channels[1], 1), channel(channels[2], 1)];
+    else {
+      var linear;
+      if (space === "srgb-linear") linear = [channel(channels[0], 1), channel(channels[1], 1), channel(channels[2], 1)];
+      else if (space === "oklab" || space === "oklch") {
+        var okLightness = channel(channels[0], 1), okA = channel(channels[1], 0.4), okB = channel(channels[2], 0.4);
+        if (space === "oklch") {
+          var okHue = parseFloat(channels[2]) * Math.PI / 180 || 0;
+          okA = channel(channels[1], 0.4) * Math.cos(okHue);
+          okB = channel(channels[1], 0.4) * Math.sin(okHue);
+        }
+        linear = oklabToLinearSrgb(okLightness, okA, okB);
+      } else if (space === "lab" || space === "lch") {
+        var labLightness = channel(channels[0], 100), labA = channel(channels[1], 125), labB = channel(channels[2], 125);
+        if (space === "lch") {
+          var labHue = parseFloat(channels[2]) * Math.PI / 180 || 0;
+          labA = channel(channels[1], 150) * Math.cos(labHue);
+          labB = channel(channels[1], 150) * Math.sin(labHue);
+        }
+        linear = multiply(XYZ_TO_LINEAR_SRGB, multiply(D50_TO_D65, labToXyzD50(labLightness, labA, labB)));
+      } else if (space === "xyz" || space === "xyz-d65" || space === "xyz-d50") {
+        var xyz = [channel(channels[0], 1), channel(channels[1], 1), channel(channels[2], 1)];
+        linear = multiply(XYZ_TO_LINEAR_SRGB, space === "xyz-d50" ? multiply(D50_TO_D65, xyz) : xyz);
+      } else if (RGB_SPACES[space]) {
+        var definition = RGB_SPACES[space];
+        var toXyz = multiply(definition.matrix, [channel(channels[0], 1), channel(channels[1], 1), channel(channels[2], 1)].map(definition.linear));
+        linear = multiply(XYZ_TO_LINEAR_SRGB, definition.d50 ? multiply(D50_TO_D65, toXyz) : toXyz);
+      } else return null;
+      c = linear.map(srgbEncoded);
+    }
+    if (c.some(function (value) { return !isFinite(value); }) || !isFinite(alpha)) return null;
     return {
-      r: Math.max(0, Math.min(255, Number(parts[0]))) / 255,
-      g: Math.max(0, Math.min(255, Number(parts[1]))) / 255,
-      b: Math.max(0, Math.min(255, Number(parts[2]))) / 255,
-      a: parts.length > 3 ? Math.max(0, Math.min(1, Number(parts[3]))) : 1,
+      r: Math.max(0, Math.min(1, c[0])),
+      g: Math.max(0, Math.min(1, c[1])),
+      b: Math.max(0, Math.min(1, c[2])),
+      a: Math.max(0, Math.min(1, alpha))
     };
   }
   function composite(f, b) {
@@ -70,7 +182,7 @@ function auditPage() {
   }
   function backgroundColorOf(element) {
     var layers = [];
-    for (var current = element; current && current instanceof Element; current = current.parentElement) {
+    for (var current = element; current && current instanceof Element; current = composedParentOf(current)) {
       var layer = parsedColor(getComputedStyle(current).backgroundColor);
       if (layer && layer.a > 0) layers.push(layer);
     }
@@ -110,8 +222,11 @@ function auditPage() {
     audited += 1;
     if (hiddenBy(element) !== null) return;
     var computed = getComputedStyle(element);
-    if ((element.clientWidth > 0 && element.scrollWidth > element.clientWidth + 1) ||
-      (element.clientHeight > 0 && element.scrollHeight > element.clientHeight + 1)) {
+    // An ellipsis or a line clamp cuts text off on purpose.
+    var ellipsis = computed.textOverflow === "ellipsis" && computed.overflowX !== "visible";
+    var clamped = !!computed.webkitLineClamp && computed.webkitLineClamp !== "none" && computed.overflowY !== "visible";
+    if ((!ellipsis && element.clientWidth > 0 && element.scrollWidth > element.clientWidth + 1) ||
+      (!clamped && element.clientHeight > 0 && element.scrollHeight > element.clientHeight + 1)) {
       add("overflow", oid, "Content overflows this element's layout box.",
         "content " + element.scrollWidth + "x" + element.scrollHeight + "px in a " + element.clientWidth + "x" + element.clientHeight + "px box");
     }

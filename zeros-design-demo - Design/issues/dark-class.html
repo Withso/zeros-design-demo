@@ -12,13 +12,13 @@
 <body>
 <main class="sheet" data-name="Tailwind with a .dark class" data-oid="o-b4e1060cb">
 <header class="sheet-head" data-name="Header" data-oid="o-6b0557a22">
-<p class="eyebrow" data-oid="o-b719e8557">Known issue 7</p>
+<p class="eyebrow" data-oid="o-b719e8557">Fixed issue 7</p>
 <h1 class="sheet-title" data-oid="o-600facf7c">Tailwind dark: utilities with a .dark class</h1>
-<p class="sheet-lede" data-oid="o-ae42012fb">This frame receives Tailwind (.dark class), a second Tailwind source. Its dark: variant follows a .dark class, the most common Tailwind setup, and the source maps .dark to the canvas Dark theme. In Dark the card should turn dark. It stays light.</p>
+<p class="sheet-lede" data-oid="o-ae42012fb">This frame receives Tailwind (.dark class), a second Tailwind source. Its dark: variant follows a .dark class, the most common Tailwind setup, and the source maps .dark to the canvas Dark theme. In Dark the card turns dark.</p>
 </header>
 <ol class="try" data-name="Try this" data-oid="o-8bf950e30">
-<li data-oid="o-7b85c3ea1">Preview Dark (⌥T, then Dark in the menu beside Search). The card keeps its white fill and dark text.</li>
-<li data-oid="o-c5f54bfab">Compare the Tailwind frame on page 9. Its dark: variant follows data-theme instead, and its cards turn dark.</li>
+<li data-oid="o-7b85c3ea1">Preview Dark (⌥T, then Dark in the menu beside Search). The card turns zinc-900 with white text.</li>
+<li data-oid="o-c5f54bfab">Compare the Tailwind frame on page 9. Its dark: variant follows data-theme instead, and its cards turn dark too.</li>
 <li data-oid="o-d5bdef3d0">Open the theme editor (⌥T) and choose Tailwind (.dark class): its Dark mapping is .dark.</li>
 </ol>
 <div class="grid grid-cols-2 gap-5" data-name="Example" data-oid="o-2f339003b">
@@ -29,8 +29,8 @@
 </article>
 <div class="stack" data-name="Why" data-oid="o-91e2cef43">
 <p class="section-label" data-oid="o-3cc913ca0">Why</p>
-<p class="card-body" data-oid="o-ba7c70949">Tailwind writes each dark: utility as a class whose name starts with dark and an escaped colon, followed by the .dark condition. Zeros rewrites .dark to the Dark theme's attribute everywhere, including the start of those class names, so no dark: rule matches any element.</p>
-<p class="card-body" data-oid="o-fee0d46b5">A mapping on an attribute selector, such as page 9's data-theme, or on a media query, is not affected.</p>
+<p class="card-body" data-oid="o-ba7c70949">Tailwind writes each dark: utility as a class whose name starts with dark and an escaped colon, followed by the .dark condition. Zeros rewrites the .dark condition to the Dark theme's attribute and leaves those class names as they are, so every dark: rule matches.</p>
+<p class="card-body" data-oid="o-fee0d46b5">A mapping on an attribute selector, such as page 9's data-theme, or on a media query, never had this problem.</p>
 </div>
 </div>
 </main>

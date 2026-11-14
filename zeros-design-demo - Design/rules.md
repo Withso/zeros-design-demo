@@ -19,7 +19,7 @@ Authoring contract. design validate warns when a frame breaks rule 3, 4 or 8; wa
 
 ## This folder
 Orbit is a teaching demo. Each page shows one part of the Design tab, and the note beside each frame says what it shows, what to try and what an edit writes. Keep it that way when you change it.
-- Pages 10 (Lint showcase) and 11 (Known issues) break the authoring contract on purpose. Their warnings are expected; leave them unless the user asks you to fix one.
+- Page 10 (Lint showcase) breaks the authoring contract on purpose. Its warnings are expected; leave them unless the user asks you to fix one. Page 11 (Fixed issues) keeps edge cases that once tripped Zeros; leave them as they are.
 - Reuse tokens.css and ui.css. A main component with options lives in its page folder with <template data-zd-options>, and meta/canvas.json registers it with "component". Slot components live in components/.
 - The repository's README.md and docs/guide.md describe every frame. When you change what a frame shows, update its note and both files.
 - tools/audit.sh, described in README.md, runs lint, screenshots and the audits the app does not show.

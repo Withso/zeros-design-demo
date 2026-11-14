@@ -24,8 +24,8 @@
 <link rel="stylesheet" href="../ui.css">
 <style>
 zd-button { display: inline-block; vertical-align: middle; }
-/* Limited to the Button's own markup: Zeros adds this style element to every
-   frame that places a Button. */
+/* The option hooks set the Button's own markup: .stage is this frame's body
+   and zd-button an instance. */
 :where(.stage, zd-button) > .btn { --btn-radius: var(--zd-radius); --btn-accent: var(--zd-accent); --btn-easing: var(--zd-press-easing); --btn-duration: var(--zd-press-duration); }
 :where(.stage, zd-button) > .btn .spinner { --spinner-easing: var(--zd-spin-easing); --spinner-duration: var(--zd-spin-duration); }
 </style>

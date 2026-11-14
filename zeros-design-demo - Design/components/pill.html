@@ -7,8 +7,9 @@
 <link rel="stylesheet" href="ui.css">
 <style>
 zd-pill { display: inline-block; vertical-align: middle; }
-/* Unscoped on purpose (known issue 10): Zeros adds this style element to
-   every frame that places a Pill, so this rule recolours every .badge there. */
+/* Unscoped on purpose, to check the fix for issue 10: Zeros limits a
+   component's style to its own instances, so this rule recolours only the
+   Pill's badge, not the other .badge elements in a frame that places it. */
 .badge { --badge-ink: var(--accent); --badge-wash: var(--accent-soft); }
 </style>
 </head>

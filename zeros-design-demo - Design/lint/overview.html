@@ -18,11 +18,11 @@
 <header class="sheet-head" data-name="Header" data-oid="o-b37334bee">
 <p class="eyebrow" data-oid="o-979688872">Lint showcase</p>
 <h1 class="sheet-title" data-oid="o-a36d61416">What Zeros checks, and where you see it</h1>
-<p class="sheet-lede" data-oid="o-5e063c627">Zeros checks each frame's source whenever it changes. An error makes Validate fail and puts a red line at the top of the Style panel. A warning never fails Validate and never blocks a save. The canvas does not list warnings: the agent's Validate step reports them, each with its file, line and a fix.</p>
+<p class="sheet-lede" data-oid="o-5e063c627">Zeros checks each frame's source whenever it changes. An error makes Validate fail and puts a red line at the top of the Style panel. A warning never fails Validate and never blocks a save. A badge on each frame's title counts its findings and lists them. The agent's Validate step reports each with its file, line and a fix.</p>
 </header>
 <ol class="try" data-name="Try this" data-oid="o-5644c07a2">
-<li data-oid="o-db752f2ef">In the chat, ask: Validate every frame on the Lint showcase page. Each other frame on this page breaks one rule on purpose, and its note quotes what Validate reports.</li>
-<li data-oid="o-5d5c47da5">Ask the same for page 2. Pages 1 to 9 report nothing, because they follow the rules in rules.md.</li>
+<li data-oid="o-db752f2ef">Click the badge on a frame's title here to list its findings, or ask in the chat: Validate every frame on the Lint showcase page. Each other frame here breaks one rule on purpose.</li>
+<li data-oid="o-5d5c47da5">Ask the same for page 2. Pages 1 to 9 report nothing and show no badge, because they follow the rules in rules.md.</li>
 <li data-oid="o-57b255032">Ask the agent to fix the Unknown classes frame, then open Changes to see its edit. Discard the change to put the demo back.</li>
 </ol>
 <div class="lo-tables" data-name="Rules" data-oid="o-77a4881f7">
@@ -63,7 +63,7 @@
 </section>
 </div>
 <div class="lo-where" data-name="Where each appears" data-oid="o-0afee3dd9">
-<div class="card card--flat" data-name="Style panel" data-oid="o-f252c8ca1"><p class="card-title" data-oid="o-ffaf8e969">Style panel</p><p class="card-body" data-oid="o-df6290e86">A red line names the first error in the folder as file:line and rule. Hover it for the message.</p></div>
+<div class="card card--flat" data-name="Style panel" data-oid="o-f252c8ca1"><p class="card-title" data-oid="o-ffaf8e969">Style panel</p><p class="card-body" data-oid="o-df6290e86">A red line names the selected frame's first error as file:line and rule. Hover it for the message.</p></div>
 <div class="card card--flat" data-name="Options" data-oid="o-647590e79"><p class="card-title" data-oid="o-8fc27cbb6">Options</p><p class="card-body" data-oid="o-2b2a7ee8b">When an instance's values cannot apply, Options says what the frame shows instead and offers Ask agent to fix. An ignored attribute gets a warning there.</p></div>
 <div class="card card--flat" data-name="Validate" data-oid="o-28f0b7c3c"><p class="card-title" data-oid="o-0ecf9a75a">Validate</p><p class="card-body" data-oid="o-c88ad2205">The agent runs design validate on a frame and gets every error and warning, each with a fix. Warnings leave its exit status at 0.</p></div>
 </div>
