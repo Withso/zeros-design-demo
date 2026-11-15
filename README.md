@@ -49,7 +49,7 @@ Every page has this list as a note at its top left. In the steps, "select" means
 | 3. Component options | Ten components that use every option kind: text, choice, boolean, number, colour and easing. Also derived values, units, loops, conditions, nested components and variants. |
 | 4. Slot components | Components filled with attributes and children, and how they differ from components with options. |
 | 5. Instances | Every Button combination, variants with overrides, badge classes next to Badge instances, and a settings screen built from instances. |
-| 6. States | Live states and the State picker, drawn states, content states, and one frame per state. |
+| 6. States | Live states and state variants, drawn states, content states, and one frame per state. |
 | 7. Style panel | One frame per section: Position, Layout, Appearance, Fill, Typography, Stroke, Shadow and Blur, Transform, Transition and Motion, More styles and Export. |
 | 8. Values & origins | Where each value comes from, what the field marks mean, Styled by, Changed here and Tidy. |
 | 9. Style sources | Plain CSS, Sass, Tailwind, a build command, source status and per-frame source lists. |
@@ -122,3 +122,9 @@ These are Zeros problems found while building the demo. [PR #1076](https://githu
 | 20 | A component's `@scope` rules were copied unscoped, so their root matched anywhere in the frame. | An `@scope` root is limited to the component's instances, like its other selectors. | Nowhere on the canvas: the demo's components use no `@scope`. | `apps/desktop/src/engine/design/components.ts`, `scopeDesignComponentStyle` |
 
 The same PR also changes Position in the Style panel. A layer whose parent has auto layout gets an Absolute position checkbox, in place of the old Place freely button. Unticked, auto layout places the layer and X and Y are locked. Ticked, it is placed freely, X and Y can be edited, and the pins show. Unticking hands it back to auto layout, which places it where it puts it now; its old X and Y are not kept, its size is. Layers shows a four-corner absolute icon on its row while it is ticked. Page 7's Position frame, step 3, tries it.
+
+It also changes three things to work as in Figma:
+
+- **States are component variants.** A main's + beside Variant offers Hover, Pressed, Focus and Disabled; an edit while one shows writes the main's state rule. A plain layer has no State picker; its :hover rules still apply live. Page 6, Live states, step 3.
+- **Classes are global or a component's.** A global class lives in a Design stylesheet such as ui.css; a component's lives in its main's `<style>`. `design validate` warns about a class a page frame defines for itself (`frame-class`) and about a component's class used outside it (`component-class`). Rule 1 in this folder's `rules.md` says so once it upgrades.
+- **An instance is one box.** An instance of a main is its main's root layer: Layers shows no separate root row, the host has no box (`display: contents`), and its size and position are overrides its Options reset. CSS on the host tag, such as `zd-button { vertical-align: middle }`, no longer boxes it, so the mains here put that on their root. A main's frame row is likewise its root layer. Page 11, Instances.

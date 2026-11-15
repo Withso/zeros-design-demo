@@ -158,7 +158,7 @@ Kinds: text (Label); choice (Tone has three values, so a row of buttons; Size ha
 1. Click the frame title. The header reads Component, and Options lists every row.
 2. Set Tone to Danger, then back to Accent.
 3. Open Variant, pick Destructive and change Label.
-4. Change anything, then press + beside Variant (Save current as variant…).
+4. Change anything, then press + beside Variant and choose Save current as variant…. The same menu adds a Hover, Pressed, Focus or Disabled state variant (page 6, Live states).
 5. Select the Label layer: its text reads "Set by option Label".
 
 **What gets written**
@@ -454,21 +454,21 @@ Folder `states/` · 6 frames
 
 ### Live states
 
-Section: Live states and the State picker. `states/live.html` · 1100 × 680
+Section: Live states. `states/live.html` · 1100 × 680
 
 **What it shows**
 
-The State picker. A layer gets a State button in the Style panel header only when a rule names it with :hover, :focus, :focus-visible, :active or :disabled. Picking a state draws the layer in that state on the canvas and narrows the panel to what the state's rule changes.
+Live states. Each layer here has its own :hover, :focus, :focus-visible, :active or :disabled rule. They apply live as you point, press and tab, and the Style panel edits Default. To draw and edit a state, make it a component variant: a main's Add variant offers Hover, Pressed, Focus and Disabled.
 
 **Try**
 
-1. Select the Accent button. Open Layer state in the panel header and pick Hover: the panel lists only the background, from .btn[data-tone="accent"]:hover.
-2. Pick Active, then Focus visible. Fields stay read only until you press Back to Default.
-3. Move the pointer over the real controls: :hover rules apply live and the toggle's transition animates.
+1. Move the pointer over the real controls: :hover rules apply live and the toggle's transition animates.
+2. Select the Accent button. The Style panel header has no State button: a plain layer edits only Default.
+3. On page 3, click the Button frame title, press + beside Variant and choose Hover. The main shows its hover state, and a change made while it shows goes to the main's :hover rule.
 
 **What gets written**
 
-Nothing. A picked state is view only: fields stay read only until Back to Default, and the choice is not saved. To change how a state looks, edit its rule in source: this frame's `<style>`, ui.css, or for Tailwind its hover: utility.
+Nothing for steps 1 and 2. Step 3 adds `<zd-variant name="hover" zd-state="hover">` to options/button.html, and an edit while Hover shows writes a :hover rule in its `<style>`. Which variant a main shows is your own view, never in Git.
 
 ### Drawn states
 
@@ -817,7 +817,7 @@ A Tailwind v4 source (kind tailwind). Zeros compiles styles/tailwind/app.css wit
 
 1. Open the theme editor (⌥T) and choose Tailwind app. The @theme values are its variables; the status names the Tailwind version and the bundled plugin.
 2. Select Upgrade. Styled by counts its utilities; hover Fill: From the utility bg-white, Source Tailwind app.
-3. With Upgrade selected, open the State menu and choose Hover: hover:bg-brand-50 takes over until Back to Default.
+3. Point at Upgrade: hover:bg-brand-50 applies live. A plain layer has no State menu; a state is drawn as a component variant (page 6, Live states).
 4. Change its padding. Zeros writes an inline style on the layer. The class attribute and its utilities stay as they are.
 
 **What gets written**

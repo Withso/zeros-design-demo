@@ -519,7 +519,7 @@
           "x": 0,
           "y": -120,
           "width": 1520,
-          "text": "Live states and the State picker"
+          "text": "Live states"
         },
         {
           "id": "note_states_3",
@@ -528,7 +528,7 @@
           "y": 0,
           "width": 380,
           "height": 308,
-          "text": "WHAT IT SHOWS\nThe State picker. A layer gets a State button in the Style panel header only when a rule names it with :hover, :focus, :focus-visible, :active or :disabled. Picking a state draws the layer in that state on the canvas and narrows the panel to what the state's rule changes.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing. A picked state is view only: fields stay read only until Back to Default, and the choice is not saved. To change how a state looks, edit its rule in source: this frame's <style>, ui.css, or for Tailwind its hover: utility."
+          "text": "WHAT IT SHOWS\nLive states. Each layer here has its own :hover, :focus, :focus-visible, :active or :disabled rule. They apply live as you point, press and tab, and the Style panel edits Default. To draw and edit a state, make it a component variant: a main's Add variant offers Hover, Pressed, Focus and Disabled.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing for steps 1 and 2. Step 3 adds <zd-variant name=\"hover\" zd-state=\"hover\"> to options/button.html, and an edit while Hover shows writes a :hover rule in its <style>. Which variant a main shows is your own view, never in Git."
         },
         {
           "id": "section_states_4",
