@@ -5,12 +5,10 @@
 <title>Unknown tokens and literal colours</title>
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../ui.css">
+<link rel="stylesheet" href="../pages.css">
 <style>
-.lt-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
-.lt-specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
-.lt-chip { display: grid; place-items: center; min-height: 64px; padding: var(--space-2); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); font-size: var(--text-small); font-weight: var(--weight-medium); line-height: var(--text-small--line-height); text-align: center; }
-.lt-local { --lt-ink: var(--success); color: var(--lt-ink); }
-.lt-literal { border-width: 2px; border-color: #cdd2da; }
+[data-oid="lt-local"] { --lt-ink: var(--success); color: var(--lt-ink); }
+[data-oid="lt-style"] { border-width: 2px; border-color: #cdd2da; }
 </style>
 </head>
 <body>
@@ -31,14 +29,14 @@
 <div class="lt-specs" data-name="Token specimens" data-oid="o-e8cd3f3ac">
 <figure class="spec" data-name="Unknown token" data-oid="o-8030b28e3"><p class="lt-chip" data-oid="lt-unknown" data-name="fg-strongest chip" style="color: var(--fg-strongest);">fg-strongest</p><figcaption class="spec-cap" data-oid="o-ede210562">Warns: Unknown design token "--fg-strongest". Nothing declares it, so the text inherits its colour.</figcaption></figure>
 <figure class="spec" data-name="Token with a fallback" data-oid="o-5ab0bea6a"><p class="lt-chip" data-oid="lt-fallback" data-name="Fallback chip" style="color: var(--lt-hook, var(--accent));">lt-hook, else accent</p><figcaption class="spec-cap" data-oid="o-0a41a5fe6">No warning: a reference with a fallback is an optional hook.</figcaption></figure>
-<figure class="spec" data-name="Token declared in this frame" data-oid="o-5031d6384"><p class="lt-chip lt-local" data-oid="lt-local" data-name="Local token chip">lt-ink</p><figcaption class="spec-cap" data-oid="o-33f9dba8f">No warning: this frame's style element declares lt-ink.</figcaption></figure>
+<figure class="spec" data-name="Token declared in this frame" data-oid="o-5031d6384"><p class="lt-chip" data-oid="lt-local" data-name="Local token chip">lt-ink</p><figcaption class="spec-cap" data-oid="o-33f9dba8f">No warning: this frame's style element declares lt-ink.</figcaption></figure>
 <figure class="spec" data-name="Token from tokens.css" data-oid="o-941714837"><p class="lt-chip" data-oid="lt-known" data-name="Known token chip" style="color: var(--accent);">accent</p><figcaption class="spec-cap" data-oid="o-edf915ab1">No warning: tokens.css declares accent.</figcaption></figure>
 </div>
 </section>
 <section class="stack" data-name="Literal colours" data-oid="o-5314cf5e9">
 <p class="section-label" data-oid="o-fc6c2533f">Literal colours</p>
 <div class="lt-specs" data-name="Literal specimens" data-oid="o-1cbc46ffa">
-<figure class="spec" data-name="Literal in a style element" data-oid="o-ff9104f83"><p class="lt-chip lt-literal" data-oid="lt-style" data-name="Border literal chip">Border #cdd2da</p><figcaption class="spec-cap" data-oid="o-89c36ef95">Warns: use border-default instead of "#cdd2da". This literal is in the frame's style element.</figcaption></figure>
+<figure class="spec" data-name="Literal in a style element" data-oid="o-ff9104f83"><p class="lt-chip" data-oid="lt-style" data-name="Border literal chip">Border #cdd2da</p><figcaption class="spec-cap" data-oid="o-89c36ef95">Warns: use border-default instead of "#cdd2da". This literal is in the frame's style element.</figcaption></figure>
 <figure class="spec" data-name="Literals inline" data-oid="o-2a71d485c"><p class="lt-chip" data-oid="lt-inline" data-name="Pale literal chip" style="background-color: #ebebfb; color: #5151cc;">#5151cc on #ebebfb</p><figcaption class="spec-cap" data-oid="o-7acf9c0b4">Warns twice: accent-soft for the fill, accent for the text.</figcaption></figure>
 <figure class="spec" data-name="rgb() matching two tokens" data-oid="o-05f84e77e"><p class="lt-chip" data-oid="lt-rgb" data-name="Dark literal chip" style="background-color: rgb(22 24 29); color: #ffffff;">rgb(22 24 29)</p><figcaption class="spec-cap" data-oid="o-21145a055">Warns twice. rgb() is compared too, and each colour equals two tokens, so the fix names both.</figcaption></figure>
 <figure class="spec" data-name="Literal no token holds" data-oid="o-9ad901569"><p class="lt-chip" data-oid="lt-free" data-name="Orange literal chip" style="background-color: #fff4e5; color: #8a4b00;">#8a4b00 on #fff4e5</p><figcaption class="spec-cap" data-oid="o-3b305844b">No warning: no token holds these colours.</figcaption></figure>

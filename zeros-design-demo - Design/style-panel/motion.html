@@ -5,16 +5,8 @@
 <title>Transition and motion</title>
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../ui.css">
+<link rel="stylesheet" href="../pages.css">
 <style>
-.mo-tile { display: grid; place-items: center; height: 88px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); color: var(--fg-default); font-size: var(--text-caption); line-height: var(--text-caption--line-height); cursor: pointer; }
-.mo-colour:hover { background: var(--accent); color: var(--fg-inverse); }
-.mo-lift:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
-.mo-fade:hover { opacity: 0.4; }
-.mo-steps:hover { background: var(--warning-soft); }
-.mo-dot { display: block; width: 40px; height: 40px; margin: var(--space-6) auto; border-radius: var(--radius-full); background: var(--accent); }
-.mo-orbit { position: relative; width: 88px; height: 88px; margin: var(--space-2) auto; border: 1px dashed var(--border-default); border-radius: var(--radius-full); }
-.mo-spinner { width: 40px; height: 40px; margin: var(--space-6) auto; border-width: 4px; color: var(--accent); }
-.mo-moon { position: absolute; top: -8px; left: 36px; width: 16px; height: 16px; border-radius: var(--radius-full); background: var(--warning); }
 @keyframes pulse { 0%, 100% { scale: 1; opacity: 1; } 50% { scale: 1.25; opacity: 0.6; } }
 @keyframes slide-in { from { translate: -24px 0; opacity: 0; } to { translate: 0 0; opacity: 1; } }
 @keyframes bounce { from { translate: 0 0; } to { translate: 0 -16px; } }

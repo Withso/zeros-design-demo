@@ -5,22 +5,9 @@
 <title>Scales</title>
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../ui.css">
+<link rel="stylesheet" href="../pages.css">
 <style>
-.scale-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-7); }
-.space-scale { display: flex; flex-direction: column; gap: var(--space-2); }
-.space-step { display: flex; align-items: center; gap: var(--space-3); }
-.space-bar { height: 12px; flex: none; border-radius: 2px; background: var(--accent); }
-.shape-row { display: flex; flex-wrap: wrap; gap: var(--space-4); }
-.shape-box { display: grid; place-items: center; width: 112px; height: 72px; border: 1px solid var(--border-default); background: var(--bg-surface); color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); }
-.shadow-box { display: grid; place-items: center; width: 140px; height: 84px; border-radius: var(--radius-lg); background: var(--bg-surface); color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); }
-.motion-step { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: center; gap: var(--space-3); }
-.motion-lane { position: relative; height: 28px; border-radius: var(--radius-full); background: var(--bg-raised); }
-.motion-dot { position: absolute; top: 4px; left: 4px; width: 20px; height: 20px; border-radius: var(--radius-full); background: var(--accent); animation: motion-run 2.4s infinite alternate; }
 @keyframes motion-run { from { left: 4px; } to { left: calc(100% - 24px); } }
-.size-row { display: flex; align-items: flex-end; gap: var(--space-6); }
-.size-item { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); margin: 0; color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); line-height: var(--text-caption--line-height); white-space: nowrap; }
-.size-box { border-radius: var(--radius-sm); background: var(--accent-soft); outline: 1px dashed var(--accent); }
-.opacity-box { display: grid; place-items: center; width: 140px; height: 56px; border-radius: var(--radius-md); background: var(--accent); color: var(--fg-inverse); font-family: var(--font-mono); font-size: var(--text-caption); }
 </style>
 </head>
 <body>

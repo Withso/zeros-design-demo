@@ -5,10 +5,7 @@
 <title>Instance attributes that are not options</title>
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../ui.css">
-<style>
-.ins-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); align-items: start; }
-.ins-panel { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
-</style>
+<link rel="stylesheet" href="../pages.css">
 </head>
 <body>
 <main class="sheet" data-name="Instance attributes that are not options" data-oid="o-c1ca35514">
@@ -18,7 +15,7 @@
 <p class="sheet-lede" data-oid="o-7f7d80244">An instance's attributes are its option values. An attribute that names no option is ignored and never rewritten, and Validate warns about it. Host attributes such as class, style, data-oid and data-name are left alone.</p>
 </header>
 <ol class="try" data-name="Try this" data-oid="o-f43e4af55">
-<li data-oid="o-6bb462639">Select the first button. Options shows a warning that its lable attribute names no option. Label still reads Save changes, the default.</li>
+<li data-oid="o-6bb462639">Select the first button. Controls shows a warning that its lable attribute names no control. Label still reads Save changes, the default.</li>
 <li data-oid="o-50e9aebfe">Ask the agent to validate this frame: two warnings, each naming the ignored attribute and its value.</li>
 <li data-oid="o-c41515b54">A value that an option does not allow, such as tone="purple", is an error instead. This page draws none, so Validate and tools/audit.sh pass for the whole folder.</li>
 </ol>

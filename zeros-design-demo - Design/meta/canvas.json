@@ -112,7 +112,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_start_2",
@@ -129,7 +129,7 @@
           "y": 0,
           "width": 380,
           "height": 668,
-          "text": "WHAT IT SHOWS\nThe map of this demo, built with Orbit, a small design system made up for it. Each page is a folder, and each frame on it is one HTML file. The cards are <zd-card> tags, placed from components/card.html (page 4).\n\nTRY\n1. Move between pages with the Pages menu. Hold Space and drag to pan.\n2. Select this frame, then a layer in it, as the How to select note on the left says. Open Layers at the foot of the Style panel to see the frame's tree.\n3. Select a frame and press ⌥T, or click the palette button in the toolbar, to open the theme editor. In the menu beside Search, change Light to Dark: every frame redraws in Dark, and stays so after you close the editor.\n4. ⌘-click a card. It is selected whole, as an instance of components/card.html. Double-click it to select one of its parts.\n\nWHAT GETS WRITTEN\nStyle panel: the layer's own declaration, usually its style attribute, in the frame's .html file. A new declaration goes at the end as property:value; and an existing one has only its value replaced.\nOptions: one attribute on an instance, or one default= in the component's file.\nTheme editor: tokens.css.\nFrame size, place and title, notes, sections and link cards: meta/canvas.json.\nEvery layer in this demo has a data-oid already, except on page 10's Duplicate layer ids. Where a layer has none, a Style edit writes one on that layer only.\nNothing is staged or committed. Changes shows each edit as a diff, and Discard puts a file back."
+          "text": "WHAT IT SHOWS\nThe map of this demo, built with Orbit, a small design system made up for it. Each page is a folder, and each frame on it is one HTML file. The cards are <zd-card> tags, placed from components/card.html (page 4).\n\nTRY\n1. Move between pages with the Pages menu. Hold Space and drag to pan.\n2. Select this frame, then a layer in it, as the How to select note on the left says. Open Layers at the foot of the Style panel to see the frame's tree.\n3. Select a frame and press ⌥T, or click the palette button in the toolbar, to open the theme editor. In the menu beside Search, change Light to Dark: every frame redraws in Dark, and stays so after you close the editor.\n4. ⌘-click a card. It is selected whole, as an instance of components/card.html. Double-click it to select its heading, which a control sets.\n\nWHAT GETS WRITTEN\nStyle panel: the layer's own declaration, usually its style attribute, in the frame's .html file. A new declaration goes at the end as property:value; and an existing one has only its value replaced.\nControls: one attribute on an instance, or one default= in the component's file.\nTheme editor: tokens.css.\nFrame size, place and title, notes, sections and link cards: meta/canvas.json.\nEvery layer in this demo has a data-oid already, except on page 10's Duplicate layer ids. Where a layer has none, a Style edit writes one on that layer only.\nNothing is staged or committed. Changes shows each edit as a diff, and Discard puts a file back."
         },
         {
           "id": "link_start_4",
@@ -168,7 +168,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_tokens_2",
@@ -185,7 +185,7 @@
           "y": 0,
           "width": 380,
           "height": 470,
-          "text": "WHAT IT SHOWS\nEvery colour token in tokens.css. Each tile is a <zd-swatch>, an instance of components/swatch.html: a components file that declares two options, Colour and Token name. The chip paints var(--zd-color).\n\nTRY\n1. Select a swatch. Options shows Colour as a token pill and Token name as text.\n2. Open Colour. Theme lists the colour tokens by family; Custom edits a literal. Pick success: the chip turns green.\n3. Preview Dark (⌥T, then Dark in the menu beside Search). Every chip follows, because tokens.css sets the same names again under [data-zd-theme=\"dark\"].\n4. With Dark shown, change --accent in the theme editor. Accent changes on every page, in Dark only.\n\nWHAT GETS WRITTEN\nStep 2 sets color=\"var(--success)\" on that one <zd-swatch>. Picking the default, accent, removes the attribute instead.\nStep 4 changes --accent inside the [data-zd-theme=\"dark\"] block of tokens.css. With Light shown, the theme editor writes :root instead.\nDiscard tokens.css and this file in Changes to undo both."
+          "text": "WHAT IT SHOWS\nEvery colour token in tokens.css. Each tile is a <zd-swatch>, an instance of components/swatch.html: a components file that declares two options, Colour and Token name. The chip paints var(--zd-color).\n\nTRY\n1. Select a swatch. Controls shows Colour as a token pill and Token name as text.\n2. Open Colour. Theme lists the colour tokens by family; Custom edits a literal. Pick success: the chip turns green.\n3. Preview Dark (⌥T, then Dark in the menu beside Search). Every chip follows, because tokens.css sets the same names again under [data-zd-theme=\"dark\"].\n4. With Dark shown, change --accent in the theme editor. Accent changes on every page, in Dark only.\n\nWHAT GETS WRITTEN\nStep 2 sets color=\"var(--success)\" on that one <zd-swatch>. Picking the default, accent, removes the attribute instead.\nStep 4 changes --accent inside the [data-zd-theme=\"dark\"] block of tokens.css. With Light shown, the theme editor writes :root instead.\nDiscard tokens.css and this file in Changes to undo both."
         },
         {
           "id": "section_tokens_4",
@@ -247,7 +247,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_options_2",
@@ -263,8 +263,8 @@
           "x": 360,
           "y": 0,
           "width": 380,
-          "height": 506,
-          "text": "WHAT IT SHOWS\nThe main Button component. options/button.html declares 11 options in <template data-zd-options>, and meta/canvas.json registers the frame as \"button\", so any frame can place <zd-button>.\nKinds: text (Label); choice (Tone has three values, so a row of buttons; Size has five, so a menu); boolean (Loading, Show icon); number with min and max, so a slider (Corner radius); colour (Accent fill); easing (Spinner motion, Press motion). group= folds rows under Loading, Icon, and Shape and motion.\n\nTRY\n1. Click the frame title. The header reads Component, and Options lists every row.\n2. Set Tone to Danger, then back to Accent.\n3. Open Variant, pick Destructive and change Label.\n4. Change anything, then press + beside Variant (Save current as variant…).\n5. Select the Label layer: its text reads \"Set by option Label\".\n\nWHAT GETS WRITTEN\nStep 2 edits default= on the tone line, so every instance that sets no tone follows, on page 5 too. Step 3 edits label= on the <zd-variant name=\"destructive\"> line. Step 4 appends one <zd-variant> line holding only the values that differ from the defaults. Which variant the frame shows is your own view, never in Git."
+          "height": 560,
+          "text": "WHAT IT SHOWS\nThe main Button component. options/button.html declares 11 options in <template data-zd-options>, and meta/canvas.json registers the frame as \"button\", so any frame can place <zd-button>.\nKinds: text (Label); choice (Tone has three values, so a row of buttons; Size has five, so a menu); boolean (Loading, Show icon); number with min and max, so a slider (Corner radius); colour (Accent fill); easing (Spinner motion, Press motion). group= folds rows under Loading, Icon, and Shape and motion.\n\nTRY\n1. Click the frame title. The header names the component, Button, and its Controls tab lists every row; the Style tab edits the main's layers.\n2. Set Tone to Danger, then back to Accent.\n3. Open Variant, pick Destructive and change Label.\n4. Change anything, then press + beside Variant (Save current as variant…).\n5. Select the Label layer: its text is locked and reads \"Set by control Label\". A field a control drives shows that control, or a lock that names it.\n\nWHAT GETS WRITTEN\nStep 2 edits default= on the tone line, so every instance that sets no tone follows, on page 5 too. Step 3 edits label= on the <zd-variant name=\"destructive\"> line. Step 4 appends one <zd-variant> line holding only the values that differ from the defaults. Which variant the frame shows is your own view, never in Git."
         },
         {
           "id": "note_options_4",
@@ -360,7 +360,7 @@
           "y": 2552,
           "width": 380,
           "height": 398,
-          "text": "WHAT IT SHOWS\nAn Alert whose template places two Buttons: <zd-button … label=\"{{ primary }}\"> and a second one with data-zd-if=\"actions == 'two'\". Options reach a nested component through its attributes. The derived has-actions = actions != 'none' removes the whole row. Entrance is an easing used by a CSS @keyframes animation; Entrance delay is in ms.\n\nTRY\n1. Set Actions to One button, then None.\n2. Type a new Primary label: the nested Button follows.\n3. Set Tone to Error and turn Close button off.\n4. In Entrance, set Type to Spring and raise Bounce: the curve above the rows changes.\n5. Try each variant: Shipped, Failed and Tip.\n\nWHAT GETS WRITTEN\ndefault= on the Alert's own option lines. The nested Buttons are part of the template; to change their fixed attributes, such as size=\"sm\", edit options/alert.html."
+          "text": "WHAT IT SHOWS\nAn Alert whose template places two Buttons: <zd-button … label=\"{{ primary }}\"> and a second one with data-zd-if=\"actions == 'two'\". Option values reach a nested component through its attributes. The derived has-actions = actions != 'none' removes the whole row. Entrance is an easing used by a CSS @keyframes animation; Entrance delay is in ms.\n\nTRY\n1. Set Actions to One button, then None.\n2. Type a new Primary label: the nested Button follows.\n3. Set Tone to Error and turn Close button off.\n4. In Entrance, set Type to Spring and raise Bounce: the curve above the rows changes.\n5. Try each variant: Shipped, Failed and Tip.\n\nWHAT GETS WRITTEN\ndefault= on the Alert's own option lines. The nested Buttons are part of the template; to change their fixed attributes, such as size=\"sm\", edit options/alert.html."
         },
         {
           "id": "note_options_15",
@@ -389,7 +389,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_slots_2",
@@ -405,8 +405,8 @@
           "x": 1360,
           "y": 0,
           "width": 380,
-          "height": 524,
-          "text": "WHAT IT SHOWS\ncomponents/card.html is a slot component: no options, just markup with three slots. <slot data-zd-attr=\"meta\"> and <slot data-zd-attr=\"heading\"> take attribute values as text; the plain <slot> takes the instance's children. A missing attribute, or no children, shows the slot's fallback.\n\nTRY\n1. Select a card. It is an instance of components/card.html, with the component mark in Layers. Options has a text row for meta and one for heading, each defaulting to the slot's fallback.\n2. In Layers, open case 7's card. It lists the card's parts and the children this frame puts in its slot. Click the paragraph's row: the Style panel edits it.\n3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text. Case 3's body is only text, so Options also has a Text row.\n4. Select the Release notes button in case 1. It has Options like any Button.\n\nWHAT GETS WRITTEN\nA Style edit on a card writes the <zd-card> tag's style attribute, and a text option one attribute on it. An edit on a child writes that child. To change every card, edit components/card.html in Files."
+          "height": 560,
+          "text": "WHAT IT SHOWS\ncomponents/card.html is a slot component: no options, just markup with three slots. <slot data-zd-attr=\"meta\"> and <slot data-zd-attr=\"heading\"> take attribute values as text; the plain <slot> takes the instance's children. A missing attribute, or no children, shows the slot's fallback.\n\nTRY\n1. Select a card. It is an instance of components/card.html, with the component mark in Layers. Controls has a text row for meta and one for heading, each defaulting to the slot's fallback.\n2. In Layers, open case 7's card. It lists the card's parts and the children this frame puts in its slot. Click the paragraph's row: the Style panel edits it.\n3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text. Case 3's body is only text, so Controls also has a Text row.\n4. Select the Release notes button in case 1. It has Controls like any Button.\n\nWHAT GETS WRITTEN\nA card is an instance, so it has Size and Controls but no Style panel. Size writes the <zd-card> tag's style attribute, and a text control one attribute on it. An edit on a child writes that child. To change every card, edit components/card.html in Files."
         },
         {
           "id": "section_slots_4",
@@ -422,8 +422,8 @@
           "x": 1140,
           "y": 1090,
           "width": 380,
-          "height": 416,
-          "text": "WHAT IT SHOWS\nTwo more slot components. zd-stat has three attribute slots (label, value, delta) and a body slot. The delta's colour comes from a plain host attribute: zd-stat[data-trend=\"down\"] .stat-delta in the component's style. zd-list-item puts its children in the leading slot, here Avatar instances.\n\nTRY\n1. Compare the four stats: up is green, down red, flat grey. \"New metric\" sets only label, so value, delta and body show their fallbacks.\n2. In Files, change a stat's data-trend from down to up and save.\n3. Select an avatar in the People list. Options shows the values it sets: status, shape or the Team variant.\n4. \"Unassigned seat\" has no children, so its leading slot shows the fallback, a \"?\" avatar.\n\nWHAT GETS WRITTEN\nSelecting writes nothing. A Style edit on a <zd-stat> or <zd-list-item> tag writes that tag's style attribute in this file."
+          "height": 450,
+          "text": "WHAT IT SHOWS\nTwo more slot components. zd-stat has three attribute slots (label, value, delta) and a body slot. The delta's colour comes from a plain host attribute: zd-stat[data-trend=\"down\"] .stat-delta in the component's style. zd-list-item puts its children in the leading slot, here Avatar instances.\n\nTRY\n1. Compare the four stats: up is green, down red, flat grey. \"New metric\" sets only label, so value, delta and body show their fallbacks.\n2. In Files, change a stat's data-trend from down to up and save.\n3. Select an avatar in the People list. Controls shows the values it sets: status, shape or the Team variant.\n4. \"Unassigned seat\" has no children, so its leading slot shows the fallback, a \"?\" avatar.\n\nWHAT GETS WRITTEN\nSelecting writes nothing. Size on a <zd-stat> or <zd-list-item> tag writes that tag's style attribute in this file. Nothing else about an instance is written there."
         }
       ]
     },
@@ -444,7 +444,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_instances_2",
@@ -460,8 +460,8 @@
           "x": 1040,
           "y": 0,
           "width": 380,
-          "height": 452,
-          "text": "WHAT IT SHOWS\n44 instances of the page 3 Button: tone × size, each drawn state, loading and icons, each variant, and variants with overrides. Each value is looked up in order: the instance's attribute, then its zd-variant, then the option's default.\n\nTRY\n1. Select \"Pill, danger\". Variant reads Pill, and Tone has a dot because it differs from what Pill gives it.\n2. Set its Tone to Accent, the inherited value: the dot goes.\n3. Set its Variant to Default, then press Reset options (the arrow in the Options header).\n4. With a button selected, double-click its label. The panel names the part and says \"Part of Button.\", with Select instance and Edit main. Parts are read only; Escape goes back to the button.\n5. Select \"Explicit default\": tone=\"accent\" equals the default, so Tone has no dot although the attribute is written.\n\nWHAT GETS WRITTEN\nStep 2 removes tone=\"danger\" from that tag, because the value equals what it inherits. Step 3 removes zd-variant, then Reset removes every option attribute. data-oid, class and style are kept."
+          "height": 500,
+          "text": "WHAT IT SHOWS\n44 instances of the page 3 Button: tone × size, each drawn state, loading and icons, each variant, and variants with overrides. Each value is looked up in order: the instance's attribute, then its zd-variant, then the option's default.\n\nTRY\n1. Select \"Pill, danger\". Variant reads Pill, and Tone has a dot because it differs from what Pill gives it.\n2. Set its Tone to Accent, the inherited value: the dot goes.\n3. Set its Variant to Default, then press Reset controls (the arrow in the Controls header).\n4. With a button selected, double-click its label. The header reads Button/Pill · Label with Edit main, and the panel shows only the Label control, the one that sets it. A layer no control sets cannot be selected inside an instance. Escape goes back to the button.\n5. Select \"Explicit default\": tone=\"accent\" equals the default, so Tone has no dot although the attribute is written.\n\nWHAT GETS WRITTEN\nStep 2 removes tone=\"danger\" from that tag, because the value equals what it inherits. Step 3 removes zd-variant, then Reset removes every option attribute. data-oid, class and style are kept."
         },
         {
           "id": "note_instances_4",
@@ -487,7 +487,7 @@
           "y": 1300,
           "width": 380,
           "height": 416,
-          "text": "WHAT IT SHOWS\nA full settings screen built from 19 instances of the page 3 components, plus ui.css classes: Tabs, an Alert, Text fields, Switch rows, Avatars, Badges, Progress bars and Buttons. Every value is an attribute you can adjust.\n\nTRY\n1. Select the URL slug field. Variant reads Error, and Label and Width have dots because they differ.\n2. Set the Storage bar's Value to 90 and Tone to Warning.\n3. Select the Audit log row and set Variant to Default: it is no longer locked.\n4. Select Save settings, then double-click its label to select the label part. Press Select instance to go back.\n5. Select a member's avatar and turn Ring on.\n\nWHAT GETS WRITTEN\nEach step changes attributes on one tag in this file, for example value=\"90\" tone=\"warning\" on <zd-progress data-oid=\"ctx-storage\">. The components on page 3 are not touched. Discard this file in Changes to undo."
+          "text": "WHAT IT SHOWS\nA full settings screen built from 19 instances of the page 3 components, plus ui.css classes: Tabs, an Alert, Text fields, Switch rows, Avatars, Badges, Progress bars and Buttons. Every value is an attribute you can adjust.\n\nTRY\n1. Select the URL slug field. Variant reads Error, and Label and Width have dots because they differ.\n2. Set the Storage bar's Value to 90 and Tone to Warning.\n3. Select the Audit log row and set Variant to Default: it is no longer locked.\n4. Select Save settings, then double-click its label: the panel shows only its Label control. Press Escape to go back.\n5. Select a member's avatar and turn Ring on.\n\nWHAT GETS WRITTEN\nEach step changes attributes on one tag in this file, for example value=\"90\" tone=\"warning\" on <zd-progress data-oid=\"ctx-storage\">. The components on page 3 are not touched. Discard this file in Changes to undo."
         }
       ]
     },
@@ -511,7 +511,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_states_2",
@@ -579,7 +579,7 @@
           "y": 3140,
           "width": 380,
           "height": 362,
-          "text": "WHAT IT SHOWS\nOne frame per state: the same sign-in screen as Default, Error and Loading. Use this when a state changes the whole screen; use drawn states when it changes one control. The three files differ only in instance attributes. Error adds an Alert and sets state=\"error\" on the password field. Loading sets loading=\"true\" on the button and state=\"disabled\" on both fields.\n\nTRY\n1. Select the Sign in button in each frame and compare Options.\n2. Select the password field in Sign in — Error. Drawn state reads Error, and Hint has a dot.\n3. Change something in one frame, then open Changes: only that file changed.\n\nWHAT GETS WRITTEN\nEach edit writes one attribute on one tag in that frame's file. Frame titles and sizes are in meta/canvas.json."
+          "text": "WHAT IT SHOWS\nOne frame per state: the same sign-in screen as Default, Error and Loading. Use this when a state changes the whole screen; use drawn states when it changes one control. The three files differ only in instance attributes. Error adds an Alert and sets state=\"error\" on the password field. Loading sets loading=\"true\" on the button and state=\"disabled\" on both fields.\n\nTRY\n1. Select the Sign in button in each frame and compare Controls.\n2. Select the password field in Sign in — Error. Drawn state reads Error, and Hint has a dot.\n3. Change something in one frame, then open Changes: only that file changed.\n\nWHAT GETS WRITTEN\nEach edit writes one attribute on one tag in that frame's file. Frame titles and sizes are in meta/canvas.json."
         }
       ]
     },
@@ -607,7 +607,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_style_panel_2",
@@ -757,7 +757,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_origins_2",
@@ -814,7 +814,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_sources_2",
@@ -990,7 +990,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_lint_2",
@@ -1033,7 +1033,7 @@
           "y": 1360,
           "width": 380,
           "height": 380,
-          "text": "WHAT IT SHOWS\nRule 3: write tokens, not their values. Validate reports 6 warnings for this frame:\n· Unknown design token \"--fg-strongest\". (line 32)\n· Write var(--border-default) instead of the literal colour \"#cdd2da\" (line 13, in the frame's <style>)\n· Write var(--accent-soft) instead of \"#ebebfb\", and var(--accent) instead of \"#5151cc\" (line 42)\n· Write var(--bg-inverse) or var(--fg-strong) instead of \"rgb(22 24 29)\", and var(--bg-surface) or var(--fg-inverse) instead of \"#ffffff\" (line 43)\nWhen two tokens hold the same value, the message names both.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nChoosing a token in Fill writes var(--accent-soft) in that chip's style attribute, and its warning goes away at the next check."
+          "text": "WHAT IT SHOWS\nRule 3: write tokens, not their values. Validate reports 6 warnings for this frame:\n· Unknown design token \"--fg-strongest\". (line 30)\n· Write var(--border-default) instead of the literal colour \"#cdd2da\" (line 11, in the frame's <style>)\n· Write var(--accent-soft) instead of \"#ebebfb\", and var(--accent) instead of \"#5151cc\" (line 40)\n· Write var(--bg-inverse) or var(--fg-strong) instead of \"rgb(22 24 29)\", and var(--bg-surface) or var(--fg-inverse) instead of \"#ffffff\" (line 41)\nWhen two tokens hold the same value, the message names both.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nChoosing a token in Fill writes var(--accent-soft) in that chip's style attribute, and its warning goes away at the next check."
         },
         {
           "id": "note_lint_7",
@@ -1042,7 +1042,7 @@
           "y": 1360,
           "width": 380,
           "height": 326,
-          "text": "WHAT IT SHOWS\nRule 1: one class vocabulary. A class is unknown when nothing this frame receives defines it. Validate reports 3 warnings, each at the name's first use:\n· Class \"card--glow\" has no CSS in this frame's styles. (line 30)\n· Class \"btn-primary\" has no CSS in this frame's styles. (line 37)\n· Class \"badge--sucess\" has no CSS in this frame's styles. (line 44)\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe Style panel never renames classes. The agent's fix edits the class attributes in this file, for example badge--sucess becomes badge--success."
+          "text": "WHAT IT SHOWS\nRule 1: one class vocabulary. A class is unknown when nothing this frame receives defines it. Validate reports 3 warnings, each at the name's first use:\n· Class \"card--glow\" has no CSS in this frame's styles. (line 26)\n· Class \"btn-primary\" has no CSS in this frame's styles. (line 33)\n· Class \"badge--sucess\" has no CSS in this frame's styles. (line 40)\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe Style panel never renames classes. The agent's fix edits the class attributes in this file, for example badge--sucess becomes badge--success."
         },
         {
           "id": "section_lint_8",
@@ -1059,7 +1059,7 @@
           "y": 2480,
           "width": 380,
           "height": 308,
-          "text": "WHAT IT SHOWS\nRule 4: inline style is for one-off values. The check looks for the same two or more declarations on three or more layers. Validate reports:\n· Move the inline style \"background-color: var(--bg-surface); border-radius: 14px; flex: 1; padding: 16p…\", repeated on 3 elements (lines 34, 35 and 36), into one class.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA Style panel edit adds one declaration to one layer, so it never trips this check alone. The agent's fix adds a class to the frame's <style> and swaps the three style attributes for it."
+          "text": "WHAT IT SHOWS\nRule 4: inline style is for one-off values. The check looks for the same two or more declarations on three or more layers. Validate reports:\n· Move the inline style \"background-color: var(--bg-surface); border-radius: 14px; flex: 1; padding: 16p…\", repeated on 3 elements (lines 26, 27 and 28), into one class.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA Style panel edit adds one declaration to one layer, so it never trips this check alone. The agent's fix adds a class to the frame's <style> and swaps the three style attributes for it."
         },
         {
           "id": "note_lint_10",
@@ -1068,7 +1068,7 @@
           "y": 2480,
           "width": 380,
           "height": 326,
-          "text": "WHAT IT SHOWS\nRule 8: markup repeated three or more times becomes a component. The check compares trees of tags and classes, at least four elements and two levels deep, and ignores text and other attributes. Validate reports:\n· Make the <article> markup with class \"card card--flat\", repeated 3 times (lines 31, 32 and 33), one component.\nThe three cards on the right are <zd-card> instances, so they do not count.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe agent's fix replaces each copy with one <zd-card> tag, reusing components/card.html, or adds a new components file."
+          "text": "WHAT IT SHOWS\nRule 8: markup repeated three or more times becomes a component. The check compares trees of tags and classes, at least four elements and two levels deep, and ignores text and other attributes. Validate reports:\n· Make the <article> markup with class \"card card--flat\", repeated 3 times (lines 26, 27 and 28), one component.\nThe three cards on the right are <zd-card> instances, so they do not count.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nThe agent's fix replaces each copy with one <zd-card> tag, reusing components/card.html, or adds a new components file."
         },
         {
           "id": "section_lint_11",
@@ -1085,7 +1085,7 @@
           "y": 3600,
           "width": 380,
           "height": 380,
-          "text": "WHAT IT SHOWS\nRule 7: markup captured from elsewhere. data-zd-captured on a root makes three checks skip everything under it: repeated inline styles, literal colours and repeated markup. The right copy is not marked, so Validate reports 11 warnings for it, all from line 37. For example:\n· Make the <div> markup repeated 3 times (lines 37, 38 and 39), one component.\n· Write var(--success) instead of the literal colour \"#147a4c\" (3 places: lines 37, 38 and 39).\n· Move the inline style \"display: flex; gap: 4px\", repeated on 3 elements (lines 37, 38 and 39), into one class.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing: the attribute is the whole fix. Mark only markup that really came from elsewhere."
+          "text": "WHAT IT SHOWS\nRule 7: markup captured from elsewhere. data-zd-captured on a root makes three checks skip everything under it: repeated inline styles, literal colours and repeated markup. The right copy is not marked, so Validate reports 11 warnings for it, all from line 34. For example:\n· Make the <div> markup repeated 3 times (lines 34, 35 and 36), one component.\n· Write var(--success) instead of the literal colour \"#147a4c\" (3 places: lines 34, 35 and 36).\n· Move the inline style \"display: flex; gap: 4px\", repeated on 3 elements (lines 34, 35 and 36), into one class.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing: the attribute is the whole fix. Mark only markup that really came from elsewhere."
         },
         {
           "id": "note_lint_13",
@@ -1094,7 +1094,7 @@
           "y": 3600,
           "width": 380,
           "height": 416,
-          "text": "WHAT IT SHOWS\nRule 5: each data-oid must be unique in its frame. It is how Zeros finds a layer again after the markup around it changes. Validate reports:\n· data-oid \"li-save\" is duplicated in this frame. (line 30)\nWhen Zeros draws the frame, it gives the second copy a generated id, so each copy can be selected. Unlike every other frame in this demo, most layers here have no data-oid, on purpose.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA Style edit writes a data-oid only on the layer you edit, if it has none. Edit Save a copy and its generated id replaces li-save there, so Validate no longer reports the duplicate; Discard the file to bring it back.\nThe fix by hand is one attribute: give one copy a new data-oid in Files."
+          "text": "WHAT IT SHOWS\nRule 5: each data-oid must be unique in its frame. It is how Zeros finds a layer again after the markup around it changes. Validate reports:\n· data-oid \"li-save\" is duplicated in this frame. (line 27)\nWhen Zeros draws the frame, it gives the second copy a generated id, so each copy can be selected. Unlike every other frame in this demo, most layers here have no data-oid, on purpose.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA Style edit writes a data-oid only on the layer you edit, if it has none. Edit Save a copy and its generated id replaces li-save there, so Validate no longer reports the duplicate; Discard the file to bring it back.\nThe fix by hand is one attribute: give one copy a new data-oid in Files."
         },
         {
           "id": "section_lint_14",
@@ -1111,7 +1111,7 @@
           "y": 4510,
           "width": 380,
           "height": 344,
-          "text": "WHAT IT SHOWS\nA frame that declares options but has no component name in meta/canvas.json. It draws its defaults, but no frame can place it and it has no Options. It also has a second <template data-zd-options>, which is ignored. Validate reports:\n· This frame declares options but is not registered as a component, so no other frame can place it. (line 1)\n· Only the first <template data-zd-options> in <head> is read; move these options into it. (line 10)\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nRegistering adds \"component\": \"<name>\" to this frame's record in meta/canvas.json. Merging moves the second block's lines into the first."
+          "text": "WHAT IT SHOWS\nA frame that declares options but has no component name in meta/canvas.json. It draws its defaults, but no frame can place it and it has no Controls. It also has a second <template data-zd-options>, which is ignored. Validate reports:\n· This frame declares options but is not registered as a component, so no other frame can place it. (line 1)\n· Only the first <template data-zd-options> in <head> is read; move these options into it. (line 10)\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nRegistering adds \"component\": \"<name>\" to this frame's record in meta/canvas.json. Merging moves the second block's lines into the first."
         },
         {
           "id": "note_lint_16",
@@ -1119,8 +1119,8 @@
           "x": 2640,
           "y": 4510,
           "width": 380,
-          "height": 344,
-          "text": "WHAT IT SHOWS\nInstance attributes that name no option. They are ignored, never rewritten, and the Options section shows a yellow notice for each. Validate reports:\n· This component has no option lable; lable=\"Save draft\" is ignored. (line 29)\n· This component has no option colour; colour=\"green\" is ignored. (line 37)\nclass, style, data-oid, data-name and other host attributes are never counted.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing until it is fixed. Renaming lable to label in Files makes the value apply, and Label then shows it with a dot."
+          "height": 400,
+          "text": "WHAT IT SHOWS\nInstance attributes that name no option. They are ignored, never rewritten, and the Controls section shows a yellow notice for each. Validate reports:\n· This component has no control lable (no `<zd-option name=\"lable\">`); lable=\"Save draft\" is ignored. (line 26)\n· This component has no control colour (no `<zd-option name=\"colour\">`); colour=\"green\" is ignored. (line 34)\nclass, style, data-oid, data-name and other host attributes are never counted.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing until it is fixed. Renaming lable to label in Files makes the value apply, and Label then shows it with a dot."
         }
       ]
     },
@@ -1145,7 +1145,7 @@
           "y": 0,
           "width": 380,
           "height": 290,
-          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
+          "text": "HOW TO SELECT\n· Click a frame, or its title, to select the frame.\n· Double-click to go one level deeper under the pointer.\n· ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.\n· With a layer selected, a click elsewhere selects the layer at the same depth there.\n· Escape or Shift-Enter selects the parent; Enter selects the first child.\n· Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.\nIn the steps, \"select\" means whichever of these reaches the layer."
         },
         {
           "id": "section_issues_2",
@@ -1196,7 +1196,7 @@
           "y": 2580,
           "width": 380,
           "height": 326,
-          "text": "WHAT IT SHOWS\nIssues 3 to 6, fixed.\n3: unknown-token reads only CSS, not text or comments, so the sentence naming --gap-xl (line 29) does not warn.\n4: dark text on a light oklch() fill. The contrast audit reads oklch() as it is and measures about 16:1.\n5: a label cut off with text-overflow: ellipsis. The overflow audit skips it.\n6: Validate includes the canvas audits, so it checks cases 4 and 5 once the canvas has drawn this frame.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing. Step 2 writes the chip's color in its style attribute; Discard puts it back."
+          "text": "WHAT IT SHOWS\nIssues 3 to 6, fixed.\n3: unknown-token reads only CSS, not text or comments, so the sentence naming --gap-xl (line 24) does not warn.\n4: dark text on a light oklch() fill. The contrast audit reads oklch() as it is and measures about 16:1.\n5: a label cut off with text-overflow: ellipsis. The overflow audit skips it.\n6: Validate includes the canvas audits, so it checks cases 4 and 5 once the canvas has drawn this frame.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nNothing. Step 2 writes the chip's color in its style attribute; Discard puts it back."
         },
         {
           "id": "note_issues_8",
@@ -1248,7 +1248,7 @@
           "x": 0,
           "y": 4200,
           "width": 1620,
-          "text": "Instances: part overrides, slots and Move main to canvas"
+          "text": "Instances: older overrides, slots and Move main to canvas"
         },
         {
           "id": "note_issues_14",
@@ -1256,8 +1256,8 @@
           "x": 1240,
           "y": 4320,
           "width": 380,
-          "height": 398,
-          "text": "WHAT IT SHOWS\nAn instance works as in Figma. Its parts take style overrides, stored on the instance as zd-style-<part> and winning over the main and its options; text changes only through options. Panel, the main beside this note, marks its body data-zd-slot=\"body\", so each Panel instance can hold its own layers there. A component kept as a file in components/ offers Move main to canvas, which makes it a main frame like Panel.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nA part's style edit writes one attribute on that instance. A layer drawn into a slot is written inside the instance with slot=\"body\". Move main to canvas adds a frame and removes components/card.html in one undo step."
+          "height": 500,
+          "text": "WHAT IT SHOWS\nControls are the only way into a component. A layer inside an instance can be selected only when a control sets it, and the panel then shows only those controls. This Alert keeps an older style override on its heading, zd-style-alert-heading: it still applies, its Controls list it with Reset, and Validate warns component-instance-override. Panel, the main beside this note, marks its body data-zd-slot=\"body\", so each Panel instance can hold its own layers there. A component kept as a file in components/ offers Move main to canvas, which makes it a main frame like Panel.\n\nTRY\nFollow the steps in the frame.\n\nWHAT GETS WRITTEN\nReset removes the zd-style-alert-heading attribute from that instance. A layer drawn into a slot is written inside the instance with slot=\"body\". Move main to canvas adds a frame and removes components/card.html in one undo step."
         }
       ]
     }
@@ -1470,7 +1470,7 @@
       "x": 0,
       "y": 0,
       "width": 1100,
-      "height": 680,
+      "height": 708,
       "styles": []
     },
     "states_drawn": {
@@ -1855,7 +1855,7 @@
       "x": 0,
       "y": 4320,
       "width": 1200,
-      "height": 960,
+      "height": 994,
       "styles": []
     },
     "issues_panel": {
@@ -1863,7 +1863,7 @@
       "source": "issues/panel.html",
       "title": "Panel",
       "x": 1240,
-      "y": 4760,
+      "y": 4860,
       "width": 380,
       "height": 200,
       "component": "panel",

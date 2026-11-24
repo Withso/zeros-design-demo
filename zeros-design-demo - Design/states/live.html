@@ -5,20 +5,7 @@
 <title>Live states</title>
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../ui.css">
-<style>
-.state-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
-.state-cell { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); background: var(--bg-surface); }
-.menu { display: flex; flex-direction: column; padding: var(--space-1); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--bg-surface); }
-.menu-item { display: flex; align-items: center; height: 32px; padding: 0 var(--space-3); border-radius: var(--radius-sm); color: var(--fg-default); font-size: var(--text-small); cursor: pointer; }
-.menu-item:hover { background: var(--bg-raised); color: var(--fg-strong); }
-.menu-item:active { background: var(--accent-soft); }
-.menu-item:focus-visible { outline: 2px solid var(--border-focus); outline-offset: -2px; }
-.toggle { display: inline-flex; align-items: center; height: 32px; padding: 0 var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-full); background: var(--bg-surface); color: var(--fg-default); font-size: var(--text-small); cursor: pointer; transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard); }
-.toggle:hover { border-color: var(--fg-muted); background: var(--bg-raised); }
-.toggle:active { background: var(--accent-soft); }
-.toggle:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; }
-.toggle:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
-</style>
+<link rel="stylesheet" href="../pages.css">
 </head>
 <body>
 <main class="sheet" data-name="Live states" data-oid="o-c86b4ac5c">

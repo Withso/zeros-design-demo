@@ -5,10 +5,7 @@
 <title>Fixed issues</title>
 <link rel="stylesheet" href="../tokens.css">
 <link rel="stylesheet" href="../ui.css">
-<style>
-.io-num { color: var(--fg-muted); font-variant-numeric: tabular-nums; }
-.io-where { color: var(--fg-muted); font-family: var(--font-mono); font-size: var(--text-caption); }
-</style>
+<link rel="stylesheet" href="../pages.css">
 </head>
 <body>
 <main class="sheet" data-name="Fixed issues" data-oid="o-d40a24ec4">
@@ -30,7 +27,7 @@
 <tr data-oid="o-f45633e55"><td class="io-num" data-oid="o-147fec2d5">8</td><td data-oid="o-fbcf7e678">The Style panel's red line showed the first error in the whole folder</td><td data-oid="o-7ff3de868">It shows only the selected frame's own errors</td><td class="io-where" data-oid="o-aedc9aafd">renderer design-inspector.tsx, errors</td></tr>
 <tr data-oid="o-9bcb5c64e"><td class="io-num" data-oid="o-c75b7c177">9</td><td data-oid="o-4a54a1de8">The app had no list of warnings; its grouping code was unused</td><td data-oid="o-f88980f30">Each frame title has a badge that counts its findings and lists them</td><td class="io-where" data-oid="o-57c8319ba">renderer design-lint-summary.ts</td></tr>
 <tr data-oid="o-db3d4b234"><td class="io-num" data-oid="o-824a5e8ac">10</td><td data-oid="o-046aabf34">A component's style element applied to the whole frame that placed it</td><td data-oid="o-a452d7a45">Component CSS: plain badges keep their tones next to one Pill instance</td><td class="io-where" data-oid="o-7ab616e8d">engine/design/components.ts, component styles</td></tr>
-<tr data-oid="o-421b40cd3"><td class="io-num" data-oid="o-c269efbad">11</td><td data-oid="o-271ad7c1b">Slot components, and option components placed inside their children, were not instances</td><td data-oid="o-4750859d9">Slot components: a card is an instance with parts and text options, and a Button or Avatar inside one has Options</td><td class="io-where" data-oid="o-cdce2ac4e">engine/design/components.ts, recordInstance (top level only)</td></tr>
+<tr data-oid="o-421b40cd3"><td class="io-num" data-oid="o-c269efbad">11</td><td data-oid="o-271ad7c1b">Slot components, and option components placed inside their children, were not instances</td><td data-oid="o-4750859d9">Slot components: a card is an instance with parts and text options, and a Button or Avatar inside one has Controls</td><td class="io-where" data-oid="o-cdce2ac4e">engine/design/components.ts, recordInstance (top level only)</td></tr>
 <tr data-oid="o-c377ed837"><td class="io-num" data-oid="o-da5c6d02c">12</td><td data-oid="o-ea2ac66e3">The first edit to a layer also wrote a data-oid onto every layer in its frame that had none</td><td data-oid="o-2f765b28f">Duplicate layer ids on page 10: one Style edit writes one data-oid</td><td class="io-where" data-oid="o-179b20bc2">design-web/src/adapter.ts, designWebTransactionAdapter</td></tr>
 <tr data-oid="o-8c21801a0"><td class="io-num" data-oid="o-33696167c">13</td><td data-oid="o-0d74fba50">The first edit also added every components/ file that meta/canvas.json did not list</td><td data-oid="o-32c0d1160">An edit leaves foundation.components as it is</td><td class="io-where" data-oid="o-a2f4b07f3">engine/design/document-transactions.ts, readDesignWebDocumentStateUnlocked</td></tr>
 <tr data-oid="o-1d9ad1059"><td class="io-num" data-oid="o-b6137cfb2">14</td><td data-oid="o-496416660">Reset or Clear on a layer's last inline declaration left style=""</td><td data-oid="o-fba21972d">Badge classes and instances on page 5, step 2: the style attribute goes too</td><td class="io-where" data-oid="o-87d2b000f">design-web/src/css.ts, mutateInlineStyles</td></tr>

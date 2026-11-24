@@ -28,7 +28,7 @@ On every page:
 
 - Click a frame, or its title, to select the frame.
 - Double-click to go one level deeper under the pointer.
-- ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it to select one of its parts.
+- ⌘-click to select the deepest layer under the pointer. An instance is selected whole: double-click it for a layer a control sets.
 - With a layer selected, a click elsewhere selects the layer at the same depth there.
 - Escape or Shift-Enter selects the parent; Enter selects the first child.
 - Layers, at the foot of the Style panel, lists the frame's layers. Click a row to select it.
@@ -52,13 +52,13 @@ The map of this demo, built with Orbit, a small design system made up for it. Ea
 1. Move between pages with the Pages menu. Hold Space and drag to pan.
 2. Select this frame, then a layer in it, as the How to select note on the left says. Open Layers at the foot of the Style panel to see the frame's tree.
 3. Select a frame and press ⌥T, or click the palette button in the toolbar, to open the theme editor. In the menu beside Search, change Light to Dark: every frame redraws in Dark, and stays so after you close the editor.
-4. ⌘-click a card. It is selected whole, as an instance of components/card.html. Double-click it to select one of its parts.
+4. ⌘-click a card. It is selected whole, as an instance of components/card.html. Double-click it to select its heading, which a control sets.
 
 **What gets written**
 
 Style panel: the layer's own declaration, usually its style attribute, in the frame's .html file. A new declaration goes at the end as property:value; and an existing one has only its value replaced.
 
-Options: one attribute on an instance, or one default= in the component's file.
+Controls: one attribute on an instance, or one default= in the component's file.
 
 Theme editor: tokens.css.
 
@@ -82,7 +82,7 @@ Every colour token in tokens.css. Each tile is a `<zd-swatch>`, an instance of c
 
 **Try**
 
-1. Select a swatch. Options shows Colour as a token pill and Token name as text.
+1. Select a swatch. Controls shows Colour as a token pill and Token name as text.
 2. Open Colour. Theme lists the colour tokens by family; Custom edits a literal. Pick success: the chip turns green.
 3. Preview Dark (⌥T, then Dark in the menu beside Search). Every chip follows, because tokens.css sets the same names again under [data-zd-theme="dark"].
 4. With Dark shown, change --accent in the theme editor. Accent changes on every page, in Dark only.
@@ -155,11 +155,11 @@ Kinds: text (Label); choice (Tone has three values, so a row of buttons; Size ha
 
 **Try**
 
-1. Click the frame title. The header reads Component, and Options lists every row.
+1. Click the frame title. The header names the component, Button, and its Controls tab lists every row; the Style tab edits the main's layers.
 2. Set Tone to Danger, then back to Accent.
 3. Open Variant, pick Destructive and change Label.
 4. Change anything, then press + beside Variant and choose Save current as variant…. The same menu adds a Hover, Pressed, Focus or Disabled state variant (page 6, Live states).
-5. Select the Label layer: its text reads "Set by option Label".
+5. Select the Label layer: its text is locked and reads "Set by control Label". A field a control drives shows that control, or a lock that names it.
 
 **What gets written**
 
@@ -310,7 +310,7 @@ Section: Nested instances and motion. `options/alert.html` · 600 × 200 · regi
 
 **What it shows**
 
-An Alert whose template places two Buttons: `<zd-button … label="{{ primary }}">` and a second one with data-zd-if="actions == 'two'". Options reach a nested component through its attributes. The derived has-actions = actions != 'none' removes the whole row. Entrance is an easing used by a CSS @keyframes animation; Entrance delay is in ms.
+An Alert whose template places two Buttons: `<zd-button … label="{{ primary }}">` and a second one with data-zd-if="actions == 'two'". Option values reach a nested component through its attributes. The derived has-actions = actions != 'none' removes the whole row. Entrance is an easing used by a CSS @keyframes animation; Entrance delay is in ms.
 
 **Try**
 
@@ -357,14 +357,14 @@ components/card.html is a slot component: no options, just markup with three slo
 
 **Try**
 
-1. Select a card. It is an instance of components/card.html, with the component mark in Layers. Options has a text row for meta and one for heading, each defaulting to the slot's fallback.
+1. Select a card. It is an instance of components/card.html, with the component mark in Layers. Controls has a text row for meta and one for heading, each defaulting to the slot's fallback.
 2. In Layers, open case 7's card. It lists the card's parts and the children this frame puts in its slot. Click the paragraph's row: the Style panel edits it.
-3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text. Case 3's body is only text, so Options also has a Text row.
-4. Select the Release notes button in case 1. It has Options like any Button.
+3. Compare cases 2, 3 and 4: a missing attribute shows the fallback, an empty one shows nothing, and tags in a value stay text. Case 3's body is only text, so Controls also has a Text row.
+4. Select the Release notes button in case 1. It has Controls like any Button.
 
 **What gets written**
 
-A Style edit on a card writes the `<zd-card>` tag's style attribute, and a text option one attribute on it. An edit on a child writes that child. To change every card, edit components/card.html in Files.
+A card is an instance, so it has Size and Controls but no Style panel. Size writes the `<zd-card>` tag's style attribute, and a text control one attribute on it. An edit on a child writes that child. To change every card, edit components/card.html in Files.
 
 ### Stats and lists
 
@@ -378,12 +378,12 @@ Two more slot components. zd-stat has three attribute slots (label, value, delta
 
 1. Compare the four stats: up is green, down red, flat grey. "New metric" sets only label, so value, delta and body show their fallbacks.
 2. In Files, change a stat's data-trend from down to up and save.
-3. Select an avatar in the People list. Options shows the values it sets: status, shape or the Team variant.
+3. Select an avatar in the People list. Controls shows the values it sets: status, shape or the Team variant.
 4. "Unassigned seat" has no children, so its leading slot shows the fallback, a "?" avatar.
 
 **What gets written**
 
-Selecting writes nothing. A Style edit on a `<zd-stat>` or `<zd-list-item>` tag writes that tag's style attribute in this file.
+Selecting writes nothing. Size on a `<zd-stat>` or `<zd-list-item>` tag writes that tag's style attribute in this file. Nothing else about an instance is written there.
 
 ## 5. Instances
 
@@ -401,8 +401,8 @@ Section: Every combination. `instances/buttons.html` · 1000 × 940
 
 1. Select "Pill, danger". Variant reads Pill, and Tone has a dot because it differs from what Pill gives it.
 2. Set its Tone to Accent, the inherited value: the dot goes.
-3. Set its Variant to Default, then press Reset options (the arrow in the Options header).
-4. With a button selected, double-click its label. The panel names the part and says "Part of Button.", with Select instance and Edit main. Parts are read only; Escape goes back to the button.
+3. Set its Variant to Default, then press Reset controls (the arrow in the Controls header).
+4. With a button selected, double-click its label. The header reads Button/Pill · Label with Edit main, and the panel shows only the Label control, the one that sets it. A layer no control sets cannot be selected inside an instance. Escape goes back to the button.
 5. Select "Explicit default": tone="accent" equals the default, so Tone has no dot although the attribute is written.
 
 **What gets written**
@@ -441,7 +441,7 @@ A full settings screen built from 19 instances of the page 3 components, plus ui
 1. Select the URL slug field. Variant reads Error, and Label and Width have dots because they differ.
 2. Set the Storage bar's Value to 90 and Tone to Warning.
 3. Select the Audit log row and set Variant to Default: it is no longer locked.
-4. Select Save settings, then double-click its label to select the label part. Press Select instance to go back.
+4. Select Save settings, then double-click its label: the panel shows only its Label control. Press Escape to go back.
 5. Select a member's avatar and turn Ring on.
 
 **What gets written**
@@ -454,7 +454,7 @@ Folder `states/` · 6 frames
 
 ### Live states
 
-Section: Live states. `states/live.html` · 1100 × 680
+Section: Live states. `states/live.html` · 1100 × 708
 
 **What it shows**
 
@@ -529,7 +529,7 @@ One frame per state: the same sign-in screen as Default, Error and Loading. Use 
 
 **Try**
 
-1. Select the Sign in button in each frame and compare Options.
+1. Select the Sign in button in each frame and compare Controls.
 2. Select the password field in Sign in — Error. Drawn state reads Error, and Hint has a dot.
 3. Change something in one frame, then open Changes: only that file changed.
 
@@ -896,10 +896,10 @@ Section: Rules 1 and 3: classes, tokens and literal colours. `lint/tokens.html` 
 
 Rule 3: write tokens, not their values. Validate reports 6 warnings for this frame:
 
-- Unknown design token "--fg-strongest". (line 32)
-- Write var(--border-default) instead of the literal colour "#cdd2da" (line 13, in the frame's `<style>`)
-- Write var(--accent-soft) instead of "#ebebfb", and var(--accent) instead of "#5151cc" (line 42)
-- Write var(--bg-inverse) or var(--fg-strong) instead of "rgb(22 24 29)", and var(--bg-surface) or var(--fg-inverse) instead of "#ffffff" (line 43)
+- Unknown design token "--fg-strongest". (line 30)
+- Write var(--border-default) instead of the literal colour "#cdd2da" (line 11, in the frame's `<style>`)
+- Write var(--accent-soft) instead of "#ebebfb", and var(--accent) instead of "#5151cc" (line 40)
+- Write var(--bg-inverse) or var(--fg-strong) instead of "rgb(22 24 29)", and var(--bg-surface) or var(--fg-inverse) instead of "#ffffff" (line 41)
 
 When two tokens hold the same value, the message names both.
 
@@ -921,9 +921,9 @@ Section: Rules 1 and 3: classes, tokens and literal colours. `lint/classes.html`
 
 Rule 1: one class vocabulary. A class is unknown when nothing this frame receives defines it. Validate reports 3 warnings, each at the name's first use:
 
-- Class "card--glow" has no CSS in this frame's styles. (line 30)
-- Class "btn-primary" has no CSS in this frame's styles. (line 37)
-- Class "badge--sucess" has no CSS in this frame's styles. (line 44)
+- Class "card--glow" has no CSS in this frame's styles. (line 26)
+- Class "btn-primary" has no CSS in this frame's styles. (line 33)
+- Class "badge--sucess" has no CSS in this frame's styles. (line 40)
 
 **Try**
 
@@ -943,7 +943,7 @@ Section: Rules 4 and 8: repeated inline styles and markup. `lint/inline-styles.h
 
 Rule 4: inline style is for one-off values. The check looks for the same two or more declarations on three or more layers. Validate reports:
 
-- Move the inline style "background-color: var(--bg-surface); border-radius: 14px; flex: 1; padding: 16p…", repeated on 3 elements (lines 34, 35 and 36), into one class.
+- Move the inline style "background-color: var(--bg-surface); border-radius: 14px; flex: 1; padding: 16p…", repeated on 3 elements (lines 26, 27 and 28), into one class.
 
 **Try**
 
@@ -963,7 +963,7 @@ Section: Rules 4 and 8: repeated inline styles and markup. `lint/repeated-markup
 
 Rule 8: markup repeated three or more times becomes a component. The check compares trees of tags and classes, at least four elements and two levels deep, and ignores text and other attributes. Validate reports:
 
-- Make the `<article>` markup with class "card card--flat", repeated 3 times (lines 31, 32 and 33), one component.
+- Make the `<article>` markup with class "card card--flat", repeated 3 times (lines 26, 27 and 28), one component.
 
 The three cards on the right are `<zd-card>` instances, so they do not count.
 
@@ -983,11 +983,11 @@ Section: Rules 5 and 7: layer ids and captured markup. `lint/captured.html` · 1
 
 **What it shows**
 
-Rule 7: markup captured from elsewhere. data-zd-captured on a root makes three checks skip everything under it: repeated inline styles, literal colours and repeated markup. The right copy is not marked, so Validate reports 11 warnings for it, all from line 37. For example:
+Rule 7: markup captured from elsewhere. data-zd-captured on a root makes three checks skip everything under it: repeated inline styles, literal colours and repeated markup. The right copy is not marked, so Validate reports 11 warnings for it, all from line 34. For example:
 
-- Make the `<div>` markup repeated 3 times (lines 37, 38 and 39), one component.
-- Write var(--success) instead of the literal colour "#147a4c" (3 places: lines 37, 38 and 39).
-- Move the inline style "display: flex; gap: 4px", repeated on 3 elements (lines 37, 38 and 39), into one class.
+- Make the `<div>` markup repeated 3 times (lines 34, 35 and 36), one component.
+- Write var(--success) instead of the literal colour "#147a4c" (3 places: lines 34, 35 and 36).
+- Move the inline style "display: flex; gap: 4px", repeated on 3 elements (lines 34, 35 and 36), into one class.
 
 **Try**
 
@@ -1007,7 +1007,7 @@ Section: Rules 5 and 7: layer ids and captured markup. `lint/layer-ids.html` · 
 
 Rule 5: each data-oid must be unique in its frame. It is how Zeros finds a layer again after the markup around it changes. Validate reports:
 
-- data-oid "li-save" is duplicated in this frame. (line 30)
+- data-oid "li-save" is duplicated in this frame. (line 27)
 
 When Zeros draws the frame, it gives the second copy a generated id, so each copy can be selected. Unlike every other frame in this demo, most layers here have no data-oid, on purpose.
 
@@ -1029,14 +1029,14 @@ Section: Component warnings. `lint/unregistered.html` · 800 × 390
 
 **What it shows**
 
-A frame that declares options but has no component name in meta/canvas.json. It draws its defaults, but no frame can place it and it has no Options. It also has a second `<template data-zd-options>`, which is ignored. Validate reports:
+A frame that declares options but has no component name in meta/canvas.json. It draws its defaults, but no frame can place it and it has no Controls. It also has a second `<template data-zd-options>`, which is ignored. Validate reports:
 
 - This frame declares options but is not registered as a component, so no other frame can place it. (line 1)
 - Only the first `<template data-zd-options>` in `<head>` is read; move these options into it. (line 10)
 
 **Try**
 
-1. Select the frame. The panel shows no Options section, unlike the frames on page 3.
+1. Select the frame. The panel shows no Controls section, unlike the frames on page 3.
 2. Ask the agent to validate it: one warning says the frame is not registered and suggests a component name, and one says only the first options block in head is read.
 3. Ask the agent to register it. It adds a component name to this frame in meta/canvas.json and merges the two blocks.
 
@@ -1050,16 +1050,16 @@ Section: Component warnings. `lint/instances.html` · 1200 × 480
 
 **What it shows**
 
-Instance attributes that name no option. They are ignored, never rewritten, and the Options section shows a yellow notice for each. Validate reports:
+Instance attributes that name no option. They are ignored, never rewritten, and the Controls section shows a yellow notice for each. Validate reports:
 
-- This component has no option lable; lable="Save draft" is ignored. (line 29)
-- This component has no option colour; colour="green" is ignored. (line 37)
+- This component has no control lable (no `<zd-option name="lable">`); lable="Save draft" is ignored. (line 26)
+- This component has no control colour (no `<zd-option name="colour">`); colour="green" is ignored. (line 34)
 
 class, style, data-oid, data-name and other host attributes are never counted.
 
 **Try**
 
-1. Select the first button. Options shows a warning that its lable attribute names no option. Label still reads Save changes, the default.
+1. Select the first button. Controls shows a warning that its lable attribute names no control. Label still reads Save changes, the default.
 2. Ask the agent to validate this frame: two warnings, each naming the ignored attribute and its value.
 3. A value that an option does not allow, such as tone="purple", is an error instead. This page draws none, so Validate and tools/audit.sh pass for the whole folder.
 
@@ -1069,7 +1069,7 @@ Nothing until it is fixed. Renaming lable to label in Files makes the value appl
 
 ## 11. Fixed issues
 
-Folder `issues/` · 5 frames
+Folder `issues/` · 7 frames
 
 ### Fixed issues
 
@@ -1101,7 +1101,7 @@ The second card is a `<zd-card>` wrapped in `<template data-zd-if="show-card">`.
 
 **Try**
 
-1. Select the frame and change Tone in Options. The badge follows, because the hole fills its class.
+1. Select the frame and change Tone in Controls. The badge follows, because the hole fills its class.
 2. Ask the agent to validate this frame. It reports nothing: a class name with a template hole is not checked as written.
 3. Turn Show the wrapped card off and on. The second card goes and comes back, drawn as a card.
 
@@ -1117,7 +1117,7 @@ Section: Issues 3 to 7: checks and Tailwind. `issues/checks.html` · 1200 × 480
 
 Issues 3 to 6, fixed.
 
-3: unknown-token reads only CSS, not text or comments, so the sentence naming --gap-xl (line 29) does not warn.
+3: unknown-token reads only CSS, not text or comments, so the sentence naming --gap-xl (line 24) does not warn.
 
 4: dark text on a light oklch() fill. The contrast audit reads oklch() as it is and measures about 16:1.
 
@@ -1171,3 +1171,39 @@ Page 3's Badge and Button still limit their rules with :where(.stage, zd-badge) 
 **What gets written**
 
 Removing the `<zd-pill>` tag is a one-line change in this file; Discard puts it back. The link card opens components/pill.html.
+
+### Instances
+
+Section: Instances: older overrides, slots and Move main to canvas. `issues/instances.html` · 1200 × 994
+
+**What it shows**
+
+Controls are the only way into a component. A layer inside an instance can be selected only when a control sets it, and the panel then shows only those controls. This Alert keeps an older style override on its heading, zd-style-alert-heading: it still applies, its Controls list it with Reset, and Validate warns component-instance-override. Panel, the main beside this frame, marks its body data-zd-slot="body", so each Panel instance can hold its own layers there. A component kept as a file in components/ offers Move main to canvas, which makes it a main frame like Panel.
+
+**Try**
+
+1. Select the Alert. Its Controls section reads 1 older override: the accent heading comes from zd-style-alert-heading on this instance. Click Reset beside it and the heading takes the main's colour, then Undo.
+2. Double-click the Alert, then click its heading. The header reads Alert/Tip · Heading, and the panel shows only the Heading control, the one that sets it. The heading has no Style panel: a look the instance should change becomes a control on the main.
+3. Select the Empty panel and draw a Text layer inside its body. The layer joins the Body slot. Select the panel again: Controls shows Body with 1 layer and Reset to default.
+4. Select the Card. It comes from components/card.html, so the header offers Move main to canvas. Click it: the card becomes a main frame on this page in one undo step, and the header then reads Edit main. Undo afterwards, so components/card.html stays for page 4.
+
+**What gets written**
+
+Reset removes the zd-style-alert-heading attribute from that instance. A layer drawn into a slot is written inside the instance with slot="body". Move main to canvas adds a frame and removes components/card.html in one undo step.
+
+### Panel
+
+Section: Instances: older overrides, slots and Move main to canvas. `issues/panel.html` · 380 × 200 · registered as the component `panel`, placed with `<zd-panel>`
+
+**What it shows**
+
+The main for the Panel instances beside it. It declares a Heading control and a Body slot, and marks its body data-zd-slot="body". What the body holds here is the default an empty instance shows.
+
+**Try**
+
+1. Select the frame. Controls shows Heading and Body.
+2. Change Heading. Both Panels on Instances set their own heading, so they keep it; a Panel that sets none shows yours. Undo afterwards.
+
+**What gets written**
+
+default= on the heading line in this file.
