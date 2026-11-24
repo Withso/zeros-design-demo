@@ -237,7 +237,8 @@
         "options_data_table",
         "options_tabs",
         "options_alert",
-        "options_switch_row"
+        "options_switch_row",
+        "frame_10268a01a7fc412baf479fdd6e92902e"
       ],
       "items": [
         {
@@ -289,7 +290,7 @@
           "kind": "section",
           "x": 0,
           "y": 762,
-          "width": 2940,
+          "width": 255,
           "text": "Derived values and units"
         },
         {
@@ -1379,6 +1380,16 @@
       "height": 500,
       "component": "data-table",
       "styles": []
+    },
+    "frame_10268a01a7fc412baf479fdd6e92902e": {
+      "kind": "html",
+      "source": "options/text-field-copy.html",
+      "title": "Text field copy",
+      "x": 2080,
+      "y": 642,
+      "width": 386,
+      "height": 180,
+      "z": 6
     },
     "options_tabs": {
       "kind": "html",
