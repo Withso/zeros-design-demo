@@ -25,11 +25,11 @@ zd-text-field { display: block; }
 </style>
 </head>
 <body class="stage">
-<div class="field text-field" data-oid="text-field" data-name="Text field">
+<div class="field text-field" data-oid="text-field" data-name="Text field" style="row-gap:0px; padding-bottom:33px;">
 <label class="field-label" data-oid="tf-label" data-name="Label">{{ label }}<span class="tf-required" data-oid="tf-required" data-zd-if="required"> *</span></label>
-<input class="input" data-oid="tf-input" data-name="Input" type="text" value="{{ value }}" placeholder="{{ placeholder }}" data-state="{{ state }}" aria-invalid="{{ invalid }}" data-zd-if="state != 'disabled'">
+<input class="input" data-oid="tf-input" data-name="Input" type="text" value="{{ value }}" placeholder="{{ placeholder }}" data-state="{{ state }}" aria-invalid="{{ invalid }}" data-zd-if="state != 'disabled'" style="height:16px; flex-grow:0; flex-shrink:0; flex-basis:auto; width:159px;">
 <input class="input" data-oid="tf-input-disabled" data-name="Input (disabled)" type="text" value="{{ value }}" placeholder="{{ placeholder }}" data-state="disabled" disabled data-zd-if="state == 'disabled'">
-<p class="field-hint" data-oid="tf-hint" data-name="Hint" data-zd-if="!invalid">{{ hint }}</p>
+<p class="field-hint" data-oid="tf-hint" data-name="Hint" data-zd-if="!invalid" style="color:var(--accent);">{{ hint }}</p>
 <p class="field-hint is-error" data-oid="tf-error" data-name="Error" data-zd-if="invalid">{{ hint }}</p>
 </div>
 </body>
